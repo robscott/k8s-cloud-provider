@@ -198,7 +198,7 @@ type Cloud interface {
 func NewGCE(s *Service) *GCE {
 	g := &GCE{
 	{{- range .All}}
-		{{.Field}}: &{{.GCEWrapType}}{s},
+		{{.Field}}: &{{.GCPWrapType}}{s},
 	{{- end}}
 	}
 	return g
@@ -210,7 +210,7 @@ var _ Cloud = (*GCE)(nil)
 // GCE is the golang adapter for the compute APIs.
 type GCE struct {
 {{- range .All}}
-	{{.Field}} *{{.GCEWrapType}}
+	{{.Field}} *{{.GCPWrapType}}
 {{- end}}
 }
 
@@ -741,18 +741,18 @@ func (m *{{.MockWrapType}}) {{.FcnArgs}} {
 }
 {{end -}}
 {{- end}}
-// {{.GCEWrapType}} is a simplifying adapter for the GCE {{.Service}}.
-type {{.GCEWrapType}} struct {
+// {{.GCPWrapType}} is a simplifying adapter for the GCE {{.Service}}.
+type {{.GCPWrapType}} struct {
 	s *Service
 }
 
 {{- if .GenerateGet}}
 // Get the {{.Object}} named by key.
-func (g *{{.GCEWrapType}}) Get(ctx context.Context, key *meta.Key) (*{{.FQObjectType}}, error) {
-	klog.V(5).Infof("{{.GCEWrapType}}.Get(%v, %v): called", ctx, key)
+func (g *{{.GCPWrapType}}) Get(ctx context.Context, key *meta.Key) (*{{.FQObjectType}}, error) {
+	klog.V(5).Infof("{{.GCPWrapType}}.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("{{.GCEWrapType}}.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("{{.GCPWrapType}}.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return nil, fmt.Errorf("invalid GCE key (%#v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "{{.Version}}", "{{.Service}}")
@@ -763,10 +763,10 @@ func (g *{{.GCEWrapType}}) Get(ctx context.Context, key *meta.Key) (*{{.FQObject
 		Service: "{{.Service}}",
 	}
 
-	klog.V(5).Infof("{{.GCEWrapType}}.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("{{.GCEWrapType}}.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return nil, err
 	}
 {{- if .IsNetworkServices}}
@@ -785,7 +785,7 @@ func (g *{{.GCEWrapType}}) Get(ctx context.Context, key *meta.Key) (*{{.FQObject
 {{- end}}
 	call.Context(ctx)
 	v, err := call.Do()
-	klog.V(4).Infof("{{.GCEWrapType}}.Get(%v, %v) = %+v, %v", ctx, key, v, err)
+	klog.V(4).Infof("{{.GCPWrapType}}.Get(%v, %v) = %+v, %v", ctx, key, v, err)
 
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck)
@@ -797,16 +797,16 @@ func (g *{{.GCEWrapType}}) Get(ctx context.Context, key *meta.Key) (*{{.FQObject
 {{- if .GenerateList}}
 // List all {{.Object}} objects.
 {{- if .KeyIsGlobal}}
-func (g *{{.GCEWrapType}}) List(ctx context.Context, fl *filter.F) ([]*{{.FQObjectType}}, error) {
-	klog.V(5).Infof("{{.GCEWrapType}}.List(%v, %v) called", ctx, fl)
+func (g *{{.GCPWrapType}}) List(ctx context.Context, fl *filter.F) ([]*{{.FQObjectType}}, error) {
+	klog.V(5).Infof("{{.GCPWrapType}}.List(%v, %v) called", ctx, fl)
 {{- end -}}
 {{- if .KeyIsRegional}}
-func (g *{{.GCEWrapType}}) List(ctx context.Context, region string, fl *filter.F) ([]*{{.FQObjectType}}, error) {
-	klog.V(5).Infof("{{.GCEWrapType}}.List(%v, %v, %v) called", ctx, region, fl)
+func (g *{{.GCPWrapType}}) List(ctx context.Context, region string, fl *filter.F) ([]*{{.FQObjectType}}, error) {
+	klog.V(5).Infof("{{.GCPWrapType}}.List(%v, %v, %v) called", ctx, region, fl)
 {{- end -}}
 {{- if .KeyIsZonal}}
-func (g *{{.GCEWrapType}}) List(ctx context.Context, zone string, fl *filter.F) ([]*{{.FQObjectType}}, error) {
-	klog.V(5).Infof("{{.GCEWrapType}}.List(%v, %v, %v) called", ctx, zone, fl)
+func (g *{{.GCPWrapType}}) List(ctx context.Context, zone string, fl *filter.F) ([]*{{.FQObjectType}}, error) {
+	klog.V(5).Infof("{{.GCPWrapType}}.List(%v, %v, %v) called", ctx, zone, fl)
 {{- end}}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "{{.Version}}", "{{.Service}}")
 	ck:= &CallContextKey{
@@ -822,15 +822,15 @@ func (g *{{.GCEWrapType}}) List(ctx context.Context, zone string, fl *filter.F) 
 	}
 
 {{- if .KeyIsGlobal}}
-	klog.V(5).Infof("{{.GCEWrapType}}.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.List(projectID)
 {{- end -}}
 {{- if .KeyIsRegional}}
-	klog.V(5).Infof("{{.GCEWrapType}}.List(%v, %v, %v): projectID = %v, ck = %+v", ctx, region, fl, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.List(%v, %v, %v): projectID = %v, ck = %+v", ctx, region, fl, projectID, ck)
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.List(projectID, region)
 {{- end -}}
 {{- if .KeyIsZonal}}
-	klog.V(5).Infof("{{.GCEWrapType}}.List(%v, %v, %v): projectID = %v, ck = %+v", ctx, zone, fl, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.List(%v, %v, %v): projectID = %v, ck = %+v", ctx, zone, fl, projectID, ck)
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.List(projectID, zone)
 {{- end}}
 {{- if not .IsNetworkServices }}
@@ -841,7 +841,7 @@ func (g *{{.GCEWrapType}}) List(ctx context.Context, zone string, fl *filter.F) 
 
 	var all []*{{.FQObjectType}}
 	f := func(l *{{.ObjectListType}}) error {
-		klog.V(5).Infof("{{.GCEWrapType}}.List(%v, ..., %v): page %+v", ctx, fl, l)
+		klog.V(5).Infof("{{.GCPWrapType}}.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.{{.ListItemName}}...)
 		return nil
 	}
@@ -849,7 +849,7 @@ func (g *{{.GCEWrapType}}) List(ctx context.Context, zone string, fl *filter.F) 
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("{{.GCEWrapType}}.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 
@@ -857,13 +857,13 @@ func (g *{{.GCEWrapType}}) List(ctx context.Context, zone string, fl *filter.F) 
 	g.s.RateLimiter.Observe(ctx, nil, ck)
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("{{.GCEWrapType}}.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("{{.GCPWrapType}}.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("{{.GCEWrapType}}.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("{{.GCPWrapType}}.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 
 	return all, nil
@@ -872,10 +872,10 @@ func (g *{{.GCEWrapType}}) List(ctx context.Context, zone string, fl *filter.F) 
 
 {{- if .GenerateInsert}}
 // Insert {{.Object}} with key of value obj.
-func (g *{{.GCEWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQObjectType}}) error {
-	klog.V(5).Infof("{{.GCEWrapType}}.Insert(%v, %v, %+v): called", ctx, key, obj)
+func (g *{{.GCPWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQObjectType}}) error {
+	klog.V(5).Infof("{{.GCPWrapType}}.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
-		klog.V(2).Infof("{{.GCEWrapType}}.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("{{.GCPWrapType}}.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "{{.Version}}", "{{.Service}}")
@@ -886,10 +886,10 @@ func (g *{{.GCEWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQ
 		Service: "{{.Service}}",
 	}
 
-	klog.V(5).Infof("{{.GCEWrapType}}.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("{{.GCEWrapType}}.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	obj.Name = key.Name
@@ -916,22 +916,22 @@ func (g *{{.GCEWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQ
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("{{.GCEWrapType}}.Insert(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.Insert(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("{{.GCEWrapType}}.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
+	klog.V(4).Infof("{{.GCPWrapType}}.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
 	return err
 }
 {{- end}}
 
 {{- if .GenerateDelete}}
 // Delete the {{.Object}} referenced by key.
-func (g *{{.GCEWrapType}}) Delete(ctx context.Context, key *meta.Key) error {
-	klog.V(5).Infof("{{.GCEWrapType}}.Delete(%v, %v): called", ctx, key)
+func (g *{{.GCPWrapType}}) Delete(ctx context.Context, key *meta.Key) error {
+	klog.V(5).Infof("{{.GCPWrapType}}.Delete(%v, %v): called", ctx, key)
 	if !key.Valid() {
-		klog.V(2).Infof("{{.GCEWrapType}}.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("{{.GCPWrapType}}.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "{{.Version}}", "{{.Service}}")
@@ -941,10 +941,10 @@ func (g *{{.GCEWrapType}}) Delete(ctx context.Context, key *meta.Key) error {
 		Version: meta.Version("{{.Version}}"),
 		Service: "{{.Service}}",
 	}
-	klog.V(5).Infof("{{.GCEWrapType}}.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("{{.GCEWrapType}}.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 {{- if .IsNetworkServices}}
@@ -970,20 +970,20 @@ func (g *{{.GCEWrapType}}) Delete(ctx context.Context, key *meta.Key) error {
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("{{.GCEWrapType}}.Delete(%v, %v) = %v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.Delete(%v, %v) = %v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("{{.GCEWrapType}}.Delete(%v, %v) = %v", ctx, key, err)
+	klog.V(4).Infof("{{.GCPWrapType}}.Delete(%v, %v) = %v", ctx, key, err)
 	return err
 }
 {{end -}}
 
 {{- if .AggregatedList}}
 // AggregatedList lists all resources of the given type across all locations.
-func (g *{{.GCEWrapType}}) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*{{.FQObjectType}}, error) {
-	klog.V(5).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v) called", ctx, fl)
+func (g *{{.GCPWrapType}}) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*{{.FQObjectType}}, error) {
+	klog.V(5).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "{{.Version}}", "{{.Service}}")
 	ck:= &CallContextKey{
@@ -993,10 +993,10 @@ func (g *{{.GCEWrapType}}) AggregatedList(ctx context.Context, fl *filter.F) (ma
 		Service: "{{.Service}}",
 	}
 
-	klog.V(5).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(5).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v): RateLimiter error: %v", ctx, fl, err)
+		klog.V(5).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v): RateLimiter error: %v", ctx, fl, err)
 		return nil, err
 	}
 
@@ -1009,7 +1009,7 @@ func (g *{{.GCEWrapType}}) AggregatedList(ctx context.Context, fl *filter.F) (ma
 	all := map[string][]*{{.FQObjectType}}{}
 	f := func(l *{{.ObjectAggregatedListType}}) error {
 		for k, v := range l.Items {
-			klog.V(5).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
+			klog.V(5).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.{{.AggregatedListField}}...)
 		}
 		return nil
@@ -1018,17 +1018,17 @@ func (g *{{.GCEWrapType}}) AggregatedList(ctx context.Context, fl *filter.F) (ma
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 	if kLogEnabled(4) {
-		klog.V(4).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("{{.GCEWrapType}}.AggregatedList(%v, %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("{{.GCPWrapType}}.AggregatedList(%v, %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 	return all, nil
 }
@@ -1036,8 +1036,8 @@ func (g *{{.GCEWrapType}}) AggregatedList(ctx context.Context, fl *filter.F) (ma
 
 {{- if .ListUsable}}
 // List all Usable {{.Object}} objects.
-func (g *{{.GCEWrapType}}) ListUsable(ctx context.Context, fl *filter.F) ([]*{{.FQListUsableObjectType}}, error) {
-	klog.V(5).Infof("{{.GCEWrapType}}.ListUsable(%v, %v) called", ctx, fl)
+func (g *{{.GCPWrapType}}) ListUsable(ctx context.Context, fl *filter.F) ([]*{{.FQListUsableObjectType}}, error) {
+	klog.V(5).Infof("{{.GCPWrapType}}.ListUsable(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "{{.Version}}", "{{.Service}}")
 	ck:= &CallContextKey{
 		ProjectID: projectID,
@@ -1050,14 +1050,14 @@ func (g *{{.GCEWrapType}}) ListUsable(ctx context.Context, fl *filter.F) ([]*{{.
 		return nil, err
 	}
 
-	klog.V(5).Infof("{{.GCEWrapType}}.ListUsable(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.ListUsable(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.ListUsable(projectID)
 	if fl != filter.None {
 		call.Filter(fl.String())
 	}
 	var all []*{{.FQListUsableObjectType}}
 	f := func(l *{{.ObjectListUsableType}}) error {
-		klog.V(5).Infof("{{.GCEWrapType}}.ListUsable(%v, ..., %v): page %+v", ctx, fl, l)
+		klog.V(5).Infof("{{.GCPWrapType}}.ListUsable(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
 	}
@@ -1065,18 +1065,18 @@ func (g *{{.GCEWrapType}}) ListUsable(ctx context.Context, fl *filter.F) ([]*{{.
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("{{.GCEWrapType}}.ListUsable(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.ListUsable(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("{{.GCEWrapType}}.ListUsable(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("{{.GCPWrapType}}.ListUsable(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("{{.GCEWrapType}}.ListUsable(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("{{.GCPWrapType}}.ListUsable(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 
 	return all, nil
@@ -1085,12 +1085,12 @@ func (g *{{.GCEWrapType}}) ListUsable(ctx context.Context, fl *filter.F) ([]*{{.
 
 {{- with .Methods -}}
 {{- range .}}
-// {{.Name}} is a method on {{.GCEWrapType}}.
-func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
-	klog.V(5).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...): called", ctx, key)
+// {{.Name}} is a method on {{.GCPWrapType}}.
+func (g *{{.GCPWrapType}}) {{.FcnArgs}} {
+	klog.V(5).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 {{- if .IsOperation}}
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 {{- else if .IsGet}}
@@ -1106,10 +1106,10 @@ func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
 		Version: meta.Version("{{.Version}}"),
 		Service: "{{.Service}}",
 	}
-	klog.V(5).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 	{{- if .IsOperation}}
 		return err
 	{{- else}}
@@ -1139,7 +1139,7 @@ func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
@@ -1148,7 +1148,7 @@ func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
     callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck) // XXX
 
-	klog.V(4).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...) = %+v", ctx, key, err)
+	klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = %+v", ctx, key, err)
 	return err
 {{- else if .IsGet}}
 	call.Context(ctx)
@@ -1157,12 +1157,12 @@ func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
     callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
-	klog.V(4).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...) = %+v, %v", ctx, key, v, err)
+	klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = %+v, %v", ctx, key, v, err)
 	return v, err
 {{- else if .IsPaged}}
 	var all []*{{.Version}}.{{.ItemType}}
 	f := func(l *{{.Version}}.{{.ReturnType}}) error {
-		klog.V(5).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...): page %+v", ctx, key, l)
+		klog.V(5).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...): page %+v", ctx, key, l)
 		all = append(all, l.Items...)
 		return nil
 	}
@@ -1170,7 +1170,7 @@ func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...) = %v, %v", ctx, key, nil, err)
+		klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = %v, %v", ctx, key, nil, err)
 		return nil, err
 	}
 
@@ -1178,13 +1178,13 @@ func (g *{{.GCEWrapType}}) {{.FcnArgs}} {
 	g.s.RateLimiter.Observe(ctx, nil, ck)
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...) = [%v items], %v", ctx, key, len(all), nil)
+		klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = [%v items], %v", ctx, key, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("{{.GCEWrapType}}.{{.Name}}(%v, %v, ...) = %v, %v", ctx, key, asStr, nil)
+		klog.V(5).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = %v, %v", ctx, key, asStr, nil)
 	}
 	return all, nil
 {{- end}}

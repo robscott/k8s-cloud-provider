@@ -1627,6 +1627,105 @@ func TestInstancesGroup(t *testing.T) {
 	}
 }
 
+func TestMeshesGroup(t *testing.T) {
+	t.Parallel()
+
+	ctx := context.Background()
+	pr := &SingleProjectRouter{"mock-project"}
+	mock := NewMockGCE(pr)
+
+	var key *meta.Key
+	keyBeta := meta.GlobalKey("key-beta")
+	key = keyBeta
+	keyGA := meta.GlobalKey("key-ga")
+	key = keyGA
+	// Ignore unused variables.
+	_, _, _ = ctx, mock, key
+
+	// Get not found.
+	if _, err := mock.BetaMeshes().Get(ctx, key); err == nil {
+		t.Errorf("BetaMeshes().Get(%v, %v) = _, nil; want error", ctx, key)
+	}
+	if _, err := mock.Meshes().Get(ctx, key); err == nil {
+		t.Errorf("Meshes().Get(%v, %v) = _, nil; want error", ctx, key)
+	}
+
+	// Insert.
+	{
+		obj := &beta.Mesh{}
+		if err := mock.BetaMeshes().Insert(ctx, keyBeta, obj); err != nil {
+			t.Errorf("BetaMeshes().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
+		}
+	}
+	{
+		obj := &ga.Mesh{}
+		if err := mock.Meshes().Insert(ctx, keyGA, obj); err != nil {
+			t.Errorf("Meshes().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
+		}
+	}
+
+	// Get across versions.
+	if obj, err := mock.BetaMeshes().Get(ctx, key); err != nil {
+		t.Errorf("BetaMeshes().Get(%v, %v) = %v, %v; want nil", ctx, key, obj, err)
+	}
+	if obj, err := mock.Meshes().Get(ctx, key); err != nil {
+		t.Errorf("Meshes().Get(%v, %v) = %v, %v; want nil", ctx, key, obj, err)
+	}
+
+	// List.
+	mock.MockBetaMeshes.Objects[*keyBeta] = mock.MockBetaMeshes.Obj(&beta.Mesh{Name: keyBeta.Name})
+	mock.MockMeshes.Objects[*keyGA] = mock.MockMeshes.Obj(&ga.Mesh{Name: keyGA.Name})
+	want := map[string]bool{
+		"key-beta": true,
+		"key-ga":   true,
+	}
+	_ = want // ignore unused variables.
+	{
+		objs, err := mock.BetaMeshes().List(ctx, filter.None)
+		if err != nil {
+			t.Errorf("BetaMeshes().List(%v, %v, %v) = %v, %v; want _, nil", ctx, location, filter.None, objs, err)
+		} else {
+			got := map[string]bool{}
+			for _, obj := range objs {
+				got[obj.Name] = true
+			}
+			if !reflect.DeepEqual(got, want) {
+				t.Errorf("BetaMeshes().List(); got %+v, want %+v", got, want)
+			}
+		}
+	}
+	{
+		objs, err := mock.Meshes().List(ctx, filter.None)
+		if err != nil {
+			t.Errorf("Meshes().List(%v, %v, %v) = %v, %v; want _, nil", ctx, location, filter.None, objs, err)
+		} else {
+			got := map[string]bool{}
+			for _, obj := range objs {
+				got[obj.Name] = true
+			}
+			if !reflect.DeepEqual(got, want) {
+				t.Errorf("Meshes().List(); got %+v, want %+v", got, want)
+			}
+		}
+	}
+
+	// Delete across versions.
+	if err := mock.BetaMeshes().Delete(ctx, keyBeta); err != nil {
+		t.Errorf("BetaMeshes().Delete(%v, %v) = %v; want nil", ctx, keyBeta, err)
+	}
+	if err := mock.Meshes().Delete(ctx, keyGA); err != nil {
+		t.Errorf("Meshes().Delete(%v, %v) = %v; want nil", ctx, keyGA, err)
+	}
+
+	// Delete not found.
+	if err := mock.BetaMeshes().Delete(ctx, keyBeta); err == nil {
+		t.Errorf("BetaMeshes().Delete(%v, %v) = nil; want error", ctx, keyBeta)
+	}
+	if err := mock.Meshes().Delete(ctx, keyGA); err == nil {
+		t.Errorf("Meshes().Delete(%v, %v) = nil; want error", ctx, keyGA)
+	}
+}
+
 func TestNetworkEndpointGroupsGroup(t *testing.T) {
 	t.Parallel()
 
@@ -4158,6 +4257,105 @@ func TestTargetTcpProxiesGroup(t *testing.T) {
 	}
 }
 
+func TestTcpRoutesGroup(t *testing.T) {
+	t.Parallel()
+
+	ctx := context.Background()
+	pr := &SingleProjectRouter{"mock-project"}
+	mock := NewMockGCE(pr)
+
+	var key *meta.Key
+	keyBeta := meta.GlobalKey("key-beta")
+	key = keyBeta
+	keyGA := meta.GlobalKey("key-ga")
+	key = keyGA
+	// Ignore unused variables.
+	_, _, _ = ctx, mock, key
+
+	// Get not found.
+	if _, err := mock.BetaTcpRoutes().Get(ctx, key); err == nil {
+		t.Errorf("BetaTcpRoutes().Get(%v, %v) = _, nil; want error", ctx, key)
+	}
+	if _, err := mock.TcpRoutes().Get(ctx, key); err == nil {
+		t.Errorf("TcpRoutes().Get(%v, %v) = _, nil; want error", ctx, key)
+	}
+
+	// Insert.
+	{
+		obj := &beta.TcpRoute{}
+		if err := mock.BetaTcpRoutes().Insert(ctx, keyBeta, obj); err != nil {
+			t.Errorf("BetaTcpRoutes().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
+		}
+	}
+	{
+		obj := &ga.TcpRoute{}
+		if err := mock.TcpRoutes().Insert(ctx, keyGA, obj); err != nil {
+			t.Errorf("TcpRoutes().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
+		}
+	}
+
+	// Get across versions.
+	if obj, err := mock.BetaTcpRoutes().Get(ctx, key); err != nil {
+		t.Errorf("BetaTcpRoutes().Get(%v, %v) = %v, %v; want nil", ctx, key, obj, err)
+	}
+	if obj, err := mock.TcpRoutes().Get(ctx, key); err != nil {
+		t.Errorf("TcpRoutes().Get(%v, %v) = %v, %v; want nil", ctx, key, obj, err)
+	}
+
+	// List.
+	mock.MockBetaTcpRoutes.Objects[*keyBeta] = mock.MockBetaTcpRoutes.Obj(&beta.TcpRoute{Name: keyBeta.Name})
+	mock.MockTcpRoutes.Objects[*keyGA] = mock.MockTcpRoutes.Obj(&ga.TcpRoute{Name: keyGA.Name})
+	want := map[string]bool{
+		"key-beta": true,
+		"key-ga":   true,
+	}
+	_ = want // ignore unused variables.
+	{
+		objs, err := mock.BetaTcpRoutes().List(ctx, filter.None)
+		if err != nil {
+			t.Errorf("BetaTcpRoutes().List(%v, %v, %v) = %v, %v; want _, nil", ctx, location, filter.None, objs, err)
+		} else {
+			got := map[string]bool{}
+			for _, obj := range objs {
+				got[obj.Name] = true
+			}
+			if !reflect.DeepEqual(got, want) {
+				t.Errorf("BetaTcpRoutes().List(); got %+v, want %+v", got, want)
+			}
+		}
+	}
+	{
+		objs, err := mock.TcpRoutes().List(ctx, filter.None)
+		if err != nil {
+			t.Errorf("TcpRoutes().List(%v, %v, %v) = %v, %v; want _, nil", ctx, location, filter.None, objs, err)
+		} else {
+			got := map[string]bool{}
+			for _, obj := range objs {
+				got[obj.Name] = true
+			}
+			if !reflect.DeepEqual(got, want) {
+				t.Errorf("TcpRoutes().List(); got %+v, want %+v", got, want)
+			}
+		}
+	}
+
+	// Delete across versions.
+	if err := mock.BetaTcpRoutes().Delete(ctx, keyBeta); err != nil {
+		t.Errorf("BetaTcpRoutes().Delete(%v, %v) = %v; want nil", ctx, keyBeta, err)
+	}
+	if err := mock.TcpRoutes().Delete(ctx, keyGA); err != nil {
+		t.Errorf("TcpRoutes().Delete(%v, %v) = %v; want nil", ctx, keyGA, err)
+	}
+
+	// Delete not found.
+	if err := mock.BetaTcpRoutes().Delete(ctx, keyBeta); err == nil {
+		t.Errorf("BetaTcpRoutes().Delete(%v, %v) = nil; want error", ctx, keyBeta)
+	}
+	if err := mock.TcpRoutes().Delete(ctx, keyGA); err == nil {
+		t.Errorf("TcpRoutes().Delete(%v, %v) = nil; want error", ctx, keyGA)
+	}
+}
+
 func TestUrlMapsGroup(t *testing.T) {
 	t.Parallel()
 
@@ -4360,6 +4558,7 @@ func TestResourceIDConversion(t *testing.T) {
 		NewInstanceGroupsResourceID("some-project", "us-east1-b", "my-instanceGroups-resource"),
 		NewInstanceTemplatesResourceID("some-project", "my-instanceTemplates-resource"),
 		NewInstancesResourceID("some-project", "us-east1-b", "my-instances-resource"),
+		NewMeshesResourceID("some-project", "my-meshes-resource"),
 		NewNetworkEndpointGroupsResourceID("some-project", "us-east1-b", "my-networkEndpointGroups-resource"),
 		NewNetworkFirewallPoliciesResourceID("some-project", "my-networkFirewallPolicies-resource"),
 		NewNetworksResourceID("some-project", "my-networks-resource"),
@@ -4384,6 +4583,7 @@ func TestResourceIDConversion(t *testing.T) {
 		NewTargetHttpsProxiesResourceID("some-project", "my-targetHttpsProxies-resource"),
 		NewTargetPoolsResourceID("some-project", "us-central1", "my-targetPools-resource"),
 		NewTargetTcpProxiesResourceID("some-project", "my-targetTcpProxies-resource"),
+		NewTcpRoutesResourceID("some-project", "my-tcpRoutes-resource"),
 		NewUrlMapsResourceID("some-project", "my-urlMaps-resource"),
 		NewZonesResourceID("some-project", "my-zones-resource"),
 	} {

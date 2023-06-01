@@ -235,10 +235,10 @@ func NewGCE(s *Service) *GCE {
 		gceBetaRegionUrlMaps:                  &GCEBetaRegionUrlMaps{s},
 		gceRegionUrlMaps:                      &GCERegionUrlMaps{s},
 		gceZones:                              &GCEZones{s},
-		gceTcpRoutes:                          &GCETcpRoutes{s},
-		gceBetaTcpRoutes:                      &GCEBetaTcpRoutes{s},
-		gceMeshes:                             &GCEMeshes{s},
-		gceBetaMeshes:                         &GCEBetaMeshes{s},
+		tdTcpRoutes:                           &TDTcpRoutes{s},
+		tdBetaTcpRoutes:                       &TDBetaTcpRoutes{s},
+		tdMeshes:                              &TDMeshes{s},
+		tdBetaMeshes:                          &TDBetaMeshes{s},
 	}
 	return g
 }
@@ -339,10 +339,10 @@ type GCE struct {
 	gceBetaRegionUrlMaps                  *GCEBetaRegionUrlMaps
 	gceRegionUrlMaps                      *GCERegionUrlMaps
 	gceZones                              *GCEZones
-	gceTcpRoutes                          *GCETcpRoutes
-	gceBetaTcpRoutes                      *GCEBetaTcpRoutes
-	gceMeshes                             *GCEMeshes
-	gceBetaMeshes                         *GCEBetaMeshes
+	tdTcpRoutes                           *TDTcpRoutes
+	tdBetaTcpRoutes                       *TDBetaTcpRoutes
+	tdMeshes                              *TDMeshes
+	tdBetaMeshes                          *TDBetaMeshes
 }
 
 // Addresses returns the interface for the ga Addresses.
@@ -802,22 +802,22 @@ func (gce *GCE) Zones() Zones {
 
 // TcpRoutes returns the interface for the ga TcpRoutes.
 func (gce *GCE) TcpRoutes() TcpRoutes {
-	return gce.gceTcpRoutes
+	return gce.tdTcpRoutes
 }
 
 // BetaTcpRoutes returns the interface for the beta TcpRoutes.
 func (gce *GCE) BetaTcpRoutes() BetaTcpRoutes {
-	return gce.gceBetaTcpRoutes
+	return gce.tdBetaTcpRoutes
 }
 
 // Meshes returns the interface for the ga Meshes.
 func (gce *GCE) Meshes() Meshes {
-	return gce.gceMeshes
+	return gce.tdMeshes
 }
 
 // BetaMeshes returns the interface for the beta Meshes.
 func (gce *GCE) BetaMeshes() BetaMeshes {
-	return gce.gceBetaMeshes
+	return gce.tdBetaMeshes
 }
 
 // NewMockGCE returns a new mock for GCE.
@@ -45512,17 +45512,17 @@ func (m *MockTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networks
 	return nil
 }
 
-// GCETcpRoutes is a simplifying adapter for the GCE TcpRoutes.
-type GCETcpRoutes struct {
+// TDTcpRoutes is a simplifying adapter for the GCE TcpRoutes.
+type TDTcpRoutes struct {
 	s *Service
 }
 
 // Get the TcpRoute named by key.
-func (g *GCETcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkservicesga.TcpRoute, error) {
-	klog.V(5).Infof("GCETcpRoutes.Get(%v, %v): called", ctx, key)
+func (g *TDTcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkservicesga.TcpRoute, error) {
+	klog.V(5).Infof("TDTcpRoutes.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCETcpRoutes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDTcpRoutes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return nil, fmt.Errorf("invalid GCE key (%#v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TcpRoutes")
@@ -45533,17 +45533,17 @@ func (g *GCETcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkservices
 		Service:   "TcpRoutes",
 	}
 
-	klog.V(5).Infof("GCETcpRoutes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDTcpRoutes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCETcpRoutes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return nil, err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/TcpRoutes/%s", projectID, key.Name)
 	call := g.s.NetworkServicesGA.TcpRoutes.Get(name)
 	call.Context(ctx)
 	v, err := call.Do()
-	klog.V(4).Infof("GCETcpRoutes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
+	klog.V(4).Infof("TDTcpRoutes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
 
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck)
@@ -45552,8 +45552,8 @@ func (g *GCETcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkservices
 }
 
 // List all TcpRoute objects.
-func (g *GCETcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservicesga.TcpRoute, error) {
-	klog.V(5).Infof("GCETcpRoutes.List(%v, %v) called", ctx, fl)
+func (g *TDTcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservicesga.TcpRoute, error) {
+	klog.V(5).Infof("TDTcpRoutes.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TcpRoutes")
 	ck := &CallContextKey{
 		ProjectID: projectID,
@@ -45566,12 +45566,12 @@ func (g *GCETcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservic
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
 		return nil, err
 	}
-	klog.V(5).Infof("GCETcpRoutes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("TDTcpRoutes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	call := g.s.NetworkServicesGA.TcpRoutes.List(projectID)
 
 	var all []*networkservicesga.TcpRoute
 	f := func(l *networkservicesga.ListTcpRoutesResponse) error {
-		klog.V(5).Infof("GCETcpRoutes.List(%v, ..., %v): page %+v", ctx, fl, l)
+		klog.V(5).Infof("TDTcpRoutes.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.TcpRoutes...)
 		return nil
 	}
@@ -45579,7 +45579,7 @@ func (g *GCETcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservic
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCETcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("TDTcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 
@@ -45587,23 +45587,23 @@ func (g *GCETcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservic
 	g.s.RateLimiter.Observe(ctx, nil, ck)
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("GCETcpRoutes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("TDTcpRoutes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("GCETcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("TDTcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 
 	return all, nil
 }
 
 // Insert TcpRoute with key of value obj.
-func (g *GCETcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesga.TcpRoute) error {
-	klog.V(5).Infof("GCETcpRoutes.Insert(%v, %v, %+v): called", ctx, key, obj)
+func (g *TDTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesga.TcpRoute) error {
+	klog.V(5).Infof("TDTcpRoutes.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
-		klog.V(2).Infof("GCETcpRoutes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDTcpRoutes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TcpRoutes")
@@ -45614,10 +45614,10 @@ func (g *GCETcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkse
 		Service:   "TcpRoutes",
 	}
 
-	klog.V(5).Infof("GCETcpRoutes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDTcpRoutes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCETcpRoutes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	obj.Name = key.Name
@@ -45631,20 +45631,20 @@ func (g *GCETcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkse
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCETcpRoutes.Insert(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Insert(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCETcpRoutes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
+	klog.V(4).Infof("TDTcpRoutes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
 	return err
 }
 
 // Delete the TcpRoute referenced by key.
-func (g *GCETcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
-	klog.V(5).Infof("GCETcpRoutes.Delete(%v, %v): called", ctx, key)
+func (g *TDTcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
+	klog.V(5).Infof("TDTcpRoutes.Delete(%v, %v): called", ctx, key)
 	if !key.Valid() {
-		klog.V(2).Infof("GCETcpRoutes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDTcpRoutes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TcpRoutes")
@@ -45654,10 +45654,10 @@ func (g *GCETcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
 		Version:   meta.Version("ga"),
 		Service:   "TcpRoutes",
 	}
-	klog.V(5).Infof("GCETcpRoutes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDTcpRoutes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCETcpRoutes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/TcpRoutes/%s", projectID, key.Name)
@@ -45671,21 +45671,21 @@ func (g *GCETcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCETcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCETcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
+	klog.V(4).Infof("TDTcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
 	return err
 }
 
-// Patch is a method on GCETcpRoutes.
-func (g *GCETcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesga.TcpRoute) error {
-	klog.V(5).Infof("GCETcpRoutes.Patch(%v, %v, ...): called", ctx, key)
+// Patch is a method on TDTcpRoutes.
+func (g *TDTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesga.TcpRoute) error {
+	klog.V(5).Infof("TDTcpRoutes.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCETcpRoutes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDTcpRoutes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TcpRoutes")
@@ -45695,10 +45695,10 @@ func (g *GCETcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkse
 		Version:   meta.Version("ga"),
 		Service:   "TcpRoutes",
 	}
-	klog.V(5).Infof("GCETcpRoutes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDTcpRoutes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCETcpRoutes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/TcpRoutes/%s", projectID, key.Name)
@@ -45710,7 +45710,7 @@ func (g *GCETcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkse
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCETcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDTcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
@@ -45719,7 +45719,7 @@ func (g *GCETcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkse
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck) // XXX
 
-	klog.V(4).Infof("GCETcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+	klog.V(4).Infof("TDTcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 	return err
 }
 
@@ -45923,17 +45923,17 @@ func (m *MockBetaTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *netw
 	return nil
 }
 
-// GCEBetaTcpRoutes is a simplifying adapter for the GCE TcpRoutes.
-type GCEBetaTcpRoutes struct {
+// TDBetaTcpRoutes is a simplifying adapter for the GCE TcpRoutes.
+type TDBetaTcpRoutes struct {
 	s *Service
 }
 
 // Get the TcpRoute named by key.
-func (g *GCEBetaTcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkservicesbeta.TcpRoute, error) {
-	klog.V(5).Infof("GCEBetaTcpRoutes.Get(%v, %v): called", ctx, key)
+func (g *TDBetaTcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkservicesbeta.TcpRoute, error) {
+	klog.V(5).Infof("TDBetaTcpRoutes.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaTcpRoutes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaTcpRoutes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return nil, fmt.Errorf("invalid GCE key (%#v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TcpRoutes")
@@ -45944,17 +45944,17 @@ func (g *GCEBetaTcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkserv
 		Service:   "TcpRoutes",
 	}
 
-	klog.V(5).Infof("GCEBetaTcpRoutes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaTcpRoutes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaTcpRoutes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return nil, err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/TcpRoutes/%s", projectID, key.Name)
 	call := g.s.NetworkServicesBeta.TcpRoutes.Get(name)
 	call.Context(ctx)
 	v, err := call.Do()
-	klog.V(4).Infof("GCEBetaTcpRoutes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
+	klog.V(4).Infof("TDBetaTcpRoutes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
 
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck)
@@ -45963,8 +45963,8 @@ func (g *GCEBetaTcpRoutes) Get(ctx context.Context, key *meta.Key) (*networkserv
 }
 
 // List all TcpRoute objects.
-func (g *GCEBetaTcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservicesbeta.TcpRoute, error) {
-	klog.V(5).Infof("GCEBetaTcpRoutes.List(%v, %v) called", ctx, fl)
+func (g *TDBetaTcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkservicesbeta.TcpRoute, error) {
+	klog.V(5).Infof("TDBetaTcpRoutes.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TcpRoutes")
 	ck := &CallContextKey{
 		ProjectID: projectID,
@@ -45977,12 +45977,12 @@ func (g *GCEBetaTcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkse
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
 		return nil, err
 	}
-	klog.V(5).Infof("GCEBetaTcpRoutes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("TDBetaTcpRoutes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	call := g.s.NetworkServicesBeta.TcpRoutes.List(projectID)
 
 	var all []*networkservicesbeta.TcpRoute
 	f := func(l *networkservicesbeta.ListTcpRoutesResponse) error {
-		klog.V(5).Infof("GCEBetaTcpRoutes.List(%v, ..., %v): page %+v", ctx, fl, l)
+		klog.V(5).Infof("TDBetaTcpRoutes.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.TcpRoutes...)
 		return nil
 	}
@@ -45990,7 +45990,7 @@ func (g *GCEBetaTcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkse
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCEBetaTcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 
@@ -45998,23 +45998,23 @@ func (g *GCEBetaTcpRoutes) List(ctx context.Context, fl *filter.F) ([]*networkse
 	g.s.RateLimiter.Observe(ctx, nil, ck)
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("GCEBetaTcpRoutes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("TDBetaTcpRoutes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("GCEBetaTcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("TDBetaTcpRoutes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 
 	return all, nil
 }
 
 // Insert TcpRoute with key of value obj.
-func (g *GCEBetaTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesbeta.TcpRoute) error {
-	klog.V(5).Infof("GCEBetaTcpRoutes.Insert(%v, %v, %+v): called", ctx, key, obj)
+func (g *TDBetaTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesbeta.TcpRoute) error {
+	klog.V(5).Infof("TDBetaTcpRoutes.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaTcpRoutes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaTcpRoutes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TcpRoutes")
@@ -46025,10 +46025,10 @@ func (g *GCEBetaTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *netwo
 		Service:   "TcpRoutes",
 	}
 
-	klog.V(5).Infof("GCEBetaTcpRoutes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaTcpRoutes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaTcpRoutes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	obj.Name = key.Name
@@ -46042,20 +46042,20 @@ func (g *GCEBetaTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *netwo
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCEBetaTcpRoutes.Insert(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Insert(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCEBetaTcpRoutes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
+	klog.V(4).Infof("TDBetaTcpRoutes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
 	return err
 }
 
 // Delete the TcpRoute referenced by key.
-func (g *GCEBetaTcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
-	klog.V(5).Infof("GCEBetaTcpRoutes.Delete(%v, %v): called", ctx, key)
+func (g *TDBetaTcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
+	klog.V(5).Infof("TDBetaTcpRoutes.Delete(%v, %v): called", ctx, key)
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaTcpRoutes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaTcpRoutes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TcpRoutes")
@@ -46065,10 +46065,10 @@ func (g *GCEBetaTcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
 		Version:   meta.Version("beta"),
 		Service:   "TcpRoutes",
 	}
-	klog.V(5).Infof("GCEBetaTcpRoutes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaTcpRoutes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaTcpRoutes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/TcpRoutes/%s", projectID, key.Name)
@@ -46082,21 +46082,21 @@ func (g *GCEBetaTcpRoutes) Delete(ctx context.Context, key *meta.Key) error {
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCEBetaTcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCEBetaTcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
+	klog.V(4).Infof("TDBetaTcpRoutes.Delete(%v, %v) = %v", ctx, key, err)
 	return err
 }
 
-// Patch is a method on GCEBetaTcpRoutes.
-func (g *GCEBetaTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesbeta.TcpRoute) error {
-	klog.V(5).Infof("GCEBetaTcpRoutes.Patch(%v, %v, ...): called", ctx, key)
+// Patch is a method on TDBetaTcpRoutes.
+func (g *TDBetaTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesbeta.TcpRoute) error {
+	klog.V(5).Infof("TDBetaTcpRoutes.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaTcpRoutes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaTcpRoutes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TcpRoutes")
@@ -46106,10 +46106,10 @@ func (g *GCEBetaTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *netwo
 		Version:   meta.Version("beta"),
 		Service:   "TcpRoutes",
 	}
-	klog.V(5).Infof("GCEBetaTcpRoutes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaTcpRoutes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaTcpRoutes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/TcpRoutes/%s", projectID, key.Name)
@@ -46121,7 +46121,7 @@ func (g *GCEBetaTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *netwo
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCEBetaTcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDBetaTcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
@@ -46130,7 +46130,7 @@ func (g *GCEBetaTcpRoutes) Patch(ctx context.Context, key *meta.Key, arg0 *netwo
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck) // XXX
 
-	klog.V(4).Infof("GCEBetaTcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+	klog.V(4).Infof("TDBetaTcpRoutes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 	return err
 }
 
@@ -46334,17 +46334,17 @@ func (m *MockMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkserv
 	return nil
 }
 
-// GCEMeshes is a simplifying adapter for the GCE Meshes.
-type GCEMeshes struct {
+// TDMeshes is a simplifying adapter for the GCE Meshes.
+type TDMeshes struct {
 	s *Service
 }
 
 // Get the Mesh named by key.
-func (g *GCEMeshes) Get(ctx context.Context, key *meta.Key) (*networkservicesga.Mesh, error) {
-	klog.V(5).Infof("GCEMeshes.Get(%v, %v): called", ctx, key)
+func (g *TDMeshes) Get(ctx context.Context, key *meta.Key) (*networkservicesga.Mesh, error) {
+	klog.V(5).Infof("TDMeshes.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCEMeshes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDMeshes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return nil, fmt.Errorf("invalid GCE key (%#v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Meshes")
@@ -46355,17 +46355,17 @@ func (g *GCEMeshes) Get(ctx context.Context, key *meta.Key) (*networkservicesga.
 		Service:   "Meshes",
 	}
 
-	klog.V(5).Infof("GCEMeshes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDMeshes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEMeshes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return nil, err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/Meshes/%s", projectID, key.Name)
 	call := g.s.NetworkServicesGA.Meshes.Get(name)
 	call.Context(ctx)
 	v, err := call.Do()
-	klog.V(4).Infof("GCEMeshes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
+	klog.V(4).Infof("TDMeshes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
 
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck)
@@ -46374,8 +46374,8 @@ func (g *GCEMeshes) Get(ctx context.Context, key *meta.Key) (*networkservicesga.
 }
 
 // List all Mesh objects.
-func (g *GCEMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesga.Mesh, error) {
-	klog.V(5).Infof("GCEMeshes.List(%v, %v) called", ctx, fl)
+func (g *TDMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesga.Mesh, error) {
+	klog.V(5).Infof("TDMeshes.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Meshes")
 	ck := &CallContextKey{
 		ProjectID: projectID,
@@ -46388,12 +46388,12 @@ func (g *GCEMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesg
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
 		return nil, err
 	}
-	klog.V(5).Infof("GCEMeshes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("TDMeshes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	call := g.s.NetworkServicesGA.Meshes.List(projectID)
 
 	var all []*networkservicesga.Mesh
 	f := func(l *networkservicesga.ListMeshesResponse) error {
-		klog.V(5).Infof("GCEMeshes.List(%v, ..., %v): page %+v", ctx, fl, l)
+		klog.V(5).Infof("TDMeshes.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Meshes...)
 		return nil
 	}
@@ -46401,7 +46401,7 @@ func (g *GCEMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesg
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCEMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("TDMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 
@@ -46409,23 +46409,23 @@ func (g *GCEMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesg
 	g.s.RateLimiter.Observe(ctx, nil, ck)
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("GCEMeshes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("TDMeshes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("GCEMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("TDMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 
 	return all, nil
 }
 
 // Insert Mesh with key of value obj.
-func (g *GCEMeshes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesga.Mesh) error {
-	klog.V(5).Infof("GCEMeshes.Insert(%v, %v, %+v): called", ctx, key, obj)
+func (g *TDMeshes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesga.Mesh) error {
+	klog.V(5).Infof("TDMeshes.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
-		klog.V(2).Infof("GCEMeshes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDMeshes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Meshes")
@@ -46436,10 +46436,10 @@ func (g *GCEMeshes) Insert(ctx context.Context, key *meta.Key, obj *networkservi
 		Service:   "Meshes",
 	}
 
-	klog.V(5).Infof("GCEMeshes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDMeshes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEMeshes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	obj.Name = key.Name
@@ -46453,20 +46453,20 @@ func (g *GCEMeshes) Insert(ctx context.Context, key *meta.Key, obj *networkservi
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCEMeshes.Insert(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Insert(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCEMeshes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
+	klog.V(4).Infof("TDMeshes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
 	return err
 }
 
 // Delete the Mesh referenced by key.
-func (g *GCEMeshes) Delete(ctx context.Context, key *meta.Key) error {
-	klog.V(5).Infof("GCEMeshes.Delete(%v, %v): called", ctx, key)
+func (g *TDMeshes) Delete(ctx context.Context, key *meta.Key) error {
+	klog.V(5).Infof("TDMeshes.Delete(%v, %v): called", ctx, key)
 	if !key.Valid() {
-		klog.V(2).Infof("GCEMeshes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDMeshes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Meshes")
@@ -46476,10 +46476,10 @@ func (g *GCEMeshes) Delete(ctx context.Context, key *meta.Key) error {
 		Version:   meta.Version("ga"),
 		Service:   "Meshes",
 	}
-	klog.V(5).Infof("GCEMeshes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDMeshes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEMeshes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/Meshes/%s", projectID, key.Name)
@@ -46493,21 +46493,21 @@ func (g *GCEMeshes) Delete(ctx context.Context, key *meta.Key) error {
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCEMeshes.Delete(%v, %v) = %v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Delete(%v, %v) = %v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCEMeshes.Delete(%v, %v) = %v", ctx, key, err)
+	klog.V(4).Infof("TDMeshes.Delete(%v, %v) = %v", ctx, key, err)
 	return err
 }
 
-// Patch is a method on GCEMeshes.
-func (g *GCEMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesga.Mesh) error {
-	klog.V(5).Infof("GCEMeshes.Patch(%v, %v, ...): called", ctx, key)
+// Patch is a method on TDMeshes.
+func (g *TDMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesga.Mesh) error {
+	klog.V(5).Infof("TDMeshes.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCEMeshes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDMeshes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Meshes")
@@ -46517,10 +46517,10 @@ func (g *GCEMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservi
 		Version:   meta.Version("ga"),
 		Service:   "Meshes",
 	}
-	klog.V(5).Infof("GCEMeshes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDMeshes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEMeshes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/Meshes/%s", projectID, key.Name)
@@ -46532,7 +46532,7 @@ func (g *GCEMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservi
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCEMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
@@ -46541,7 +46541,7 @@ func (g *GCEMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservi
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck) // XXX
 
-	klog.V(4).Infof("GCEMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+	klog.V(4).Infof("TDMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 	return err
 }
 
@@ -46745,17 +46745,17 @@ func (m *MockBetaMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *network
 	return nil
 }
 
-// GCEBetaMeshes is a simplifying adapter for the GCE Meshes.
-type GCEBetaMeshes struct {
+// TDBetaMeshes is a simplifying adapter for the GCE Meshes.
+type TDBetaMeshes struct {
 	s *Service
 }
 
 // Get the Mesh named by key.
-func (g *GCEBetaMeshes) Get(ctx context.Context, key *meta.Key) (*networkservicesbeta.Mesh, error) {
-	klog.V(5).Infof("GCEBetaMeshes.Get(%v, %v): called", ctx, key)
+func (g *TDBetaMeshes) Get(ctx context.Context, key *meta.Key) (*networkservicesbeta.Mesh, error) {
+	klog.V(5).Infof("TDBetaMeshes.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaMeshes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaMeshes.Get(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return nil, fmt.Errorf("invalid GCE key (%#v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Meshes")
@@ -46766,17 +46766,17 @@ func (g *GCEBetaMeshes) Get(ctx context.Context, key *meta.Key) (*networkservice
 		Service:   "Meshes",
 	}
 
-	klog.V(5).Infof("GCEBetaMeshes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaMeshes.Get(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaMeshes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Get(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return nil, err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/Meshes/%s", projectID, key.Name)
 	call := g.s.NetworkServicesBeta.Meshes.Get(name)
 	call.Context(ctx)
 	v, err := call.Do()
-	klog.V(4).Infof("GCEBetaMeshes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
+	klog.V(4).Infof("TDBetaMeshes.Get(%v, %v) = %+v, %v", ctx, key, v, err)
 
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck)
@@ -46785,8 +46785,8 @@ func (g *GCEBetaMeshes) Get(ctx context.Context, key *meta.Key) (*networkservice
 }
 
 // List all Mesh objects.
-func (g *GCEBetaMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesbeta.Mesh, error) {
-	klog.V(5).Infof("GCEBetaMeshes.List(%v, %v) called", ctx, fl)
+func (g *TDBetaMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservicesbeta.Mesh, error) {
+	klog.V(5).Infof("TDBetaMeshes.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Meshes")
 	ck := &CallContextKey{
 		ProjectID: projectID,
@@ -46799,12 +46799,12 @@ func (g *GCEBetaMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservi
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
 		return nil, err
 	}
-	klog.V(5).Infof("GCEBetaMeshes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
+	klog.V(5).Infof("TDBetaMeshes.List(%v, %v): projectID = %v, ck = %+v", ctx, fl, projectID, ck)
 	call := g.s.NetworkServicesBeta.Meshes.List(projectID)
 
 	var all []*networkservicesbeta.Mesh
 	f := func(l *networkservicesbeta.ListMeshesResponse) error {
-		klog.V(5).Infof("GCEBetaMeshes.List(%v, ..., %v): page %+v", ctx, fl, l)
+		klog.V(5).Infof("TDBetaMeshes.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Meshes...)
 		return nil
 	}
@@ -46812,7 +46812,7 @@ func (g *GCEBetaMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservi
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCEBetaMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
+		klog.V(4).Infof("TDBetaMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, nil, err)
 		return nil, err
 	}
 
@@ -46820,23 +46820,23 @@ func (g *GCEBetaMeshes) List(ctx context.Context, fl *filter.F) ([]*networkservi
 	g.s.RateLimiter.Observe(ctx, nil, ck)
 
 	if kLogEnabled(4) {
-		klog.V(4).Infof("GCEBetaMeshes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
+		klog.V(4).Infof("TDBetaMeshes.List(%v, ..., %v) = [%v items], %v", ctx, fl, len(all), nil)
 	} else if kLogEnabled(5) {
 		var asStr []string
 		for _, o := range all {
 			asStr = append(asStr, fmt.Sprintf("%+v", o))
 		}
-		klog.V(5).Infof("GCEBetaMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
+		klog.V(5).Infof("TDBetaMeshes.List(%v, ..., %v) = %v, %v", ctx, fl, asStr, nil)
 	}
 
 	return all, nil
 }
 
 // Insert Mesh with key of value obj.
-func (g *GCEBetaMeshes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesbeta.Mesh) error {
-	klog.V(5).Infof("GCEBetaMeshes.Insert(%v, %v, %+v): called", ctx, key, obj)
+func (g *TDBetaMeshes) Insert(ctx context.Context, key *meta.Key, obj *networkservicesbeta.Mesh) error {
+	klog.V(5).Infof("TDBetaMeshes.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaMeshes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaMeshes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Meshes")
@@ -46847,10 +46847,10 @@ func (g *GCEBetaMeshes) Insert(ctx context.Context, key *meta.Key, obj *networks
 		Service:   "Meshes",
 	}
 
-	klog.V(5).Infof("GCEBetaMeshes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaMeshes.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaMeshes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	obj.Name = key.Name
@@ -46864,20 +46864,20 @@ func (g *GCEBetaMeshes) Insert(ctx context.Context, key *meta.Key, obj *networks
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCEBetaMeshes.Insert(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Insert(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCEBetaMeshes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
+	klog.V(4).Infof("TDBetaMeshes.Insert(%v, %v, %+v) = %+v", ctx, key, obj, err)
 	return err
 }
 
 // Delete the Mesh referenced by key.
-func (g *GCEBetaMeshes) Delete(ctx context.Context, key *meta.Key) error {
-	klog.V(5).Infof("GCEBetaMeshes.Delete(%v, %v): called", ctx, key)
+func (g *TDBetaMeshes) Delete(ctx context.Context, key *meta.Key) error {
+	klog.V(5).Infof("TDBetaMeshes.Delete(%v, %v): called", ctx, key)
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaMeshes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaMeshes.Delete(%v, %v): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Meshes")
@@ -46887,10 +46887,10 @@ func (g *GCEBetaMeshes) Delete(ctx context.Context, key *meta.Key) error {
 		Version:   meta.Version("beta"),
 		Service:   "Meshes",
 	}
-	klog.V(5).Infof("GCEBetaMeshes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaMeshes.Delete(%v, %v): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaMeshes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Delete(%v, %v): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/Meshes/%s", projectID, key.Name)
@@ -46904,21 +46904,21 @@ func (g *GCEBetaMeshes) Delete(ctx context.Context, key *meta.Key) error {
 	g.s.RateLimiter.Observe(ctx, err, ck)
 
 	if err != nil {
-		klog.V(4).Infof("GCEBetaMeshes.Delete(%v, %v) = %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Delete(%v, %v) = %v", ctx, key, err)
 		return err
 	}
 
 	err = g.s.WaitForCompletion(ctx, op)
-	klog.V(4).Infof("GCEBetaMeshes.Delete(%v, %v) = %v", ctx, key, err)
+	klog.V(4).Infof("TDBetaMeshes.Delete(%v, %v) = %v", ctx, key, err)
 	return err
 }
 
-// Patch is a method on GCEBetaMeshes.
-func (g *GCEBetaMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesbeta.Mesh) error {
-	klog.V(5).Infof("GCEBetaMeshes.Patch(%v, %v, ...): called", ctx, key)
+// Patch is a method on TDBetaMeshes.
+func (g *TDBetaMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networkservicesbeta.Mesh) error {
+	klog.V(5).Infof("TDBetaMeshes.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
-		klog.V(2).Infof("GCEBetaMeshes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
+		klog.V(2).Infof("TDBetaMeshes.Patch(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
 		return fmt.Errorf("invalid GCE key (%+v)", key)
 	}
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Meshes")
@@ -46928,10 +46928,10 @@ func (g *GCEBetaMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networks
 		Version:   meta.Version("beta"),
 		Service:   "Meshes",
 	}
-	klog.V(5).Infof("GCEBetaMeshes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	klog.V(5).Infof("TDBetaMeshes.Patch(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
-		klog.V(4).Infof("GCEBetaMeshes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Patch(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
 		return err
 	}
 	name := fmt.Sprintf("projects/%s/locations/global/Meshes/%s", projectID, key.Name)
@@ -46943,7 +46943,7 @@ func (g *GCEBetaMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networks
 		callObserverEnd(ctx, ck, err)
 		g.s.RateLimiter.Observe(ctx, err, ck)
 
-		klog.V(4).Infof("GCEBetaMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+		klog.V(4).Infof("TDBetaMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 		return err
 	}
 
@@ -46952,7 +46952,7 @@ func (g *GCEBetaMeshes) Patch(ctx context.Context, key *meta.Key, arg0 *networks
 	callObserverEnd(ctx, ck, err)
 	g.s.RateLimiter.Observe(ctx, err, ck) // XXX
 
-	klog.V(4).Infof("GCEBetaMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
+	klog.V(4).Infof("TDBetaMeshes.Patch(%v, %v, ...) = %+v", ctx, key, err)
 	return err
 }
 

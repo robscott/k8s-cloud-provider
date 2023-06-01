@@ -49,7 +49,7 @@ const (
 	VersionBeta Version = "beta"
 )
 
-// AllVersions is a list of all versions of the GCE API.
+// AllVersions is a list of all versions of the GCP APIs.
 var AllVersions = []Version{
 	VersionGA,
 	VersionAlpha,

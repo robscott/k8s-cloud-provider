@@ -142,13 +142,19 @@ func (i *ServiceInfo) MockField() string {
 	return "Mock" + i.WrapType()
 }
 
-// GCEWrapType is the name of the GCE wrapper type.
-func (i *ServiceInfo) GCEWrapType() string {
+// GCPWrapType is the name of the GCP wrapper type.
+func (i *ServiceInfo) GCPWrapType() string {
+	if i.APIGroup == NetworkServicesAPIGroup {
+		return "TD" + i.WrapType()
+	}
 	return "GCE" + i.WrapType()
 }
 
-// Field is the name of the GCE struct.
+// Field is the name of the GCP struct.
 func (i *ServiceInfo) Field() string {
+	if i.APIGroup == NetworkServicesAPIGroup {
+		return "td" + i.WrapType()
+	}
 	return "gce" + i.WrapType()
 }
 
