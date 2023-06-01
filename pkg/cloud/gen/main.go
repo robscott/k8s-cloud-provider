@@ -128,36 +128,31 @@ import (
 		panic(err)
 	}
 
-	var hasGA, hasAlpha, hasBeta, hasNetworkServicesGA, hasNetworkServicesBeta bool
+	var hasComputeGA, hasComputeAlpha, hasComputeBeta bool
+	var hasNetworkServicesGA, hasNetworkServicesBeta bool
 	for _, s := range meta.AllServices {
-		if s.APIGroup == meta.NetworkServicesAPIGroup {
-			switch s.Version() {
-			case meta.VersionBeta:
-				hasNetworkServicesBeta = true
-			case meta.VersionGA:
-				hasNetworkServicesGA = true
-			}
-
-		} else {
-			switch s.Version() {
-			case meta.VersionAlpha:
-				hasAlpha = true
-			case meta.VersionBeta:
-				hasBeta = true
-			case meta.VersionGA:
-				hasGA = true
-			}
+		switch {
+		case s.APIGroup == meta.ComputeAPIGroup && s.Version() == meta.VersionAlpha:
+			hasComputeAlpha = true
+		case s.APIGroup == meta.ComputeAPIGroup && s.Version() == meta.VersionBeta:
+			hasComputeBeta = true
+		case s.APIGroup == meta.ComputeAPIGroup && s.Version() == meta.VersionGA:
+			hasComputeGA = true
+		case s.APIGroup == meta.NetworkServicesAPIGroup && s.Version() == meta.VersionBeta:
+			hasNetworkServicesBeta = true
+		case s.APIGroup == meta.NetworkServicesAPIGroup && s.Version() == meta.VersionGA:
+			hasNetworkServicesGA = true
 		}
 	}
 
-	if hasAlpha {
-		fmt.Fprintf(wr, "	alpha \"%s\"\n", alphaComputePackage)
+	if hasComputeAlpha {
+		fmt.Fprintf(wr, "	computealpha \"%s\"\n", alphaComputePackage)
 	}
-	if hasBeta {
-		fmt.Fprintf(wr, "	beta \"%s\"\n", betaComputePackage)
+	if hasComputeBeta {
+		fmt.Fprintf(wr, "	computebeta \"%s\"\n", betaComputePackage)
 	}
-	if hasGA {
-		fmt.Fprintf(wr, "	ga \"%s\"\n", gaComputePackage)
+	if hasComputeGA {
+		fmt.Fprintf(wr, "	computega \"%s\"\n", gaComputePackage)
 	}
 	if hasNetworkServicesBeta {
 		fmt.Fprintf(wr, "	networkservicesbeta \"%s\"\n", betaNetworkServicesPackage)
@@ -1160,8 +1155,8 @@ func (g *{{.GCPWrapType}}) {{.FcnArgs}} {
 	klog.V(4).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...) = %+v, %v", ctx, key, v, err)
 	return v, err
 {{- else if .IsPaged}}
-	var all []*{{.Version}}.{{.ItemType}}
-	f := func(l *{{.Version}}.{{.ReturnType}}) error {
+	var all []*{{.APIGroup}}{{.Version}}.{{.ItemType}}
+	f := func(l *{{.APIGroup}}{{.Version}}.{{.ReturnType}}) error {
 		klog.V(5).Infof("{{.GCPWrapType}}.{{.Name}}(%v, %v, ...): page %+v", ctx, key, l)
 		all = append(all, l.Items...)
 		return nil
@@ -1259,9 +1254,12 @@ import (
 	"reflect"
 	"testing"
 
-	alpha "{{.AlphaComputePackage}}"
-	beta "{{.BetaComputePackage}}"
-	ga "{{.GaComputePackage}}"
+	computealpha "{{.AlphaComputePackage}}"
+	computebeta "{{.BetaComputePackage}}"
+	computega "{{.GaComputePackage}}"
+
+	networkservicesga "{{.GANetworkservicesPackage}}"
+	networkservicesbeta "{{.BetaNetworkservicesPackage}}"
 
 	"{{.FilterPackage}}"
 	"{{.MetaPackage}}"
@@ -1271,12 +1269,14 @@ const location = "location"
 `
 	tmpl := template.Must(template.New("header").Parse(text))
 	values := map[string]string{
-		"Year":                fmt.Sprintf("%v", time.Now().Year()),
-		"FilterPackage":       filterPackage,
-		"MetaPackage":         metaPackage,
-		"AlphaComputePackage": alphaComputePackage,
-		"BetaComputePackage":  betaComputePackage,
-		"GaComputePackage":    gaComputePackage,
+		"Year":                       fmt.Sprintf("%v", time.Now().Year()),
+		"FilterPackage":              filterPackage,
+		"MetaPackage":                metaPackage,
+		"AlphaComputePackage":        alphaComputePackage,
+		"BetaComputePackage":         betaComputePackage,
+		"GaComputePackage":           gaComputePackage,
+		"GANetworkservicesPackage":   gaNetworkServicesPackage,
+		"BetaNetworkservicesPackage": betaNetworkServicesPackage,
 	}
 	if err := tmpl.Execute(wr, values); err != nil {
 		panic(err)
@@ -1328,7 +1328,7 @@ func Test{{.Service}}Group(t *testing.T) {
 	// Insert.
 {{- if .HasAlpha}}{{- if .Alpha.GenerateInsert}}
 	{
-		obj := &alpha.{{.Alpha.Object}}{}
+		obj := &{{.Alpha.APIGroup}}alpha.{{.Alpha.Object}}{}
 		if err := mock.Alpha{{.Service}}().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("Alpha{{.Service}}().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
@@ -1336,7 +1336,7 @@ func Test{{.Service}}Group(t *testing.T) {
 {{- end}}{{- end}}
 {{- if .HasBeta}}{{- if .Beta.GenerateInsert}}
 	{
-		obj := &beta.{{.Beta.Object}}{}
+		obj := &{{.Beta.APIGroup}}beta.{{.Beta.Object}}{}
 		if err := mock.Beta{{.Service}}().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("Beta{{.Service}}().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
@@ -1344,7 +1344,7 @@ func Test{{.Service}}Group(t *testing.T) {
 {{- end}}{{- end}}
 {{- if .HasGA}}{{- if .GA.GenerateInsert}}
 	{
-		obj := &ga.{{.GA.Object}}{}
+		obj := &{{.GA.APIGroup}}ga.{{.GA.Object}}{}
 		if err := mock.{{.Service}}().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("{{.Service}}().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1370,13 +1370,13 @@ func Test{{.Service}}Group(t *testing.T) {
 
 	// List.
 {{- if .HasAlpha}}
-	mock.MockAlpha{{.Service}}.Objects[*keyAlpha] =  mock.MockAlpha{{.Service}}.Obj(&alpha.{{.Alpha.Object}}{Name: keyAlpha.Name})
+	mock.MockAlpha{{.Service}}.Objects[*keyAlpha] =  mock.MockAlpha{{.Service}}.Obj(&{{.Alpha.APIGroup}}alpha.{{.Alpha.Object}}{Name: keyAlpha.Name})
 {{- end}}
 {{- if .HasBeta}}
-	mock.MockBeta{{.Service}}.Objects[*keyBeta] =  mock.MockBeta{{.Service}}.Obj(&beta.{{.Beta.Object}}{Name: keyBeta.Name})
+	mock.MockBeta{{.Service}}.Objects[*keyBeta] =  mock.MockBeta{{.Service}}.Obj(&{{.Beta.APIGroup}}beta.{{.Beta.Object}}{Name: keyBeta.Name})
 {{- end}}
 {{- if .HasGA}}
-	mock.Mock{{.Service}}.Objects[*keyGA] =  mock.Mock{{.Service}}.Obj(&ga.{{.GA.Object}}{Name: keyGA.Name})
+	mock.Mock{{.Service}}.Objects[*keyGA] =  mock.Mock{{.Service}}.Obj(&{{.GA.APIGroup}}ga.{{.GA.Object}}{Name: keyGA.Name})
 {{- end}}
 	want := map[string]bool{
 {{- if .HasAlpha}}

@@ -25,8 +25,13 @@ import (
 )
 
 func init() {
+	for _, s := range ComputeServices {
+		s.APIGroup = ComputeAPIGroup
+	}
 	AllServices = append(AllServices, ComputeServices...)
 }
+
+const ComputeAPIGroup = "compute"
 
 var ComputeServices = []*ServiceInfo{
 	{

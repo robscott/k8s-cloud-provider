@@ -62,11 +62,11 @@ func (a *arg) normalizedPkg() string {
 	}
 	switch strings.Join(parts, "/") {
 	case "google.golang.org/api/compute/v1":
-		return "ga."
+		return "computega."
 	case "google.golang.org/api/compute/v0.alpha":
-		return "alpha."
+		return "computealpha."
 	case "google.golang.org/api/compute/v0.beta":
-		return "beta."
+		return "computebeta."
 	case "google.golang.org/api/networkservices/v1":
 		return "networkservicesga."
 	case "google.golang.org/api/networkservices/v1beta1":
@@ -290,9 +290,9 @@ func (m *Method) MockHook() string {
 	case MethodOperation:
 		return fmt.Sprintf("%v func(%v) error", m.MockHookName(), strings.Join(args, ", "))
 	case MethodGet:
-		return fmt.Sprintf("%v func(%v) (*%v.%v, error)", m.MockHookName(), strings.Join(args, ", "), m.Version(), m.ReturnType)
+		return fmt.Sprintf("%v func(%v) (*%v%v.%v, error)", m.MockHookName(), strings.Join(args, ", "), m.APIGroup, m.Version(), m.ReturnType)
 	case MethodPaged:
-		return fmt.Sprintf("%v func(%v) ([]*%v.%v, error)", m.MockHookName(), strings.Join(args, ", "), m.Version(), m.ItemType)
+		return fmt.Sprintf("%v func(%v) ([]*%v%v.%v, error)", m.MockHookName(), strings.Join(args, ", "), m.APIGroup, m.Version(), m.ItemType)
 	default:
 		panic(fmt.Errorf("invalid method kind: %v", m.kind))
 	}
@@ -312,9 +312,9 @@ func (m *Method) FcnArgs() string {
 	case MethodOperation:
 		return fmt.Sprintf("%v(%v) error", m.m.Name, strings.Join(args, ", "))
 	case MethodGet:
-		return fmt.Sprintf("%v(%v) (*%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.Version(), m.ReturnType)
+		return fmt.Sprintf("%v(%v) (*%v%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.APIGroup, m.Version(), m.ReturnType)
 	case MethodPaged:
-		return fmt.Sprintf("%v(%v) ([]*%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.Version(), m.ItemType)
+		return fmt.Sprintf("%v(%v) ([]*%v%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.APIGroup, m.Version(), m.ItemType)
 	default:
 		panic(fmt.Errorf("invalid method kind: %v", m.kind))
 	}
@@ -335,9 +335,9 @@ func (m *Method) InterfaceFunc() string {
 	case MethodOperation:
 		return fmt.Sprintf("%v(%v) error", m.m.Name, strings.Join(args, ", "))
 	case MethodGet:
-		return fmt.Sprintf("%v(%v) (*%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.Version(), m.ReturnType)
+		return fmt.Sprintf("%v(%v) (*%v%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.APIGroup, m.Version(), m.ReturnType)
 	case MethodPaged:
-		return fmt.Sprintf("%v(%v) ([]*%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.Version(), m.ItemType)
+		return fmt.Sprintf("%v(%v) ([]*%v%v.%v, error)", m.m.Name, strings.Join(args, ", "), m.APIGroup, m.Version(), m.ItemType)
 	default:
 		panic(fmt.Errorf("invalid method kind: %v", m.kind))
 	}

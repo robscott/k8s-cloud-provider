@@ -24,6 +24,9 @@ import (
 )
 
 func init() {
+	for _, s := range NetworkServices {
+		s.APIGroup = NetworkServicesAPIGroup
+	}
 	AllServices = append(AllServices, NetworkServices...)
 }
 
@@ -34,7 +37,6 @@ var NetworkServices = []*ServiceInfo{
 		Object:      "TcpRoute",
 		Service:     "TcpRoutes",
 		Resource:    "tcpRoutes",
-		APIGroup:    NetworkServicesAPIGroup,
 		version:     VersionGA,
 		keyType:     Global,
 		serviceType: reflect.TypeOf(&ga.ProjectsLocationsTcpRoutesService{}),
@@ -46,7 +48,6 @@ var NetworkServices = []*ServiceInfo{
 		Object:      "TcpRoute",
 		Service:     "TcpRoutes",
 		Resource:    "tcpRoutes",
-		APIGroup:    NetworkServicesAPIGroup,
 		version:     VersionBeta,
 		keyType:     Global,
 		serviceType: reflect.TypeOf(&beta.ProjectsLocationsTcpRoutesService{}),
@@ -58,7 +59,6 @@ var NetworkServices = []*ServiceInfo{
 		Object:      "Mesh",
 		Service:     "Meshes",
 		Resource:    "meshes",
-		APIGroup:    NetworkServicesAPIGroup,
 		version:     VersionGA,
 		keyType:     Global,
 		serviceType: reflect.TypeOf(&ga.ProjectsLocationsMeshesService{}),
@@ -70,7 +70,6 @@ var NetworkServices = []*ServiceInfo{
 		Object:      "Mesh",
 		Service:     "Meshes",
 		Resource:    "meshes",
-		APIGroup:    NetworkServicesAPIGroup,
 		version:     VersionBeta,
 		keyType:     Global,
 		serviceType: reflect.TypeOf(&beta.ProjectsLocationsMeshesService{}),

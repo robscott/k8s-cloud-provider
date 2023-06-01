@@ -24,9 +24,12 @@ import (
 	"reflect"
 	"testing"
 
-	alpha "google.golang.org/api/compute/v0.alpha"
-	beta "google.golang.org/api/compute/v0.beta"
-	ga "google.golang.org/api/compute/v1"
+	computealpha "google.golang.org/api/compute/v0.alpha"
+	computebeta "google.golang.org/api/compute/v0.beta"
+	computega "google.golang.org/api/compute/v1"
+
+	networkservicesga "google.golang.org/api/networkservices/v1"
+	networkservicesbeta "google.golang.org/api/networkservices/v1beta1"
 
 	"github.com/GoogleCloudPlatform/k8s-cloud-provider/pkg/cloud/filter"
 	"github.com/GoogleCloudPlatform/k8s-cloud-provider/pkg/cloud/meta"
@@ -64,19 +67,19 @@ func TestAddressesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Address{}
+		obj := &computealpha.Address{}
 		if err := mock.AlphaAddresses().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaAddresses().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Address{}
+		obj := &computebeta.Address{}
 		if err := mock.BetaAddresses().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaAddresses().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Address{}
+		obj := &computega.Address{}
 		if err := mock.Addresses().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Addresses().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -94,9 +97,9 @@ func TestAddressesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaAddresses.Objects[*keyAlpha] = mock.MockAlphaAddresses.Obj(&alpha.Address{Name: keyAlpha.Name})
-	mock.MockBetaAddresses.Objects[*keyBeta] = mock.MockBetaAddresses.Obj(&beta.Address{Name: keyBeta.Name})
-	mock.MockAddresses.Objects[*keyGA] = mock.MockAddresses.Obj(&ga.Address{Name: keyGA.Name})
+	mock.MockAlphaAddresses.Objects[*keyAlpha] = mock.MockAlphaAddresses.Obj(&computealpha.Address{Name: keyAlpha.Name})
+	mock.MockBetaAddresses.Objects[*keyBeta] = mock.MockBetaAddresses.Obj(&computebeta.Address{Name: keyBeta.Name})
+	mock.MockAddresses.Objects[*keyGA] = mock.MockAddresses.Obj(&computega.Address{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -199,19 +202,19 @@ func TestBackendServicesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.BackendService{}
+		obj := &computealpha.BackendService{}
 		if err := mock.AlphaBackendServices().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaBackendServices().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.BackendService{}
+		obj := &computebeta.BackendService{}
 		if err := mock.BetaBackendServices().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaBackendServices().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.BackendService{}
+		obj := &computega.BackendService{}
 		if err := mock.BackendServices().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("BackendServices().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -229,9 +232,9 @@ func TestBackendServicesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaBackendServices.Objects[*keyAlpha] = mock.MockAlphaBackendServices.Obj(&alpha.BackendService{Name: keyAlpha.Name})
-	mock.MockBetaBackendServices.Objects[*keyBeta] = mock.MockBetaBackendServices.Obj(&beta.BackendService{Name: keyBeta.Name})
-	mock.MockBackendServices.Objects[*keyGA] = mock.MockBackendServices.Obj(&ga.BackendService{Name: keyGA.Name})
+	mock.MockAlphaBackendServices.Objects[*keyAlpha] = mock.MockAlphaBackendServices.Obj(&computealpha.BackendService{Name: keyAlpha.Name})
+	mock.MockBetaBackendServices.Objects[*keyBeta] = mock.MockBetaBackendServices.Obj(&computebeta.BackendService{Name: keyBeta.Name})
+	mock.MockBackendServices.Objects[*keyGA] = mock.MockBackendServices.Obj(&computega.BackendService{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -324,7 +327,7 @@ func TestDisksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.Disk{}
+		obj := &computega.Disk{}
 		if err := mock.Disks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Disks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -336,7 +339,7 @@ func TestDisksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockDisks.Objects[*keyGA] = mock.MockDisks.Obj(&ga.Disk{Name: keyGA.Name})
+	mock.MockDisks.Objects[*keyGA] = mock.MockDisks.Obj(&computega.Disk{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -397,19 +400,19 @@ func TestFirewallsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Firewall{}
+		obj := &computealpha.Firewall{}
 		if err := mock.AlphaFirewalls().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaFirewalls().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Firewall{}
+		obj := &computebeta.Firewall{}
 		if err := mock.BetaFirewalls().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaFirewalls().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Firewall{}
+		obj := &computega.Firewall{}
 		if err := mock.Firewalls().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Firewalls().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -427,9 +430,9 @@ func TestFirewallsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaFirewalls.Objects[*keyAlpha] = mock.MockAlphaFirewalls.Obj(&alpha.Firewall{Name: keyAlpha.Name})
-	mock.MockBetaFirewalls.Objects[*keyBeta] = mock.MockBetaFirewalls.Obj(&beta.Firewall{Name: keyBeta.Name})
-	mock.MockFirewalls.Objects[*keyGA] = mock.MockFirewalls.Obj(&ga.Firewall{Name: keyGA.Name})
+	mock.MockAlphaFirewalls.Objects[*keyAlpha] = mock.MockAlphaFirewalls.Obj(&computealpha.Firewall{Name: keyAlpha.Name})
+	mock.MockBetaFirewalls.Objects[*keyBeta] = mock.MockBetaFirewalls.Obj(&computebeta.Firewall{Name: keyBeta.Name})
+	mock.MockFirewalls.Objects[*keyGA] = mock.MockFirewalls.Obj(&computega.Firewall{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -532,19 +535,19 @@ func TestForwardingRulesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.ForwardingRule{}
+		obj := &computealpha.ForwardingRule{}
 		if err := mock.AlphaForwardingRules().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaForwardingRules().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.ForwardingRule{}
+		obj := &computebeta.ForwardingRule{}
 		if err := mock.BetaForwardingRules().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaForwardingRules().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.ForwardingRule{}
+		obj := &computega.ForwardingRule{}
 		if err := mock.ForwardingRules().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("ForwardingRules().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -562,9 +565,9 @@ func TestForwardingRulesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaForwardingRules.Objects[*keyAlpha] = mock.MockAlphaForwardingRules.Obj(&alpha.ForwardingRule{Name: keyAlpha.Name})
-	mock.MockBetaForwardingRules.Objects[*keyBeta] = mock.MockBetaForwardingRules.Obj(&beta.ForwardingRule{Name: keyBeta.Name})
-	mock.MockForwardingRules.Objects[*keyGA] = mock.MockForwardingRules.Obj(&ga.ForwardingRule{Name: keyGA.Name})
+	mock.MockAlphaForwardingRules.Objects[*keyAlpha] = mock.MockAlphaForwardingRules.Obj(&computealpha.ForwardingRule{Name: keyAlpha.Name})
+	mock.MockBetaForwardingRules.Objects[*keyBeta] = mock.MockBetaForwardingRules.Obj(&computebeta.ForwardingRule{Name: keyBeta.Name})
+	mock.MockForwardingRules.Objects[*keyGA] = mock.MockForwardingRules.Obj(&computega.ForwardingRule{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -667,19 +670,19 @@ func TestGlobalAddressesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Address{}
+		obj := &computealpha.Address{}
 		if err := mock.AlphaGlobalAddresses().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaGlobalAddresses().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Address{}
+		obj := &computebeta.Address{}
 		if err := mock.BetaGlobalAddresses().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaGlobalAddresses().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Address{}
+		obj := &computega.Address{}
 		if err := mock.GlobalAddresses().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("GlobalAddresses().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -697,9 +700,9 @@ func TestGlobalAddressesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaGlobalAddresses.Objects[*keyAlpha] = mock.MockAlphaGlobalAddresses.Obj(&alpha.Address{Name: keyAlpha.Name})
-	mock.MockBetaGlobalAddresses.Objects[*keyBeta] = mock.MockBetaGlobalAddresses.Obj(&beta.Address{Name: keyBeta.Name})
-	mock.MockGlobalAddresses.Objects[*keyGA] = mock.MockGlobalAddresses.Obj(&ga.Address{Name: keyGA.Name})
+	mock.MockAlphaGlobalAddresses.Objects[*keyAlpha] = mock.MockAlphaGlobalAddresses.Obj(&computealpha.Address{Name: keyAlpha.Name})
+	mock.MockBetaGlobalAddresses.Objects[*keyBeta] = mock.MockBetaGlobalAddresses.Obj(&computebeta.Address{Name: keyBeta.Name})
+	mock.MockGlobalAddresses.Objects[*keyGA] = mock.MockGlobalAddresses.Obj(&computega.Address{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -802,19 +805,19 @@ func TestGlobalForwardingRulesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.ForwardingRule{}
+		obj := &computealpha.ForwardingRule{}
 		if err := mock.AlphaGlobalForwardingRules().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaGlobalForwardingRules().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.ForwardingRule{}
+		obj := &computebeta.ForwardingRule{}
 		if err := mock.BetaGlobalForwardingRules().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaGlobalForwardingRules().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.ForwardingRule{}
+		obj := &computega.ForwardingRule{}
 		if err := mock.GlobalForwardingRules().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("GlobalForwardingRules().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -832,9 +835,9 @@ func TestGlobalForwardingRulesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaGlobalForwardingRules.Objects[*keyAlpha] = mock.MockAlphaGlobalForwardingRules.Obj(&alpha.ForwardingRule{Name: keyAlpha.Name})
-	mock.MockBetaGlobalForwardingRules.Objects[*keyBeta] = mock.MockBetaGlobalForwardingRules.Obj(&beta.ForwardingRule{Name: keyBeta.Name})
-	mock.MockGlobalForwardingRules.Objects[*keyGA] = mock.MockGlobalForwardingRules.Obj(&ga.ForwardingRule{Name: keyGA.Name})
+	mock.MockAlphaGlobalForwardingRules.Objects[*keyAlpha] = mock.MockAlphaGlobalForwardingRules.Obj(&computealpha.ForwardingRule{Name: keyAlpha.Name})
+	mock.MockBetaGlobalForwardingRules.Objects[*keyBeta] = mock.MockBetaGlobalForwardingRules.Obj(&computebeta.ForwardingRule{Name: keyBeta.Name})
+	mock.MockGlobalForwardingRules.Objects[*keyGA] = mock.MockGlobalForwardingRules.Obj(&computega.ForwardingRule{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -937,19 +940,19 @@ func TestHealthChecksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.HealthCheck{}
+		obj := &computealpha.HealthCheck{}
 		if err := mock.AlphaHealthChecks().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.HealthCheck{}
+		obj := &computebeta.HealthCheck{}
 		if err := mock.BetaHealthChecks().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.HealthCheck{}
+		obj := &computega.HealthCheck{}
 		if err := mock.HealthChecks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("HealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -967,9 +970,9 @@ func TestHealthChecksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaHealthChecks.Objects[*keyAlpha] = mock.MockAlphaHealthChecks.Obj(&alpha.HealthCheck{Name: keyAlpha.Name})
-	mock.MockBetaHealthChecks.Objects[*keyBeta] = mock.MockBetaHealthChecks.Obj(&beta.HealthCheck{Name: keyBeta.Name})
-	mock.MockHealthChecks.Objects[*keyGA] = mock.MockHealthChecks.Obj(&ga.HealthCheck{Name: keyGA.Name})
+	mock.MockAlphaHealthChecks.Objects[*keyAlpha] = mock.MockAlphaHealthChecks.Obj(&computealpha.HealthCheck{Name: keyAlpha.Name})
+	mock.MockBetaHealthChecks.Objects[*keyBeta] = mock.MockBetaHealthChecks.Obj(&computebeta.HealthCheck{Name: keyBeta.Name})
+	mock.MockHealthChecks.Objects[*keyGA] = mock.MockHealthChecks.Obj(&computega.HealthCheck{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -1062,7 +1065,7 @@ func TestHttpHealthChecksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.HttpHealthCheck{}
+		obj := &computega.HttpHealthCheck{}
 		if err := mock.HttpHealthChecks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("HttpHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1074,7 +1077,7 @@ func TestHttpHealthChecksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockHttpHealthChecks.Objects[*keyGA] = mock.MockHttpHealthChecks.Obj(&ga.HttpHealthCheck{Name: keyGA.Name})
+	mock.MockHttpHealthChecks.Objects[*keyGA] = mock.MockHttpHealthChecks.Obj(&computega.HttpHealthCheck{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -1125,7 +1128,7 @@ func TestHttpsHealthChecksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.HttpsHealthCheck{}
+		obj := &computega.HttpsHealthCheck{}
 		if err := mock.HttpsHealthChecks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("HttpsHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1137,7 +1140,7 @@ func TestHttpsHealthChecksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockHttpsHealthChecks.Objects[*keyGA] = mock.MockHttpsHealthChecks.Obj(&ga.HttpsHealthCheck{Name: keyGA.Name})
+	mock.MockHttpsHealthChecks.Objects[*keyGA] = mock.MockHttpsHealthChecks.Obj(&computega.HttpsHealthCheck{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -1198,19 +1201,19 @@ func TestImagesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Image{}
+		obj := &computealpha.Image{}
 		if err := mock.AlphaImages().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaImages().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Image{}
+		obj := &computebeta.Image{}
 		if err := mock.BetaImages().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaImages().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Image{}
+		obj := &computega.Image{}
 		if err := mock.Images().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Images().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1228,9 +1231,9 @@ func TestImagesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaImages.Objects[*keyAlpha] = mock.MockAlphaImages.Obj(&alpha.Image{Name: keyAlpha.Name})
-	mock.MockBetaImages.Objects[*keyBeta] = mock.MockBetaImages.Obj(&beta.Image{Name: keyBeta.Name})
-	mock.MockImages.Objects[*keyGA] = mock.MockImages.Obj(&ga.Image{Name: keyGA.Name})
+	mock.MockAlphaImages.Objects[*keyAlpha] = mock.MockAlphaImages.Obj(&computealpha.Image{Name: keyAlpha.Name})
+	mock.MockBetaImages.Objects[*keyBeta] = mock.MockBetaImages.Obj(&computebeta.Image{Name: keyBeta.Name})
+	mock.MockImages.Objects[*keyGA] = mock.MockImages.Obj(&computega.Image{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -1323,7 +1326,7 @@ func TestInstanceGroupManagersGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.InstanceGroupManager{}
+		obj := &computega.InstanceGroupManager{}
 		if err := mock.InstanceGroupManagers().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("InstanceGroupManagers().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1335,7 +1338,7 @@ func TestInstanceGroupManagersGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockInstanceGroupManagers.Objects[*keyGA] = mock.MockInstanceGroupManagers.Obj(&ga.InstanceGroupManager{Name: keyGA.Name})
+	mock.MockInstanceGroupManagers.Objects[*keyGA] = mock.MockInstanceGroupManagers.Obj(&computega.InstanceGroupManager{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -1386,7 +1389,7 @@ func TestInstanceGroupsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.InstanceGroup{}
+		obj := &computega.InstanceGroup{}
 		if err := mock.InstanceGroups().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("InstanceGroups().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1398,7 +1401,7 @@ func TestInstanceGroupsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockInstanceGroups.Objects[*keyGA] = mock.MockInstanceGroups.Obj(&ga.InstanceGroup{Name: keyGA.Name})
+	mock.MockInstanceGroups.Objects[*keyGA] = mock.MockInstanceGroups.Obj(&computega.InstanceGroup{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -1449,7 +1452,7 @@ func TestInstanceTemplatesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.InstanceTemplate{}
+		obj := &computega.InstanceTemplate{}
 		if err := mock.InstanceTemplates().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("InstanceTemplates().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1461,7 +1464,7 @@ func TestInstanceTemplatesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockInstanceTemplates.Objects[*keyGA] = mock.MockInstanceTemplates.Obj(&ga.InstanceTemplate{Name: keyGA.Name})
+	mock.MockInstanceTemplates.Objects[*keyGA] = mock.MockInstanceTemplates.Obj(&computega.InstanceTemplate{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -1522,19 +1525,19 @@ func TestInstancesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Instance{}
+		obj := &computealpha.Instance{}
 		if err := mock.AlphaInstances().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaInstances().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Instance{}
+		obj := &computebeta.Instance{}
 		if err := mock.BetaInstances().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaInstances().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Instance{}
+		obj := &computega.Instance{}
 		if err := mock.Instances().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Instances().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1552,9 +1555,9 @@ func TestInstancesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaInstances.Objects[*keyAlpha] = mock.MockAlphaInstances.Obj(&alpha.Instance{Name: keyAlpha.Name})
-	mock.MockBetaInstances.Objects[*keyBeta] = mock.MockBetaInstances.Obj(&beta.Instance{Name: keyBeta.Name})
-	mock.MockInstances.Objects[*keyGA] = mock.MockInstances.Obj(&ga.Instance{Name: keyGA.Name})
+	mock.MockAlphaInstances.Objects[*keyAlpha] = mock.MockAlphaInstances.Obj(&computealpha.Instance{Name: keyAlpha.Name})
+	mock.MockBetaInstances.Objects[*keyBeta] = mock.MockBetaInstances.Obj(&computebeta.Instance{Name: keyBeta.Name})
+	mock.MockInstances.Objects[*keyGA] = mock.MockInstances.Obj(&computega.Instance{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -1652,13 +1655,13 @@ func TestMeshesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &beta.Mesh{}
+		obj := &networkservicesbeta.Mesh{}
 		if err := mock.BetaMeshes().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaMeshes().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Mesh{}
+		obj := &networkservicesga.Mesh{}
 		if err := mock.Meshes().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Meshes().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1673,8 +1676,8 @@ func TestMeshesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockBetaMeshes.Objects[*keyBeta] = mock.MockBetaMeshes.Obj(&beta.Mesh{Name: keyBeta.Name})
-	mock.MockMeshes.Objects[*keyGA] = mock.MockMeshes.Obj(&ga.Mesh{Name: keyGA.Name})
+	mock.MockBetaMeshes.Objects[*keyBeta] = mock.MockBetaMeshes.Obj(&networkservicesbeta.Mesh{Name: keyBeta.Name})
+	mock.MockMeshes.Objects[*keyGA] = mock.MockMeshes.Obj(&networkservicesga.Mesh{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-beta": true,
 		"key-ga":   true,
@@ -1756,19 +1759,19 @@ func TestNetworkEndpointGroupsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.NetworkEndpointGroup{}
+		obj := &computealpha.NetworkEndpointGroup{}
 		if err := mock.AlphaNetworkEndpointGroups().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaNetworkEndpointGroups().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.NetworkEndpointGroup{}
+		obj := &computebeta.NetworkEndpointGroup{}
 		if err := mock.BetaNetworkEndpointGroups().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaNetworkEndpointGroups().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.NetworkEndpointGroup{}
+		obj := &computega.NetworkEndpointGroup{}
 		if err := mock.NetworkEndpointGroups().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("NetworkEndpointGroups().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1786,9 +1789,9 @@ func TestNetworkEndpointGroupsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaNetworkEndpointGroups.Objects[*keyAlpha] = mock.MockAlphaNetworkEndpointGroups.Obj(&alpha.NetworkEndpointGroup{Name: keyAlpha.Name})
-	mock.MockBetaNetworkEndpointGroups.Objects[*keyBeta] = mock.MockBetaNetworkEndpointGroups.Obj(&beta.NetworkEndpointGroup{Name: keyBeta.Name})
-	mock.MockNetworkEndpointGroups.Objects[*keyGA] = mock.MockNetworkEndpointGroups.Obj(&ga.NetworkEndpointGroup{Name: keyGA.Name})
+	mock.MockAlphaNetworkEndpointGroups.Objects[*keyAlpha] = mock.MockAlphaNetworkEndpointGroups.Obj(&computealpha.NetworkEndpointGroup{Name: keyAlpha.Name})
+	mock.MockBetaNetworkEndpointGroups.Objects[*keyBeta] = mock.MockBetaNetworkEndpointGroups.Obj(&computebeta.NetworkEndpointGroup{Name: keyBeta.Name})
+	mock.MockNetworkEndpointGroups.Objects[*keyGA] = mock.MockNetworkEndpointGroups.Obj(&computega.NetworkEndpointGroup{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -1881,7 +1884,7 @@ func TestNetworkFirewallPoliciesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.FirewallPolicy{}
+		obj := &computealpha.FirewallPolicy{}
 		if err := mock.AlphaNetworkFirewallPolicies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaNetworkFirewallPolicies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
@@ -1893,7 +1896,7 @@ func TestNetworkFirewallPoliciesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaNetworkFirewallPolicies.Objects[*keyAlpha] = mock.MockAlphaNetworkFirewallPolicies.Obj(&alpha.FirewallPolicy{Name: keyAlpha.Name})
+	mock.MockAlphaNetworkFirewallPolicies.Objects[*keyAlpha] = mock.MockAlphaNetworkFirewallPolicies.Obj(&computealpha.FirewallPolicy{Name: keyAlpha.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 	}
@@ -1954,19 +1957,19 @@ func TestNetworksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Network{}
+		obj := &computealpha.Network{}
 		if err := mock.AlphaNetworks().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaNetworks().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Network{}
+		obj := &computebeta.Network{}
 		if err := mock.BetaNetworks().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaNetworks().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Network{}
+		obj := &computega.Network{}
 		if err := mock.Networks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Networks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -1984,9 +1987,9 @@ func TestNetworksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaNetworks.Objects[*keyAlpha] = mock.MockAlphaNetworks.Obj(&alpha.Network{Name: keyAlpha.Name})
-	mock.MockBetaNetworks.Objects[*keyBeta] = mock.MockBetaNetworks.Obj(&beta.Network{Name: keyBeta.Name})
-	mock.MockNetworks.Objects[*keyGA] = mock.MockNetworks.Obj(&ga.Network{Name: keyGA.Name})
+	mock.MockAlphaNetworks.Objects[*keyAlpha] = mock.MockAlphaNetworks.Obj(&computealpha.Network{Name: keyAlpha.Name})
+	mock.MockBetaNetworks.Objects[*keyBeta] = mock.MockBetaNetworks.Obj(&computebeta.Network{Name: keyBeta.Name})
+	mock.MockNetworks.Objects[*keyGA] = mock.MockNetworks.Obj(&computega.Network{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -2079,7 +2082,7 @@ func TestProjectsGroup(t *testing.T) {
 	// Get across versions.
 
 	// List.
-	mock.MockProjects.Objects[*keyGA] = mock.MockProjects.Obj(&ga.Project{Name: keyGA.Name})
+	mock.MockProjects.Objects[*keyGA] = mock.MockProjects.Obj(&computega.Project{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -2120,19 +2123,19 @@ func TestRegionBackendServicesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.BackendService{}
+		obj := &computealpha.BackendService{}
 		if err := mock.AlphaRegionBackendServices().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionBackendServices().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.BackendService{}
+		obj := &computebeta.BackendService{}
 		if err := mock.BetaRegionBackendServices().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRegionBackendServices().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.BackendService{}
+		obj := &computega.BackendService{}
 		if err := mock.RegionBackendServices().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionBackendServices().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2150,9 +2153,9 @@ func TestRegionBackendServicesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionBackendServices.Objects[*keyAlpha] = mock.MockAlphaRegionBackendServices.Obj(&alpha.BackendService{Name: keyAlpha.Name})
-	mock.MockBetaRegionBackendServices.Objects[*keyBeta] = mock.MockBetaRegionBackendServices.Obj(&beta.BackendService{Name: keyBeta.Name})
-	mock.MockRegionBackendServices.Objects[*keyGA] = mock.MockRegionBackendServices.Obj(&ga.BackendService{Name: keyGA.Name})
+	mock.MockAlphaRegionBackendServices.Objects[*keyAlpha] = mock.MockAlphaRegionBackendServices.Obj(&computealpha.BackendService{Name: keyAlpha.Name})
+	mock.MockBetaRegionBackendServices.Objects[*keyBeta] = mock.MockBetaRegionBackendServices.Obj(&computebeta.BackendService{Name: keyBeta.Name})
+	mock.MockRegionBackendServices.Objects[*keyGA] = mock.MockRegionBackendServices.Obj(&computega.BackendService{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -2245,7 +2248,7 @@ func TestRegionDisksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.Disk{}
+		obj := &computega.Disk{}
 		if err := mock.RegionDisks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionDisks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2257,7 +2260,7 @@ func TestRegionDisksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockRegionDisks.Objects[*keyGA] = mock.MockRegionDisks.Obj(&ga.Disk{Name: keyGA.Name})
+	mock.MockRegionDisks.Objects[*keyGA] = mock.MockRegionDisks.Obj(&computega.Disk{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -2318,19 +2321,19 @@ func TestRegionHealthChecksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.HealthCheck{}
+		obj := &computealpha.HealthCheck{}
 		if err := mock.AlphaRegionHealthChecks().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.HealthCheck{}
+		obj := &computebeta.HealthCheck{}
 		if err := mock.BetaRegionHealthChecks().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRegionHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.HealthCheck{}
+		obj := &computega.HealthCheck{}
 		if err := mock.RegionHealthChecks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionHealthChecks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2348,9 +2351,9 @@ func TestRegionHealthChecksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionHealthChecks.Objects[*keyAlpha] = mock.MockAlphaRegionHealthChecks.Obj(&alpha.HealthCheck{Name: keyAlpha.Name})
-	mock.MockBetaRegionHealthChecks.Objects[*keyBeta] = mock.MockBetaRegionHealthChecks.Obj(&beta.HealthCheck{Name: keyBeta.Name})
-	mock.MockRegionHealthChecks.Objects[*keyGA] = mock.MockRegionHealthChecks.Obj(&ga.HealthCheck{Name: keyGA.Name})
+	mock.MockAlphaRegionHealthChecks.Objects[*keyAlpha] = mock.MockAlphaRegionHealthChecks.Obj(&computealpha.HealthCheck{Name: keyAlpha.Name})
+	mock.MockBetaRegionHealthChecks.Objects[*keyBeta] = mock.MockBetaRegionHealthChecks.Obj(&computebeta.HealthCheck{Name: keyBeta.Name})
+	mock.MockRegionHealthChecks.Objects[*keyGA] = mock.MockRegionHealthChecks.Obj(&computega.HealthCheck{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -2443,7 +2446,7 @@ func TestRegionNetworkFirewallPoliciesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.FirewallPolicy{}
+		obj := &computealpha.FirewallPolicy{}
 		if err := mock.AlphaRegionNetworkFirewallPolicies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionNetworkFirewallPolicies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
@@ -2455,7 +2458,7 @@ func TestRegionNetworkFirewallPoliciesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionNetworkFirewallPolicies.Objects[*keyAlpha] = mock.MockAlphaRegionNetworkFirewallPolicies.Obj(&alpha.FirewallPolicy{Name: keyAlpha.Name})
+	mock.MockAlphaRegionNetworkFirewallPolicies.Objects[*keyAlpha] = mock.MockAlphaRegionNetworkFirewallPolicies.Obj(&computealpha.FirewallPolicy{Name: keyAlpha.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 	}
@@ -2516,19 +2519,19 @@ func TestRegionSslCertificatesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.SslCertificate{}
+		obj := &computealpha.SslCertificate{}
 		if err := mock.AlphaRegionSslCertificates().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionSslCertificates().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.SslCertificate{}
+		obj := &computebeta.SslCertificate{}
 		if err := mock.BetaRegionSslCertificates().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRegionSslCertificates().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.SslCertificate{}
+		obj := &computega.SslCertificate{}
 		if err := mock.RegionSslCertificates().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionSslCertificates().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2546,9 +2549,9 @@ func TestRegionSslCertificatesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionSslCertificates.Objects[*keyAlpha] = mock.MockAlphaRegionSslCertificates.Obj(&alpha.SslCertificate{Name: keyAlpha.Name})
-	mock.MockBetaRegionSslCertificates.Objects[*keyBeta] = mock.MockBetaRegionSslCertificates.Obj(&beta.SslCertificate{Name: keyBeta.Name})
-	mock.MockRegionSslCertificates.Objects[*keyGA] = mock.MockRegionSslCertificates.Obj(&ga.SslCertificate{Name: keyGA.Name})
+	mock.MockAlphaRegionSslCertificates.Objects[*keyAlpha] = mock.MockAlphaRegionSslCertificates.Obj(&computealpha.SslCertificate{Name: keyAlpha.Name})
+	mock.MockBetaRegionSslCertificates.Objects[*keyBeta] = mock.MockBetaRegionSslCertificates.Obj(&computebeta.SslCertificate{Name: keyBeta.Name})
+	mock.MockRegionSslCertificates.Objects[*keyGA] = mock.MockRegionSslCertificates.Obj(&computega.SslCertificate{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -2651,19 +2654,19 @@ func TestRegionTargetHttpProxiesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.TargetHttpProxy{}
+		obj := &computealpha.TargetHttpProxy{}
 		if err := mock.AlphaRegionTargetHttpProxies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionTargetHttpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.TargetHttpProxy{}
+		obj := &computebeta.TargetHttpProxy{}
 		if err := mock.BetaRegionTargetHttpProxies().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRegionTargetHttpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.TargetHttpProxy{}
+		obj := &computega.TargetHttpProxy{}
 		if err := mock.RegionTargetHttpProxies().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionTargetHttpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2681,9 +2684,9 @@ func TestRegionTargetHttpProxiesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionTargetHttpProxies.Objects[*keyAlpha] = mock.MockAlphaRegionTargetHttpProxies.Obj(&alpha.TargetHttpProxy{Name: keyAlpha.Name})
-	mock.MockBetaRegionTargetHttpProxies.Objects[*keyBeta] = mock.MockBetaRegionTargetHttpProxies.Obj(&beta.TargetHttpProxy{Name: keyBeta.Name})
-	mock.MockRegionTargetHttpProxies.Objects[*keyGA] = mock.MockRegionTargetHttpProxies.Obj(&ga.TargetHttpProxy{Name: keyGA.Name})
+	mock.MockAlphaRegionTargetHttpProxies.Objects[*keyAlpha] = mock.MockAlphaRegionTargetHttpProxies.Obj(&computealpha.TargetHttpProxy{Name: keyAlpha.Name})
+	mock.MockBetaRegionTargetHttpProxies.Objects[*keyBeta] = mock.MockBetaRegionTargetHttpProxies.Obj(&computebeta.TargetHttpProxy{Name: keyBeta.Name})
+	mock.MockRegionTargetHttpProxies.Objects[*keyGA] = mock.MockRegionTargetHttpProxies.Obj(&computega.TargetHttpProxy{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -2786,19 +2789,19 @@ func TestRegionTargetHttpsProxiesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.TargetHttpsProxy{}
+		obj := &computealpha.TargetHttpsProxy{}
 		if err := mock.AlphaRegionTargetHttpsProxies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionTargetHttpsProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.TargetHttpsProxy{}
+		obj := &computebeta.TargetHttpsProxy{}
 		if err := mock.BetaRegionTargetHttpsProxies().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRegionTargetHttpsProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.TargetHttpsProxy{}
+		obj := &computega.TargetHttpsProxy{}
 		if err := mock.RegionTargetHttpsProxies().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionTargetHttpsProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2816,9 +2819,9 @@ func TestRegionTargetHttpsProxiesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionTargetHttpsProxies.Objects[*keyAlpha] = mock.MockAlphaRegionTargetHttpsProxies.Obj(&alpha.TargetHttpsProxy{Name: keyAlpha.Name})
-	mock.MockBetaRegionTargetHttpsProxies.Objects[*keyBeta] = mock.MockBetaRegionTargetHttpsProxies.Obj(&beta.TargetHttpsProxy{Name: keyBeta.Name})
-	mock.MockRegionTargetHttpsProxies.Objects[*keyGA] = mock.MockRegionTargetHttpsProxies.Obj(&ga.TargetHttpsProxy{Name: keyGA.Name})
+	mock.MockAlphaRegionTargetHttpsProxies.Objects[*keyAlpha] = mock.MockAlphaRegionTargetHttpsProxies.Obj(&computealpha.TargetHttpsProxy{Name: keyAlpha.Name})
+	mock.MockBetaRegionTargetHttpsProxies.Objects[*keyBeta] = mock.MockBetaRegionTargetHttpsProxies.Obj(&computebeta.TargetHttpsProxy{Name: keyBeta.Name})
+	mock.MockRegionTargetHttpsProxies.Objects[*keyGA] = mock.MockRegionTargetHttpsProxies.Obj(&computega.TargetHttpsProxy{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -2921,19 +2924,19 @@ func TestRegionUrlMapsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.UrlMap{}
+		obj := &computealpha.UrlMap{}
 		if err := mock.AlphaRegionUrlMaps().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRegionUrlMaps().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.UrlMap{}
+		obj := &computebeta.UrlMap{}
 		if err := mock.BetaRegionUrlMaps().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRegionUrlMaps().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.UrlMap{}
+		obj := &computega.UrlMap{}
 		if err := mock.RegionUrlMaps().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("RegionUrlMaps().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -2951,9 +2954,9 @@ func TestRegionUrlMapsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRegionUrlMaps.Objects[*keyAlpha] = mock.MockAlphaRegionUrlMaps.Obj(&alpha.UrlMap{Name: keyAlpha.Name})
-	mock.MockBetaRegionUrlMaps.Objects[*keyBeta] = mock.MockBetaRegionUrlMaps.Obj(&beta.UrlMap{Name: keyBeta.Name})
-	mock.MockRegionUrlMaps.Objects[*keyGA] = mock.MockRegionUrlMaps.Obj(&ga.UrlMap{Name: keyGA.Name})
+	mock.MockAlphaRegionUrlMaps.Objects[*keyAlpha] = mock.MockAlphaRegionUrlMaps.Obj(&computealpha.UrlMap{Name: keyAlpha.Name})
+	mock.MockBetaRegionUrlMaps.Objects[*keyBeta] = mock.MockBetaRegionUrlMaps.Obj(&computebeta.UrlMap{Name: keyBeta.Name})
+	mock.MockRegionUrlMaps.Objects[*keyGA] = mock.MockRegionUrlMaps.Obj(&computega.UrlMap{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -3049,7 +3052,7 @@ func TestRegionsGroup(t *testing.T) {
 	// Get across versions.
 
 	// List.
-	mock.MockRegions.Objects[*keyGA] = mock.MockRegions.Obj(&ga.Region{Name: keyGA.Name})
+	mock.MockRegions.Objects[*keyGA] = mock.MockRegions.Obj(&computega.Region{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -3104,19 +3107,19 @@ func TestRoutersGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Router{}
+		obj := &computealpha.Router{}
 		if err := mock.AlphaRouters().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaRouters().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Router{}
+		obj := &computebeta.Router{}
 		if err := mock.BetaRouters().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaRouters().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Router{}
+		obj := &computega.Router{}
 		if err := mock.Routers().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Routers().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3134,9 +3137,9 @@ func TestRoutersGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaRouters.Objects[*keyAlpha] = mock.MockAlphaRouters.Obj(&alpha.Router{Name: keyAlpha.Name})
-	mock.MockBetaRouters.Objects[*keyBeta] = mock.MockBetaRouters.Obj(&beta.Router{Name: keyBeta.Name})
-	mock.MockRouters.Objects[*keyGA] = mock.MockRouters.Obj(&ga.Router{Name: keyGA.Name})
+	mock.MockAlphaRouters.Objects[*keyAlpha] = mock.MockAlphaRouters.Obj(&computealpha.Router{Name: keyAlpha.Name})
+	mock.MockBetaRouters.Objects[*keyBeta] = mock.MockBetaRouters.Obj(&computebeta.Router{Name: keyBeta.Name})
+	mock.MockRouters.Objects[*keyGA] = mock.MockRouters.Obj(&computega.Router{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -3229,7 +3232,7 @@ func TestRoutesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.Route{}
+		obj := &computega.Route{}
 		if err := mock.Routes().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Routes().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3241,7 +3244,7 @@ func TestRoutesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockRoutes.Objects[*keyGA] = mock.MockRoutes.Obj(&ga.Route{Name: keyGA.Name})
+	mock.MockRoutes.Objects[*keyGA] = mock.MockRoutes.Obj(&computega.Route{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -3292,7 +3295,7 @@ func TestSecurityPoliciesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &beta.SecurityPolicy{}
+		obj := &computebeta.SecurityPolicy{}
 		if err := mock.BetaSecurityPolicies().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaSecurityPolicies().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
@@ -3304,7 +3307,7 @@ func TestSecurityPoliciesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockBetaSecurityPolicies.Objects[*keyBeta] = mock.MockBetaSecurityPolicies.Obj(&beta.SecurityPolicy{Name: keyBeta.Name})
+	mock.MockBetaSecurityPolicies.Objects[*keyBeta] = mock.MockBetaSecurityPolicies.Obj(&computebeta.SecurityPolicy{Name: keyBeta.Name})
 	want := map[string]bool{
 		"key-beta": true,
 	}
@@ -3365,19 +3368,19 @@ func TestServiceAttachmentsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.ServiceAttachment{}
+		obj := &computealpha.ServiceAttachment{}
 		if err := mock.AlphaServiceAttachments().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaServiceAttachments().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.ServiceAttachment{}
+		obj := &computebeta.ServiceAttachment{}
 		if err := mock.BetaServiceAttachments().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaServiceAttachments().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.ServiceAttachment{}
+		obj := &computega.ServiceAttachment{}
 		if err := mock.ServiceAttachments().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("ServiceAttachments().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3395,9 +3398,9 @@ func TestServiceAttachmentsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaServiceAttachments.Objects[*keyAlpha] = mock.MockAlphaServiceAttachments.Obj(&alpha.ServiceAttachment{Name: keyAlpha.Name})
-	mock.MockBetaServiceAttachments.Objects[*keyBeta] = mock.MockBetaServiceAttachments.Obj(&beta.ServiceAttachment{Name: keyBeta.Name})
-	mock.MockServiceAttachments.Objects[*keyGA] = mock.MockServiceAttachments.Obj(&ga.ServiceAttachment{Name: keyGA.Name})
+	mock.MockAlphaServiceAttachments.Objects[*keyAlpha] = mock.MockAlphaServiceAttachments.Obj(&computealpha.ServiceAttachment{Name: keyAlpha.Name})
+	mock.MockBetaServiceAttachments.Objects[*keyBeta] = mock.MockBetaServiceAttachments.Obj(&computebeta.ServiceAttachment{Name: keyBeta.Name})
+	mock.MockServiceAttachments.Objects[*keyGA] = mock.MockServiceAttachments.Obj(&computega.ServiceAttachment{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -3500,19 +3503,19 @@ func TestSslCertificatesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.SslCertificate{}
+		obj := &computealpha.SslCertificate{}
 		if err := mock.AlphaSslCertificates().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaSslCertificates().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.SslCertificate{}
+		obj := &computebeta.SslCertificate{}
 		if err := mock.BetaSslCertificates().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaSslCertificates().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.SslCertificate{}
+		obj := &computega.SslCertificate{}
 		if err := mock.SslCertificates().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("SslCertificates().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3530,9 +3533,9 @@ func TestSslCertificatesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaSslCertificates.Objects[*keyAlpha] = mock.MockAlphaSslCertificates.Obj(&alpha.SslCertificate{Name: keyAlpha.Name})
-	mock.MockBetaSslCertificates.Objects[*keyBeta] = mock.MockBetaSslCertificates.Obj(&beta.SslCertificate{Name: keyBeta.Name})
-	mock.MockSslCertificates.Objects[*keyGA] = mock.MockSslCertificates.Obj(&ga.SslCertificate{Name: keyGA.Name})
+	mock.MockAlphaSslCertificates.Objects[*keyAlpha] = mock.MockAlphaSslCertificates.Obj(&computealpha.SslCertificate{Name: keyAlpha.Name})
+	mock.MockBetaSslCertificates.Objects[*keyBeta] = mock.MockBetaSslCertificates.Obj(&computebeta.SslCertificate{Name: keyBeta.Name})
+	mock.MockSslCertificates.Objects[*keyGA] = mock.MockSslCertificates.Obj(&computega.SslCertificate{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -3625,7 +3628,7 @@ func TestSslPoliciesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.SslPolicy{}
+		obj := &computega.SslPolicy{}
 		if err := mock.SslPolicies().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("SslPolicies().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3637,7 +3640,7 @@ func TestSslPoliciesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockSslPolicies.Objects[*keyGA] = mock.MockSslPolicies.Obj(&ga.SslPolicy{Name: keyGA.Name})
+	mock.MockSslPolicies.Objects[*keyGA] = mock.MockSslPolicies.Obj(&computega.SslPolicy{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -3684,19 +3687,19 @@ func TestSubnetworksGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.Subnetwork{}
+		obj := &computealpha.Subnetwork{}
 		if err := mock.AlphaSubnetworks().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaSubnetworks().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.Subnetwork{}
+		obj := &computebeta.Subnetwork{}
 		if err := mock.BetaSubnetworks().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaSubnetworks().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.Subnetwork{}
+		obj := &computega.Subnetwork{}
 		if err := mock.Subnetworks().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("Subnetworks().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3714,9 +3717,9 @@ func TestSubnetworksGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaSubnetworks.Objects[*keyAlpha] = mock.MockAlphaSubnetworks.Obj(&alpha.Subnetwork{Name: keyAlpha.Name})
-	mock.MockBetaSubnetworks.Objects[*keyBeta] = mock.MockBetaSubnetworks.Obj(&beta.Subnetwork{Name: keyBeta.Name})
-	mock.MockSubnetworks.Objects[*keyGA] = mock.MockSubnetworks.Obj(&ga.Subnetwork{Name: keyGA.Name})
+	mock.MockAlphaSubnetworks.Objects[*keyAlpha] = mock.MockAlphaSubnetworks.Obj(&computealpha.Subnetwork{Name: keyAlpha.Name})
+	mock.MockBetaSubnetworks.Objects[*keyBeta] = mock.MockBetaSubnetworks.Obj(&computebeta.Subnetwork{Name: keyBeta.Name})
+	mock.MockSubnetworks.Objects[*keyGA] = mock.MockSubnetworks.Obj(&computega.Subnetwork{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -3819,19 +3822,19 @@ func TestTargetHttpProxiesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.TargetHttpProxy{}
+		obj := &computealpha.TargetHttpProxy{}
 		if err := mock.AlphaTargetHttpProxies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaTargetHttpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.TargetHttpProxy{}
+		obj := &computebeta.TargetHttpProxy{}
 		if err := mock.BetaTargetHttpProxies().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaTargetHttpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.TargetHttpProxy{}
+		obj := &computega.TargetHttpProxy{}
 		if err := mock.TargetHttpProxies().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("TargetHttpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3849,9 +3852,9 @@ func TestTargetHttpProxiesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaTargetHttpProxies.Objects[*keyAlpha] = mock.MockAlphaTargetHttpProxies.Obj(&alpha.TargetHttpProxy{Name: keyAlpha.Name})
-	mock.MockBetaTargetHttpProxies.Objects[*keyBeta] = mock.MockBetaTargetHttpProxies.Obj(&beta.TargetHttpProxy{Name: keyBeta.Name})
-	mock.MockTargetHttpProxies.Objects[*keyGA] = mock.MockTargetHttpProxies.Obj(&ga.TargetHttpProxy{Name: keyGA.Name})
+	mock.MockAlphaTargetHttpProxies.Objects[*keyAlpha] = mock.MockAlphaTargetHttpProxies.Obj(&computealpha.TargetHttpProxy{Name: keyAlpha.Name})
+	mock.MockBetaTargetHttpProxies.Objects[*keyBeta] = mock.MockBetaTargetHttpProxies.Obj(&computebeta.TargetHttpProxy{Name: keyBeta.Name})
+	mock.MockTargetHttpProxies.Objects[*keyGA] = mock.MockTargetHttpProxies.Obj(&computega.TargetHttpProxy{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -3954,19 +3957,19 @@ func TestTargetHttpsProxiesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.TargetHttpsProxy{}
+		obj := &computealpha.TargetHttpsProxy{}
 		if err := mock.AlphaTargetHttpsProxies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaTargetHttpsProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.TargetHttpsProxy{}
+		obj := &computebeta.TargetHttpsProxy{}
 		if err := mock.BetaTargetHttpsProxies().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaTargetHttpsProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.TargetHttpsProxy{}
+		obj := &computega.TargetHttpsProxy{}
 		if err := mock.TargetHttpsProxies().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("TargetHttpsProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -3984,9 +3987,9 @@ func TestTargetHttpsProxiesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaTargetHttpsProxies.Objects[*keyAlpha] = mock.MockAlphaTargetHttpsProxies.Obj(&alpha.TargetHttpsProxy{Name: keyAlpha.Name})
-	mock.MockBetaTargetHttpsProxies.Objects[*keyBeta] = mock.MockBetaTargetHttpsProxies.Obj(&beta.TargetHttpsProxy{Name: keyBeta.Name})
-	mock.MockTargetHttpsProxies.Objects[*keyGA] = mock.MockTargetHttpsProxies.Obj(&ga.TargetHttpsProxy{Name: keyGA.Name})
+	mock.MockAlphaTargetHttpsProxies.Objects[*keyAlpha] = mock.MockAlphaTargetHttpsProxies.Obj(&computealpha.TargetHttpsProxy{Name: keyAlpha.Name})
+	mock.MockBetaTargetHttpsProxies.Objects[*keyBeta] = mock.MockBetaTargetHttpsProxies.Obj(&computebeta.TargetHttpsProxy{Name: keyBeta.Name})
+	mock.MockTargetHttpsProxies.Objects[*keyGA] = mock.MockTargetHttpsProxies.Obj(&computega.TargetHttpsProxy{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -4079,7 +4082,7 @@ func TestTargetPoolsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &ga.TargetPool{}
+		obj := &computega.TargetPool{}
 		if err := mock.TargetPools().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("TargetPools().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -4091,7 +4094,7 @@ func TestTargetPoolsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockTargetPools.Objects[*keyGA] = mock.MockTargetPools.Obj(&ga.TargetPool{Name: keyGA.Name})
+	mock.MockTargetPools.Objects[*keyGA] = mock.MockTargetPools.Obj(&computega.TargetPool{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}
@@ -4152,19 +4155,19 @@ func TestTargetTcpProxiesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.TargetTcpProxy{}
+		obj := &computealpha.TargetTcpProxy{}
 		if err := mock.AlphaTargetTcpProxies().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaTargetTcpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.TargetTcpProxy{}
+		obj := &computebeta.TargetTcpProxy{}
 		if err := mock.BetaTargetTcpProxies().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaTargetTcpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.TargetTcpProxy{}
+		obj := &computega.TargetTcpProxy{}
 		if err := mock.TargetTcpProxies().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("TargetTcpProxies().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -4182,9 +4185,9 @@ func TestTargetTcpProxiesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaTargetTcpProxies.Objects[*keyAlpha] = mock.MockAlphaTargetTcpProxies.Obj(&alpha.TargetTcpProxy{Name: keyAlpha.Name})
-	mock.MockBetaTargetTcpProxies.Objects[*keyBeta] = mock.MockBetaTargetTcpProxies.Obj(&beta.TargetTcpProxy{Name: keyBeta.Name})
-	mock.MockTargetTcpProxies.Objects[*keyGA] = mock.MockTargetTcpProxies.Obj(&ga.TargetTcpProxy{Name: keyGA.Name})
+	mock.MockAlphaTargetTcpProxies.Objects[*keyAlpha] = mock.MockAlphaTargetTcpProxies.Obj(&computealpha.TargetTcpProxy{Name: keyAlpha.Name})
+	mock.MockBetaTargetTcpProxies.Objects[*keyBeta] = mock.MockBetaTargetTcpProxies.Obj(&computebeta.TargetTcpProxy{Name: keyBeta.Name})
+	mock.MockTargetTcpProxies.Objects[*keyGA] = mock.MockTargetTcpProxies.Obj(&computega.TargetTcpProxy{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -4282,13 +4285,13 @@ func TestTcpRoutesGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &beta.TcpRoute{}
+		obj := &networkservicesbeta.TcpRoute{}
 		if err := mock.BetaTcpRoutes().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaTcpRoutes().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.TcpRoute{}
+		obj := &networkservicesga.TcpRoute{}
 		if err := mock.TcpRoutes().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("TcpRoutes().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -4303,8 +4306,8 @@ func TestTcpRoutesGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockBetaTcpRoutes.Objects[*keyBeta] = mock.MockBetaTcpRoutes.Obj(&beta.TcpRoute{Name: keyBeta.Name})
-	mock.MockTcpRoutes.Objects[*keyGA] = mock.MockTcpRoutes.Obj(&ga.TcpRoute{Name: keyGA.Name})
+	mock.MockBetaTcpRoutes.Objects[*keyBeta] = mock.MockBetaTcpRoutes.Obj(&networkservicesbeta.TcpRoute{Name: keyBeta.Name})
+	mock.MockTcpRoutes.Objects[*keyGA] = mock.MockTcpRoutes.Obj(&networkservicesga.TcpRoute{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-beta": true,
 		"key-ga":   true,
@@ -4386,19 +4389,19 @@ func TestUrlMapsGroup(t *testing.T) {
 
 	// Insert.
 	{
-		obj := &alpha.UrlMap{}
+		obj := &computealpha.UrlMap{}
 		if err := mock.AlphaUrlMaps().Insert(ctx, keyAlpha, obj); err != nil {
 			t.Errorf("AlphaUrlMaps().Insert(%v, %v, %v) = %v; want nil", ctx, keyAlpha, obj, err)
 		}
 	}
 	{
-		obj := &beta.UrlMap{}
+		obj := &computebeta.UrlMap{}
 		if err := mock.BetaUrlMaps().Insert(ctx, keyBeta, obj); err != nil {
 			t.Errorf("BetaUrlMaps().Insert(%v, %v, %v) = %v; want nil", ctx, keyBeta, obj, err)
 		}
 	}
 	{
-		obj := &ga.UrlMap{}
+		obj := &computega.UrlMap{}
 		if err := mock.UrlMaps().Insert(ctx, keyGA, obj); err != nil {
 			t.Errorf("UrlMaps().Insert(%v, %v, %v) = %v; want nil", ctx, keyGA, obj, err)
 		}
@@ -4416,9 +4419,9 @@ func TestUrlMapsGroup(t *testing.T) {
 	}
 
 	// List.
-	mock.MockAlphaUrlMaps.Objects[*keyAlpha] = mock.MockAlphaUrlMaps.Obj(&alpha.UrlMap{Name: keyAlpha.Name})
-	mock.MockBetaUrlMaps.Objects[*keyBeta] = mock.MockBetaUrlMaps.Obj(&beta.UrlMap{Name: keyBeta.Name})
-	mock.MockUrlMaps.Objects[*keyGA] = mock.MockUrlMaps.Obj(&ga.UrlMap{Name: keyGA.Name})
+	mock.MockAlphaUrlMaps.Objects[*keyAlpha] = mock.MockAlphaUrlMaps.Obj(&computealpha.UrlMap{Name: keyAlpha.Name})
+	mock.MockBetaUrlMaps.Objects[*keyBeta] = mock.MockBetaUrlMaps.Obj(&computebeta.UrlMap{Name: keyBeta.Name})
+	mock.MockUrlMaps.Objects[*keyGA] = mock.MockUrlMaps.Obj(&computega.UrlMap{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-alpha": true,
 		"key-beta":  true,
@@ -4514,7 +4517,7 @@ func TestZonesGroup(t *testing.T) {
 	// Get across versions.
 
 	// List.
-	mock.MockZones.Objects[*keyGA] = mock.MockZones.Obj(&ga.Zone{Name: keyGA.Name})
+	mock.MockZones.Objects[*keyGA] = mock.MockZones.Obj(&computega.Zone{Name: keyGA.Name})
 	want := map[string]bool{
 		"key-ga": true,
 	}

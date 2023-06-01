@@ -31,9 +31,9 @@ import (
 	"github.com/GoogleCloudPlatform/k8s-cloud-provider/pkg/cloud/filter"
 	"github.com/GoogleCloudPlatform/k8s-cloud-provider/pkg/cloud/meta"
 
-	alpha "google.golang.org/api/compute/v0.alpha"
-	beta "google.golang.org/api/compute/v0.beta"
-	ga "google.golang.org/api/compute/v1"
+	computealpha "google.golang.org/api/compute/v0.alpha"
+	computebeta "google.golang.org/api/compute/v0.beta"
+	computega "google.golang.org/api/compute/v1"
 	networkservicesga "google.golang.org/api/networkservices/v1"
 	networkservicesbeta "google.golang.org/api/networkservices/v1beta1"
 )
@@ -1551,40 +1551,40 @@ type MockAddressesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockAddressesObj) ToAlpha() *alpha.Address {
-	if ret, ok := m.Obj.(*alpha.Address); ok {
+func (m *MockAddressesObj) ToAlpha() *computealpha.Address {
+	if ret, ok := m.Obj.(*computealpha.Address); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Address{}
+	ret := &computealpha.Address{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Address via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Address via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockAddressesObj) ToBeta() *beta.Address {
-	if ret, ok := m.Obj.(*beta.Address); ok {
+func (m *MockAddressesObj) ToBeta() *computebeta.Address {
+	if ret, ok := m.Obj.(*computebeta.Address); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Address{}
+	ret := &computebeta.Address{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Address via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Address via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockAddressesObj) ToGA() *ga.Address {
-	if ret, ok := m.Obj.(*ga.Address); ok {
+func (m *MockAddressesObj) ToGA() *computega.Address {
+	if ret, ok := m.Obj.(*computega.Address); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Address{}
+	ret := &computega.Address{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Address via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Address via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1597,40 +1597,40 @@ type MockBackendServicesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockBackendServicesObj) ToAlpha() *alpha.BackendService {
-	if ret, ok := m.Obj.(*alpha.BackendService); ok {
+func (m *MockBackendServicesObj) ToAlpha() *computealpha.BackendService {
+	if ret, ok := m.Obj.(*computealpha.BackendService); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.BackendService{}
+	ret := &computealpha.BackendService{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.BackendService via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.BackendService via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockBackendServicesObj) ToBeta() *beta.BackendService {
-	if ret, ok := m.Obj.(*beta.BackendService); ok {
+func (m *MockBackendServicesObj) ToBeta() *computebeta.BackendService {
+	if ret, ok := m.Obj.(*computebeta.BackendService); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.BackendService{}
+	ret := &computebeta.BackendService{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.BackendService via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.BackendService via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockBackendServicesObj) ToGA() *ga.BackendService {
-	if ret, ok := m.Obj.(*ga.BackendService); ok {
+func (m *MockBackendServicesObj) ToGA() *computega.BackendService {
+	if ret, ok := m.Obj.(*computega.BackendService); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.BackendService{}
+	ret := &computega.BackendService{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.BackendService via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.BackendService via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1643,14 +1643,14 @@ type MockDisksObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockDisksObj) ToGA() *ga.Disk {
-	if ret, ok := m.Obj.(*ga.Disk); ok {
+func (m *MockDisksObj) ToGA() *computega.Disk {
+	if ret, ok := m.Obj.(*computega.Disk); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Disk{}
+	ret := &computega.Disk{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Disk via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Disk via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1663,40 +1663,40 @@ type MockFirewallsObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockFirewallsObj) ToAlpha() *alpha.Firewall {
-	if ret, ok := m.Obj.(*alpha.Firewall); ok {
+func (m *MockFirewallsObj) ToAlpha() *computealpha.Firewall {
+	if ret, ok := m.Obj.(*computealpha.Firewall); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Firewall{}
+	ret := &computealpha.Firewall{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Firewall via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Firewall via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockFirewallsObj) ToBeta() *beta.Firewall {
-	if ret, ok := m.Obj.(*beta.Firewall); ok {
+func (m *MockFirewallsObj) ToBeta() *computebeta.Firewall {
+	if ret, ok := m.Obj.(*computebeta.Firewall); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Firewall{}
+	ret := &computebeta.Firewall{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Firewall via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Firewall via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockFirewallsObj) ToGA() *ga.Firewall {
-	if ret, ok := m.Obj.(*ga.Firewall); ok {
+func (m *MockFirewallsObj) ToGA() *computega.Firewall {
+	if ret, ok := m.Obj.(*computega.Firewall); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Firewall{}
+	ret := &computega.Firewall{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Firewall via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Firewall via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1709,40 +1709,40 @@ type MockForwardingRulesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockForwardingRulesObj) ToAlpha() *alpha.ForwardingRule {
-	if ret, ok := m.Obj.(*alpha.ForwardingRule); ok {
+func (m *MockForwardingRulesObj) ToAlpha() *computealpha.ForwardingRule {
+	if ret, ok := m.Obj.(*computealpha.ForwardingRule); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.ForwardingRule{}
+	ret := &computealpha.ForwardingRule{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.ForwardingRule via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.ForwardingRule via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockForwardingRulesObj) ToBeta() *beta.ForwardingRule {
-	if ret, ok := m.Obj.(*beta.ForwardingRule); ok {
+func (m *MockForwardingRulesObj) ToBeta() *computebeta.ForwardingRule {
+	if ret, ok := m.Obj.(*computebeta.ForwardingRule); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.ForwardingRule{}
+	ret := &computebeta.ForwardingRule{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.ForwardingRule via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.ForwardingRule via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockForwardingRulesObj) ToGA() *ga.ForwardingRule {
-	if ret, ok := m.Obj.(*ga.ForwardingRule); ok {
+func (m *MockForwardingRulesObj) ToGA() *computega.ForwardingRule {
+	if ret, ok := m.Obj.(*computega.ForwardingRule); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.ForwardingRule{}
+	ret := &computega.ForwardingRule{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.ForwardingRule via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.ForwardingRule via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1755,40 +1755,40 @@ type MockGlobalAddressesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockGlobalAddressesObj) ToAlpha() *alpha.Address {
-	if ret, ok := m.Obj.(*alpha.Address); ok {
+func (m *MockGlobalAddressesObj) ToAlpha() *computealpha.Address {
+	if ret, ok := m.Obj.(*computealpha.Address); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Address{}
+	ret := &computealpha.Address{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Address via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Address via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockGlobalAddressesObj) ToBeta() *beta.Address {
-	if ret, ok := m.Obj.(*beta.Address); ok {
+func (m *MockGlobalAddressesObj) ToBeta() *computebeta.Address {
+	if ret, ok := m.Obj.(*computebeta.Address); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Address{}
+	ret := &computebeta.Address{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Address via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Address via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockGlobalAddressesObj) ToGA() *ga.Address {
-	if ret, ok := m.Obj.(*ga.Address); ok {
+func (m *MockGlobalAddressesObj) ToGA() *computega.Address {
+	if ret, ok := m.Obj.(*computega.Address); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Address{}
+	ret := &computega.Address{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Address via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Address via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1801,40 +1801,40 @@ type MockGlobalForwardingRulesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockGlobalForwardingRulesObj) ToAlpha() *alpha.ForwardingRule {
-	if ret, ok := m.Obj.(*alpha.ForwardingRule); ok {
+func (m *MockGlobalForwardingRulesObj) ToAlpha() *computealpha.ForwardingRule {
+	if ret, ok := m.Obj.(*computealpha.ForwardingRule); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.ForwardingRule{}
+	ret := &computealpha.ForwardingRule{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.ForwardingRule via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.ForwardingRule via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockGlobalForwardingRulesObj) ToBeta() *beta.ForwardingRule {
-	if ret, ok := m.Obj.(*beta.ForwardingRule); ok {
+func (m *MockGlobalForwardingRulesObj) ToBeta() *computebeta.ForwardingRule {
+	if ret, ok := m.Obj.(*computebeta.ForwardingRule); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.ForwardingRule{}
+	ret := &computebeta.ForwardingRule{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.ForwardingRule via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.ForwardingRule via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockGlobalForwardingRulesObj) ToGA() *ga.ForwardingRule {
-	if ret, ok := m.Obj.(*ga.ForwardingRule); ok {
+func (m *MockGlobalForwardingRulesObj) ToGA() *computega.ForwardingRule {
+	if ret, ok := m.Obj.(*computega.ForwardingRule); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.ForwardingRule{}
+	ret := &computega.ForwardingRule{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.ForwardingRule via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.ForwardingRule via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1847,40 +1847,40 @@ type MockHealthChecksObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockHealthChecksObj) ToAlpha() *alpha.HealthCheck {
-	if ret, ok := m.Obj.(*alpha.HealthCheck); ok {
+func (m *MockHealthChecksObj) ToAlpha() *computealpha.HealthCheck {
+	if ret, ok := m.Obj.(*computealpha.HealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.HealthCheck{}
+	ret := &computealpha.HealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.HealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.HealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockHealthChecksObj) ToBeta() *beta.HealthCheck {
-	if ret, ok := m.Obj.(*beta.HealthCheck); ok {
+func (m *MockHealthChecksObj) ToBeta() *computebeta.HealthCheck {
+	if ret, ok := m.Obj.(*computebeta.HealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.HealthCheck{}
+	ret := &computebeta.HealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.HealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.HealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockHealthChecksObj) ToGA() *ga.HealthCheck {
-	if ret, ok := m.Obj.(*ga.HealthCheck); ok {
+func (m *MockHealthChecksObj) ToGA() *computega.HealthCheck {
+	if ret, ok := m.Obj.(*computega.HealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.HealthCheck{}
+	ret := &computega.HealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.HealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.HealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1893,14 +1893,14 @@ type MockHttpHealthChecksObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockHttpHealthChecksObj) ToGA() *ga.HttpHealthCheck {
-	if ret, ok := m.Obj.(*ga.HttpHealthCheck); ok {
+func (m *MockHttpHealthChecksObj) ToGA() *computega.HttpHealthCheck {
+	if ret, ok := m.Obj.(*computega.HttpHealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.HttpHealthCheck{}
+	ret := &computega.HttpHealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.HttpHealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.HttpHealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1913,14 +1913,14 @@ type MockHttpsHealthChecksObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockHttpsHealthChecksObj) ToGA() *ga.HttpsHealthCheck {
-	if ret, ok := m.Obj.(*ga.HttpsHealthCheck); ok {
+func (m *MockHttpsHealthChecksObj) ToGA() *computega.HttpsHealthCheck {
+	if ret, ok := m.Obj.(*computega.HttpsHealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.HttpsHealthCheck{}
+	ret := &computega.HttpsHealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.HttpsHealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.HttpsHealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1933,40 +1933,40 @@ type MockImagesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockImagesObj) ToAlpha() *alpha.Image {
-	if ret, ok := m.Obj.(*alpha.Image); ok {
+func (m *MockImagesObj) ToAlpha() *computealpha.Image {
+	if ret, ok := m.Obj.(*computealpha.Image); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Image{}
+	ret := &computealpha.Image{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Image via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Image via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockImagesObj) ToBeta() *beta.Image {
-	if ret, ok := m.Obj.(*beta.Image); ok {
+func (m *MockImagesObj) ToBeta() *computebeta.Image {
+	if ret, ok := m.Obj.(*computebeta.Image); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Image{}
+	ret := &computebeta.Image{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Image via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Image via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockImagesObj) ToGA() *ga.Image {
-	if ret, ok := m.Obj.(*ga.Image); ok {
+func (m *MockImagesObj) ToGA() *computega.Image {
+	if ret, ok := m.Obj.(*computega.Image); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Image{}
+	ret := &computega.Image{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Image via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Image via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1979,14 +1979,14 @@ type MockInstanceGroupManagersObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockInstanceGroupManagersObj) ToGA() *ga.InstanceGroupManager {
-	if ret, ok := m.Obj.(*ga.InstanceGroupManager); ok {
+func (m *MockInstanceGroupManagersObj) ToGA() *computega.InstanceGroupManager {
+	if ret, ok := m.Obj.(*computega.InstanceGroupManager); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.InstanceGroupManager{}
+	ret := &computega.InstanceGroupManager{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.InstanceGroupManager via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.InstanceGroupManager via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -1999,14 +1999,14 @@ type MockInstanceGroupsObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockInstanceGroupsObj) ToGA() *ga.InstanceGroup {
-	if ret, ok := m.Obj.(*ga.InstanceGroup); ok {
+func (m *MockInstanceGroupsObj) ToGA() *computega.InstanceGroup {
+	if ret, ok := m.Obj.(*computega.InstanceGroup); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.InstanceGroup{}
+	ret := &computega.InstanceGroup{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.InstanceGroup via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.InstanceGroup via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2019,14 +2019,14 @@ type MockInstanceTemplatesObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockInstanceTemplatesObj) ToGA() *ga.InstanceTemplate {
-	if ret, ok := m.Obj.(*ga.InstanceTemplate); ok {
+func (m *MockInstanceTemplatesObj) ToGA() *computega.InstanceTemplate {
+	if ret, ok := m.Obj.(*computega.InstanceTemplate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.InstanceTemplate{}
+	ret := &computega.InstanceTemplate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.InstanceTemplate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.InstanceTemplate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2039,40 +2039,40 @@ type MockInstancesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockInstancesObj) ToAlpha() *alpha.Instance {
-	if ret, ok := m.Obj.(*alpha.Instance); ok {
+func (m *MockInstancesObj) ToAlpha() *computealpha.Instance {
+	if ret, ok := m.Obj.(*computealpha.Instance); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Instance{}
+	ret := &computealpha.Instance{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Instance via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Instance via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockInstancesObj) ToBeta() *beta.Instance {
-	if ret, ok := m.Obj.(*beta.Instance); ok {
+func (m *MockInstancesObj) ToBeta() *computebeta.Instance {
+	if ret, ok := m.Obj.(*computebeta.Instance); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Instance{}
+	ret := &computebeta.Instance{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Instance via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Instance via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockInstancesObj) ToGA() *ga.Instance {
-	if ret, ok := m.Obj.(*ga.Instance); ok {
+func (m *MockInstancesObj) ToGA() *computega.Instance {
+	if ret, ok := m.Obj.(*computega.Instance); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Instance{}
+	ret := &computega.Instance{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Instance via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Instance via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2118,40 +2118,40 @@ type MockNetworkEndpointGroupsObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockNetworkEndpointGroupsObj) ToAlpha() *alpha.NetworkEndpointGroup {
-	if ret, ok := m.Obj.(*alpha.NetworkEndpointGroup); ok {
+func (m *MockNetworkEndpointGroupsObj) ToAlpha() *computealpha.NetworkEndpointGroup {
+	if ret, ok := m.Obj.(*computealpha.NetworkEndpointGroup); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.NetworkEndpointGroup{}
+	ret := &computealpha.NetworkEndpointGroup{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.NetworkEndpointGroup via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.NetworkEndpointGroup via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockNetworkEndpointGroupsObj) ToBeta() *beta.NetworkEndpointGroup {
-	if ret, ok := m.Obj.(*beta.NetworkEndpointGroup); ok {
+func (m *MockNetworkEndpointGroupsObj) ToBeta() *computebeta.NetworkEndpointGroup {
+	if ret, ok := m.Obj.(*computebeta.NetworkEndpointGroup); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.NetworkEndpointGroup{}
+	ret := &computebeta.NetworkEndpointGroup{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.NetworkEndpointGroup via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.NetworkEndpointGroup via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockNetworkEndpointGroupsObj) ToGA() *ga.NetworkEndpointGroup {
-	if ret, ok := m.Obj.(*ga.NetworkEndpointGroup); ok {
+func (m *MockNetworkEndpointGroupsObj) ToGA() *computega.NetworkEndpointGroup {
+	if ret, ok := m.Obj.(*computega.NetworkEndpointGroup); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.NetworkEndpointGroup{}
+	ret := &computega.NetworkEndpointGroup{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.NetworkEndpointGroup via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.NetworkEndpointGroup via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2164,14 +2164,14 @@ type MockNetworkFirewallPoliciesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockNetworkFirewallPoliciesObj) ToAlpha() *alpha.FirewallPolicy {
-	if ret, ok := m.Obj.(*alpha.FirewallPolicy); ok {
+func (m *MockNetworkFirewallPoliciesObj) ToAlpha() *computealpha.FirewallPolicy {
+	if ret, ok := m.Obj.(*computealpha.FirewallPolicy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.FirewallPolicy{}
+	ret := &computealpha.FirewallPolicy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.FirewallPolicy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.FirewallPolicy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2184,40 +2184,40 @@ type MockNetworksObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockNetworksObj) ToAlpha() *alpha.Network {
-	if ret, ok := m.Obj.(*alpha.Network); ok {
+func (m *MockNetworksObj) ToAlpha() *computealpha.Network {
+	if ret, ok := m.Obj.(*computealpha.Network); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Network{}
+	ret := &computealpha.Network{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Network via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Network via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockNetworksObj) ToBeta() *beta.Network {
-	if ret, ok := m.Obj.(*beta.Network); ok {
+func (m *MockNetworksObj) ToBeta() *computebeta.Network {
+	if ret, ok := m.Obj.(*computebeta.Network); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Network{}
+	ret := &computebeta.Network{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Network via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Network via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockNetworksObj) ToGA() *ga.Network {
-	if ret, ok := m.Obj.(*ga.Network); ok {
+func (m *MockNetworksObj) ToGA() *computega.Network {
+	if ret, ok := m.Obj.(*computega.Network); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Network{}
+	ret := &computega.Network{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Network via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Network via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2230,14 +2230,14 @@ type MockProjectsObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockProjectsObj) ToGA() *ga.Project {
-	if ret, ok := m.Obj.(*ga.Project); ok {
+func (m *MockProjectsObj) ToGA() *computega.Project {
+	if ret, ok := m.Obj.(*computega.Project); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Project{}
+	ret := &computega.Project{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Project via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Project via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2250,40 +2250,40 @@ type MockRegionBackendServicesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionBackendServicesObj) ToAlpha() *alpha.BackendService {
-	if ret, ok := m.Obj.(*alpha.BackendService); ok {
+func (m *MockRegionBackendServicesObj) ToAlpha() *computealpha.BackendService {
+	if ret, ok := m.Obj.(*computealpha.BackendService); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.BackendService{}
+	ret := &computealpha.BackendService{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.BackendService via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.BackendService via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRegionBackendServicesObj) ToBeta() *beta.BackendService {
-	if ret, ok := m.Obj.(*beta.BackendService); ok {
+func (m *MockRegionBackendServicesObj) ToBeta() *computebeta.BackendService {
+	if ret, ok := m.Obj.(*computebeta.BackendService); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.BackendService{}
+	ret := &computebeta.BackendService{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.BackendService via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.BackendService via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionBackendServicesObj) ToGA() *ga.BackendService {
-	if ret, ok := m.Obj.(*ga.BackendService); ok {
+func (m *MockRegionBackendServicesObj) ToGA() *computega.BackendService {
+	if ret, ok := m.Obj.(*computega.BackendService); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.BackendService{}
+	ret := &computega.BackendService{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.BackendService via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.BackendService via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2296,14 +2296,14 @@ type MockRegionDisksObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionDisksObj) ToGA() *ga.Disk {
-	if ret, ok := m.Obj.(*ga.Disk); ok {
+func (m *MockRegionDisksObj) ToGA() *computega.Disk {
+	if ret, ok := m.Obj.(*computega.Disk); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Disk{}
+	ret := &computega.Disk{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Disk via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Disk via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2316,40 +2316,40 @@ type MockRegionHealthChecksObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionHealthChecksObj) ToAlpha() *alpha.HealthCheck {
-	if ret, ok := m.Obj.(*alpha.HealthCheck); ok {
+func (m *MockRegionHealthChecksObj) ToAlpha() *computealpha.HealthCheck {
+	if ret, ok := m.Obj.(*computealpha.HealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.HealthCheck{}
+	ret := &computealpha.HealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.HealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.HealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRegionHealthChecksObj) ToBeta() *beta.HealthCheck {
-	if ret, ok := m.Obj.(*beta.HealthCheck); ok {
+func (m *MockRegionHealthChecksObj) ToBeta() *computebeta.HealthCheck {
+	if ret, ok := m.Obj.(*computebeta.HealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.HealthCheck{}
+	ret := &computebeta.HealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.HealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.HealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionHealthChecksObj) ToGA() *ga.HealthCheck {
-	if ret, ok := m.Obj.(*ga.HealthCheck); ok {
+func (m *MockRegionHealthChecksObj) ToGA() *computega.HealthCheck {
+	if ret, ok := m.Obj.(*computega.HealthCheck); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.HealthCheck{}
+	ret := &computega.HealthCheck{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.HealthCheck via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.HealthCheck via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2362,14 +2362,14 @@ type MockRegionNetworkFirewallPoliciesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionNetworkFirewallPoliciesObj) ToAlpha() *alpha.FirewallPolicy {
-	if ret, ok := m.Obj.(*alpha.FirewallPolicy); ok {
+func (m *MockRegionNetworkFirewallPoliciesObj) ToAlpha() *computealpha.FirewallPolicy {
+	if ret, ok := m.Obj.(*computealpha.FirewallPolicy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.FirewallPolicy{}
+	ret := &computealpha.FirewallPolicy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.FirewallPolicy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.FirewallPolicy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2382,40 +2382,40 @@ type MockRegionSslCertificatesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionSslCertificatesObj) ToAlpha() *alpha.SslCertificate {
-	if ret, ok := m.Obj.(*alpha.SslCertificate); ok {
+func (m *MockRegionSslCertificatesObj) ToAlpha() *computealpha.SslCertificate {
+	if ret, ok := m.Obj.(*computealpha.SslCertificate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.SslCertificate{}
+	ret := &computealpha.SslCertificate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.SslCertificate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.SslCertificate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRegionSslCertificatesObj) ToBeta() *beta.SslCertificate {
-	if ret, ok := m.Obj.(*beta.SslCertificate); ok {
+func (m *MockRegionSslCertificatesObj) ToBeta() *computebeta.SslCertificate {
+	if ret, ok := m.Obj.(*computebeta.SslCertificate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.SslCertificate{}
+	ret := &computebeta.SslCertificate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.SslCertificate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.SslCertificate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionSslCertificatesObj) ToGA() *ga.SslCertificate {
-	if ret, ok := m.Obj.(*ga.SslCertificate); ok {
+func (m *MockRegionSslCertificatesObj) ToGA() *computega.SslCertificate {
+	if ret, ok := m.Obj.(*computega.SslCertificate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.SslCertificate{}
+	ret := &computega.SslCertificate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.SslCertificate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.SslCertificate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2428,40 +2428,40 @@ type MockRegionTargetHttpProxiesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionTargetHttpProxiesObj) ToAlpha() *alpha.TargetHttpProxy {
-	if ret, ok := m.Obj.(*alpha.TargetHttpProxy); ok {
+func (m *MockRegionTargetHttpProxiesObj) ToAlpha() *computealpha.TargetHttpProxy {
+	if ret, ok := m.Obj.(*computealpha.TargetHttpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.TargetHttpProxy{}
+	ret := &computealpha.TargetHttpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.TargetHttpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.TargetHttpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRegionTargetHttpProxiesObj) ToBeta() *beta.TargetHttpProxy {
-	if ret, ok := m.Obj.(*beta.TargetHttpProxy); ok {
+func (m *MockRegionTargetHttpProxiesObj) ToBeta() *computebeta.TargetHttpProxy {
+	if ret, ok := m.Obj.(*computebeta.TargetHttpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.TargetHttpProxy{}
+	ret := &computebeta.TargetHttpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.TargetHttpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.TargetHttpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionTargetHttpProxiesObj) ToGA() *ga.TargetHttpProxy {
-	if ret, ok := m.Obj.(*ga.TargetHttpProxy); ok {
+func (m *MockRegionTargetHttpProxiesObj) ToGA() *computega.TargetHttpProxy {
+	if ret, ok := m.Obj.(*computega.TargetHttpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.TargetHttpProxy{}
+	ret := &computega.TargetHttpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.TargetHttpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.TargetHttpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2474,40 +2474,40 @@ type MockRegionTargetHttpsProxiesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionTargetHttpsProxiesObj) ToAlpha() *alpha.TargetHttpsProxy {
-	if ret, ok := m.Obj.(*alpha.TargetHttpsProxy); ok {
+func (m *MockRegionTargetHttpsProxiesObj) ToAlpha() *computealpha.TargetHttpsProxy {
+	if ret, ok := m.Obj.(*computealpha.TargetHttpsProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.TargetHttpsProxy{}
+	ret := &computealpha.TargetHttpsProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.TargetHttpsProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.TargetHttpsProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRegionTargetHttpsProxiesObj) ToBeta() *beta.TargetHttpsProxy {
-	if ret, ok := m.Obj.(*beta.TargetHttpsProxy); ok {
+func (m *MockRegionTargetHttpsProxiesObj) ToBeta() *computebeta.TargetHttpsProxy {
+	if ret, ok := m.Obj.(*computebeta.TargetHttpsProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.TargetHttpsProxy{}
+	ret := &computebeta.TargetHttpsProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.TargetHttpsProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.TargetHttpsProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionTargetHttpsProxiesObj) ToGA() *ga.TargetHttpsProxy {
-	if ret, ok := m.Obj.(*ga.TargetHttpsProxy); ok {
+func (m *MockRegionTargetHttpsProxiesObj) ToGA() *computega.TargetHttpsProxy {
+	if ret, ok := m.Obj.(*computega.TargetHttpsProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.TargetHttpsProxy{}
+	ret := &computega.TargetHttpsProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.TargetHttpsProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.TargetHttpsProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2520,40 +2520,40 @@ type MockRegionUrlMapsObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRegionUrlMapsObj) ToAlpha() *alpha.UrlMap {
-	if ret, ok := m.Obj.(*alpha.UrlMap); ok {
+func (m *MockRegionUrlMapsObj) ToAlpha() *computealpha.UrlMap {
+	if ret, ok := m.Obj.(*computealpha.UrlMap); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.UrlMap{}
+	ret := &computealpha.UrlMap{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.UrlMap via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.UrlMap via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRegionUrlMapsObj) ToBeta() *beta.UrlMap {
-	if ret, ok := m.Obj.(*beta.UrlMap); ok {
+func (m *MockRegionUrlMapsObj) ToBeta() *computebeta.UrlMap {
+	if ret, ok := m.Obj.(*computebeta.UrlMap); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.UrlMap{}
+	ret := &computebeta.UrlMap{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.UrlMap via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.UrlMap via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionUrlMapsObj) ToGA() *ga.UrlMap {
-	if ret, ok := m.Obj.(*ga.UrlMap); ok {
+func (m *MockRegionUrlMapsObj) ToGA() *computega.UrlMap {
+	if ret, ok := m.Obj.(*computega.UrlMap); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.UrlMap{}
+	ret := &computega.UrlMap{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.UrlMap via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.UrlMap via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2566,14 +2566,14 @@ type MockRegionsObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRegionsObj) ToGA() *ga.Region {
-	if ret, ok := m.Obj.(*ga.Region); ok {
+func (m *MockRegionsObj) ToGA() *computega.Region {
+	if ret, ok := m.Obj.(*computega.Region); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Region{}
+	ret := &computega.Region{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Region via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Region via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2586,40 +2586,40 @@ type MockRoutersObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockRoutersObj) ToAlpha() *alpha.Router {
-	if ret, ok := m.Obj.(*alpha.Router); ok {
+func (m *MockRoutersObj) ToAlpha() *computealpha.Router {
+	if ret, ok := m.Obj.(*computealpha.Router); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Router{}
+	ret := &computealpha.Router{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Router via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Router via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockRoutersObj) ToBeta() *beta.Router {
-	if ret, ok := m.Obj.(*beta.Router); ok {
+func (m *MockRoutersObj) ToBeta() *computebeta.Router {
+	if ret, ok := m.Obj.(*computebeta.Router); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Router{}
+	ret := &computebeta.Router{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Router via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Router via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRoutersObj) ToGA() *ga.Router {
-	if ret, ok := m.Obj.(*ga.Router); ok {
+func (m *MockRoutersObj) ToGA() *computega.Router {
+	if ret, ok := m.Obj.(*computega.Router); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Router{}
+	ret := &computega.Router{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Router via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Router via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2632,14 +2632,14 @@ type MockRoutesObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockRoutesObj) ToGA() *ga.Route {
-	if ret, ok := m.Obj.(*ga.Route); ok {
+func (m *MockRoutesObj) ToGA() *computega.Route {
+	if ret, ok := m.Obj.(*computega.Route); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Route{}
+	ret := &computega.Route{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Route via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Route via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2652,14 +2652,14 @@ type MockSecurityPoliciesObj struct {
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockSecurityPoliciesObj) ToBeta() *beta.SecurityPolicy {
-	if ret, ok := m.Obj.(*beta.SecurityPolicy); ok {
+func (m *MockSecurityPoliciesObj) ToBeta() *computebeta.SecurityPolicy {
+	if ret, ok := m.Obj.(*computebeta.SecurityPolicy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.SecurityPolicy{}
+	ret := &computebeta.SecurityPolicy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.SecurityPolicy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.SecurityPolicy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2672,40 +2672,40 @@ type MockServiceAttachmentsObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockServiceAttachmentsObj) ToAlpha() *alpha.ServiceAttachment {
-	if ret, ok := m.Obj.(*alpha.ServiceAttachment); ok {
+func (m *MockServiceAttachmentsObj) ToAlpha() *computealpha.ServiceAttachment {
+	if ret, ok := m.Obj.(*computealpha.ServiceAttachment); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.ServiceAttachment{}
+	ret := &computealpha.ServiceAttachment{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.ServiceAttachment via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.ServiceAttachment via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockServiceAttachmentsObj) ToBeta() *beta.ServiceAttachment {
-	if ret, ok := m.Obj.(*beta.ServiceAttachment); ok {
+func (m *MockServiceAttachmentsObj) ToBeta() *computebeta.ServiceAttachment {
+	if ret, ok := m.Obj.(*computebeta.ServiceAttachment); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.ServiceAttachment{}
+	ret := &computebeta.ServiceAttachment{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.ServiceAttachment via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.ServiceAttachment via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockServiceAttachmentsObj) ToGA() *ga.ServiceAttachment {
-	if ret, ok := m.Obj.(*ga.ServiceAttachment); ok {
+func (m *MockServiceAttachmentsObj) ToGA() *computega.ServiceAttachment {
+	if ret, ok := m.Obj.(*computega.ServiceAttachment); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.ServiceAttachment{}
+	ret := &computega.ServiceAttachment{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.ServiceAttachment via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.ServiceAttachment via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2718,40 +2718,40 @@ type MockSslCertificatesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockSslCertificatesObj) ToAlpha() *alpha.SslCertificate {
-	if ret, ok := m.Obj.(*alpha.SslCertificate); ok {
+func (m *MockSslCertificatesObj) ToAlpha() *computealpha.SslCertificate {
+	if ret, ok := m.Obj.(*computealpha.SslCertificate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.SslCertificate{}
+	ret := &computealpha.SslCertificate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.SslCertificate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.SslCertificate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockSslCertificatesObj) ToBeta() *beta.SslCertificate {
-	if ret, ok := m.Obj.(*beta.SslCertificate); ok {
+func (m *MockSslCertificatesObj) ToBeta() *computebeta.SslCertificate {
+	if ret, ok := m.Obj.(*computebeta.SslCertificate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.SslCertificate{}
+	ret := &computebeta.SslCertificate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.SslCertificate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.SslCertificate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockSslCertificatesObj) ToGA() *ga.SslCertificate {
-	if ret, ok := m.Obj.(*ga.SslCertificate); ok {
+func (m *MockSslCertificatesObj) ToGA() *computega.SslCertificate {
+	if ret, ok := m.Obj.(*computega.SslCertificate); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.SslCertificate{}
+	ret := &computega.SslCertificate{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.SslCertificate via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.SslCertificate via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2764,14 +2764,14 @@ type MockSslPoliciesObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockSslPoliciesObj) ToGA() *ga.SslPolicy {
-	if ret, ok := m.Obj.(*ga.SslPolicy); ok {
+func (m *MockSslPoliciesObj) ToGA() *computega.SslPolicy {
+	if ret, ok := m.Obj.(*computega.SslPolicy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.SslPolicy{}
+	ret := &computega.SslPolicy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.SslPolicy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.SslPolicy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2784,40 +2784,40 @@ type MockSubnetworksObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockSubnetworksObj) ToAlpha() *alpha.Subnetwork {
-	if ret, ok := m.Obj.(*alpha.Subnetwork); ok {
+func (m *MockSubnetworksObj) ToAlpha() *computealpha.Subnetwork {
+	if ret, ok := m.Obj.(*computealpha.Subnetwork); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.Subnetwork{}
+	ret := &computealpha.Subnetwork{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.Subnetwork via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.Subnetwork via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockSubnetworksObj) ToBeta() *beta.Subnetwork {
-	if ret, ok := m.Obj.(*beta.Subnetwork); ok {
+func (m *MockSubnetworksObj) ToBeta() *computebeta.Subnetwork {
+	if ret, ok := m.Obj.(*computebeta.Subnetwork); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.Subnetwork{}
+	ret := &computebeta.Subnetwork{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.Subnetwork via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.Subnetwork via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockSubnetworksObj) ToGA() *ga.Subnetwork {
-	if ret, ok := m.Obj.(*ga.Subnetwork); ok {
+func (m *MockSubnetworksObj) ToGA() *computega.Subnetwork {
+	if ret, ok := m.Obj.(*computega.Subnetwork); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Subnetwork{}
+	ret := &computega.Subnetwork{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Subnetwork via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Subnetwork via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2830,40 +2830,40 @@ type MockTargetHttpProxiesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockTargetHttpProxiesObj) ToAlpha() *alpha.TargetHttpProxy {
-	if ret, ok := m.Obj.(*alpha.TargetHttpProxy); ok {
+func (m *MockTargetHttpProxiesObj) ToAlpha() *computealpha.TargetHttpProxy {
+	if ret, ok := m.Obj.(*computealpha.TargetHttpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.TargetHttpProxy{}
+	ret := &computealpha.TargetHttpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.TargetHttpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.TargetHttpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockTargetHttpProxiesObj) ToBeta() *beta.TargetHttpProxy {
-	if ret, ok := m.Obj.(*beta.TargetHttpProxy); ok {
+func (m *MockTargetHttpProxiesObj) ToBeta() *computebeta.TargetHttpProxy {
+	if ret, ok := m.Obj.(*computebeta.TargetHttpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.TargetHttpProxy{}
+	ret := &computebeta.TargetHttpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.TargetHttpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.TargetHttpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockTargetHttpProxiesObj) ToGA() *ga.TargetHttpProxy {
-	if ret, ok := m.Obj.(*ga.TargetHttpProxy); ok {
+func (m *MockTargetHttpProxiesObj) ToGA() *computega.TargetHttpProxy {
+	if ret, ok := m.Obj.(*computega.TargetHttpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.TargetHttpProxy{}
+	ret := &computega.TargetHttpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.TargetHttpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.TargetHttpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2876,40 +2876,40 @@ type MockTargetHttpsProxiesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockTargetHttpsProxiesObj) ToAlpha() *alpha.TargetHttpsProxy {
-	if ret, ok := m.Obj.(*alpha.TargetHttpsProxy); ok {
+func (m *MockTargetHttpsProxiesObj) ToAlpha() *computealpha.TargetHttpsProxy {
+	if ret, ok := m.Obj.(*computealpha.TargetHttpsProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.TargetHttpsProxy{}
+	ret := &computealpha.TargetHttpsProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.TargetHttpsProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.TargetHttpsProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockTargetHttpsProxiesObj) ToBeta() *beta.TargetHttpsProxy {
-	if ret, ok := m.Obj.(*beta.TargetHttpsProxy); ok {
+func (m *MockTargetHttpsProxiesObj) ToBeta() *computebeta.TargetHttpsProxy {
+	if ret, ok := m.Obj.(*computebeta.TargetHttpsProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.TargetHttpsProxy{}
+	ret := &computebeta.TargetHttpsProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.TargetHttpsProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.TargetHttpsProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockTargetHttpsProxiesObj) ToGA() *ga.TargetHttpsProxy {
-	if ret, ok := m.Obj.(*ga.TargetHttpsProxy); ok {
+func (m *MockTargetHttpsProxiesObj) ToGA() *computega.TargetHttpsProxy {
+	if ret, ok := m.Obj.(*computega.TargetHttpsProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.TargetHttpsProxy{}
+	ret := &computega.TargetHttpsProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.TargetHttpsProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.TargetHttpsProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2922,14 +2922,14 @@ type MockTargetPoolsObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockTargetPoolsObj) ToGA() *ga.TargetPool {
-	if ret, ok := m.Obj.(*ga.TargetPool); ok {
+func (m *MockTargetPoolsObj) ToGA() *computega.TargetPool {
+	if ret, ok := m.Obj.(*computega.TargetPool); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.TargetPool{}
+	ret := &computega.TargetPool{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.TargetPool via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.TargetPool via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -2942,40 +2942,40 @@ type MockTargetTcpProxiesObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockTargetTcpProxiesObj) ToAlpha() *alpha.TargetTcpProxy {
-	if ret, ok := m.Obj.(*alpha.TargetTcpProxy); ok {
+func (m *MockTargetTcpProxiesObj) ToAlpha() *computealpha.TargetTcpProxy {
+	if ret, ok := m.Obj.(*computealpha.TargetTcpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.TargetTcpProxy{}
+	ret := &computealpha.TargetTcpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.TargetTcpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.TargetTcpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockTargetTcpProxiesObj) ToBeta() *beta.TargetTcpProxy {
-	if ret, ok := m.Obj.(*beta.TargetTcpProxy); ok {
+func (m *MockTargetTcpProxiesObj) ToBeta() *computebeta.TargetTcpProxy {
+	if ret, ok := m.Obj.(*computebeta.TargetTcpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.TargetTcpProxy{}
+	ret := &computebeta.TargetTcpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.TargetTcpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.TargetTcpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockTargetTcpProxiesObj) ToGA() *ga.TargetTcpProxy {
-	if ret, ok := m.Obj.(*ga.TargetTcpProxy); ok {
+func (m *MockTargetTcpProxiesObj) ToGA() *computega.TargetTcpProxy {
+	if ret, ok := m.Obj.(*computega.TargetTcpProxy); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.TargetTcpProxy{}
+	ret := &computega.TargetTcpProxy{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.TargetTcpProxy via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.TargetTcpProxy via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -3021,40 +3021,40 @@ type MockUrlMapsObj struct {
 }
 
 // ToAlpha retrieves the given version of the object.
-func (m *MockUrlMapsObj) ToAlpha() *alpha.UrlMap {
-	if ret, ok := m.Obj.(*alpha.UrlMap); ok {
+func (m *MockUrlMapsObj) ToAlpha() *computealpha.UrlMap {
+	if ret, ok := m.Obj.(*computealpha.UrlMap); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &alpha.UrlMap{}
+	ret := &computealpha.UrlMap{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *alpha.UrlMap via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computealpha.UrlMap via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToBeta retrieves the given version of the object.
-func (m *MockUrlMapsObj) ToBeta() *beta.UrlMap {
-	if ret, ok := m.Obj.(*beta.UrlMap); ok {
+func (m *MockUrlMapsObj) ToBeta() *computebeta.UrlMap {
+	if ret, ok := m.Obj.(*computebeta.UrlMap); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &beta.UrlMap{}
+	ret := &computebeta.UrlMap{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *beta.UrlMap via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computebeta.UrlMap via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockUrlMapsObj) ToGA() *ga.UrlMap {
-	if ret, ok := m.Obj.(*ga.UrlMap); ok {
+func (m *MockUrlMapsObj) ToGA() *computega.UrlMap {
+	if ret, ok := m.Obj.(*computega.UrlMap); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.UrlMap{}
+	ret := &computega.UrlMap{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.UrlMap via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.UrlMap via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
@@ -3067,25 +3067,25 @@ type MockZonesObj struct {
 }
 
 // ToGA retrieves the given version of the object.
-func (m *MockZonesObj) ToGA() *ga.Zone {
-	if ret, ok := m.Obj.(*ga.Zone); ok {
+func (m *MockZonesObj) ToGA() *computega.Zone {
+	if ret, ok := m.Obj.(*computega.Zone); ok {
 		return ret
 	}
 	// Convert the object via JSON copying to the type that was requested.
-	ret := &ga.Zone{}
+	ret := &computega.Zone{}
 	if err := copyViaJSON(ret, m.Obj); err != nil {
-		klog.Errorf("Could not convert %T to *ga.Zone via JSON: %v", m.Obj, err)
+		klog.Errorf("Could not convert %T to *computega.Zone via JSON: %v", m.Obj, err)
 	}
 	return ret
 }
 
 // Addresses is an interface that allows for mocking of Addresses.
 type Addresses interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Address, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.Address, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Address) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Address, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.Address, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Address) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.Address, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.Address, error)
 }
 
 // NewMockAddresses returns a new mock for Addresses.
@@ -3122,11 +3122,11 @@ type MockAddresses struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook            func(ctx context.Context, key *meta.Key, m *MockAddresses) (bool, *ga.Address, error)
-	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockAddresses) (bool, []*ga.Address, error)
-	InsertHook         func(ctx context.Context, key *meta.Key, obj *ga.Address, m *MockAddresses) (bool, error)
+	GetHook            func(ctx context.Context, key *meta.Key, m *MockAddresses) (bool, *computega.Address, error)
+	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockAddresses) (bool, []*computega.Address, error)
+	InsertHook         func(ctx context.Context, key *meta.Key, obj *computega.Address, m *MockAddresses) (bool, error)
 	DeleteHook         func(ctx context.Context, key *meta.Key, m *MockAddresses) (bool, error)
-	AggregatedListHook func(ctx context.Context, fl *filter.F, m *MockAddresses) (bool, map[string][]*ga.Address, error)
+	AggregatedListHook func(ctx context.Context, fl *filter.F, m *MockAddresses) (bool, map[string][]*computega.Address, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -3134,7 +3134,7 @@ type MockAddresses struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Address, error) {
+func (m *MockAddresses) Get(ctx context.Context, key *meta.Key) (*computega.Address, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAddresses.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -3167,7 +3167,7 @@ func (m *MockAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Address, er
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Address, error) {
+func (m *MockAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Address, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAddresses.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -3185,7 +3185,7 @@ func (m *MockAddresses) List(ctx context.Context, region string, fl *filter.F) (
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Address
+	var objs []*computega.Address
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -3201,7 +3201,7 @@ func (m *MockAddresses) List(ctx context.Context, region string, fl *filter.F) (
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAddresses) Insert(ctx context.Context, key *meta.Key, obj *ga.Address) error {
+func (m *MockAddresses) Insert(ctx context.Context, key *meta.Key, obj *computega.Address) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAddresses.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -3271,7 +3271,7 @@ func (m *MockAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.Address, error) {
+func (m *MockAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.Address, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAddresses.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -3288,7 +3288,7 @@ func (m *MockAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[s
 		return nil, err
 	}
 
-	objs := map[string][]*ga.Address{}
+	objs := map[string][]*computega.Address{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToGA().SelfLink)
 		if err != nil {
@@ -3306,7 +3306,7 @@ func (m *MockAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[s
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAddresses) Obj(o *ga.Address) *MockAddressesObj {
+func (m *MockAddresses) Obj(o *computega.Address) *MockAddressesObj {
 	return &MockAddressesObj{o}
 }
 
@@ -3316,7 +3316,7 @@ type GCEAddresses struct {
 }
 
 // Get the Address named by key.
-func (g *GCEAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Address, error) {
+func (g *GCEAddresses) Get(ctx context.Context, key *meta.Key) (*computega.Address, error) {
 	klog.V(5).Infof("GCEAddresses.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -3349,7 +3349,7 @@ func (g *GCEAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Address, err
 }
 
 // List all Address objects.
-func (g *GCEAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Address, error) {
+func (g *GCEAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Address, error) {
 	klog.V(5).Infof("GCEAddresses.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Addresses")
 	ck := &CallContextKey{
@@ -3369,8 +3369,8 @@ func (g *GCEAddresses) List(ctx context.Context, region string, fl *filter.F) ([
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Address
-	f := func(l *ga.AddressList) error {
+	var all []*computega.Address
+	f := func(l *computega.AddressList) error {
 		klog.V(5).Infof("GCEAddresses.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -3400,7 +3400,7 @@ func (g *GCEAddresses) List(ctx context.Context, region string, fl *filter.F) ([
 }
 
 // Insert Address with key of value obj.
-func (g *GCEAddresses) Insert(ctx context.Context, key *meta.Key, obj *ga.Address) error {
+func (g *GCEAddresses) Insert(ctx context.Context, key *meta.Key, obj *computega.Address) error {
 	klog.V(5).Infof("GCEAddresses.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAddresses.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -3479,7 +3479,7 @@ func (g *GCEAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.Address, error) {
+func (g *GCEAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.Address, error) {
 	klog.V(5).Infof("GCEAddresses.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Addresses")
@@ -3503,8 +3503,8 @@ func (g *GCEAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[st
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*ga.Address{}
-	f := func(l *ga.AddressAggregatedList) error {
+	all := map[string][]*computega.Address{}
+	f := func(l *computega.AddressAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEAddresses.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.Addresses...)
@@ -3532,11 +3532,11 @@ func (g *GCEAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[st
 
 // AlphaAddresses is an interface that allows for mocking of Addresses.
 type AlphaAddresses interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Address, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Address, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Address) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Address, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Address, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Address) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.Address, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.Address, error)
 }
 
 // NewMockAlphaAddresses returns a new mock for Addresses.
@@ -3573,11 +3573,11 @@ type MockAlphaAddresses struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook            func(ctx context.Context, key *meta.Key, m *MockAlphaAddresses) (bool, *alpha.Address, error)
-	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockAlphaAddresses) (bool, []*alpha.Address, error)
-	InsertHook         func(ctx context.Context, key *meta.Key, obj *alpha.Address, m *MockAlphaAddresses) (bool, error)
+	GetHook            func(ctx context.Context, key *meta.Key, m *MockAlphaAddresses) (bool, *computealpha.Address, error)
+	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockAlphaAddresses) (bool, []*computealpha.Address, error)
+	InsertHook         func(ctx context.Context, key *meta.Key, obj *computealpha.Address, m *MockAlphaAddresses) (bool, error)
 	DeleteHook         func(ctx context.Context, key *meta.Key, m *MockAlphaAddresses) (bool, error)
-	AggregatedListHook func(ctx context.Context, fl *filter.F, m *MockAlphaAddresses) (bool, map[string][]*alpha.Address, error)
+	AggregatedListHook func(ctx context.Context, fl *filter.F, m *MockAlphaAddresses) (bool, map[string][]*computealpha.Address, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -3585,7 +3585,7 @@ type MockAlphaAddresses struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaAddresses) Get(ctx context.Context, key *meta.Key) (*alpha.Address, error) {
+func (m *MockAlphaAddresses) Get(ctx context.Context, key *meta.Key) (*computealpha.Address, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaAddresses.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -3618,7 +3618,7 @@ func (m *MockAlphaAddresses) Get(ctx context.Context, key *meta.Key) (*alpha.Add
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Address, error) {
+func (m *MockAlphaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Address, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaAddresses.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -3636,7 +3636,7 @@ func (m *MockAlphaAddresses) List(ctx context.Context, region string, fl *filter
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Address
+	var objs []*computealpha.Address
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -3652,7 +3652,7 @@ func (m *MockAlphaAddresses) List(ctx context.Context, region string, fl *filter
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaAddresses) Insert(ctx context.Context, key *meta.Key, obj *alpha.Address) error {
+func (m *MockAlphaAddresses) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Address) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaAddresses.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -3722,7 +3722,7 @@ func (m *MockAlphaAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.Address, error) {
+func (m *MockAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.Address, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaAddresses.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -3739,7 +3739,7 @@ func (m *MockAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (
 		return nil, err
 	}
 
-	objs := map[string][]*alpha.Address{}
+	objs := map[string][]*computealpha.Address{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToAlpha().SelfLink)
 		if err != nil {
@@ -3757,7 +3757,7 @@ func (m *MockAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaAddresses) Obj(o *alpha.Address) *MockAddressesObj {
+func (m *MockAlphaAddresses) Obj(o *computealpha.Address) *MockAddressesObj {
 	return &MockAddressesObj{o}
 }
 
@@ -3767,7 +3767,7 @@ type GCEAlphaAddresses struct {
 }
 
 // Get the Address named by key.
-func (g *GCEAlphaAddresses) Get(ctx context.Context, key *meta.Key) (*alpha.Address, error) {
+func (g *GCEAlphaAddresses) Get(ctx context.Context, key *meta.Key) (*computealpha.Address, error) {
 	klog.V(5).Infof("GCEAlphaAddresses.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -3800,7 +3800,7 @@ func (g *GCEAlphaAddresses) Get(ctx context.Context, key *meta.Key) (*alpha.Addr
 }
 
 // List all Address objects.
-func (g *GCEAlphaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Address, error) {
+func (g *GCEAlphaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Address, error) {
 	klog.V(5).Infof("GCEAlphaAddresses.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Addresses")
 	ck := &CallContextKey{
@@ -3820,8 +3820,8 @@ func (g *GCEAlphaAddresses) List(ctx context.Context, region string, fl *filter.
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Address
-	f := func(l *alpha.AddressList) error {
+	var all []*computealpha.Address
+	f := func(l *computealpha.AddressList) error {
 		klog.V(5).Infof("GCEAlphaAddresses.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -3851,7 +3851,7 @@ func (g *GCEAlphaAddresses) List(ctx context.Context, region string, fl *filter.
 }
 
 // Insert Address with key of value obj.
-func (g *GCEAlphaAddresses) Insert(ctx context.Context, key *meta.Key, obj *alpha.Address) error {
+func (g *GCEAlphaAddresses) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Address) error {
 	klog.V(5).Infof("GCEAlphaAddresses.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaAddresses.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -3930,7 +3930,7 @@ func (g *GCEAlphaAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.Address, error) {
+func (g *GCEAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.Address, error) {
 	klog.V(5).Infof("GCEAlphaAddresses.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Addresses")
@@ -3954,8 +3954,8 @@ func (g *GCEAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (m
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*alpha.Address{}
-	f := func(l *alpha.AddressAggregatedList) error {
+	all := map[string][]*computealpha.Address{}
+	f := func(l *computealpha.AddressAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEAlphaAddresses.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.Addresses...)
@@ -3983,11 +3983,11 @@ func (g *GCEAlphaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (m
 
 // BetaAddresses is an interface that allows for mocking of Addresses.
 type BetaAddresses interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Address, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.Address, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Address) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Address, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Address, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Address) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.Address, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.Address, error)
 }
 
 // NewMockBetaAddresses returns a new mock for Addresses.
@@ -4024,11 +4024,11 @@ type MockBetaAddresses struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook            func(ctx context.Context, key *meta.Key, m *MockBetaAddresses) (bool, *beta.Address, error)
-	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockBetaAddresses) (bool, []*beta.Address, error)
-	InsertHook         func(ctx context.Context, key *meta.Key, obj *beta.Address, m *MockBetaAddresses) (bool, error)
+	GetHook            func(ctx context.Context, key *meta.Key, m *MockBetaAddresses) (bool, *computebeta.Address, error)
+	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockBetaAddresses) (bool, []*computebeta.Address, error)
+	InsertHook         func(ctx context.Context, key *meta.Key, obj *computebeta.Address, m *MockBetaAddresses) (bool, error)
 	DeleteHook         func(ctx context.Context, key *meta.Key, m *MockBetaAddresses) (bool, error)
-	AggregatedListHook func(ctx context.Context, fl *filter.F, m *MockBetaAddresses) (bool, map[string][]*beta.Address, error)
+	AggregatedListHook func(ctx context.Context, fl *filter.F, m *MockBetaAddresses) (bool, map[string][]*computebeta.Address, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -4036,7 +4036,7 @@ type MockBetaAddresses struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaAddresses) Get(ctx context.Context, key *meta.Key) (*beta.Address, error) {
+func (m *MockBetaAddresses) Get(ctx context.Context, key *meta.Key) (*computebeta.Address, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaAddresses.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -4069,7 +4069,7 @@ func (m *MockBetaAddresses) Get(ctx context.Context, key *meta.Key) (*beta.Addre
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*beta.Address, error) {
+func (m *MockBetaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Address, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaAddresses.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -4087,7 +4087,7 @@ func (m *MockBetaAddresses) List(ctx context.Context, region string, fl *filter.
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Address
+	var objs []*computebeta.Address
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -4103,7 +4103,7 @@ func (m *MockBetaAddresses) List(ctx context.Context, region string, fl *filter.
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaAddresses) Insert(ctx context.Context, key *meta.Key, obj *beta.Address) error {
+func (m *MockBetaAddresses) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Address) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaAddresses.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -4173,7 +4173,7 @@ func (m *MockBetaAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.Address, error) {
+func (m *MockBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.Address, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaAddresses.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -4190,7 +4190,7 @@ func (m *MockBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (m
 		return nil, err
 	}
 
-	objs := map[string][]*beta.Address{}
+	objs := map[string][]*computebeta.Address{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToBeta().SelfLink)
 		if err != nil {
@@ -4208,7 +4208,7 @@ func (m *MockBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (m
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaAddresses) Obj(o *beta.Address) *MockAddressesObj {
+func (m *MockBetaAddresses) Obj(o *computebeta.Address) *MockAddressesObj {
 	return &MockAddressesObj{o}
 }
 
@@ -4218,7 +4218,7 @@ type GCEBetaAddresses struct {
 }
 
 // Get the Address named by key.
-func (g *GCEBetaAddresses) Get(ctx context.Context, key *meta.Key) (*beta.Address, error) {
+func (g *GCEBetaAddresses) Get(ctx context.Context, key *meta.Key) (*computebeta.Address, error) {
 	klog.V(5).Infof("GCEBetaAddresses.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -4251,7 +4251,7 @@ func (g *GCEBetaAddresses) Get(ctx context.Context, key *meta.Key) (*beta.Addres
 }
 
 // List all Address objects.
-func (g *GCEBetaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*beta.Address, error) {
+func (g *GCEBetaAddresses) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Address, error) {
 	klog.V(5).Infof("GCEBetaAddresses.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Addresses")
 	ck := &CallContextKey{
@@ -4271,8 +4271,8 @@ func (g *GCEBetaAddresses) List(ctx context.Context, region string, fl *filter.F
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Address
-	f := func(l *beta.AddressList) error {
+	var all []*computebeta.Address
+	f := func(l *computebeta.AddressList) error {
 		klog.V(5).Infof("GCEBetaAddresses.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -4302,7 +4302,7 @@ func (g *GCEBetaAddresses) List(ctx context.Context, region string, fl *filter.F
 }
 
 // Insert Address with key of value obj.
-func (g *GCEBetaAddresses) Insert(ctx context.Context, key *meta.Key, obj *beta.Address) error {
+func (g *GCEBetaAddresses) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Address) error {
 	klog.V(5).Infof("GCEBetaAddresses.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaAddresses.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -4381,7 +4381,7 @@ func (g *GCEBetaAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.Address, error) {
+func (g *GCEBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.Address, error) {
 	klog.V(5).Infof("GCEBetaAddresses.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Addresses")
@@ -4405,8 +4405,8 @@ func (g *GCEBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (ma
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*beta.Address{}
-	f := func(l *beta.AddressAggregatedList) error {
+	all := map[string][]*computebeta.Address{}
+	f := func(l *computebeta.AddressAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEBetaAddresses.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.Addresses...)
@@ -4434,9 +4434,9 @@ func (g *GCEBetaAddresses) AggregatedList(ctx context.Context, fl *filter.F) (ma
 
 // AlphaGlobalAddresses is an interface that allows for mocking of GlobalAddresses.
 type AlphaGlobalAddresses interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Address, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.Address, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Address) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Address, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.Address, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Address) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -4473,9 +4473,9 @@ type MockAlphaGlobalAddresses struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaGlobalAddresses) (bool, *alpha.Address, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaGlobalAddresses) (bool, []*alpha.Address, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.Address, m *MockAlphaGlobalAddresses) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaGlobalAddresses) (bool, *computealpha.Address, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaGlobalAddresses) (bool, []*computealpha.Address, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.Address, m *MockAlphaGlobalAddresses) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaGlobalAddresses) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -4484,7 +4484,7 @@ type MockAlphaGlobalAddresses struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*alpha.Address, error) {
+func (m *MockAlphaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*computealpha.Address, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaGlobalAddresses.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -4517,7 +4517,7 @@ func (m *MockAlphaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*alp
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*alpha.Address, error) {
+func (m *MockAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*computealpha.Address, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaGlobalAddresses.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -4535,7 +4535,7 @@ func (m *MockAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*a
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Address
+	var objs []*computealpha.Address
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -4548,7 +4548,7 @@ func (m *MockAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*a
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *alpha.Address) error {
+func (m *MockAlphaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Address) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaGlobalAddresses.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -4618,7 +4618,7 @@ func (m *MockAlphaGlobalAddresses) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaGlobalAddresses) Obj(o *alpha.Address) *MockGlobalAddressesObj {
+func (m *MockAlphaGlobalAddresses) Obj(o *computealpha.Address) *MockGlobalAddressesObj {
 	return &MockGlobalAddressesObj{o}
 }
 
@@ -4628,7 +4628,7 @@ type GCEAlphaGlobalAddresses struct {
 }
 
 // Get the Address named by key.
-func (g *GCEAlphaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*alpha.Address, error) {
+func (g *GCEAlphaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*computealpha.Address, error) {
 	klog.V(5).Infof("GCEAlphaGlobalAddresses.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -4661,7 +4661,7 @@ func (g *GCEAlphaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*alph
 }
 
 // List all Address objects.
-func (g *GCEAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*alpha.Address, error) {
+func (g *GCEAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*computealpha.Address, error) {
 	klog.V(5).Infof("GCEAlphaGlobalAddresses.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "GlobalAddresses")
 	ck := &CallContextKey{
@@ -4681,8 +4681,8 @@ func (g *GCEAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*al
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Address
-	f := func(l *alpha.AddressList) error {
+	var all []*computealpha.Address
+	f := func(l *computealpha.AddressList) error {
 		klog.V(5).Infof("GCEAlphaGlobalAddresses.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -4712,7 +4712,7 @@ func (g *GCEAlphaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*al
 }
 
 // Insert Address with key of value obj.
-func (g *GCEAlphaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *alpha.Address) error {
+func (g *GCEAlphaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Address) error {
 	klog.V(5).Infof("GCEAlphaGlobalAddresses.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaGlobalAddresses.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -4792,9 +4792,9 @@ func (g *GCEAlphaGlobalAddresses) Delete(ctx context.Context, key *meta.Key) err
 
 // BetaGlobalAddresses is an interface that allows for mocking of GlobalAddresses.
 type BetaGlobalAddresses interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Address, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.Address, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Address) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Address, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.Address, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Address) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -4831,9 +4831,9 @@ type MockBetaGlobalAddresses struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaGlobalAddresses) (bool, *beta.Address, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaGlobalAddresses) (bool, []*beta.Address, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.Address, m *MockBetaGlobalAddresses) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaGlobalAddresses) (bool, *computebeta.Address, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaGlobalAddresses) (bool, []*computebeta.Address, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.Address, m *MockBetaGlobalAddresses) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaGlobalAddresses) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -4842,7 +4842,7 @@ type MockBetaGlobalAddresses struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*beta.Address, error) {
+func (m *MockBetaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*computebeta.Address, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaGlobalAddresses.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -4875,7 +4875,7 @@ func (m *MockBetaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*beta
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*beta.Address, error) {
+func (m *MockBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*computebeta.Address, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaGlobalAddresses.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -4893,7 +4893,7 @@ func (m *MockBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*be
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Address
+	var objs []*computebeta.Address
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -4906,7 +4906,7 @@ func (m *MockBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*be
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *beta.Address) error {
+func (m *MockBetaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Address) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaGlobalAddresses.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -4976,7 +4976,7 @@ func (m *MockBetaGlobalAddresses) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaGlobalAddresses) Obj(o *beta.Address) *MockGlobalAddressesObj {
+func (m *MockBetaGlobalAddresses) Obj(o *computebeta.Address) *MockGlobalAddressesObj {
 	return &MockGlobalAddressesObj{o}
 }
 
@@ -4986,7 +4986,7 @@ type GCEBetaGlobalAddresses struct {
 }
 
 // Get the Address named by key.
-func (g *GCEBetaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*beta.Address, error) {
+func (g *GCEBetaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*computebeta.Address, error) {
 	klog.V(5).Infof("GCEBetaGlobalAddresses.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -5019,7 +5019,7 @@ func (g *GCEBetaGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*beta.
 }
 
 // List all Address objects.
-func (g *GCEBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*beta.Address, error) {
+func (g *GCEBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*computebeta.Address, error) {
 	klog.V(5).Infof("GCEBetaGlobalAddresses.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "GlobalAddresses")
 	ck := &CallContextKey{
@@ -5039,8 +5039,8 @@ func (g *GCEBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*bet
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Address
-	f := func(l *beta.AddressList) error {
+	var all []*computebeta.Address
+	f := func(l *computebeta.AddressList) error {
 		klog.V(5).Infof("GCEBetaGlobalAddresses.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -5070,7 +5070,7 @@ func (g *GCEBetaGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*bet
 }
 
 // Insert Address with key of value obj.
-func (g *GCEBetaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *beta.Address) error {
+func (g *GCEBetaGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Address) error {
 	klog.V(5).Infof("GCEBetaGlobalAddresses.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaGlobalAddresses.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -5150,9 +5150,9 @@ func (g *GCEBetaGlobalAddresses) Delete(ctx context.Context, key *meta.Key) erro
 
 // GlobalAddresses is an interface that allows for mocking of GlobalAddresses.
 type GlobalAddresses interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Address, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Address, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Address) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Address, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Address, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Address) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -5189,9 +5189,9 @@ type MockGlobalAddresses struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockGlobalAddresses) (bool, *ga.Address, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockGlobalAddresses) (bool, []*ga.Address, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.Address, m *MockGlobalAddresses) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockGlobalAddresses) (bool, *computega.Address, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockGlobalAddresses) (bool, []*computega.Address, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.Address, m *MockGlobalAddresses) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockGlobalAddresses) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -5200,7 +5200,7 @@ type MockGlobalAddresses struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Address, error) {
+func (m *MockGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*computega.Address, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockGlobalAddresses.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -5233,7 +5233,7 @@ func (m *MockGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Addre
 }
 
 // List all of the objects in the mock.
-func (m *MockGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*ga.Address, error) {
+func (m *MockGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*computega.Address, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockGlobalAddresses.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -5251,7 +5251,7 @@ func (m *MockGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*ga.Add
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Address
+	var objs []*computega.Address
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -5264,7 +5264,7 @@ func (m *MockGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*ga.Add
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *ga.Address) error {
+func (m *MockGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *computega.Address) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockGlobalAddresses.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -5334,7 +5334,7 @@ func (m *MockGlobalAddresses) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockGlobalAddresses) Obj(o *ga.Address) *MockGlobalAddressesObj {
+func (m *MockGlobalAddresses) Obj(o *computega.Address) *MockGlobalAddressesObj {
 	return &MockGlobalAddressesObj{o}
 }
 
@@ -5344,7 +5344,7 @@ type GCEGlobalAddresses struct {
 }
 
 // Get the Address named by key.
-func (g *GCEGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Address, error) {
+func (g *GCEGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*computega.Address, error) {
 	klog.V(5).Infof("GCEGlobalAddresses.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -5377,7 +5377,7 @@ func (g *GCEGlobalAddresses) Get(ctx context.Context, key *meta.Key) (*ga.Addres
 }
 
 // List all Address objects.
-func (g *GCEGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*ga.Address, error) {
+func (g *GCEGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*computega.Address, error) {
 	klog.V(5).Infof("GCEGlobalAddresses.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "GlobalAddresses")
 	ck := &CallContextKey{
@@ -5397,8 +5397,8 @@ func (g *GCEGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*ga.Addr
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Address
-	f := func(l *ga.AddressList) error {
+	var all []*computega.Address
+	f := func(l *computega.AddressList) error {
 		klog.V(5).Infof("GCEGlobalAddresses.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -5428,7 +5428,7 @@ func (g *GCEGlobalAddresses) List(ctx context.Context, fl *filter.F) ([]*ga.Addr
 }
 
 // Insert Address with key of value obj.
-func (g *GCEGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *ga.Address) error {
+func (g *GCEGlobalAddresses) Insert(ctx context.Context, key *meta.Key, obj *computega.Address) error {
 	klog.V(5).Infof("GCEGlobalAddresses.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEGlobalAddresses.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -5508,17 +5508,17 @@ func (g *GCEGlobalAddresses) Delete(ctx context.Context, key *meta.Key) error {
 
 // BackendServices is an interface that allows for mocking of BackendServices.
 type BackendServices interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.BackendService, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.BackendService, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.BackendService) error
+	Get(ctx context.Context, key *meta.Key) (*computega.BackendService, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.BackendService, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.BackendService) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.BackendService, error)
-	AddSignedUrlKey(context.Context, *meta.Key, *ga.SignedUrlKey) error
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.BackendService, error)
+	AddSignedUrlKey(context.Context, *meta.Key, *computega.SignedUrlKey) error
 	DeleteSignedUrlKey(context.Context, *meta.Key, string) error
-	GetHealth(context.Context, *meta.Key, *ga.ResourceGroupReference) (*ga.BackendServiceGroupHealth, error)
-	Patch(context.Context, *meta.Key, *ga.BackendService) error
-	SetSecurityPolicy(context.Context, *meta.Key, *ga.SecurityPolicyReference) error
-	Update(context.Context, *meta.Key, *ga.BackendService) error
+	GetHealth(context.Context, *meta.Key, *computega.ResourceGroupReference) (*computega.BackendServiceGroupHealth, error)
+	Patch(context.Context, *meta.Key, *computega.BackendService) error
+	SetSecurityPolicy(context.Context, *meta.Key, *computega.SecurityPolicyReference) error
+	Update(context.Context, *meta.Key, *computega.BackendService) error
 }
 
 // NewMockBackendServices returns a new mock for BackendServices.
@@ -5555,17 +5555,17 @@ type MockBackendServices struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockBackendServices) (bool, *ga.BackendService, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockBackendServices) (bool, []*ga.BackendService, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *ga.BackendService, m *MockBackendServices) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockBackendServices) (bool, *computega.BackendService, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockBackendServices) (bool, []*computega.BackendService, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computega.BackendService, m *MockBackendServices) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockBackendServices) (bool, error)
-	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockBackendServices) (bool, map[string][]*ga.BackendService, error)
-	AddSignedUrlKeyHook    func(context.Context, *meta.Key, *ga.SignedUrlKey, *MockBackendServices) error
+	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockBackendServices) (bool, map[string][]*computega.BackendService, error)
+	AddSignedUrlKeyHook    func(context.Context, *meta.Key, *computega.SignedUrlKey, *MockBackendServices) error
 	DeleteSignedUrlKeyHook func(context.Context, *meta.Key, string, *MockBackendServices) error
-	GetHealthHook          func(context.Context, *meta.Key, *ga.ResourceGroupReference, *MockBackendServices) (*ga.BackendServiceGroupHealth, error)
-	PatchHook              func(context.Context, *meta.Key, *ga.BackendService, *MockBackendServices) error
-	SetSecurityPolicyHook  func(context.Context, *meta.Key, *ga.SecurityPolicyReference, *MockBackendServices) error
-	UpdateHook             func(context.Context, *meta.Key, *ga.BackendService, *MockBackendServices) error
+	GetHealthHook          func(context.Context, *meta.Key, *computega.ResourceGroupReference, *MockBackendServices) (*computega.BackendServiceGroupHealth, error)
+	PatchHook              func(context.Context, *meta.Key, *computega.BackendService, *MockBackendServices) error
+	SetSecurityPolicyHook  func(context.Context, *meta.Key, *computega.SecurityPolicyReference, *MockBackendServices) error
+	UpdateHook             func(context.Context, *meta.Key, *computega.BackendService, *MockBackendServices) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -5573,7 +5573,7 @@ type MockBackendServices struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.BackendService, error) {
+func (m *MockBackendServices) Get(ctx context.Context, key *meta.Key) (*computega.BackendService, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBackendServices.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -5606,7 +5606,7 @@ func (m *MockBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.Backe
 }
 
 // List all of the objects in the mock.
-func (m *MockBackendServices) List(ctx context.Context, fl *filter.F) ([]*ga.BackendService, error) {
+func (m *MockBackendServices) List(ctx context.Context, fl *filter.F) ([]*computega.BackendService, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBackendServices.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -5624,7 +5624,7 @@ func (m *MockBackendServices) List(ctx context.Context, fl *filter.F) ([]*ga.Bac
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.BackendService
+	var objs []*computega.BackendService
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -5637,7 +5637,7 @@ func (m *MockBackendServices) List(ctx context.Context, fl *filter.F) ([]*ga.Bac
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBackendServices) Insert(ctx context.Context, key *meta.Key, obj *ga.BackendService) error {
+func (m *MockBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computega.BackendService) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBackendServices.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -5707,7 +5707,7 @@ func (m *MockBackendServices) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.BackendService, error) {
+func (m *MockBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.BackendService, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBackendServices.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -5724,7 +5724,7 @@ func (m *MockBackendServices) AggregatedList(ctx context.Context, fl *filter.F) 
 		return nil, err
 	}
 
-	objs := map[string][]*ga.BackendService{}
+	objs := map[string][]*computega.BackendService{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToGA().SelfLink)
 		if err != nil {
@@ -5742,12 +5742,12 @@ func (m *MockBackendServices) AggregatedList(ctx context.Context, fl *filter.F) 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBackendServices) Obj(o *ga.BackendService) *MockBackendServicesObj {
+func (m *MockBackendServices) Obj(o *computega.BackendService) *MockBackendServicesObj {
 	return &MockBackendServicesObj{o}
 }
 
 // AddSignedUrlKey is a mock for the corresponding method.
-func (m *MockBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *ga.SignedUrlKey) error {
+func (m *MockBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *computega.SignedUrlKey) error {
 	if m.AddSignedUrlKeyHook != nil {
 		return m.AddSignedUrlKeyHook(ctx, key, arg0, m)
 	}
@@ -5763,7 +5763,7 @@ func (m *MockBackendServices) DeleteSignedUrlKey(ctx context.Context, key *meta.
 }
 
 // GetHealth is a mock for the corresponding method.
-func (m *MockBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *ga.ResourceGroupReference) (*ga.BackendServiceGroupHealth, error) {
+func (m *MockBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computega.ResourceGroupReference) (*computega.BackendServiceGroupHealth, error) {
 	if m.GetHealthHook != nil {
 		return m.GetHealthHook(ctx, key, arg0, m)
 	}
@@ -5771,7 +5771,7 @@ func (m *MockBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (m *MockBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -5779,7 +5779,7 @@ func (m *MockBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *ga
 }
 
 // SetSecurityPolicy is a mock for the corresponding method.
-func (m *MockBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *ga.SecurityPolicyReference) error {
+func (m *MockBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *computega.SecurityPolicyReference) error {
 	if m.SetSecurityPolicyHook != nil {
 		return m.SetSecurityPolicyHook(ctx, key, arg0, m)
 	}
@@ -5787,7 +5787,7 @@ func (m *MockBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.K
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (m *MockBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -5800,7 +5800,7 @@ type GCEBackendServices struct {
 }
 
 // Get the BackendService named by key.
-func (g *GCEBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.BackendService, error) {
+func (g *GCEBackendServices) Get(ctx context.Context, key *meta.Key) (*computega.BackendService, error) {
 	klog.V(5).Infof("GCEBackendServices.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -5833,7 +5833,7 @@ func (g *GCEBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.Backen
 }
 
 // List all BackendService objects.
-func (g *GCEBackendServices) List(ctx context.Context, fl *filter.F) ([]*ga.BackendService, error) {
+func (g *GCEBackendServices) List(ctx context.Context, fl *filter.F) ([]*computega.BackendService, error) {
 	klog.V(5).Infof("GCEBackendServices.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "BackendServices")
 	ck := &CallContextKey{
@@ -5853,8 +5853,8 @@ func (g *GCEBackendServices) List(ctx context.Context, fl *filter.F) ([]*ga.Back
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.BackendService
-	f := func(l *ga.BackendServiceList) error {
+	var all []*computega.BackendService
+	f := func(l *computega.BackendServiceList) error {
 		klog.V(5).Infof("GCEBackendServices.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -5884,7 +5884,7 @@ func (g *GCEBackendServices) List(ctx context.Context, fl *filter.F) ([]*ga.Back
 }
 
 // Insert BackendService with key of value obj.
-func (g *GCEBackendServices) Insert(ctx context.Context, key *meta.Key, obj *ga.BackendService) error {
+func (g *GCEBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computega.BackendService) error {
 	klog.V(5).Infof("GCEBackendServices.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBackendServices.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -5963,7 +5963,7 @@ func (g *GCEBackendServices) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.BackendService, error) {
+func (g *GCEBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.BackendService, error) {
 	klog.V(5).Infof("GCEBackendServices.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "BackendServices")
@@ -5987,8 +5987,8 @@ func (g *GCEBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*ga.BackendService{}
-	f := func(l *ga.BackendServiceAggregatedList) error {
+	all := map[string][]*computega.BackendService{}
+	f := func(l *computega.BackendServiceAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEBackendServices.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.BackendServices...)
@@ -6015,7 +6015,7 @@ func (g *GCEBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (
 }
 
 // AddSignedUrlKey is a method on GCEBackendServices.
-func (g *GCEBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *ga.SignedUrlKey) error {
+func (g *GCEBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *computega.SignedUrlKey) error {
 	klog.V(5).Infof("GCEBackendServices.AddSignedUrlKey(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6099,7 +6099,7 @@ func (g *GCEBackendServices) DeleteSignedUrlKey(ctx context.Context, key *meta.K
 }
 
 // GetHealth is a method on GCEBackendServices.
-func (g *GCEBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *ga.ResourceGroupReference) (*ga.BackendServiceGroupHealth, error) {
+func (g *GCEBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computega.ResourceGroupReference) (*computega.BackendServiceGroupHealth, error) {
 	klog.V(5).Infof("GCEBackendServices.GetHealth(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6131,7 +6131,7 @@ func (g *GCEBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 
 }
 
 // Patch is a method on GCEBackendServices.
-func (g *GCEBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (g *GCEBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	klog.V(5).Infof("GCEBackendServices.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6173,7 +6173,7 @@ func (g *GCEBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *ga.
 }
 
 // SetSecurityPolicy is a method on GCEBackendServices.
-func (g *GCEBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *ga.SecurityPolicyReference) error {
+func (g *GCEBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *computega.SecurityPolicyReference) error {
 	klog.V(5).Infof("GCEBackendServices.SetSecurityPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6215,7 +6215,7 @@ func (g *GCEBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Ke
 }
 
 // Update is a method on GCEBackendServices.
-func (g *GCEBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (g *GCEBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	klog.V(5).Infof("GCEBackendServices.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6258,16 +6258,16 @@ func (g *GCEBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *ga
 
 // BetaBackendServices is an interface that allows for mocking of BackendServices.
 type BetaBackendServices interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.BackendService, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.BackendService, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.BackendService) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.BackendService, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.BackendService, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.BackendService) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.BackendService, error)
-	AddSignedUrlKey(context.Context, *meta.Key, *beta.SignedUrlKey) error
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.BackendService, error)
+	AddSignedUrlKey(context.Context, *meta.Key, *computebeta.SignedUrlKey) error
 	DeleteSignedUrlKey(context.Context, *meta.Key, string) error
-	Patch(context.Context, *meta.Key, *beta.BackendService) error
-	SetSecurityPolicy(context.Context, *meta.Key, *beta.SecurityPolicyReference) error
-	Update(context.Context, *meta.Key, *beta.BackendService) error
+	Patch(context.Context, *meta.Key, *computebeta.BackendService) error
+	SetSecurityPolicy(context.Context, *meta.Key, *computebeta.SecurityPolicyReference) error
+	Update(context.Context, *meta.Key, *computebeta.BackendService) error
 }
 
 // NewMockBetaBackendServices returns a new mock for BackendServices.
@@ -6304,16 +6304,16 @@ type MockBetaBackendServices struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaBackendServices) (bool, *beta.BackendService, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockBetaBackendServices) (bool, []*beta.BackendService, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *beta.BackendService, m *MockBetaBackendServices) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaBackendServices) (bool, *computebeta.BackendService, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockBetaBackendServices) (bool, []*computebeta.BackendService, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computebeta.BackendService, m *MockBetaBackendServices) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockBetaBackendServices) (bool, error)
-	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockBetaBackendServices) (bool, map[string][]*beta.BackendService, error)
-	AddSignedUrlKeyHook    func(context.Context, *meta.Key, *beta.SignedUrlKey, *MockBetaBackendServices) error
+	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockBetaBackendServices) (bool, map[string][]*computebeta.BackendService, error)
+	AddSignedUrlKeyHook    func(context.Context, *meta.Key, *computebeta.SignedUrlKey, *MockBetaBackendServices) error
 	DeleteSignedUrlKeyHook func(context.Context, *meta.Key, string, *MockBetaBackendServices) error
-	PatchHook              func(context.Context, *meta.Key, *beta.BackendService, *MockBetaBackendServices) error
-	SetSecurityPolicyHook  func(context.Context, *meta.Key, *beta.SecurityPolicyReference, *MockBetaBackendServices) error
-	UpdateHook             func(context.Context, *meta.Key, *beta.BackendService, *MockBetaBackendServices) error
+	PatchHook              func(context.Context, *meta.Key, *computebeta.BackendService, *MockBetaBackendServices) error
+	SetSecurityPolicyHook  func(context.Context, *meta.Key, *computebeta.SecurityPolicyReference, *MockBetaBackendServices) error
+	UpdateHook             func(context.Context, *meta.Key, *computebeta.BackendService, *MockBetaBackendServices) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -6321,7 +6321,7 @@ type MockBetaBackendServices struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaBackendServices) Get(ctx context.Context, key *meta.Key) (*beta.BackendService, error) {
+func (m *MockBetaBackendServices) Get(ctx context.Context, key *meta.Key) (*computebeta.BackendService, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaBackendServices.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -6354,7 +6354,7 @@ func (m *MockBetaBackendServices) Get(ctx context.Context, key *meta.Key) (*beta
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*beta.BackendService, error) {
+func (m *MockBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*computebeta.BackendService, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaBackendServices.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -6372,7 +6372,7 @@ func (m *MockBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*be
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.BackendService
+	var objs []*computebeta.BackendService
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -6385,7 +6385,7 @@ func (m *MockBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*be
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *beta.BackendService) error {
+func (m *MockBetaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computebeta.BackendService) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaBackendServices.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -6455,7 +6455,7 @@ func (m *MockBetaBackendServices) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockBetaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.BackendService, error) {
+func (m *MockBetaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.BackendService, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaBackendServices.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -6472,7 +6472,7 @@ func (m *MockBetaBackendServices) AggregatedList(ctx context.Context, fl *filter
 		return nil, err
 	}
 
-	objs := map[string][]*beta.BackendService{}
+	objs := map[string][]*computebeta.BackendService{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToBeta().SelfLink)
 		if err != nil {
@@ -6490,12 +6490,12 @@ func (m *MockBetaBackendServices) AggregatedList(ctx context.Context, fl *filter
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaBackendServices) Obj(o *beta.BackendService) *MockBackendServicesObj {
+func (m *MockBetaBackendServices) Obj(o *computebeta.BackendService) *MockBackendServicesObj {
 	return &MockBackendServicesObj{o}
 }
 
 // AddSignedUrlKey is a mock for the corresponding method.
-func (m *MockBetaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *beta.SignedUrlKey) error {
+func (m *MockBetaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *computebeta.SignedUrlKey) error {
 	if m.AddSignedUrlKeyHook != nil {
 		return m.AddSignedUrlKeyHook(ctx, key, arg0, m)
 	}
@@ -6511,7 +6511,7 @@ func (m *MockBetaBackendServices) DeleteSignedUrlKey(ctx context.Context, key *m
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (m *MockBetaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -6519,7 +6519,7 @@ func (m *MockBetaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0
 }
 
 // SetSecurityPolicy is a mock for the corresponding method.
-func (m *MockBetaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicyReference) error {
+func (m *MockBetaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicyReference) error {
 	if m.SetSecurityPolicyHook != nil {
 		return m.SetSecurityPolicyHook(ctx, key, arg0, m)
 	}
@@ -6527,7 +6527,7 @@ func (m *MockBetaBackendServices) SetSecurityPolicy(ctx context.Context, key *me
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (m *MockBetaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -6540,7 +6540,7 @@ type GCEBetaBackendServices struct {
 }
 
 // Get the BackendService named by key.
-func (g *GCEBetaBackendServices) Get(ctx context.Context, key *meta.Key) (*beta.BackendService, error) {
+func (g *GCEBetaBackendServices) Get(ctx context.Context, key *meta.Key) (*computebeta.BackendService, error) {
 	klog.V(5).Infof("GCEBetaBackendServices.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -6573,7 +6573,7 @@ func (g *GCEBetaBackendServices) Get(ctx context.Context, key *meta.Key) (*beta.
 }
 
 // List all BackendService objects.
-func (g *GCEBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*beta.BackendService, error) {
+func (g *GCEBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*computebeta.BackendService, error) {
 	klog.V(5).Infof("GCEBetaBackendServices.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "BackendServices")
 	ck := &CallContextKey{
@@ -6593,8 +6593,8 @@ func (g *GCEBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*bet
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.BackendService
-	f := func(l *beta.BackendServiceList) error {
+	var all []*computebeta.BackendService
+	f := func(l *computebeta.BackendServiceList) error {
 		klog.V(5).Infof("GCEBetaBackendServices.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -6624,7 +6624,7 @@ func (g *GCEBetaBackendServices) List(ctx context.Context, fl *filter.F) ([]*bet
 }
 
 // Insert BackendService with key of value obj.
-func (g *GCEBetaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *beta.BackendService) error {
+func (g *GCEBetaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computebeta.BackendService) error {
 	klog.V(5).Infof("GCEBetaBackendServices.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaBackendServices.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -6703,7 +6703,7 @@ func (g *GCEBetaBackendServices) Delete(ctx context.Context, key *meta.Key) erro
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEBetaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.BackendService, error) {
+func (g *GCEBetaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.BackendService, error) {
 	klog.V(5).Infof("GCEBetaBackendServices.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "BackendServices")
@@ -6727,8 +6727,8 @@ func (g *GCEBetaBackendServices) AggregatedList(ctx context.Context, fl *filter.
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*beta.BackendService{}
-	f := func(l *beta.BackendServiceAggregatedList) error {
+	all := map[string][]*computebeta.BackendService{}
+	f := func(l *computebeta.BackendServiceAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEBetaBackendServices.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.BackendServices...)
@@ -6755,7 +6755,7 @@ func (g *GCEBetaBackendServices) AggregatedList(ctx context.Context, fl *filter.
 }
 
 // AddSignedUrlKey is a method on GCEBetaBackendServices.
-func (g *GCEBetaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *beta.SignedUrlKey) error {
+func (g *GCEBetaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *computebeta.SignedUrlKey) error {
 	klog.V(5).Infof("GCEBetaBackendServices.AddSignedUrlKey(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6839,7 +6839,7 @@ func (g *GCEBetaBackendServices) DeleteSignedUrlKey(ctx context.Context, key *me
 }
 
 // Patch is a method on GCEBetaBackendServices.
-func (g *GCEBetaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (g *GCEBetaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	klog.V(5).Infof("GCEBetaBackendServices.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6881,7 +6881,7 @@ func (g *GCEBetaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 
 }
 
 // SetSecurityPolicy is a method on GCEBetaBackendServices.
-func (g *GCEBetaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicyReference) error {
+func (g *GCEBetaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicyReference) error {
 	klog.V(5).Infof("GCEBetaBackendServices.SetSecurityPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6923,7 +6923,7 @@ func (g *GCEBetaBackendServices) SetSecurityPolicy(ctx context.Context, key *met
 }
 
 // Update is a method on GCEBetaBackendServices.
-func (g *GCEBetaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (g *GCEBetaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	klog.V(5).Infof("GCEBetaBackendServices.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -6966,16 +6966,16 @@ func (g *GCEBetaBackendServices) Update(ctx context.Context, key *meta.Key, arg0
 
 // AlphaBackendServices is an interface that allows for mocking of BackendServices.
 type AlphaBackendServices interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.BackendService, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.BackendService, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.BackendService) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.BackendService, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.BackendService, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.BackendService) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.BackendService, error)
-	AddSignedUrlKey(context.Context, *meta.Key, *alpha.SignedUrlKey) error
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.BackendService, error)
+	AddSignedUrlKey(context.Context, *meta.Key, *computealpha.SignedUrlKey) error
 	DeleteSignedUrlKey(context.Context, *meta.Key, string) error
-	Patch(context.Context, *meta.Key, *alpha.BackendService) error
-	SetSecurityPolicy(context.Context, *meta.Key, *alpha.SecurityPolicyReference) error
-	Update(context.Context, *meta.Key, *alpha.BackendService) error
+	Patch(context.Context, *meta.Key, *computealpha.BackendService) error
+	SetSecurityPolicy(context.Context, *meta.Key, *computealpha.SecurityPolicyReference) error
+	Update(context.Context, *meta.Key, *computealpha.BackendService) error
 }
 
 // NewMockAlphaBackendServices returns a new mock for BackendServices.
@@ -7012,16 +7012,16 @@ type MockAlphaBackendServices struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaBackendServices) (bool, *alpha.BackendService, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaBackendServices) (bool, []*alpha.BackendService, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.BackendService, m *MockAlphaBackendServices) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaBackendServices) (bool, *computealpha.BackendService, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaBackendServices) (bool, []*computealpha.BackendService, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.BackendService, m *MockAlphaBackendServices) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaBackendServices) (bool, error)
-	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockAlphaBackendServices) (bool, map[string][]*alpha.BackendService, error)
-	AddSignedUrlKeyHook    func(context.Context, *meta.Key, *alpha.SignedUrlKey, *MockAlphaBackendServices) error
+	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockAlphaBackendServices) (bool, map[string][]*computealpha.BackendService, error)
+	AddSignedUrlKeyHook    func(context.Context, *meta.Key, *computealpha.SignedUrlKey, *MockAlphaBackendServices) error
 	DeleteSignedUrlKeyHook func(context.Context, *meta.Key, string, *MockAlphaBackendServices) error
-	PatchHook              func(context.Context, *meta.Key, *alpha.BackendService, *MockAlphaBackendServices) error
-	SetSecurityPolicyHook  func(context.Context, *meta.Key, *alpha.SecurityPolicyReference, *MockAlphaBackendServices) error
-	UpdateHook             func(context.Context, *meta.Key, *alpha.BackendService, *MockAlphaBackendServices) error
+	PatchHook              func(context.Context, *meta.Key, *computealpha.BackendService, *MockAlphaBackendServices) error
+	SetSecurityPolicyHook  func(context.Context, *meta.Key, *computealpha.SecurityPolicyReference, *MockAlphaBackendServices) error
+	UpdateHook             func(context.Context, *meta.Key, *computealpha.BackendService, *MockAlphaBackendServices) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -7029,7 +7029,7 @@ type MockAlphaBackendServices struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaBackendServices) Get(ctx context.Context, key *meta.Key) (*alpha.BackendService, error) {
+func (m *MockAlphaBackendServices) Get(ctx context.Context, key *meta.Key) (*computealpha.BackendService, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaBackendServices.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -7062,7 +7062,7 @@ func (m *MockAlphaBackendServices) Get(ctx context.Context, key *meta.Key) (*alp
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*alpha.BackendService, error) {
+func (m *MockAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*computealpha.BackendService, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaBackendServices.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -7080,7 +7080,7 @@ func (m *MockAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*a
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.BackendService
+	var objs []*computealpha.BackendService
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -7093,7 +7093,7 @@ func (m *MockAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*a
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *alpha.BackendService) error {
+func (m *MockAlphaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computealpha.BackendService) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaBackendServices.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -7163,7 +7163,7 @@ func (m *MockAlphaBackendServices) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockAlphaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.BackendService, error) {
+func (m *MockAlphaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.BackendService, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaBackendServices.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -7180,7 +7180,7 @@ func (m *MockAlphaBackendServices) AggregatedList(ctx context.Context, fl *filte
 		return nil, err
 	}
 
-	objs := map[string][]*alpha.BackendService{}
+	objs := map[string][]*computealpha.BackendService{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToAlpha().SelfLink)
 		if err != nil {
@@ -7198,12 +7198,12 @@ func (m *MockAlphaBackendServices) AggregatedList(ctx context.Context, fl *filte
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaBackendServices) Obj(o *alpha.BackendService) *MockBackendServicesObj {
+func (m *MockAlphaBackendServices) Obj(o *computealpha.BackendService) *MockBackendServicesObj {
 	return &MockBackendServicesObj{o}
 }
 
 // AddSignedUrlKey is a mock for the corresponding method.
-func (m *MockAlphaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *alpha.SignedUrlKey) error {
+func (m *MockAlphaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *computealpha.SignedUrlKey) error {
 	if m.AddSignedUrlKeyHook != nil {
 		return m.AddSignedUrlKeyHook(ctx, key, arg0, m)
 	}
@@ -7219,7 +7219,7 @@ func (m *MockAlphaBackendServices) DeleteSignedUrlKey(ctx context.Context, key *
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (m *MockAlphaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -7227,7 +7227,7 @@ func (m *MockAlphaBackendServices) Patch(ctx context.Context, key *meta.Key, arg
 }
 
 // SetSecurityPolicy is a mock for the corresponding method.
-func (m *MockAlphaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.SecurityPolicyReference) error {
+func (m *MockAlphaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.SecurityPolicyReference) error {
 	if m.SetSecurityPolicyHook != nil {
 		return m.SetSecurityPolicyHook(ctx, key, arg0, m)
 	}
@@ -7235,7 +7235,7 @@ func (m *MockAlphaBackendServices) SetSecurityPolicy(ctx context.Context, key *m
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (m *MockAlphaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -7248,7 +7248,7 @@ type GCEAlphaBackendServices struct {
 }
 
 // Get the BackendService named by key.
-func (g *GCEAlphaBackendServices) Get(ctx context.Context, key *meta.Key) (*alpha.BackendService, error) {
+func (g *GCEAlphaBackendServices) Get(ctx context.Context, key *meta.Key) (*computealpha.BackendService, error) {
 	klog.V(5).Infof("GCEAlphaBackendServices.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -7281,7 +7281,7 @@ func (g *GCEAlphaBackendServices) Get(ctx context.Context, key *meta.Key) (*alph
 }
 
 // List all BackendService objects.
-func (g *GCEAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*alpha.BackendService, error) {
+func (g *GCEAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*computealpha.BackendService, error) {
 	klog.V(5).Infof("GCEAlphaBackendServices.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "BackendServices")
 	ck := &CallContextKey{
@@ -7301,8 +7301,8 @@ func (g *GCEAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*al
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.BackendService
-	f := func(l *alpha.BackendServiceList) error {
+	var all []*computealpha.BackendService
+	f := func(l *computealpha.BackendServiceList) error {
 		klog.V(5).Infof("GCEAlphaBackendServices.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -7332,7 +7332,7 @@ func (g *GCEAlphaBackendServices) List(ctx context.Context, fl *filter.F) ([]*al
 }
 
 // Insert BackendService with key of value obj.
-func (g *GCEAlphaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *alpha.BackendService) error {
+func (g *GCEAlphaBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computealpha.BackendService) error {
 	klog.V(5).Infof("GCEAlphaBackendServices.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaBackendServices.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -7411,7 +7411,7 @@ func (g *GCEAlphaBackendServices) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEAlphaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.BackendService, error) {
+func (g *GCEAlphaBackendServices) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.BackendService, error) {
 	klog.V(5).Infof("GCEAlphaBackendServices.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "BackendServices")
@@ -7435,8 +7435,8 @@ func (g *GCEAlphaBackendServices) AggregatedList(ctx context.Context, fl *filter
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*alpha.BackendService{}
-	f := func(l *alpha.BackendServiceAggregatedList) error {
+	all := map[string][]*computealpha.BackendService{}
+	f := func(l *computealpha.BackendServiceAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEAlphaBackendServices.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.BackendServices...)
@@ -7463,7 +7463,7 @@ func (g *GCEAlphaBackendServices) AggregatedList(ctx context.Context, fl *filter
 }
 
 // AddSignedUrlKey is a method on GCEAlphaBackendServices.
-func (g *GCEAlphaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *alpha.SignedUrlKey) error {
+func (g *GCEAlphaBackendServices) AddSignedUrlKey(ctx context.Context, key *meta.Key, arg0 *computealpha.SignedUrlKey) error {
 	klog.V(5).Infof("GCEAlphaBackendServices.AddSignedUrlKey(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -7547,7 +7547,7 @@ func (g *GCEAlphaBackendServices) DeleteSignedUrlKey(ctx context.Context, key *m
 }
 
 // Patch is a method on GCEAlphaBackendServices.
-func (g *GCEAlphaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (g *GCEAlphaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	klog.V(5).Infof("GCEAlphaBackendServices.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -7589,7 +7589,7 @@ func (g *GCEAlphaBackendServices) Patch(ctx context.Context, key *meta.Key, arg0
 }
 
 // SetSecurityPolicy is a method on GCEAlphaBackendServices.
-func (g *GCEAlphaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.SecurityPolicyReference) error {
+func (g *GCEAlphaBackendServices) SetSecurityPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.SecurityPolicyReference) error {
 	klog.V(5).Infof("GCEAlphaBackendServices.SetSecurityPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -7631,7 +7631,7 @@ func (g *GCEAlphaBackendServices) SetSecurityPolicy(ctx context.Context, key *me
 }
 
 // Update is a method on GCEAlphaBackendServices.
-func (g *GCEAlphaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (g *GCEAlphaBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	klog.V(5).Infof("GCEAlphaBackendServices.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -7674,13 +7674,13 @@ func (g *GCEAlphaBackendServices) Update(ctx context.Context, key *meta.Key, arg
 
 // RegionBackendServices is an interface that allows for mocking of RegionBackendServices.
 type RegionBackendServices interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.BackendService, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.BackendService, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.BackendService) error
+	Get(ctx context.Context, key *meta.Key) (*computega.BackendService, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.BackendService, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.BackendService) error
 	Delete(ctx context.Context, key *meta.Key) error
-	GetHealth(context.Context, *meta.Key, *ga.ResourceGroupReference) (*ga.BackendServiceGroupHealth, error)
-	Patch(context.Context, *meta.Key, *ga.BackendService) error
-	Update(context.Context, *meta.Key, *ga.BackendService) error
+	GetHealth(context.Context, *meta.Key, *computega.ResourceGroupReference) (*computega.BackendServiceGroupHealth, error)
+	Patch(context.Context, *meta.Key, *computega.BackendService) error
+	Update(context.Context, *meta.Key, *computega.BackendService) error
 }
 
 // NewMockRegionBackendServices returns a new mock for RegionBackendServices.
@@ -7716,13 +7716,13 @@ type MockRegionBackendServices struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockRegionBackendServices) (bool, *ga.BackendService, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockRegionBackendServices) (bool, []*ga.BackendService, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *ga.BackendService, m *MockRegionBackendServices) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockRegionBackendServices) (bool, *computega.BackendService, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockRegionBackendServices) (bool, []*computega.BackendService, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computega.BackendService, m *MockRegionBackendServices) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockRegionBackendServices) (bool, error)
-	GetHealthHook func(context.Context, *meta.Key, *ga.ResourceGroupReference, *MockRegionBackendServices) (*ga.BackendServiceGroupHealth, error)
-	PatchHook     func(context.Context, *meta.Key, *ga.BackendService, *MockRegionBackendServices) error
-	UpdateHook    func(context.Context, *meta.Key, *ga.BackendService, *MockRegionBackendServices) error
+	GetHealthHook func(context.Context, *meta.Key, *computega.ResourceGroupReference, *MockRegionBackendServices) (*computega.BackendServiceGroupHealth, error)
+	PatchHook     func(context.Context, *meta.Key, *computega.BackendService, *MockRegionBackendServices) error
+	UpdateHook    func(context.Context, *meta.Key, *computega.BackendService, *MockRegionBackendServices) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -7730,7 +7730,7 @@ type MockRegionBackendServices struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.BackendService, error) {
+func (m *MockRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*computega.BackendService, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionBackendServices.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -7763,7 +7763,7 @@ func (m *MockRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*ga
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*ga.BackendService, error) {
+func (m *MockRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*computega.BackendService, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionBackendServices.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -7781,7 +7781,7 @@ func (m *MockRegionBackendServices) List(ctx context.Context, region string, fl 
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.BackendService
+	var objs []*computega.BackendService
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -7797,7 +7797,7 @@ func (m *MockRegionBackendServices) List(ctx context.Context, region string, fl 
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *ga.BackendService) error {
+func (m *MockRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computega.BackendService) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionBackendServices.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -7867,12 +7867,12 @@ func (m *MockRegionBackendServices) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionBackendServices) Obj(o *ga.BackendService) *MockRegionBackendServicesObj {
+func (m *MockRegionBackendServices) Obj(o *computega.BackendService) *MockRegionBackendServicesObj {
 	return &MockRegionBackendServicesObj{o}
 }
 
 // GetHealth is a mock for the corresponding method.
-func (m *MockRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *ga.ResourceGroupReference) (*ga.BackendServiceGroupHealth, error) {
+func (m *MockRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computega.ResourceGroupReference) (*computega.BackendServiceGroupHealth, error) {
 	if m.GetHealthHook != nil {
 		return m.GetHealthHook(ctx, key, arg0, m)
 	}
@@ -7880,7 +7880,7 @@ func (m *MockRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (m *MockRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -7888,7 +7888,7 @@ func (m *MockRegionBackendServices) Patch(ctx context.Context, key *meta.Key, ar
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (m *MockRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -7901,7 +7901,7 @@ type GCERegionBackendServices struct {
 }
 
 // Get the BackendService named by key.
-func (g *GCERegionBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.BackendService, error) {
+func (g *GCERegionBackendServices) Get(ctx context.Context, key *meta.Key) (*computega.BackendService, error) {
 	klog.V(5).Infof("GCERegionBackendServices.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -7934,7 +7934,7 @@ func (g *GCERegionBackendServices) Get(ctx context.Context, key *meta.Key) (*ga.
 }
 
 // List all BackendService objects.
-func (g *GCERegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*ga.BackendService, error) {
+func (g *GCERegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*computega.BackendService, error) {
 	klog.V(5).Infof("GCERegionBackendServices.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionBackendServices")
 	ck := &CallContextKey{
@@ -7954,8 +7954,8 @@ func (g *GCERegionBackendServices) List(ctx context.Context, region string, fl *
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.BackendService
-	f := func(l *ga.BackendServiceList) error {
+	var all []*computega.BackendService
+	f := func(l *computega.BackendServiceList) error {
 		klog.V(5).Infof("GCERegionBackendServices.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -7985,7 +7985,7 @@ func (g *GCERegionBackendServices) List(ctx context.Context, region string, fl *
 }
 
 // Insert BackendService with key of value obj.
-func (g *GCERegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *ga.BackendService) error {
+func (g *GCERegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computega.BackendService) error {
 	klog.V(5).Infof("GCERegionBackendServices.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionBackendServices.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -8064,7 +8064,7 @@ func (g *GCERegionBackendServices) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // GetHealth is a method on GCERegionBackendServices.
-func (g *GCERegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *ga.ResourceGroupReference) (*ga.BackendServiceGroupHealth, error) {
+func (g *GCERegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computega.ResourceGroupReference) (*computega.BackendServiceGroupHealth, error) {
 	klog.V(5).Infof("GCERegionBackendServices.GetHealth(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -8096,7 +8096,7 @@ func (g *GCERegionBackendServices) GetHealth(ctx context.Context, key *meta.Key,
 }
 
 // Patch is a method on GCERegionBackendServices.
-func (g *GCERegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (g *GCERegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	klog.V(5).Infof("GCERegionBackendServices.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -8138,7 +8138,7 @@ func (g *GCERegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg
 }
 
 // Update is a method on GCERegionBackendServices.
-func (g *GCERegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *ga.BackendService) error {
+func (g *GCERegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computega.BackendService) error {
 	klog.V(5).Infof("GCERegionBackendServices.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -8181,13 +8181,13 @@ func (g *GCERegionBackendServices) Update(ctx context.Context, key *meta.Key, ar
 
 // AlphaRegionBackendServices is an interface that allows for mocking of RegionBackendServices.
 type AlphaRegionBackendServices interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.BackendService, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.BackendService, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.BackendService) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.BackendService, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.BackendService, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.BackendService) error
 	Delete(ctx context.Context, key *meta.Key) error
-	GetHealth(context.Context, *meta.Key, *alpha.ResourceGroupReference) (*alpha.BackendServiceGroupHealth, error)
-	Patch(context.Context, *meta.Key, *alpha.BackendService) error
-	Update(context.Context, *meta.Key, *alpha.BackendService) error
+	GetHealth(context.Context, *meta.Key, *computealpha.ResourceGroupReference) (*computealpha.BackendServiceGroupHealth, error)
+	Patch(context.Context, *meta.Key, *computealpha.BackendService) error
+	Update(context.Context, *meta.Key, *computealpha.BackendService) error
 }
 
 // NewMockAlphaRegionBackendServices returns a new mock for RegionBackendServices.
@@ -8223,13 +8223,13 @@ type MockAlphaRegionBackendServices struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaRegionBackendServices) (bool, *alpha.BackendService, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionBackendServices) (bool, []*alpha.BackendService, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *alpha.BackendService, m *MockAlphaRegionBackendServices) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaRegionBackendServices) (bool, *computealpha.BackendService, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionBackendServices) (bool, []*computealpha.BackendService, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computealpha.BackendService, m *MockAlphaRegionBackendServices) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionBackendServices) (bool, error)
-	GetHealthHook func(context.Context, *meta.Key, *alpha.ResourceGroupReference, *MockAlphaRegionBackendServices) (*alpha.BackendServiceGroupHealth, error)
-	PatchHook     func(context.Context, *meta.Key, *alpha.BackendService, *MockAlphaRegionBackendServices) error
-	UpdateHook    func(context.Context, *meta.Key, *alpha.BackendService, *MockAlphaRegionBackendServices) error
+	GetHealthHook func(context.Context, *meta.Key, *computealpha.ResourceGroupReference, *MockAlphaRegionBackendServices) (*computealpha.BackendServiceGroupHealth, error)
+	PatchHook     func(context.Context, *meta.Key, *computealpha.BackendService, *MockAlphaRegionBackendServices) error
+	UpdateHook    func(context.Context, *meta.Key, *computealpha.BackendService, *MockAlphaRegionBackendServices) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -8237,7 +8237,7 @@ type MockAlphaRegionBackendServices struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*alpha.BackendService, error) {
+func (m *MockAlphaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*computealpha.BackendService, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionBackendServices.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -8270,7 +8270,7 @@ func (m *MockAlphaRegionBackendServices) Get(ctx context.Context, key *meta.Key)
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.BackendService, error) {
+func (m *MockAlphaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.BackendService, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionBackendServices.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -8288,7 +8288,7 @@ func (m *MockAlphaRegionBackendServices) List(ctx context.Context, region string
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.BackendService
+	var objs []*computealpha.BackendService
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -8304,7 +8304,7 @@ func (m *MockAlphaRegionBackendServices) List(ctx context.Context, region string
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *alpha.BackendService) error {
+func (m *MockAlphaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computealpha.BackendService) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionBackendServices.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -8374,12 +8374,12 @@ func (m *MockAlphaRegionBackendServices) Delete(ctx context.Context, key *meta.K
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionBackendServices) Obj(o *alpha.BackendService) *MockRegionBackendServicesObj {
+func (m *MockAlphaRegionBackendServices) Obj(o *computealpha.BackendService) *MockRegionBackendServicesObj {
 	return &MockRegionBackendServicesObj{o}
 }
 
 // GetHealth is a mock for the corresponding method.
-func (m *MockAlphaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *alpha.ResourceGroupReference) (*alpha.BackendServiceGroupHealth, error) {
+func (m *MockAlphaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computealpha.ResourceGroupReference) (*computealpha.BackendServiceGroupHealth, error) {
 	if m.GetHealthHook != nil {
 		return m.GetHealthHook(ctx, key, arg0, m)
 	}
@@ -8387,7 +8387,7 @@ func (m *MockAlphaRegionBackendServices) GetHealth(ctx context.Context, key *met
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (m *MockAlphaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -8395,7 +8395,7 @@ func (m *MockAlphaRegionBackendServices) Patch(ctx context.Context, key *meta.Ke
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (m *MockAlphaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -8408,7 +8408,7 @@ type GCEAlphaRegionBackendServices struct {
 }
 
 // Get the BackendService named by key.
-func (g *GCEAlphaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*alpha.BackendService, error) {
+func (g *GCEAlphaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*computealpha.BackendService, error) {
 	klog.V(5).Infof("GCEAlphaRegionBackendServices.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -8441,7 +8441,7 @@ func (g *GCEAlphaRegionBackendServices) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all BackendService objects.
-func (g *GCEAlphaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.BackendService, error) {
+func (g *GCEAlphaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.BackendService, error) {
 	klog.V(5).Infof("GCEAlphaRegionBackendServices.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionBackendServices")
 	ck := &CallContextKey{
@@ -8461,8 +8461,8 @@ func (g *GCEAlphaRegionBackendServices) List(ctx context.Context, region string,
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.BackendService
-	f := func(l *alpha.BackendServiceList) error {
+	var all []*computealpha.BackendService
+	f := func(l *computealpha.BackendServiceList) error {
 		klog.V(5).Infof("GCEAlphaRegionBackendServices.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -8492,7 +8492,7 @@ func (g *GCEAlphaRegionBackendServices) List(ctx context.Context, region string,
 }
 
 // Insert BackendService with key of value obj.
-func (g *GCEAlphaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *alpha.BackendService) error {
+func (g *GCEAlphaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computealpha.BackendService) error {
 	klog.V(5).Infof("GCEAlphaRegionBackendServices.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionBackendServices.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -8571,7 +8571,7 @@ func (g *GCEAlphaRegionBackendServices) Delete(ctx context.Context, key *meta.Ke
 }
 
 // GetHealth is a method on GCEAlphaRegionBackendServices.
-func (g *GCEAlphaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *alpha.ResourceGroupReference) (*alpha.BackendServiceGroupHealth, error) {
+func (g *GCEAlphaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computealpha.ResourceGroupReference) (*computealpha.BackendServiceGroupHealth, error) {
 	klog.V(5).Infof("GCEAlphaRegionBackendServices.GetHealth(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -8603,7 +8603,7 @@ func (g *GCEAlphaRegionBackendServices) GetHealth(ctx context.Context, key *meta
 }
 
 // Patch is a method on GCEAlphaRegionBackendServices.
-func (g *GCEAlphaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (g *GCEAlphaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	klog.V(5).Infof("GCEAlphaRegionBackendServices.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -8645,7 +8645,7 @@ func (g *GCEAlphaRegionBackendServices) Patch(ctx context.Context, key *meta.Key
 }
 
 // Update is a method on GCEAlphaRegionBackendServices.
-func (g *GCEAlphaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *alpha.BackendService) error {
+func (g *GCEAlphaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.BackendService) error {
 	klog.V(5).Infof("GCEAlphaRegionBackendServices.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -8688,13 +8688,13 @@ func (g *GCEAlphaRegionBackendServices) Update(ctx context.Context, key *meta.Ke
 
 // BetaRegionBackendServices is an interface that allows for mocking of RegionBackendServices.
 type BetaRegionBackendServices interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.BackendService, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.BackendService, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.BackendService) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.BackendService, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.BackendService, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.BackendService) error
 	Delete(ctx context.Context, key *meta.Key) error
-	GetHealth(context.Context, *meta.Key, *beta.ResourceGroupReference) (*beta.BackendServiceGroupHealth, error)
-	Patch(context.Context, *meta.Key, *beta.BackendService) error
-	Update(context.Context, *meta.Key, *beta.BackendService) error
+	GetHealth(context.Context, *meta.Key, *computebeta.ResourceGroupReference) (*computebeta.BackendServiceGroupHealth, error)
+	Patch(context.Context, *meta.Key, *computebeta.BackendService) error
+	Update(context.Context, *meta.Key, *computebeta.BackendService) error
 }
 
 // NewMockBetaRegionBackendServices returns a new mock for RegionBackendServices.
@@ -8730,13 +8730,13 @@ type MockBetaRegionBackendServices struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaRegionBackendServices) (bool, *beta.BackendService, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionBackendServices) (bool, []*beta.BackendService, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *beta.BackendService, m *MockBetaRegionBackendServices) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaRegionBackendServices) (bool, *computebeta.BackendService, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionBackendServices) (bool, []*computebeta.BackendService, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computebeta.BackendService, m *MockBetaRegionBackendServices) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionBackendServices) (bool, error)
-	GetHealthHook func(context.Context, *meta.Key, *beta.ResourceGroupReference, *MockBetaRegionBackendServices) (*beta.BackendServiceGroupHealth, error)
-	PatchHook     func(context.Context, *meta.Key, *beta.BackendService, *MockBetaRegionBackendServices) error
-	UpdateHook    func(context.Context, *meta.Key, *beta.BackendService, *MockBetaRegionBackendServices) error
+	GetHealthHook func(context.Context, *meta.Key, *computebeta.ResourceGroupReference, *MockBetaRegionBackendServices) (*computebeta.BackendServiceGroupHealth, error)
+	PatchHook     func(context.Context, *meta.Key, *computebeta.BackendService, *MockBetaRegionBackendServices) error
+	UpdateHook    func(context.Context, *meta.Key, *computebeta.BackendService, *MockBetaRegionBackendServices) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -8744,7 +8744,7 @@ type MockBetaRegionBackendServices struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*beta.BackendService, error) {
+func (m *MockBetaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*computebeta.BackendService, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRegionBackendServices.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -8777,7 +8777,7 @@ func (m *MockBetaRegionBackendServices) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*beta.BackendService, error) {
+func (m *MockBetaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.BackendService, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRegionBackendServices.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -8795,7 +8795,7 @@ func (m *MockBetaRegionBackendServices) List(ctx context.Context, region string,
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.BackendService
+	var objs []*computebeta.BackendService
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -8811,7 +8811,7 @@ func (m *MockBetaRegionBackendServices) List(ctx context.Context, region string,
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *beta.BackendService) error {
+func (m *MockBetaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computebeta.BackendService) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRegionBackendServices.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -8881,12 +8881,12 @@ func (m *MockBetaRegionBackendServices) Delete(ctx context.Context, key *meta.Ke
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRegionBackendServices) Obj(o *beta.BackendService) *MockRegionBackendServicesObj {
+func (m *MockBetaRegionBackendServices) Obj(o *computebeta.BackendService) *MockRegionBackendServicesObj {
 	return &MockRegionBackendServicesObj{o}
 }
 
 // GetHealth is a mock for the corresponding method.
-func (m *MockBetaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *beta.ResourceGroupReference) (*beta.BackendServiceGroupHealth, error) {
+func (m *MockBetaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computebeta.ResourceGroupReference) (*computebeta.BackendServiceGroupHealth, error) {
 	if m.GetHealthHook != nil {
 		return m.GetHealthHook(ctx, key, arg0, m)
 	}
@@ -8894,7 +8894,7 @@ func (m *MockBetaRegionBackendServices) GetHealth(ctx context.Context, key *meta
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (m *MockBetaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -8902,7 +8902,7 @@ func (m *MockBetaRegionBackendServices) Patch(ctx context.Context, key *meta.Key
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (m *MockBetaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -8915,7 +8915,7 @@ type GCEBetaRegionBackendServices struct {
 }
 
 // Get the BackendService named by key.
-func (g *GCEBetaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*beta.BackendService, error) {
+func (g *GCEBetaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (*computebeta.BackendService, error) {
 	klog.V(5).Infof("GCEBetaRegionBackendServices.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -8948,7 +8948,7 @@ func (g *GCEBetaRegionBackendServices) Get(ctx context.Context, key *meta.Key) (
 }
 
 // List all BackendService objects.
-func (g *GCEBetaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*beta.BackendService, error) {
+func (g *GCEBetaRegionBackendServices) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.BackendService, error) {
 	klog.V(5).Infof("GCEBetaRegionBackendServices.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "RegionBackendServices")
 	ck := &CallContextKey{
@@ -8968,8 +8968,8 @@ func (g *GCEBetaRegionBackendServices) List(ctx context.Context, region string, 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.BackendService
-	f := func(l *beta.BackendServiceList) error {
+	var all []*computebeta.BackendService
+	f := func(l *computebeta.BackendServiceList) error {
 		klog.V(5).Infof("GCEBetaRegionBackendServices.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -8999,7 +8999,7 @@ func (g *GCEBetaRegionBackendServices) List(ctx context.Context, region string, 
 }
 
 // Insert BackendService with key of value obj.
-func (g *GCEBetaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *beta.BackendService) error {
+func (g *GCEBetaRegionBackendServices) Insert(ctx context.Context, key *meta.Key, obj *computebeta.BackendService) error {
 	klog.V(5).Infof("GCEBetaRegionBackendServices.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRegionBackendServices.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -9078,7 +9078,7 @@ func (g *GCEBetaRegionBackendServices) Delete(ctx context.Context, key *meta.Key
 }
 
 // GetHealth is a method on GCEBetaRegionBackendServices.
-func (g *GCEBetaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *beta.ResourceGroupReference) (*beta.BackendServiceGroupHealth, error) {
+func (g *GCEBetaRegionBackendServices) GetHealth(ctx context.Context, key *meta.Key, arg0 *computebeta.ResourceGroupReference) (*computebeta.BackendServiceGroupHealth, error) {
 	klog.V(5).Infof("GCEBetaRegionBackendServices.GetHealth(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -9110,7 +9110,7 @@ func (g *GCEBetaRegionBackendServices) GetHealth(ctx context.Context, key *meta.
 }
 
 // Patch is a method on GCEBetaRegionBackendServices.
-func (g *GCEBetaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (g *GCEBetaRegionBackendServices) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	klog.V(5).Infof("GCEBetaRegionBackendServices.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -9152,7 +9152,7 @@ func (g *GCEBetaRegionBackendServices) Patch(ctx context.Context, key *meta.Key,
 }
 
 // Update is a method on GCEBetaRegionBackendServices.
-func (g *GCEBetaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *beta.BackendService) error {
+func (g *GCEBetaRegionBackendServices) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.BackendService) error {
 	klog.V(5).Infof("GCEBetaRegionBackendServices.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -9195,11 +9195,11 @@ func (g *GCEBetaRegionBackendServices) Update(ctx context.Context, key *meta.Key
 
 // Disks is an interface that allows for mocking of Disks.
 type Disks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Disk, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*ga.Disk, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Disk) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Disk, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computega.Disk, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Disk) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Resize(context.Context, *meta.Key, *ga.DisksResizeRequest) error
+	Resize(context.Context, *meta.Key, *computega.DisksResizeRequest) error
 }
 
 // NewMockDisks returns a new mock for Disks.
@@ -9235,11 +9235,11 @@ type MockDisks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockDisks) (bool, *ga.Disk, error)
-	ListHook   func(ctx context.Context, zone string, fl *filter.F, m *MockDisks) (bool, []*ga.Disk, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.Disk, m *MockDisks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockDisks) (bool, *computega.Disk, error)
+	ListHook   func(ctx context.Context, zone string, fl *filter.F, m *MockDisks) (bool, []*computega.Disk, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.Disk, m *MockDisks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockDisks) (bool, error)
-	ResizeHook func(context.Context, *meta.Key, *ga.DisksResizeRequest, *MockDisks) error
+	ResizeHook func(context.Context, *meta.Key, *computega.DisksResizeRequest, *MockDisks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -9247,7 +9247,7 @@ type MockDisks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, error) {
+func (m *MockDisks) Get(ctx context.Context, key *meta.Key) (*computega.Disk, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockDisks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -9280,7 +9280,7 @@ func (m *MockDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, error) {
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.Disk, error) {
+func (m *MockDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.Disk, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockDisks.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -9298,7 +9298,7 @@ func (m *MockDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Disk
+	var objs []*computega.Disk
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -9314,7 +9314,7 @@ func (m *MockDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockDisks) Insert(ctx context.Context, key *meta.Key, obj *ga.Disk) error {
+func (m *MockDisks) Insert(ctx context.Context, key *meta.Key, obj *computega.Disk) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockDisks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -9384,12 +9384,12 @@ func (m *MockDisks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockDisks) Obj(o *ga.Disk) *MockDisksObj {
+func (m *MockDisks) Obj(o *computega.Disk) *MockDisksObj {
 	return &MockDisksObj{o}
 }
 
 // Resize is a mock for the corresponding method.
-func (m *MockDisks) Resize(ctx context.Context, key *meta.Key, arg0 *ga.DisksResizeRequest) error {
+func (m *MockDisks) Resize(ctx context.Context, key *meta.Key, arg0 *computega.DisksResizeRequest) error {
 	if m.ResizeHook != nil {
 		return m.ResizeHook(ctx, key, arg0, m)
 	}
@@ -9402,7 +9402,7 @@ type GCEDisks struct {
 }
 
 // Get the Disk named by key.
-func (g *GCEDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, error) {
+func (g *GCEDisks) Get(ctx context.Context, key *meta.Key) (*computega.Disk, error) {
 	klog.V(5).Infof("GCEDisks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -9435,7 +9435,7 @@ func (g *GCEDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, error) {
 }
 
 // List all Disk objects.
-func (g *GCEDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.Disk, error) {
+func (g *GCEDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.Disk, error) {
 	klog.V(5).Infof("GCEDisks.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Disks")
 	ck := &CallContextKey{
@@ -9455,8 +9455,8 @@ func (g *GCEDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.D
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Disk
-	f := func(l *ga.DiskList) error {
+	var all []*computega.Disk
+	f := func(l *computega.DiskList) error {
 		klog.V(5).Infof("GCEDisks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -9486,7 +9486,7 @@ func (g *GCEDisks) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.D
 }
 
 // Insert Disk with key of value obj.
-func (g *GCEDisks) Insert(ctx context.Context, key *meta.Key, obj *ga.Disk) error {
+func (g *GCEDisks) Insert(ctx context.Context, key *meta.Key, obj *computega.Disk) error {
 	klog.V(5).Infof("GCEDisks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEDisks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -9565,7 +9565,7 @@ func (g *GCEDisks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Resize is a method on GCEDisks.
-func (g *GCEDisks) Resize(ctx context.Context, key *meta.Key, arg0 *ga.DisksResizeRequest) error {
+func (g *GCEDisks) Resize(ctx context.Context, key *meta.Key, arg0 *computega.DisksResizeRequest) error {
 	klog.V(5).Infof("GCEDisks.Resize(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -9608,11 +9608,11 @@ func (g *GCEDisks) Resize(ctx context.Context, key *meta.Key, arg0 *ga.DisksResi
 
 // RegionDisks is an interface that allows for mocking of RegionDisks.
 type RegionDisks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Disk, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.Disk, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Disk) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Disk, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.Disk, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Disk) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Resize(context.Context, *meta.Key, *ga.RegionDisksResizeRequest) error
+	Resize(context.Context, *meta.Key, *computega.RegionDisksResizeRequest) error
 }
 
 // NewMockRegionDisks returns a new mock for RegionDisks.
@@ -9648,11 +9648,11 @@ type MockRegionDisks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionDisks) (bool, *ga.Disk, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionDisks) (bool, []*ga.Disk, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.Disk, m *MockRegionDisks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionDisks) (bool, *computega.Disk, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionDisks) (bool, []*computega.Disk, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.Disk, m *MockRegionDisks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockRegionDisks) (bool, error)
-	ResizeHook func(context.Context, *meta.Key, *ga.RegionDisksResizeRequest, *MockRegionDisks) error
+	ResizeHook func(context.Context, *meta.Key, *computega.RegionDisksResizeRequest, *MockRegionDisks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -9660,7 +9660,7 @@ type MockRegionDisks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, error) {
+func (m *MockRegionDisks) Get(ctx context.Context, key *meta.Key) (*computega.Disk, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionDisks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -9693,7 +9693,7 @@ func (m *MockRegionDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, err
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionDisks) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Disk, error) {
+func (m *MockRegionDisks) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Disk, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionDisks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -9711,7 +9711,7 @@ func (m *MockRegionDisks) List(ctx context.Context, region string, fl *filter.F)
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Disk
+	var objs []*computega.Disk
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -9727,7 +9727,7 @@ func (m *MockRegionDisks) List(ctx context.Context, region string, fl *filter.F)
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionDisks) Insert(ctx context.Context, key *meta.Key, obj *ga.Disk) error {
+func (m *MockRegionDisks) Insert(ctx context.Context, key *meta.Key, obj *computega.Disk) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionDisks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -9797,12 +9797,12 @@ func (m *MockRegionDisks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionDisks) Obj(o *ga.Disk) *MockRegionDisksObj {
+func (m *MockRegionDisks) Obj(o *computega.Disk) *MockRegionDisksObj {
 	return &MockRegionDisksObj{o}
 }
 
 // Resize is a mock for the corresponding method.
-func (m *MockRegionDisks) Resize(ctx context.Context, key *meta.Key, arg0 *ga.RegionDisksResizeRequest) error {
+func (m *MockRegionDisks) Resize(ctx context.Context, key *meta.Key, arg0 *computega.RegionDisksResizeRequest) error {
 	if m.ResizeHook != nil {
 		return m.ResizeHook(ctx, key, arg0, m)
 	}
@@ -9815,7 +9815,7 @@ type GCERegionDisks struct {
 }
 
 // Get the Disk named by key.
-func (g *GCERegionDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, error) {
+func (g *GCERegionDisks) Get(ctx context.Context, key *meta.Key) (*computega.Disk, error) {
 	klog.V(5).Infof("GCERegionDisks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -9848,7 +9848,7 @@ func (g *GCERegionDisks) Get(ctx context.Context, key *meta.Key) (*ga.Disk, erro
 }
 
 // List all Disk objects.
-func (g *GCERegionDisks) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Disk, error) {
+func (g *GCERegionDisks) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Disk, error) {
 	klog.V(5).Infof("GCERegionDisks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionDisks")
 	ck := &CallContextKey{
@@ -9868,8 +9868,8 @@ func (g *GCERegionDisks) List(ctx context.Context, region string, fl *filter.F) 
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Disk
-	f := func(l *ga.DiskList) error {
+	var all []*computega.Disk
+	f := func(l *computega.DiskList) error {
 		klog.V(5).Infof("GCERegionDisks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -9899,7 +9899,7 @@ func (g *GCERegionDisks) List(ctx context.Context, region string, fl *filter.F) 
 }
 
 // Insert Disk with key of value obj.
-func (g *GCERegionDisks) Insert(ctx context.Context, key *meta.Key, obj *ga.Disk) error {
+func (g *GCERegionDisks) Insert(ctx context.Context, key *meta.Key, obj *computega.Disk) error {
 	klog.V(5).Infof("GCERegionDisks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionDisks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -9978,7 +9978,7 @@ func (g *GCERegionDisks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Resize is a method on GCERegionDisks.
-func (g *GCERegionDisks) Resize(ctx context.Context, key *meta.Key, arg0 *ga.RegionDisksResizeRequest) error {
+func (g *GCERegionDisks) Resize(ctx context.Context, key *meta.Key, arg0 *computega.RegionDisksResizeRequest) error {
 	klog.V(5).Infof("GCERegionDisks.Resize(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -10021,12 +10021,12 @@ func (g *GCERegionDisks) Resize(ctx context.Context, key *meta.Key, arg0 *ga.Reg
 
 // AlphaFirewalls is an interface that allows for mocking of Firewalls.
 type AlphaFirewalls interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Firewall, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.Firewall, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Firewall) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Firewall, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.Firewall, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Firewall) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Patch(context.Context, *meta.Key, *alpha.Firewall) error
-	Update(context.Context, *meta.Key, *alpha.Firewall) error
+	Patch(context.Context, *meta.Key, *computealpha.Firewall) error
+	Update(context.Context, *meta.Key, *computealpha.Firewall) error
 }
 
 // NewMockAlphaFirewalls returns a new mock for Firewalls.
@@ -10062,12 +10062,12 @@ type MockAlphaFirewalls struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaFirewalls) (bool, *alpha.Firewall, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaFirewalls) (bool, []*alpha.Firewall, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.Firewall, m *MockAlphaFirewalls) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaFirewalls) (bool, *computealpha.Firewall, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaFirewalls) (bool, []*computealpha.Firewall, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.Firewall, m *MockAlphaFirewalls) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaFirewalls) (bool, error)
-	PatchHook  func(context.Context, *meta.Key, *alpha.Firewall, *MockAlphaFirewalls) error
-	UpdateHook func(context.Context, *meta.Key, *alpha.Firewall, *MockAlphaFirewalls) error
+	PatchHook  func(context.Context, *meta.Key, *computealpha.Firewall, *MockAlphaFirewalls) error
+	UpdateHook func(context.Context, *meta.Key, *computealpha.Firewall, *MockAlphaFirewalls) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -10075,7 +10075,7 @@ type MockAlphaFirewalls struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaFirewalls) Get(ctx context.Context, key *meta.Key) (*alpha.Firewall, error) {
+func (m *MockAlphaFirewalls) Get(ctx context.Context, key *meta.Key) (*computealpha.Firewall, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaFirewalls.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -10108,7 +10108,7 @@ func (m *MockAlphaFirewalls) Get(ctx context.Context, key *meta.Key) (*alpha.Fir
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*alpha.Firewall, error) {
+func (m *MockAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*computealpha.Firewall, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaFirewalls.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -10126,7 +10126,7 @@ func (m *MockAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*alpha.F
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Firewall
+	var objs []*computealpha.Firewall
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -10139,7 +10139,7 @@ func (m *MockAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*alpha.F
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *alpha.Firewall) error {
+func (m *MockAlphaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Firewall) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaFirewalls.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -10209,12 +10209,12 @@ func (m *MockAlphaFirewalls) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaFirewalls) Obj(o *alpha.Firewall) *MockFirewallsObj {
+func (m *MockAlphaFirewalls) Obj(o *computealpha.Firewall) *MockFirewallsObj {
 	return &MockFirewallsObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Firewall) error {
+func (m *MockAlphaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Firewall) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -10222,7 +10222,7 @@ func (m *MockAlphaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *alp
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *alpha.Firewall) error {
+func (m *MockAlphaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.Firewall) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -10235,7 +10235,7 @@ type GCEAlphaFirewalls struct {
 }
 
 // Get the Firewall named by key.
-func (g *GCEAlphaFirewalls) Get(ctx context.Context, key *meta.Key) (*alpha.Firewall, error) {
+func (g *GCEAlphaFirewalls) Get(ctx context.Context, key *meta.Key) (*computealpha.Firewall, error) {
 	klog.V(5).Infof("GCEAlphaFirewalls.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -10268,7 +10268,7 @@ func (g *GCEAlphaFirewalls) Get(ctx context.Context, key *meta.Key) (*alpha.Fire
 }
 
 // List all Firewall objects.
-func (g *GCEAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*alpha.Firewall, error) {
+func (g *GCEAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*computealpha.Firewall, error) {
 	klog.V(5).Infof("GCEAlphaFirewalls.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Firewalls")
 	ck := &CallContextKey{
@@ -10288,8 +10288,8 @@ func (g *GCEAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*alpha.Fi
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Firewall
-	f := func(l *alpha.FirewallList) error {
+	var all []*computealpha.Firewall
+	f := func(l *computealpha.FirewallList) error {
 		klog.V(5).Infof("GCEAlphaFirewalls.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -10319,7 +10319,7 @@ func (g *GCEAlphaFirewalls) List(ctx context.Context, fl *filter.F) ([]*alpha.Fi
 }
 
 // Insert Firewall with key of value obj.
-func (g *GCEAlphaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *alpha.Firewall) error {
+func (g *GCEAlphaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Firewall) error {
 	klog.V(5).Infof("GCEAlphaFirewalls.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaFirewalls.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -10398,7 +10398,7 @@ func (g *GCEAlphaFirewalls) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Patch is a method on GCEAlphaFirewalls.
-func (g *GCEAlphaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Firewall) error {
+func (g *GCEAlphaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Firewall) error {
 	klog.V(5).Infof("GCEAlphaFirewalls.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -10440,7 +10440,7 @@ func (g *GCEAlphaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *alph
 }
 
 // Update is a method on GCEAlphaFirewalls.
-func (g *GCEAlphaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *alpha.Firewall) error {
+func (g *GCEAlphaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.Firewall) error {
 	klog.V(5).Infof("GCEAlphaFirewalls.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -10483,12 +10483,12 @@ func (g *GCEAlphaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *alp
 
 // BetaFirewalls is an interface that allows for mocking of Firewalls.
 type BetaFirewalls interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Firewall, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.Firewall, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Firewall) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Firewall, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.Firewall, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Firewall) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Patch(context.Context, *meta.Key, *beta.Firewall) error
-	Update(context.Context, *meta.Key, *beta.Firewall) error
+	Patch(context.Context, *meta.Key, *computebeta.Firewall) error
+	Update(context.Context, *meta.Key, *computebeta.Firewall) error
 }
 
 // NewMockBetaFirewalls returns a new mock for Firewalls.
@@ -10524,12 +10524,12 @@ type MockBetaFirewalls struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaFirewalls) (bool, *beta.Firewall, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaFirewalls) (bool, []*beta.Firewall, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.Firewall, m *MockBetaFirewalls) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaFirewalls) (bool, *computebeta.Firewall, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaFirewalls) (bool, []*computebeta.Firewall, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.Firewall, m *MockBetaFirewalls) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaFirewalls) (bool, error)
-	PatchHook  func(context.Context, *meta.Key, *beta.Firewall, *MockBetaFirewalls) error
-	UpdateHook func(context.Context, *meta.Key, *beta.Firewall, *MockBetaFirewalls) error
+	PatchHook  func(context.Context, *meta.Key, *computebeta.Firewall, *MockBetaFirewalls) error
+	UpdateHook func(context.Context, *meta.Key, *computebeta.Firewall, *MockBetaFirewalls) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -10537,7 +10537,7 @@ type MockBetaFirewalls struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaFirewalls) Get(ctx context.Context, key *meta.Key) (*beta.Firewall, error) {
+func (m *MockBetaFirewalls) Get(ctx context.Context, key *meta.Key) (*computebeta.Firewall, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaFirewalls.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -10570,7 +10570,7 @@ func (m *MockBetaFirewalls) Get(ctx context.Context, key *meta.Key) (*beta.Firew
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*beta.Firewall, error) {
+func (m *MockBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*computebeta.Firewall, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaFirewalls.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -10588,7 +10588,7 @@ func (m *MockBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*beta.Fir
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Firewall
+	var objs []*computebeta.Firewall
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -10601,7 +10601,7 @@ func (m *MockBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*beta.Fir
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *beta.Firewall) error {
+func (m *MockBetaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Firewall) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaFirewalls.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -10671,12 +10671,12 @@ func (m *MockBetaFirewalls) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaFirewalls) Obj(o *beta.Firewall) *MockFirewallsObj {
+func (m *MockBetaFirewalls) Obj(o *computebeta.Firewall) *MockFirewallsObj {
 	return &MockFirewallsObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Firewall) error {
+func (m *MockBetaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Firewall) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -10684,7 +10684,7 @@ func (m *MockBetaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *beta
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *beta.Firewall) error {
+func (m *MockBetaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.Firewall) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -10697,7 +10697,7 @@ type GCEBetaFirewalls struct {
 }
 
 // Get the Firewall named by key.
-func (g *GCEBetaFirewalls) Get(ctx context.Context, key *meta.Key) (*beta.Firewall, error) {
+func (g *GCEBetaFirewalls) Get(ctx context.Context, key *meta.Key) (*computebeta.Firewall, error) {
 	klog.V(5).Infof("GCEBetaFirewalls.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -10730,7 +10730,7 @@ func (g *GCEBetaFirewalls) Get(ctx context.Context, key *meta.Key) (*beta.Firewa
 }
 
 // List all Firewall objects.
-func (g *GCEBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*beta.Firewall, error) {
+func (g *GCEBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*computebeta.Firewall, error) {
 	klog.V(5).Infof("GCEBetaFirewalls.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Firewalls")
 	ck := &CallContextKey{
@@ -10750,8 +10750,8 @@ func (g *GCEBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*beta.Fire
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Firewall
-	f := func(l *beta.FirewallList) error {
+	var all []*computebeta.Firewall
+	f := func(l *computebeta.FirewallList) error {
 		klog.V(5).Infof("GCEBetaFirewalls.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -10781,7 +10781,7 @@ func (g *GCEBetaFirewalls) List(ctx context.Context, fl *filter.F) ([]*beta.Fire
 }
 
 // Insert Firewall with key of value obj.
-func (g *GCEBetaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *beta.Firewall) error {
+func (g *GCEBetaFirewalls) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Firewall) error {
 	klog.V(5).Infof("GCEBetaFirewalls.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaFirewalls.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -10860,7 +10860,7 @@ func (g *GCEBetaFirewalls) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Patch is a method on GCEBetaFirewalls.
-func (g *GCEBetaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Firewall) error {
+func (g *GCEBetaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Firewall) error {
 	klog.V(5).Infof("GCEBetaFirewalls.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -10902,7 +10902,7 @@ func (g *GCEBetaFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *beta.
 }
 
 // Update is a method on GCEBetaFirewalls.
-func (g *GCEBetaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *beta.Firewall) error {
+func (g *GCEBetaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.Firewall) error {
 	klog.V(5).Infof("GCEBetaFirewalls.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -10945,12 +10945,12 @@ func (g *GCEBetaFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *beta
 
 // Firewalls is an interface that allows for mocking of Firewalls.
 type Firewalls interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Firewall, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Firewall, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Firewall) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Firewall, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Firewall, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Firewall) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Patch(context.Context, *meta.Key, *ga.Firewall) error
-	Update(context.Context, *meta.Key, *ga.Firewall) error
+	Patch(context.Context, *meta.Key, *computega.Firewall) error
+	Update(context.Context, *meta.Key, *computega.Firewall) error
 }
 
 // NewMockFirewalls returns a new mock for Firewalls.
@@ -10986,12 +10986,12 @@ type MockFirewalls struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockFirewalls) (bool, *ga.Firewall, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockFirewalls) (bool, []*ga.Firewall, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.Firewall, m *MockFirewalls) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockFirewalls) (bool, *computega.Firewall, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockFirewalls) (bool, []*computega.Firewall, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.Firewall, m *MockFirewalls) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockFirewalls) (bool, error)
-	PatchHook  func(context.Context, *meta.Key, *ga.Firewall, *MockFirewalls) error
-	UpdateHook func(context.Context, *meta.Key, *ga.Firewall, *MockFirewalls) error
+	PatchHook  func(context.Context, *meta.Key, *computega.Firewall, *MockFirewalls) error
+	UpdateHook func(context.Context, *meta.Key, *computega.Firewall, *MockFirewalls) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -10999,7 +10999,7 @@ type MockFirewalls struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockFirewalls) Get(ctx context.Context, key *meta.Key) (*ga.Firewall, error) {
+func (m *MockFirewalls) Get(ctx context.Context, key *meta.Key) (*computega.Firewall, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockFirewalls.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -11032,7 +11032,7 @@ func (m *MockFirewalls) Get(ctx context.Context, key *meta.Key) (*ga.Firewall, e
 }
 
 // List all of the objects in the mock.
-func (m *MockFirewalls) List(ctx context.Context, fl *filter.F) ([]*ga.Firewall, error) {
+func (m *MockFirewalls) List(ctx context.Context, fl *filter.F) ([]*computega.Firewall, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockFirewalls.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -11050,7 +11050,7 @@ func (m *MockFirewalls) List(ctx context.Context, fl *filter.F) ([]*ga.Firewall,
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Firewall
+	var objs []*computega.Firewall
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -11063,7 +11063,7 @@ func (m *MockFirewalls) List(ctx context.Context, fl *filter.F) ([]*ga.Firewall,
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockFirewalls) Insert(ctx context.Context, key *meta.Key, obj *ga.Firewall) error {
+func (m *MockFirewalls) Insert(ctx context.Context, key *meta.Key, obj *computega.Firewall) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockFirewalls.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -11133,12 +11133,12 @@ func (m *MockFirewalls) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockFirewalls) Obj(o *ga.Firewall) *MockFirewallsObj {
+func (m *MockFirewalls) Obj(o *computega.Firewall) *MockFirewallsObj {
 	return &MockFirewallsObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Firewall) error {
+func (m *MockFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Firewall) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -11146,7 +11146,7 @@ func (m *MockFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Firew
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *ga.Firewall) error {
+func (m *MockFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *computega.Firewall) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -11159,7 +11159,7 @@ type GCEFirewalls struct {
 }
 
 // Get the Firewall named by key.
-func (g *GCEFirewalls) Get(ctx context.Context, key *meta.Key) (*ga.Firewall, error) {
+func (g *GCEFirewalls) Get(ctx context.Context, key *meta.Key) (*computega.Firewall, error) {
 	klog.V(5).Infof("GCEFirewalls.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -11192,7 +11192,7 @@ func (g *GCEFirewalls) Get(ctx context.Context, key *meta.Key) (*ga.Firewall, er
 }
 
 // List all Firewall objects.
-func (g *GCEFirewalls) List(ctx context.Context, fl *filter.F) ([]*ga.Firewall, error) {
+func (g *GCEFirewalls) List(ctx context.Context, fl *filter.F) ([]*computega.Firewall, error) {
 	klog.V(5).Infof("GCEFirewalls.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Firewalls")
 	ck := &CallContextKey{
@@ -11212,8 +11212,8 @@ func (g *GCEFirewalls) List(ctx context.Context, fl *filter.F) ([]*ga.Firewall, 
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Firewall
-	f := func(l *ga.FirewallList) error {
+	var all []*computega.Firewall
+	f := func(l *computega.FirewallList) error {
 		klog.V(5).Infof("GCEFirewalls.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -11243,7 +11243,7 @@ func (g *GCEFirewalls) List(ctx context.Context, fl *filter.F) ([]*ga.Firewall, 
 }
 
 // Insert Firewall with key of value obj.
-func (g *GCEFirewalls) Insert(ctx context.Context, key *meta.Key, obj *ga.Firewall) error {
+func (g *GCEFirewalls) Insert(ctx context.Context, key *meta.Key, obj *computega.Firewall) error {
 	klog.V(5).Infof("GCEFirewalls.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEFirewalls.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -11322,7 +11322,7 @@ func (g *GCEFirewalls) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Patch is a method on GCEFirewalls.
-func (g *GCEFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Firewall) error {
+func (g *GCEFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Firewall) error {
 	klog.V(5).Infof("GCEFirewalls.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -11364,7 +11364,7 @@ func (g *GCEFirewalls) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Firewa
 }
 
 // Update is a method on GCEFirewalls.
-func (g *GCEFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *ga.Firewall) error {
+func (g *GCEFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *computega.Firewall) error {
 	klog.V(5).Infof("GCEFirewalls.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -11407,22 +11407,22 @@ func (g *GCEFirewalls) Update(ctx context.Context, key *meta.Key, arg0 *ga.Firew
 
 // AlphaNetworkFirewallPolicies is an interface that allows for mocking of NetworkFirewallPolicies.
 type AlphaNetworkFirewallPolicies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicy, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.FirewallPolicy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.FirewallPolicy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AddAssociation(context.Context, *meta.Key, *alpha.FirewallPolicyAssociation) error
-	AddRule(context.Context, *meta.Key, *alpha.FirewallPolicyRule) error
+	AddAssociation(context.Context, *meta.Key, *computealpha.FirewallPolicyAssociation) error
+	AddRule(context.Context, *meta.Key, *computealpha.FirewallPolicyRule) error
 	CloneRules(context.Context, *meta.Key) error
-	GetAssociation(context.Context, *meta.Key) (*alpha.FirewallPolicyAssociation, error)
-	GetIamPolicy(context.Context, *meta.Key) (*alpha.Policy, error)
-	GetRule(context.Context, *meta.Key) (*alpha.FirewallPolicyRule, error)
-	Patch(context.Context, *meta.Key, *alpha.FirewallPolicy) error
-	PatchRule(context.Context, *meta.Key, *alpha.FirewallPolicyRule) error
+	GetAssociation(context.Context, *meta.Key) (*computealpha.FirewallPolicyAssociation, error)
+	GetIamPolicy(context.Context, *meta.Key) (*computealpha.Policy, error)
+	GetRule(context.Context, *meta.Key) (*computealpha.FirewallPolicyRule, error)
+	Patch(context.Context, *meta.Key, *computealpha.FirewallPolicy) error
+	PatchRule(context.Context, *meta.Key, *computealpha.FirewallPolicyRule) error
 	RemoveAssociation(context.Context, *meta.Key) error
 	RemoveRule(context.Context, *meta.Key) error
-	SetIamPolicy(context.Context, *meta.Key, *alpha.GlobalSetPolicyRequest) (*alpha.Policy, error)
-	TestIamPermissions(context.Context, *meta.Key, *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error)
+	SetIamPolicy(context.Context, *meta.Key, *computealpha.GlobalSetPolicyRequest) (*computealpha.Policy, error)
+	TestIamPermissions(context.Context, *meta.Key, *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error)
 }
 
 // NewMockAlphaNetworkFirewallPolicies returns a new mock for NetworkFirewallPolicies.
@@ -11458,22 +11458,22 @@ type MockAlphaNetworkFirewallPolicies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaNetworkFirewallPolicies) (bool, *alpha.FirewallPolicy, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaNetworkFirewallPolicies) (bool, []*alpha.FirewallPolicy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy, m *MockAlphaNetworkFirewallPolicies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaNetworkFirewallPolicies) (bool, *computealpha.FirewallPolicy, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaNetworkFirewallPolicies) (bool, []*computealpha.FirewallPolicy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy, m *MockAlphaNetworkFirewallPolicies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaNetworkFirewallPolicies) (bool, error)
-	AddAssociationHook     func(context.Context, *meta.Key, *alpha.FirewallPolicyAssociation, *MockAlphaNetworkFirewallPolicies) error
-	AddRuleHook            func(context.Context, *meta.Key, *alpha.FirewallPolicyRule, *MockAlphaNetworkFirewallPolicies) error
+	AddAssociationHook     func(context.Context, *meta.Key, *computealpha.FirewallPolicyAssociation, *MockAlphaNetworkFirewallPolicies) error
+	AddRuleHook            func(context.Context, *meta.Key, *computealpha.FirewallPolicyRule, *MockAlphaNetworkFirewallPolicies) error
 	CloneRulesHook         func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) error
-	GetAssociationHook     func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) (*alpha.FirewallPolicyAssociation, error)
-	GetIamPolicyHook       func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) (*alpha.Policy, error)
-	GetRuleHook            func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) (*alpha.FirewallPolicyRule, error)
-	PatchHook              func(context.Context, *meta.Key, *alpha.FirewallPolicy, *MockAlphaNetworkFirewallPolicies) error
-	PatchRuleHook          func(context.Context, *meta.Key, *alpha.FirewallPolicyRule, *MockAlphaNetworkFirewallPolicies) error
+	GetAssociationHook     func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) (*computealpha.FirewallPolicyAssociation, error)
+	GetIamPolicyHook       func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) (*computealpha.Policy, error)
+	GetRuleHook            func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) (*computealpha.FirewallPolicyRule, error)
+	PatchHook              func(context.Context, *meta.Key, *computealpha.FirewallPolicy, *MockAlphaNetworkFirewallPolicies) error
+	PatchRuleHook          func(context.Context, *meta.Key, *computealpha.FirewallPolicyRule, *MockAlphaNetworkFirewallPolicies) error
 	RemoveAssociationHook  func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) error
 	RemoveRuleHook         func(context.Context, *meta.Key, *MockAlphaNetworkFirewallPolicies) error
-	SetIamPolicyHook       func(context.Context, *meta.Key, *alpha.GlobalSetPolicyRequest, *MockAlphaNetworkFirewallPolicies) (*alpha.Policy, error)
-	TestIamPermissionsHook func(context.Context, *meta.Key, *alpha.TestPermissionsRequest, *MockAlphaNetworkFirewallPolicies) (*alpha.TestPermissionsResponse, error)
+	SetIamPolicyHook       func(context.Context, *meta.Key, *computealpha.GlobalSetPolicyRequest, *MockAlphaNetworkFirewallPolicies) (*computealpha.Policy, error)
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computealpha.TestPermissionsRequest, *MockAlphaNetworkFirewallPolicies) (*computealpha.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -11481,7 +11481,7 @@ type MockAlphaNetworkFirewallPolicies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicy, error) {
+func (m *MockAlphaNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkFirewallPolicies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -11514,7 +11514,7 @@ func (m *MockAlphaNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Ke
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.F) ([]*alpha.FirewallPolicy, error) {
+func (m *MockAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.F) ([]*computealpha.FirewallPolicy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkFirewallPolicies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -11532,7 +11532,7 @@ func (m *MockAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.FirewallPolicy
+	var objs []*computealpha.FirewallPolicy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -11545,7 +11545,7 @@ func (m *MockAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy) error {
+func (m *MockAlphaNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkFirewallPolicies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -11615,12 +11615,12 @@ func (m *MockAlphaNetworkFirewallPolicies) Delete(ctx context.Context, key *meta
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaNetworkFirewallPolicies) Obj(o *alpha.FirewallPolicy) *MockNetworkFirewallPoliciesObj {
+func (m *MockAlphaNetworkFirewallPolicies) Obj(o *computealpha.FirewallPolicy) *MockNetworkFirewallPoliciesObj {
 	return &MockNetworkFirewallPoliciesObj{o}
 }
 
 // AddAssociation is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyAssociation) error {
+func (m *MockAlphaNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyAssociation) error {
 	if m.AddAssociationHook != nil {
 		return m.AddAssociationHook(ctx, key, arg0, m)
 	}
@@ -11628,7 +11628,7 @@ func (m *MockAlphaNetworkFirewallPolicies) AddAssociation(ctx context.Context, k
 }
 
 // AddRule is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (m *MockAlphaNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	if m.AddRuleHook != nil {
 		return m.AddRuleHook(ctx, key, arg0, m)
 	}
@@ -11644,7 +11644,7 @@ func (m *MockAlphaNetworkFirewallPolicies) CloneRules(ctx context.Context, key *
 }
 
 // GetAssociation is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyAssociation, error) {
+func (m *MockAlphaNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyAssociation, error) {
 	if m.GetAssociationHook != nil {
 		return m.GetAssociationHook(ctx, key, m)
 	}
@@ -11652,7 +11652,7 @@ func (m *MockAlphaNetworkFirewallPolicies) GetAssociation(ctx context.Context, k
 }
 
 // GetIamPolicy is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*alpha.Policy, error) {
+func (m *MockAlphaNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*computealpha.Policy, error) {
 	if m.GetIamPolicyHook != nil {
 		return m.GetIamPolicyHook(ctx, key, m)
 	}
@@ -11660,7 +11660,7 @@ func (m *MockAlphaNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key
 }
 
 // GetRule is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyRule, error) {
+func (m *MockAlphaNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyRule, error) {
 	if m.GetRuleHook != nil {
 		return m.GetRuleHook(ctx, key, m)
 	}
@@ -11668,7 +11668,7 @@ func (m *MockAlphaNetworkFirewallPolicies) GetRule(ctx context.Context, key *met
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicy) error {
+func (m *MockAlphaNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicy) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -11676,7 +11676,7 @@ func (m *MockAlphaNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.
 }
 
 // PatchRule is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (m *MockAlphaNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	if m.PatchRuleHook != nil {
 		return m.PatchRuleHook(ctx, key, arg0, m)
 	}
@@ -11700,7 +11700,7 @@ func (m *MockAlphaNetworkFirewallPolicies) RemoveRule(ctx context.Context, key *
 }
 
 // SetIamPolicy is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetPolicyRequest) (*alpha.Policy, error) {
+func (m *MockAlphaNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetPolicyRequest) (*computealpha.Policy, error) {
 	if m.SetIamPolicyHook != nil {
 		return m.SetIamPolicyHook(ctx, key, arg0, m)
 	}
@@ -11708,7 +11708,7 @@ func (m *MockAlphaNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockAlphaNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (m *MockAlphaNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -11721,7 +11721,7 @@ type GCEAlphaNetworkFirewallPolicies struct {
 }
 
 // Get the FirewallPolicy named by key.
-func (g *GCEAlphaNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicy, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicy, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -11754,7 +11754,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key
 }
 
 // List all FirewallPolicy objects.
-func (g *GCEAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.F) ([]*alpha.FirewallPolicy, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.F) ([]*computealpha.FirewallPolicy, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "NetworkFirewallPolicies")
 	ck := &CallContextKey{
@@ -11774,8 +11774,8 @@ func (g *GCEAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.F
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.FirewallPolicy
-	f := func(l *alpha.FirewallPolicyList) error {
+	var all []*computealpha.FirewallPolicy
+	f := func(l *computealpha.FirewallPolicyList) error {
 		klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -11805,7 +11805,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) List(ctx context.Context, fl *filter.F
 }
 
 // Insert FirewallPolicy with key of value obj.
-func (g *GCEAlphaNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy) error {
+func (g *GCEAlphaNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy) error {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaNetworkFirewallPolicies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -11884,7 +11884,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) Delete(ctx context.Context, key *meta.
 }
 
 // AddAssociation is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyAssociation) error {
+func (g *GCEAlphaNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyAssociation) error {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.AddAssociation(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -11926,7 +11926,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) AddAssociation(ctx context.Context, ke
 }
 
 // AddRule is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (g *GCEAlphaNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.AddRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12010,7 +12010,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) CloneRules(ctx context.Context, key *m
 }
 
 // GetAssociation is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyAssociation, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyAssociation, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.GetAssociation(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12042,7 +12042,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) GetAssociation(ctx context.Context, ke
 }
 
 // GetIamPolicy is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*alpha.Policy, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*computealpha.Policy, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.GetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12074,7 +12074,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key 
 }
 
 // GetRule is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyRule, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyRule, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.GetRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12106,7 +12106,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta
 }
 
 // Patch is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicy) error {
+func (g *GCEAlphaNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicy) error {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12148,7 +12148,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.K
 }
 
 // PatchRule is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (g *GCEAlphaNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.PatchRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12274,7 +12274,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) RemoveRule(ctx context.Context, key *m
 }
 
 // SetIamPolicy is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetPolicyRequest) (*alpha.Policy, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetPolicyRequest) (*computealpha.Policy, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.SetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12306,7 +12306,7 @@ func (g *GCEAlphaNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key 
 }
 
 // TestIamPermissions is a method on GCEAlphaNetworkFirewallPolicies.
-func (g *GCEAlphaNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (g *GCEAlphaNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEAlphaNetworkFirewallPolicies.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12339,22 +12339,22 @@ func (g *GCEAlphaNetworkFirewallPolicies) TestIamPermissions(ctx context.Context
 
 // AlphaRegionNetworkFirewallPolicies is an interface that allows for mocking of RegionNetworkFirewallPolicies.
 type AlphaRegionNetworkFirewallPolicies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.FirewallPolicy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.FirewallPolicy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AddAssociation(context.Context, *meta.Key, *alpha.FirewallPolicyAssociation) error
-	AddRule(context.Context, *meta.Key, *alpha.FirewallPolicyRule) error
+	AddAssociation(context.Context, *meta.Key, *computealpha.FirewallPolicyAssociation) error
+	AddRule(context.Context, *meta.Key, *computealpha.FirewallPolicyRule) error
 	CloneRules(context.Context, *meta.Key) error
-	GetAssociation(context.Context, *meta.Key) (*alpha.FirewallPolicyAssociation, error)
-	GetIamPolicy(context.Context, *meta.Key) (*alpha.Policy, error)
-	GetRule(context.Context, *meta.Key) (*alpha.FirewallPolicyRule, error)
-	Patch(context.Context, *meta.Key, *alpha.FirewallPolicy) error
-	PatchRule(context.Context, *meta.Key, *alpha.FirewallPolicyRule) error
+	GetAssociation(context.Context, *meta.Key) (*computealpha.FirewallPolicyAssociation, error)
+	GetIamPolicy(context.Context, *meta.Key) (*computealpha.Policy, error)
+	GetRule(context.Context, *meta.Key) (*computealpha.FirewallPolicyRule, error)
+	Patch(context.Context, *meta.Key, *computealpha.FirewallPolicy) error
+	PatchRule(context.Context, *meta.Key, *computealpha.FirewallPolicyRule) error
 	RemoveAssociation(context.Context, *meta.Key) error
 	RemoveRule(context.Context, *meta.Key) error
-	SetIamPolicy(context.Context, *meta.Key, *alpha.RegionSetPolicyRequest) (*alpha.Policy, error)
-	TestIamPermissions(context.Context, *meta.Key, *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error)
+	SetIamPolicy(context.Context, *meta.Key, *computealpha.RegionSetPolicyRequest) (*computealpha.Policy, error)
+	TestIamPermissions(context.Context, *meta.Key, *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error)
 }
 
 // NewMockAlphaRegionNetworkFirewallPolicies returns a new mock for RegionNetworkFirewallPolicies.
@@ -12390,22 +12390,22 @@ type MockAlphaRegionNetworkFirewallPolicies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaRegionNetworkFirewallPolicies) (bool, *alpha.FirewallPolicy, error)
-	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionNetworkFirewallPolicies) (bool, []*alpha.FirewallPolicy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy, m *MockAlphaRegionNetworkFirewallPolicies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaRegionNetworkFirewallPolicies) (bool, *computealpha.FirewallPolicy, error)
+	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionNetworkFirewallPolicies) (bool, []*computealpha.FirewallPolicy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy, m *MockAlphaRegionNetworkFirewallPolicies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaRegionNetworkFirewallPolicies) (bool, error)
-	AddAssociationHook     func(context.Context, *meta.Key, *alpha.FirewallPolicyAssociation, *MockAlphaRegionNetworkFirewallPolicies) error
-	AddRuleHook            func(context.Context, *meta.Key, *alpha.FirewallPolicyRule, *MockAlphaRegionNetworkFirewallPolicies) error
+	AddAssociationHook     func(context.Context, *meta.Key, *computealpha.FirewallPolicyAssociation, *MockAlphaRegionNetworkFirewallPolicies) error
+	AddRuleHook            func(context.Context, *meta.Key, *computealpha.FirewallPolicyRule, *MockAlphaRegionNetworkFirewallPolicies) error
 	CloneRulesHook         func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) error
-	GetAssociationHook     func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) (*alpha.FirewallPolicyAssociation, error)
-	GetIamPolicyHook       func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) (*alpha.Policy, error)
-	GetRuleHook            func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) (*alpha.FirewallPolicyRule, error)
-	PatchHook              func(context.Context, *meta.Key, *alpha.FirewallPolicy, *MockAlphaRegionNetworkFirewallPolicies) error
-	PatchRuleHook          func(context.Context, *meta.Key, *alpha.FirewallPolicyRule, *MockAlphaRegionNetworkFirewallPolicies) error
+	GetAssociationHook     func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) (*computealpha.FirewallPolicyAssociation, error)
+	GetIamPolicyHook       func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) (*computealpha.Policy, error)
+	GetRuleHook            func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) (*computealpha.FirewallPolicyRule, error)
+	PatchHook              func(context.Context, *meta.Key, *computealpha.FirewallPolicy, *MockAlphaRegionNetworkFirewallPolicies) error
+	PatchRuleHook          func(context.Context, *meta.Key, *computealpha.FirewallPolicyRule, *MockAlphaRegionNetworkFirewallPolicies) error
 	RemoveAssociationHook  func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) error
 	RemoveRuleHook         func(context.Context, *meta.Key, *MockAlphaRegionNetworkFirewallPolicies) error
-	SetIamPolicyHook       func(context.Context, *meta.Key, *alpha.RegionSetPolicyRequest, *MockAlphaRegionNetworkFirewallPolicies) (*alpha.Policy, error)
-	TestIamPermissionsHook func(context.Context, *meta.Key, *alpha.TestPermissionsRequest, *MockAlphaRegionNetworkFirewallPolicies) (*alpha.TestPermissionsResponse, error)
+	SetIamPolicyHook       func(context.Context, *meta.Key, *computealpha.RegionSetPolicyRequest, *MockAlphaRegionNetworkFirewallPolicies) (*computealpha.Policy, error)
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computealpha.TestPermissionsRequest, *MockAlphaRegionNetworkFirewallPolicies) (*computealpha.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -12413,7 +12413,7 @@ type MockAlphaRegionNetworkFirewallPolicies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicy, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionNetworkFirewallPolicies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -12446,7 +12446,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) Get(ctx context.Context, key *m
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.FirewallPolicy, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.FirewallPolicy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionNetworkFirewallPolicies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -12464,7 +12464,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, regio
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.FirewallPolicy
+	var objs []*computealpha.FirewallPolicy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -12480,7 +12480,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, regio
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy) error {
+func (m *MockAlphaRegionNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionNetworkFirewallPolicies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -12550,12 +12550,12 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) Delete(ctx context.Context, key
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionNetworkFirewallPolicies) Obj(o *alpha.FirewallPolicy) *MockRegionNetworkFirewallPoliciesObj {
+func (m *MockAlphaRegionNetworkFirewallPolicies) Obj(o *computealpha.FirewallPolicy) *MockRegionNetworkFirewallPoliciesObj {
 	return &MockRegionNetworkFirewallPoliciesObj{o}
 }
 
 // AddAssociation is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyAssociation) error {
+func (m *MockAlphaRegionNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyAssociation) error {
 	if m.AddAssociationHook != nil {
 		return m.AddAssociationHook(ctx, key, arg0, m)
 	}
@@ -12563,7 +12563,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) AddAssociation(ctx context.Cont
 }
 
 // AddRule is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (m *MockAlphaRegionNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	if m.AddRuleHook != nil {
 		return m.AddRuleHook(ctx, key, arg0, m)
 	}
@@ -12579,7 +12579,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) CloneRules(ctx context.Context,
 }
 
 // GetAssociation is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyAssociation, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyAssociation, error) {
 	if m.GetAssociationHook != nil {
 		return m.GetAssociationHook(ctx, key, m)
 	}
@@ -12587,7 +12587,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) GetAssociation(ctx context.Cont
 }
 
 // GetIamPolicy is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*alpha.Policy, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*computealpha.Policy, error) {
 	if m.GetIamPolicyHook != nil {
 		return m.GetIamPolicyHook(ctx, key, m)
 	}
@@ -12595,7 +12595,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) GetIamPolicy(ctx context.Contex
 }
 
 // GetRule is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyRule, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyRule, error) {
 	if m.GetRuleHook != nil {
 		return m.GetRuleHook(ctx, key, m)
 	}
@@ -12603,7 +12603,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) GetRule(ctx context.Context, ke
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicy) error {
+func (m *MockAlphaRegionNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicy) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -12611,7 +12611,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) Patch(ctx context.Context, key 
 }
 
 // PatchRule is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (m *MockAlphaRegionNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	if m.PatchRuleHook != nil {
 		return m.PatchRuleHook(ctx, key, arg0, m)
 	}
@@ -12635,7 +12635,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) RemoveRule(ctx context.Context,
 }
 
 // SetIamPolicy is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.RegionSetPolicyRequest) (*alpha.Policy, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.RegionSetPolicyRequest) (*computealpha.Policy, error) {
 	if m.SetIamPolicyHook != nil {
 		return m.SetIamPolicyHook(ctx, key, arg0, m)
 	}
@@ -12643,7 +12643,7 @@ func (m *MockAlphaRegionNetworkFirewallPolicies) SetIamPolicy(ctx context.Contex
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockAlphaRegionNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (m *MockAlphaRegionNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -12656,7 +12656,7 @@ type GCEAlphaRegionNetworkFirewallPolicies struct {
 }
 
 // Get the FirewallPolicy named by key.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicy, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) Get(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicy, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -12689,7 +12689,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) Get(ctx context.Context, key *me
 }
 
 // List all FirewallPolicy objects.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.FirewallPolicy, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.FirewallPolicy, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionNetworkFirewallPolicies")
 	ck := &CallContextKey{
@@ -12709,8 +12709,8 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, region
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.FirewallPolicy
-	f := func(l *alpha.FirewallPolicyList) error {
+	var all []*computealpha.FirewallPolicy
+	f := func(l *computealpha.FirewallPolicyList) error {
 		klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -12740,7 +12740,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) List(ctx context.Context, region
 }
 
 // Insert FirewallPolicy with key of value obj.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *alpha.FirewallPolicy) error {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.FirewallPolicy) error {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionNetworkFirewallPolicies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -12819,7 +12819,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) Delete(ctx context.Context, key 
 }
 
 // AddAssociation is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyAssociation) error {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) AddAssociation(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyAssociation) error {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.AddAssociation(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12861,7 +12861,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) AddAssociation(ctx context.Conte
 }
 
 // AddRule is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.AddRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12945,7 +12945,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) CloneRules(ctx context.Context, 
 }
 
 // GetAssociation is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyAssociation, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) GetAssociation(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyAssociation, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.GetAssociation(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -12977,7 +12977,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) GetAssociation(ctx context.Conte
 }
 
 // GetIamPolicy is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*alpha.Policy, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) GetIamPolicy(ctx context.Context, key *meta.Key) (*computealpha.Policy, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.GetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13009,7 +13009,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) GetIamPolicy(ctx context.Context
 }
 
 // GetRule is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*alpha.FirewallPolicyRule, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) GetRule(ctx context.Context, key *meta.Key) (*computealpha.FirewallPolicyRule, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.GetRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13041,7 +13041,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) GetRule(ctx context.Context, key
 }
 
 // Patch is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicy) error {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicy) error {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13083,7 +13083,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) Patch(ctx context.Context, key *
 }
 
 // PatchRule is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *alpha.FirewallPolicyRule) error {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *computealpha.FirewallPolicyRule) error {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.PatchRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13209,7 +13209,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) RemoveRule(ctx context.Context, 
 }
 
 // SetIamPolicy is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.RegionSetPolicyRequest) (*alpha.Policy, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.RegionSetPolicyRequest) (*computealpha.Policy, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.SetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13241,7 +13241,7 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) SetIamPolicy(ctx context.Context
 }
 
 // TestIamPermissions is a method on GCEAlphaRegionNetworkFirewallPolicies.
-func (g *GCEAlphaRegionNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (g *GCEAlphaRegionNetworkFirewallPolicies) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEAlphaRegionNetworkFirewallPolicies.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13274,12 +13274,12 @@ func (g *GCEAlphaRegionNetworkFirewallPolicies) TestIamPermissions(ctx context.C
 
 // ForwardingRules is an interface that allows for mocking of ForwardingRules.
 type ForwardingRules interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.ForwardingRule, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.ForwardingRule, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule) error
+	Get(ctx context.Context, key *meta.Key) (*computega.ForwardingRule, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.ForwardingRule, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetLabels(context.Context, *meta.Key, *ga.RegionSetLabelsRequest) error
-	SetTarget(context.Context, *meta.Key, *ga.TargetReference) error
+	SetLabels(context.Context, *meta.Key, *computega.RegionSetLabelsRequest) error
+	SetTarget(context.Context, *meta.Key, *computega.TargetReference) error
 }
 
 // NewMockForwardingRules returns a new mock for ForwardingRules.
@@ -13315,12 +13315,12 @@ type MockForwardingRules struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockForwardingRules) (bool, *ga.ForwardingRule, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockForwardingRules) (bool, []*ga.ForwardingRule, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule, m *MockForwardingRules) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockForwardingRules) (bool, *computega.ForwardingRule, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockForwardingRules) (bool, []*computega.ForwardingRule, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule, m *MockForwardingRules) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockForwardingRules) (bool, error)
-	SetLabelsHook func(context.Context, *meta.Key, *ga.RegionSetLabelsRequest, *MockForwardingRules) error
-	SetTargetHook func(context.Context, *meta.Key, *ga.TargetReference, *MockForwardingRules) error
+	SetLabelsHook func(context.Context, *meta.Key, *computega.RegionSetLabelsRequest, *MockForwardingRules) error
+	SetTargetHook func(context.Context, *meta.Key, *computega.TargetReference, *MockForwardingRules) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -13328,7 +13328,7 @@ type MockForwardingRules struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.ForwardingRule, error) {
+func (m *MockForwardingRules) Get(ctx context.Context, key *meta.Key) (*computega.ForwardingRule, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockForwardingRules.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -13361,7 +13361,7 @@ func (m *MockForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.Forwa
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*ga.ForwardingRule, error) {
+func (m *MockForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*computega.ForwardingRule, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockForwardingRules.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -13379,7 +13379,7 @@ func (m *MockForwardingRules) List(ctx context.Context, region string, fl *filte
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.ForwardingRule
+	var objs []*computega.ForwardingRule
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -13395,7 +13395,7 @@ func (m *MockForwardingRules) List(ctx context.Context, region string, fl *filte
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule) error {
+func (m *MockForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockForwardingRules.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -13465,12 +13465,12 @@ func (m *MockForwardingRules) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockForwardingRules) Obj(o *ga.ForwardingRule) *MockForwardingRulesObj {
+func (m *MockForwardingRules) Obj(o *computega.ForwardingRule) *MockForwardingRulesObj {
 	return &MockForwardingRulesObj{o}
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.RegionSetLabelsRequest) error {
+func (m *MockForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computega.RegionSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -13478,7 +13478,7 @@ func (m *MockForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0
 }
 
 // SetTarget is a mock for the corresponding method.
-func (m *MockForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *ga.TargetReference) error {
+func (m *MockForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computega.TargetReference) error {
 	if m.SetTargetHook != nil {
 		return m.SetTargetHook(ctx, key, arg0, m)
 	}
@@ -13491,7 +13491,7 @@ type GCEForwardingRules struct {
 }
 
 // Get the ForwardingRule named by key.
-func (g *GCEForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.ForwardingRule, error) {
+func (g *GCEForwardingRules) Get(ctx context.Context, key *meta.Key) (*computega.ForwardingRule, error) {
 	klog.V(5).Infof("GCEForwardingRules.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -13524,7 +13524,7 @@ func (g *GCEForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.Forwar
 }
 
 // List all ForwardingRule objects.
-func (g *GCEForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*ga.ForwardingRule, error) {
+func (g *GCEForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*computega.ForwardingRule, error) {
 	klog.V(5).Infof("GCEForwardingRules.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "ForwardingRules")
 	ck := &CallContextKey{
@@ -13544,8 +13544,8 @@ func (g *GCEForwardingRules) List(ctx context.Context, region string, fl *filter
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.ForwardingRule
-	f := func(l *ga.ForwardingRuleList) error {
+	var all []*computega.ForwardingRule
+	f := func(l *computega.ForwardingRuleList) error {
 		klog.V(5).Infof("GCEForwardingRules.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -13575,7 +13575,7 @@ func (g *GCEForwardingRules) List(ctx context.Context, region string, fl *filter
 }
 
 // Insert ForwardingRule with key of value obj.
-func (g *GCEForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule) error {
+func (g *GCEForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule) error {
 	klog.V(5).Infof("GCEForwardingRules.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEForwardingRules.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -13654,7 +13654,7 @@ func (g *GCEForwardingRules) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // SetLabels is a method on GCEForwardingRules.
-func (g *GCEForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.RegionSetLabelsRequest) error {
+func (g *GCEForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computega.RegionSetLabelsRequest) error {
 	klog.V(5).Infof("GCEForwardingRules.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13696,7 +13696,7 @@ func (g *GCEForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 
 }
 
 // SetTarget is a method on GCEForwardingRules.
-func (g *GCEForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *ga.TargetReference) error {
+func (g *GCEForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computega.TargetReference) error {
 	klog.V(5).Infof("GCEForwardingRules.SetTarget(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -13739,12 +13739,12 @@ func (g *GCEForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 
 
 // AlphaForwardingRules is an interface that allows for mocking of ForwardingRules.
 type AlphaForwardingRules interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.ForwardingRule, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.ForwardingRule, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.ForwardingRule, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.ForwardingRule, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetLabels(context.Context, *meta.Key, *alpha.RegionSetLabelsRequest) error
-	SetTarget(context.Context, *meta.Key, *alpha.TargetReference) error
+	SetLabels(context.Context, *meta.Key, *computealpha.RegionSetLabelsRequest) error
+	SetTarget(context.Context, *meta.Key, *computealpha.TargetReference) error
 }
 
 // NewMockAlphaForwardingRules returns a new mock for ForwardingRules.
@@ -13780,12 +13780,12 @@ type MockAlphaForwardingRules struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaForwardingRules) (bool, *alpha.ForwardingRule, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockAlphaForwardingRules) (bool, []*alpha.ForwardingRule, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule, m *MockAlphaForwardingRules) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaForwardingRules) (bool, *computealpha.ForwardingRule, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockAlphaForwardingRules) (bool, []*computealpha.ForwardingRule, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule, m *MockAlphaForwardingRules) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockAlphaForwardingRules) (bool, error)
-	SetLabelsHook func(context.Context, *meta.Key, *alpha.RegionSetLabelsRequest, *MockAlphaForwardingRules) error
-	SetTargetHook func(context.Context, *meta.Key, *alpha.TargetReference, *MockAlphaForwardingRules) error
+	SetLabelsHook func(context.Context, *meta.Key, *computealpha.RegionSetLabelsRequest, *MockAlphaForwardingRules) error
+	SetTargetHook func(context.Context, *meta.Key, *computealpha.TargetReference, *MockAlphaForwardingRules) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -13793,7 +13793,7 @@ type MockAlphaForwardingRules struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaForwardingRules) Get(ctx context.Context, key *meta.Key) (*alpha.ForwardingRule, error) {
+func (m *MockAlphaForwardingRules) Get(ctx context.Context, key *meta.Key) (*computealpha.ForwardingRule, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaForwardingRules.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -13826,7 +13826,7 @@ func (m *MockAlphaForwardingRules) Get(ctx context.Context, key *meta.Key) (*alp
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.ForwardingRule, error) {
+func (m *MockAlphaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.ForwardingRule, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaForwardingRules.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -13844,7 +13844,7 @@ func (m *MockAlphaForwardingRules) List(ctx context.Context, region string, fl *
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.ForwardingRule
+	var objs []*computealpha.ForwardingRule
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -13860,7 +13860,7 @@ func (m *MockAlphaForwardingRules) List(ctx context.Context, region string, fl *
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule) error {
+func (m *MockAlphaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaForwardingRules.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -13930,12 +13930,12 @@ func (m *MockAlphaForwardingRules) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaForwardingRules) Obj(o *alpha.ForwardingRule) *MockForwardingRulesObj {
+func (m *MockAlphaForwardingRules) Obj(o *computealpha.ForwardingRule) *MockForwardingRulesObj {
 	return &MockForwardingRulesObj{o}
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockAlphaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *alpha.RegionSetLabelsRequest) error {
+func (m *MockAlphaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computealpha.RegionSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -13943,7 +13943,7 @@ func (m *MockAlphaForwardingRules) SetLabels(ctx context.Context, key *meta.Key,
 }
 
 // SetTarget is a mock for the corresponding method.
-func (m *MockAlphaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *alpha.TargetReference) error {
+func (m *MockAlphaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetReference) error {
 	if m.SetTargetHook != nil {
 		return m.SetTargetHook(ctx, key, arg0, m)
 	}
@@ -13956,7 +13956,7 @@ type GCEAlphaForwardingRules struct {
 }
 
 // Get the ForwardingRule named by key.
-func (g *GCEAlphaForwardingRules) Get(ctx context.Context, key *meta.Key) (*alpha.ForwardingRule, error) {
+func (g *GCEAlphaForwardingRules) Get(ctx context.Context, key *meta.Key) (*computealpha.ForwardingRule, error) {
 	klog.V(5).Infof("GCEAlphaForwardingRules.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -13989,7 +13989,7 @@ func (g *GCEAlphaForwardingRules) Get(ctx context.Context, key *meta.Key) (*alph
 }
 
 // List all ForwardingRule objects.
-func (g *GCEAlphaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.ForwardingRule, error) {
+func (g *GCEAlphaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.ForwardingRule, error) {
 	klog.V(5).Infof("GCEAlphaForwardingRules.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "ForwardingRules")
 	ck := &CallContextKey{
@@ -14009,8 +14009,8 @@ func (g *GCEAlphaForwardingRules) List(ctx context.Context, region string, fl *f
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.ForwardingRule
-	f := func(l *alpha.ForwardingRuleList) error {
+	var all []*computealpha.ForwardingRule
+	f := func(l *computealpha.ForwardingRuleList) error {
 		klog.V(5).Infof("GCEAlphaForwardingRules.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -14040,7 +14040,7 @@ func (g *GCEAlphaForwardingRules) List(ctx context.Context, region string, fl *f
 }
 
 // Insert ForwardingRule with key of value obj.
-func (g *GCEAlphaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule) error {
+func (g *GCEAlphaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule) error {
 	klog.V(5).Infof("GCEAlphaForwardingRules.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaForwardingRules.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -14119,7 +14119,7 @@ func (g *GCEAlphaForwardingRules) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // SetLabels is a method on GCEAlphaForwardingRules.
-func (g *GCEAlphaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *alpha.RegionSetLabelsRequest) error {
+func (g *GCEAlphaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computealpha.RegionSetLabelsRequest) error {
 	klog.V(5).Infof("GCEAlphaForwardingRules.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -14161,7 +14161,7 @@ func (g *GCEAlphaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, 
 }
 
 // SetTarget is a method on GCEAlphaForwardingRules.
-func (g *GCEAlphaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *alpha.TargetReference) error {
+func (g *GCEAlphaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetReference) error {
 	klog.V(5).Infof("GCEAlphaForwardingRules.SetTarget(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -14204,12 +14204,12 @@ func (g *GCEAlphaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, 
 
 // BetaForwardingRules is an interface that allows for mocking of ForwardingRules.
 type BetaForwardingRules interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.ForwardingRule, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.ForwardingRule, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.ForwardingRule, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.ForwardingRule, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetLabels(context.Context, *meta.Key, *beta.RegionSetLabelsRequest) error
-	SetTarget(context.Context, *meta.Key, *beta.TargetReference) error
+	SetLabels(context.Context, *meta.Key, *computebeta.RegionSetLabelsRequest) error
+	SetTarget(context.Context, *meta.Key, *computebeta.TargetReference) error
 }
 
 // NewMockBetaForwardingRules returns a new mock for ForwardingRules.
@@ -14245,12 +14245,12 @@ type MockBetaForwardingRules struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaForwardingRules) (bool, *beta.ForwardingRule, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockBetaForwardingRules) (bool, []*beta.ForwardingRule, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule, m *MockBetaForwardingRules) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaForwardingRules) (bool, *computebeta.ForwardingRule, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockBetaForwardingRules) (bool, []*computebeta.ForwardingRule, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule, m *MockBetaForwardingRules) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockBetaForwardingRules) (bool, error)
-	SetLabelsHook func(context.Context, *meta.Key, *beta.RegionSetLabelsRequest, *MockBetaForwardingRules) error
-	SetTargetHook func(context.Context, *meta.Key, *beta.TargetReference, *MockBetaForwardingRules) error
+	SetLabelsHook func(context.Context, *meta.Key, *computebeta.RegionSetLabelsRequest, *MockBetaForwardingRules) error
+	SetTargetHook func(context.Context, *meta.Key, *computebeta.TargetReference, *MockBetaForwardingRules) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -14258,7 +14258,7 @@ type MockBetaForwardingRules struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaForwardingRules) Get(ctx context.Context, key *meta.Key) (*beta.ForwardingRule, error) {
+func (m *MockBetaForwardingRules) Get(ctx context.Context, key *meta.Key) (*computebeta.ForwardingRule, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaForwardingRules.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -14291,7 +14291,7 @@ func (m *MockBetaForwardingRules) Get(ctx context.Context, key *meta.Key) (*beta
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*beta.ForwardingRule, error) {
+func (m *MockBetaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.ForwardingRule, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaForwardingRules.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -14309,7 +14309,7 @@ func (m *MockBetaForwardingRules) List(ctx context.Context, region string, fl *f
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.ForwardingRule
+	var objs []*computebeta.ForwardingRule
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -14325,7 +14325,7 @@ func (m *MockBetaForwardingRules) List(ctx context.Context, region string, fl *f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule) error {
+func (m *MockBetaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaForwardingRules.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -14395,12 +14395,12 @@ func (m *MockBetaForwardingRules) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaForwardingRules) Obj(o *beta.ForwardingRule) *MockForwardingRulesObj {
+func (m *MockBetaForwardingRules) Obj(o *computebeta.ForwardingRule) *MockForwardingRulesObj {
 	return &MockForwardingRulesObj{o}
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockBetaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta.RegionSetLabelsRequest) error {
+func (m *MockBetaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computebeta.RegionSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -14408,7 +14408,7 @@ func (m *MockBetaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, 
 }
 
 // SetTarget is a mock for the corresponding method.
-func (m *MockBetaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *beta.TargetReference) error {
+func (m *MockBetaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetReference) error {
 	if m.SetTargetHook != nil {
 		return m.SetTargetHook(ctx, key, arg0, m)
 	}
@@ -14421,7 +14421,7 @@ type GCEBetaForwardingRules struct {
 }
 
 // Get the ForwardingRule named by key.
-func (g *GCEBetaForwardingRules) Get(ctx context.Context, key *meta.Key) (*beta.ForwardingRule, error) {
+func (g *GCEBetaForwardingRules) Get(ctx context.Context, key *meta.Key) (*computebeta.ForwardingRule, error) {
 	klog.V(5).Infof("GCEBetaForwardingRules.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -14454,7 +14454,7 @@ func (g *GCEBetaForwardingRules) Get(ctx context.Context, key *meta.Key) (*beta.
 }
 
 // List all ForwardingRule objects.
-func (g *GCEBetaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*beta.ForwardingRule, error) {
+func (g *GCEBetaForwardingRules) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.ForwardingRule, error) {
 	klog.V(5).Infof("GCEBetaForwardingRules.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "ForwardingRules")
 	ck := &CallContextKey{
@@ -14474,8 +14474,8 @@ func (g *GCEBetaForwardingRules) List(ctx context.Context, region string, fl *fi
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.ForwardingRule
-	f := func(l *beta.ForwardingRuleList) error {
+	var all []*computebeta.ForwardingRule
+	f := func(l *computebeta.ForwardingRuleList) error {
 		klog.V(5).Infof("GCEBetaForwardingRules.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -14505,7 +14505,7 @@ func (g *GCEBetaForwardingRules) List(ctx context.Context, region string, fl *fi
 }
 
 // Insert ForwardingRule with key of value obj.
-func (g *GCEBetaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule) error {
+func (g *GCEBetaForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule) error {
 	klog.V(5).Infof("GCEBetaForwardingRules.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaForwardingRules.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -14584,7 +14584,7 @@ func (g *GCEBetaForwardingRules) Delete(ctx context.Context, key *meta.Key) erro
 }
 
 // SetLabels is a method on GCEBetaForwardingRules.
-func (g *GCEBetaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta.RegionSetLabelsRequest) error {
+func (g *GCEBetaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computebeta.RegionSetLabelsRequest) error {
 	klog.V(5).Infof("GCEBetaForwardingRules.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -14626,7 +14626,7 @@ func (g *GCEBetaForwardingRules) SetLabels(ctx context.Context, key *meta.Key, a
 }
 
 // SetTarget is a method on GCEBetaForwardingRules.
-func (g *GCEBetaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *beta.TargetReference) error {
+func (g *GCEBetaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetReference) error {
 	klog.V(5).Infof("GCEBetaForwardingRules.SetTarget(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -14669,12 +14669,12 @@ func (g *GCEBetaForwardingRules) SetTarget(ctx context.Context, key *meta.Key, a
 
 // AlphaGlobalForwardingRules is an interface that allows for mocking of GlobalForwardingRules.
 type AlphaGlobalForwardingRules interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.ForwardingRule, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.ForwardingRule, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.ForwardingRule, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.ForwardingRule, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetLabels(context.Context, *meta.Key, *alpha.GlobalSetLabelsRequest) error
-	SetTarget(context.Context, *meta.Key, *alpha.TargetReference) error
+	SetLabels(context.Context, *meta.Key, *computealpha.GlobalSetLabelsRequest) error
+	SetTarget(context.Context, *meta.Key, *computealpha.TargetReference) error
 }
 
 // NewMockAlphaGlobalForwardingRules returns a new mock for GlobalForwardingRules.
@@ -14710,12 +14710,12 @@ type MockAlphaGlobalForwardingRules struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaGlobalForwardingRules) (bool, *alpha.ForwardingRule, error)
-	ListHook      func(ctx context.Context, fl *filter.F, m *MockAlphaGlobalForwardingRules) (bool, []*alpha.ForwardingRule, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule, m *MockAlphaGlobalForwardingRules) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaGlobalForwardingRules) (bool, *computealpha.ForwardingRule, error)
+	ListHook      func(ctx context.Context, fl *filter.F, m *MockAlphaGlobalForwardingRules) (bool, []*computealpha.ForwardingRule, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule, m *MockAlphaGlobalForwardingRules) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockAlphaGlobalForwardingRules) (bool, error)
-	SetLabelsHook func(context.Context, *meta.Key, *alpha.GlobalSetLabelsRequest, *MockAlphaGlobalForwardingRules) error
-	SetTargetHook func(context.Context, *meta.Key, *alpha.TargetReference, *MockAlphaGlobalForwardingRules) error
+	SetLabelsHook func(context.Context, *meta.Key, *computealpha.GlobalSetLabelsRequest, *MockAlphaGlobalForwardingRules) error
+	SetTargetHook func(context.Context, *meta.Key, *computealpha.TargetReference, *MockAlphaGlobalForwardingRules) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -14723,7 +14723,7 @@ type MockAlphaGlobalForwardingRules struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*alpha.ForwardingRule, error) {
+func (m *MockAlphaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*computealpha.ForwardingRule, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaGlobalForwardingRules.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -14756,7 +14756,7 @@ func (m *MockAlphaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key)
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*alpha.ForwardingRule, error) {
+func (m *MockAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*computealpha.ForwardingRule, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaGlobalForwardingRules.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -14774,7 +14774,7 @@ func (m *MockAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F)
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.ForwardingRule
+	var objs []*computealpha.ForwardingRule
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -14787,7 +14787,7 @@ func (m *MockAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F)
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule) error {
+func (m *MockAlphaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaGlobalForwardingRules.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -14857,12 +14857,12 @@ func (m *MockAlphaGlobalForwardingRules) Delete(ctx context.Context, key *meta.K
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaGlobalForwardingRules) Obj(o *alpha.ForwardingRule) *MockGlobalForwardingRulesObj {
+func (m *MockAlphaGlobalForwardingRules) Obj(o *computealpha.ForwardingRule) *MockGlobalForwardingRulesObj {
 	return &MockGlobalForwardingRulesObj{o}
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockAlphaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetLabelsRequest) error {
+func (m *MockAlphaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -14870,7 +14870,7 @@ func (m *MockAlphaGlobalForwardingRules) SetLabels(ctx context.Context, key *met
 }
 
 // SetTarget is a mock for the corresponding method.
-func (m *MockAlphaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *alpha.TargetReference) error {
+func (m *MockAlphaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetReference) error {
 	if m.SetTargetHook != nil {
 		return m.SetTargetHook(ctx, key, arg0, m)
 	}
@@ -14883,7 +14883,7 @@ type GCEAlphaGlobalForwardingRules struct {
 }
 
 // Get the ForwardingRule named by key.
-func (g *GCEAlphaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*alpha.ForwardingRule, error) {
+func (g *GCEAlphaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*computealpha.ForwardingRule, error) {
 	klog.V(5).Infof("GCEAlphaGlobalForwardingRules.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -14916,7 +14916,7 @@ func (g *GCEAlphaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all ForwardingRule objects.
-func (g *GCEAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*alpha.ForwardingRule, error) {
+func (g *GCEAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*computealpha.ForwardingRule, error) {
 	klog.V(5).Infof("GCEAlphaGlobalForwardingRules.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "GlobalForwardingRules")
 	ck := &CallContextKey{
@@ -14936,8 +14936,8 @@ func (g *GCEAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) 
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.ForwardingRule
-	f := func(l *alpha.ForwardingRuleList) error {
+	var all []*computealpha.ForwardingRule
+	f := func(l *computealpha.ForwardingRuleList) error {
 		klog.V(5).Infof("GCEAlphaGlobalForwardingRules.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -14967,7 +14967,7 @@ func (g *GCEAlphaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) 
 }
 
 // Insert ForwardingRule with key of value obj.
-func (g *GCEAlphaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *alpha.ForwardingRule) error {
+func (g *GCEAlphaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computealpha.ForwardingRule) error {
 	klog.V(5).Infof("GCEAlphaGlobalForwardingRules.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaGlobalForwardingRules.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -15046,7 +15046,7 @@ func (g *GCEAlphaGlobalForwardingRules) Delete(ctx context.Context, key *meta.Ke
 }
 
 // SetLabels is a method on GCEAlphaGlobalForwardingRules.
-func (g *GCEAlphaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetLabelsRequest) error {
+func (g *GCEAlphaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetLabelsRequest) error {
 	klog.V(5).Infof("GCEAlphaGlobalForwardingRules.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -15088,7 +15088,7 @@ func (g *GCEAlphaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta
 }
 
 // SetTarget is a method on GCEAlphaGlobalForwardingRules.
-func (g *GCEAlphaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *alpha.TargetReference) error {
+func (g *GCEAlphaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetReference) error {
 	klog.V(5).Infof("GCEAlphaGlobalForwardingRules.SetTarget(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -15131,12 +15131,12 @@ func (g *GCEAlphaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta
 
 // BetaGlobalForwardingRules is an interface that allows for mocking of GlobalForwardingRules.
 type BetaGlobalForwardingRules interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.ForwardingRule, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.ForwardingRule, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.ForwardingRule, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.ForwardingRule, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetLabels(context.Context, *meta.Key, *beta.GlobalSetLabelsRequest) error
-	SetTarget(context.Context, *meta.Key, *beta.TargetReference) error
+	SetLabels(context.Context, *meta.Key, *computebeta.GlobalSetLabelsRequest) error
+	SetTarget(context.Context, *meta.Key, *computebeta.TargetReference) error
 }
 
 // NewMockBetaGlobalForwardingRules returns a new mock for GlobalForwardingRules.
@@ -15172,12 +15172,12 @@ type MockBetaGlobalForwardingRules struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaGlobalForwardingRules) (bool, *beta.ForwardingRule, error)
-	ListHook      func(ctx context.Context, fl *filter.F, m *MockBetaGlobalForwardingRules) (bool, []*beta.ForwardingRule, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule, m *MockBetaGlobalForwardingRules) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaGlobalForwardingRules) (bool, *computebeta.ForwardingRule, error)
+	ListHook      func(ctx context.Context, fl *filter.F, m *MockBetaGlobalForwardingRules) (bool, []*computebeta.ForwardingRule, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule, m *MockBetaGlobalForwardingRules) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockBetaGlobalForwardingRules) (bool, error)
-	SetLabelsHook func(context.Context, *meta.Key, *beta.GlobalSetLabelsRequest, *MockBetaGlobalForwardingRules) error
-	SetTargetHook func(context.Context, *meta.Key, *beta.TargetReference, *MockBetaGlobalForwardingRules) error
+	SetLabelsHook func(context.Context, *meta.Key, *computebeta.GlobalSetLabelsRequest, *MockBetaGlobalForwardingRules) error
+	SetTargetHook func(context.Context, *meta.Key, *computebeta.TargetReference, *MockBetaGlobalForwardingRules) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -15185,7 +15185,7 @@ type MockBetaGlobalForwardingRules struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*beta.ForwardingRule, error) {
+func (m *MockBetaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*computebeta.ForwardingRule, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaGlobalForwardingRules.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -15218,7 +15218,7 @@ func (m *MockBetaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*beta.ForwardingRule, error) {
+func (m *MockBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*computebeta.ForwardingRule, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaGlobalForwardingRules.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -15236,7 +15236,7 @@ func (m *MockBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) 
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.ForwardingRule
+	var objs []*computebeta.ForwardingRule
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -15249,7 +15249,7 @@ func (m *MockBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) 
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule) error {
+func (m *MockBetaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaGlobalForwardingRules.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -15319,12 +15319,12 @@ func (m *MockBetaGlobalForwardingRules) Delete(ctx context.Context, key *meta.Ke
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaGlobalForwardingRules) Obj(o *beta.ForwardingRule) *MockGlobalForwardingRulesObj {
+func (m *MockBetaGlobalForwardingRules) Obj(o *computebeta.ForwardingRule) *MockGlobalForwardingRulesObj {
 	return &MockGlobalForwardingRulesObj{o}
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockBetaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta.GlobalSetLabelsRequest) error {
+func (m *MockBetaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computebeta.GlobalSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -15332,7 +15332,7 @@ func (m *MockBetaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta
 }
 
 // SetTarget is a mock for the corresponding method.
-func (m *MockBetaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *beta.TargetReference) error {
+func (m *MockBetaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetReference) error {
 	if m.SetTargetHook != nil {
 		return m.SetTargetHook(ctx, key, arg0, m)
 	}
@@ -15345,7 +15345,7 @@ type GCEBetaGlobalForwardingRules struct {
 }
 
 // Get the ForwardingRule named by key.
-func (g *GCEBetaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*beta.ForwardingRule, error) {
+func (g *GCEBetaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*computebeta.ForwardingRule, error) {
 	klog.V(5).Infof("GCEBetaGlobalForwardingRules.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -15378,7 +15378,7 @@ func (g *GCEBetaGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (
 }
 
 // List all ForwardingRule objects.
-func (g *GCEBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*beta.ForwardingRule, error) {
+func (g *GCEBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*computebeta.ForwardingRule, error) {
 	klog.V(5).Infof("GCEBetaGlobalForwardingRules.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "GlobalForwardingRules")
 	ck := &CallContextKey{
@@ -15398,8 +15398,8 @@ func (g *GCEBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) (
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.ForwardingRule
-	f := func(l *beta.ForwardingRuleList) error {
+	var all []*computebeta.ForwardingRule
+	f := func(l *computebeta.ForwardingRuleList) error {
 		klog.V(5).Infof("GCEBetaGlobalForwardingRules.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -15429,7 +15429,7 @@ func (g *GCEBetaGlobalForwardingRules) List(ctx context.Context, fl *filter.F) (
 }
 
 // Insert ForwardingRule with key of value obj.
-func (g *GCEBetaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *beta.ForwardingRule) error {
+func (g *GCEBetaGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computebeta.ForwardingRule) error {
 	klog.V(5).Infof("GCEBetaGlobalForwardingRules.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaGlobalForwardingRules.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -15508,7 +15508,7 @@ func (g *GCEBetaGlobalForwardingRules) Delete(ctx context.Context, key *meta.Key
 }
 
 // SetLabels is a method on GCEBetaGlobalForwardingRules.
-func (g *GCEBetaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta.GlobalSetLabelsRequest) error {
+func (g *GCEBetaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computebeta.GlobalSetLabelsRequest) error {
 	klog.V(5).Infof("GCEBetaGlobalForwardingRules.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -15550,7 +15550,7 @@ func (g *GCEBetaGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.
 }
 
 // SetTarget is a method on GCEBetaGlobalForwardingRules.
-func (g *GCEBetaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *beta.TargetReference) error {
+func (g *GCEBetaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetReference) error {
 	klog.V(5).Infof("GCEBetaGlobalForwardingRules.SetTarget(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -15593,12 +15593,12 @@ func (g *GCEBetaGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.
 
 // GlobalForwardingRules is an interface that allows for mocking of GlobalForwardingRules.
 type GlobalForwardingRules interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.ForwardingRule, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.ForwardingRule, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule) error
+	Get(ctx context.Context, key *meta.Key) (*computega.ForwardingRule, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.ForwardingRule, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetLabels(context.Context, *meta.Key, *ga.GlobalSetLabelsRequest) error
-	SetTarget(context.Context, *meta.Key, *ga.TargetReference) error
+	SetLabels(context.Context, *meta.Key, *computega.GlobalSetLabelsRequest) error
+	SetTarget(context.Context, *meta.Key, *computega.TargetReference) error
 }
 
 // NewMockGlobalForwardingRules returns a new mock for GlobalForwardingRules.
@@ -15634,12 +15634,12 @@ type MockGlobalForwardingRules struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockGlobalForwardingRules) (bool, *ga.ForwardingRule, error)
-	ListHook      func(ctx context.Context, fl *filter.F, m *MockGlobalForwardingRules) (bool, []*ga.ForwardingRule, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule, m *MockGlobalForwardingRules) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockGlobalForwardingRules) (bool, *computega.ForwardingRule, error)
+	ListHook      func(ctx context.Context, fl *filter.F, m *MockGlobalForwardingRules) (bool, []*computega.ForwardingRule, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule, m *MockGlobalForwardingRules) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockGlobalForwardingRules) (bool, error)
-	SetLabelsHook func(context.Context, *meta.Key, *ga.GlobalSetLabelsRequest, *MockGlobalForwardingRules) error
-	SetTargetHook func(context.Context, *meta.Key, *ga.TargetReference, *MockGlobalForwardingRules) error
+	SetLabelsHook func(context.Context, *meta.Key, *computega.GlobalSetLabelsRequest, *MockGlobalForwardingRules) error
+	SetTargetHook func(context.Context, *meta.Key, *computega.TargetReference, *MockGlobalForwardingRules) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -15647,7 +15647,7 @@ type MockGlobalForwardingRules struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.ForwardingRule, error) {
+func (m *MockGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*computega.ForwardingRule, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockGlobalForwardingRules.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -15680,7 +15680,7 @@ func (m *MockGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga
 }
 
 // List all of the objects in the mock.
-func (m *MockGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*ga.ForwardingRule, error) {
+func (m *MockGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*computega.ForwardingRule, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockGlobalForwardingRules.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -15698,7 +15698,7 @@ func (m *MockGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.ForwardingRule
+	var objs []*computega.ForwardingRule
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -15711,7 +15711,7 @@ func (m *MockGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule) error {
+func (m *MockGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockGlobalForwardingRules.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -15781,12 +15781,12 @@ func (m *MockGlobalForwardingRules) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockGlobalForwardingRules) Obj(o *ga.ForwardingRule) *MockGlobalForwardingRulesObj {
+func (m *MockGlobalForwardingRules) Obj(o *computega.ForwardingRule) *MockGlobalForwardingRulesObj {
 	return &MockGlobalForwardingRulesObj{o}
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.GlobalSetLabelsRequest) error {
+func (m *MockGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computega.GlobalSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -15794,7 +15794,7 @@ func (m *MockGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key
 }
 
 // SetTarget is a mock for the corresponding method.
-func (m *MockGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *ga.TargetReference) error {
+func (m *MockGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computega.TargetReference) error {
 	if m.SetTargetHook != nil {
 		return m.SetTargetHook(ctx, key, arg0, m)
 	}
@@ -15807,7 +15807,7 @@ type GCEGlobalForwardingRules struct {
 }
 
 // Get the ForwardingRule named by key.
-func (g *GCEGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.ForwardingRule, error) {
+func (g *GCEGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*computega.ForwardingRule, error) {
 	klog.V(5).Infof("GCEGlobalForwardingRules.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -15840,7 +15840,7 @@ func (g *GCEGlobalForwardingRules) Get(ctx context.Context, key *meta.Key) (*ga.
 }
 
 // List all ForwardingRule objects.
-func (g *GCEGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*ga.ForwardingRule, error) {
+func (g *GCEGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*computega.ForwardingRule, error) {
 	klog.V(5).Infof("GCEGlobalForwardingRules.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "GlobalForwardingRules")
 	ck := &CallContextKey{
@@ -15860,8 +15860,8 @@ func (g *GCEGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*g
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.ForwardingRule
-	f := func(l *ga.ForwardingRuleList) error {
+	var all []*computega.ForwardingRule
+	f := func(l *computega.ForwardingRuleList) error {
 		klog.V(5).Infof("GCEGlobalForwardingRules.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -15891,7 +15891,7 @@ func (g *GCEGlobalForwardingRules) List(ctx context.Context, fl *filter.F) ([]*g
 }
 
 // Insert ForwardingRule with key of value obj.
-func (g *GCEGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *ga.ForwardingRule) error {
+func (g *GCEGlobalForwardingRules) Insert(ctx context.Context, key *meta.Key, obj *computega.ForwardingRule) error {
 	klog.V(5).Infof("GCEGlobalForwardingRules.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEGlobalForwardingRules.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -15970,7 +15970,7 @@ func (g *GCEGlobalForwardingRules) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // SetLabels is a method on GCEGlobalForwardingRules.
-func (g *GCEGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.GlobalSetLabelsRequest) error {
+func (g *GCEGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key, arg0 *computega.GlobalSetLabelsRequest) error {
 	klog.V(5).Infof("GCEGlobalForwardingRules.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -16012,7 +16012,7 @@ func (g *GCEGlobalForwardingRules) SetLabels(ctx context.Context, key *meta.Key,
 }
 
 // SetTarget is a method on GCEGlobalForwardingRules.
-func (g *GCEGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *ga.TargetReference) error {
+func (g *GCEGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key, arg0 *computega.TargetReference) error {
 	klog.V(5).Infof("GCEGlobalForwardingRules.SetTarget(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -16055,11 +16055,11 @@ func (g *GCEGlobalForwardingRules) SetTarget(ctx context.Context, key *meta.Key,
 
 // HealthChecks is an interface that allows for mocking of HealthChecks.
 type HealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.HealthCheck, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.HealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.HealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computega.HealthCheck, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.HealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.HealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *ga.HealthCheck) error
+	Update(context.Context, *meta.Key, *computega.HealthCheck) error
 }
 
 // NewMockHealthChecks returns a new mock for HealthChecks.
@@ -16095,11 +16095,11 @@ type MockHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockHealthChecks) (bool, *ga.HealthCheck, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockHealthChecks) (bool, []*ga.HealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.HealthCheck, m *MockHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockHealthChecks) (bool, *computega.HealthCheck, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockHealthChecks) (bool, []*computega.HealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.HealthCheck, m *MockHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *ga.HealthCheck, *MockHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computega.HealthCheck, *MockHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -16107,7 +16107,7 @@ type MockHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HealthCheck, error) {
+func (m *MockHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -16140,7 +16140,7 @@ func (m *MockHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HealthCh
 }
 
 // List all of the objects in the mock.
-func (m *MockHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HealthCheck, error) {
+func (m *MockHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computega.HealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockHealthChecks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -16158,7 +16158,7 @@ func (m *MockHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Health
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.HealthCheck
+	var objs []*computega.HealthCheck
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -16171,7 +16171,7 @@ func (m *MockHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Health
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HealthCheck) error {
+func (m *MockHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -16241,12 +16241,12 @@ func (m *MockHealthChecks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockHealthChecks) Obj(o *ga.HealthCheck) *MockHealthChecksObj {
+func (m *MockHealthChecks) Obj(o *computega.HealthCheck) *MockHealthChecksObj {
 	return &MockHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HealthCheck) error {
+func (m *MockHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -16259,7 +16259,7 @@ type GCEHealthChecks struct {
 }
 
 // Get the HealthCheck named by key.
-func (g *GCEHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HealthCheck, error) {
+func (g *GCEHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HealthCheck, error) {
 	klog.V(5).Infof("GCEHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -16292,7 +16292,7 @@ func (g *GCEHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HealthChe
 }
 
 // List all HealthCheck objects.
-func (g *GCEHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HealthCheck, error) {
+func (g *GCEHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computega.HealthCheck, error) {
 	klog.V(5).Infof("GCEHealthChecks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "HealthChecks")
 	ck := &CallContextKey{
@@ -16312,8 +16312,8 @@ func (g *GCEHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HealthC
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.HealthCheck
-	f := func(l *ga.HealthCheckList) error {
+	var all []*computega.HealthCheck
+	f := func(l *computega.HealthCheckList) error {
 		klog.V(5).Infof("GCEHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -16343,7 +16343,7 @@ func (g *GCEHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HealthC
 }
 
 // Insert HealthCheck with key of value obj.
-func (g *GCEHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HealthCheck) error {
+func (g *GCEHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HealthCheck) error {
 	klog.V(5).Infof("GCEHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -16422,7 +16422,7 @@ func (g *GCEHealthChecks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCEHealthChecks.
-func (g *GCEHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HealthCheck) error {
+func (g *GCEHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HealthCheck) error {
 	klog.V(5).Infof("GCEHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -16465,11 +16465,11 @@ func (g *GCEHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.He
 
 // AlphaHealthChecks is an interface that allows for mocking of HealthChecks.
 type AlphaHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.HealthCheck, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.HealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.HealthCheck, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.HealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *alpha.HealthCheck) error
+	Update(context.Context, *meta.Key, *computealpha.HealthCheck) error
 }
 
 // NewMockAlphaHealthChecks returns a new mock for HealthChecks.
@@ -16505,11 +16505,11 @@ type MockAlphaHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaHealthChecks) (bool, *alpha.HealthCheck, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaHealthChecks) (bool, []*alpha.HealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck, m *MockAlphaHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaHealthChecks) (bool, *computealpha.HealthCheck, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaHealthChecks) (bool, []*computealpha.HealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck, m *MockAlphaHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *alpha.HealthCheck, *MockAlphaHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computealpha.HealthCheck, *MockAlphaHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -16517,7 +16517,7 @@ type MockAlphaHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaHealthChecks) Get(ctx context.Context, key *meta.Key) (*alpha.HealthCheck, error) {
+func (m *MockAlphaHealthChecks) Get(ctx context.Context, key *meta.Key) (*computealpha.HealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -16550,7 +16550,7 @@ func (m *MockAlphaHealthChecks) Get(ctx context.Context, key *meta.Key) (*alpha.
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*alpha.HealthCheck, error) {
+func (m *MockAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computealpha.HealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaHealthChecks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -16568,7 +16568,7 @@ func (m *MockAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*alph
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.HealthCheck
+	var objs []*computealpha.HealthCheck
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -16581,7 +16581,7 @@ func (m *MockAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*alph
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck) error {
+func (m *MockAlphaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -16651,12 +16651,12 @@ func (m *MockAlphaHealthChecks) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaHealthChecks) Obj(o *alpha.HealthCheck) *MockHealthChecksObj {
+func (m *MockAlphaHealthChecks) Obj(o *computealpha.HealthCheck) *MockHealthChecksObj {
 	return &MockHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *alpha.HealthCheck) error {
+func (m *MockAlphaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.HealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -16669,7 +16669,7 @@ type GCEAlphaHealthChecks struct {
 }
 
 // Get the HealthCheck named by key.
-func (g *GCEAlphaHealthChecks) Get(ctx context.Context, key *meta.Key) (*alpha.HealthCheck, error) {
+func (g *GCEAlphaHealthChecks) Get(ctx context.Context, key *meta.Key) (*computealpha.HealthCheck, error) {
 	klog.V(5).Infof("GCEAlphaHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -16702,7 +16702,7 @@ func (g *GCEAlphaHealthChecks) Get(ctx context.Context, key *meta.Key) (*alpha.H
 }
 
 // List all HealthCheck objects.
-func (g *GCEAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*alpha.HealthCheck, error) {
+func (g *GCEAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computealpha.HealthCheck, error) {
 	klog.V(5).Infof("GCEAlphaHealthChecks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "HealthChecks")
 	ck := &CallContextKey{
@@ -16722,8 +16722,8 @@ func (g *GCEAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*alpha
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.HealthCheck
-	f := func(l *alpha.HealthCheckList) error {
+	var all []*computealpha.HealthCheck
+	f := func(l *computealpha.HealthCheckList) error {
 		klog.V(5).Infof("GCEAlphaHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -16753,7 +16753,7 @@ func (g *GCEAlphaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*alpha
 }
 
 // Insert HealthCheck with key of value obj.
-func (g *GCEAlphaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck) error {
+func (g *GCEAlphaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck) error {
 	klog.V(5).Infof("GCEAlphaHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -16832,7 +16832,7 @@ func (g *GCEAlphaHealthChecks) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // Update is a method on GCEAlphaHealthChecks.
-func (g *GCEAlphaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *alpha.HealthCheck) error {
+func (g *GCEAlphaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.HealthCheck) error {
 	klog.V(5).Infof("GCEAlphaHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -16875,11 +16875,11 @@ func (g *GCEAlphaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *
 
 // BetaHealthChecks is an interface that allows for mocking of HealthChecks.
 type BetaHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.HealthCheck, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.HealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.HealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.HealthCheck, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.HealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *beta.HealthCheck) error
+	Update(context.Context, *meta.Key, *computebeta.HealthCheck) error
 }
 
 // NewMockBetaHealthChecks returns a new mock for HealthChecks.
@@ -16915,11 +16915,11 @@ type MockBetaHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaHealthChecks) (bool, *beta.HealthCheck, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaHealthChecks) (bool, []*beta.HealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.HealthCheck, m *MockBetaHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaHealthChecks) (bool, *computebeta.HealthCheck, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaHealthChecks) (bool, []*computebeta.HealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck, m *MockBetaHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *beta.HealthCheck, *MockBetaHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computebeta.HealthCheck, *MockBetaHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -16927,7 +16927,7 @@ type MockBetaHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaHealthChecks) Get(ctx context.Context, key *meta.Key) (*beta.HealthCheck, error) {
+func (m *MockBetaHealthChecks) Get(ctx context.Context, key *meta.Key) (*computebeta.HealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -16960,7 +16960,7 @@ func (m *MockBetaHealthChecks) Get(ctx context.Context, key *meta.Key) (*beta.He
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*beta.HealthCheck, error) {
+func (m *MockBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computebeta.HealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaHealthChecks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -16978,7 +16978,7 @@ func (m *MockBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*beta.
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.HealthCheck
+	var objs []*computebeta.HealthCheck
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -16991,7 +16991,7 @@ func (m *MockBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*beta.
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *beta.HealthCheck) error {
+func (m *MockBetaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -17061,12 +17061,12 @@ func (m *MockBetaHealthChecks) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaHealthChecks) Obj(o *beta.HealthCheck) *MockHealthChecksObj {
+func (m *MockBetaHealthChecks) Obj(o *computebeta.HealthCheck) *MockHealthChecksObj {
 	return &MockHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *beta.HealthCheck) error {
+func (m *MockBetaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.HealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -17079,7 +17079,7 @@ type GCEBetaHealthChecks struct {
 }
 
 // Get the HealthCheck named by key.
-func (g *GCEBetaHealthChecks) Get(ctx context.Context, key *meta.Key) (*beta.HealthCheck, error) {
+func (g *GCEBetaHealthChecks) Get(ctx context.Context, key *meta.Key) (*computebeta.HealthCheck, error) {
 	klog.V(5).Infof("GCEBetaHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -17112,7 +17112,7 @@ func (g *GCEBetaHealthChecks) Get(ctx context.Context, key *meta.Key) (*beta.Hea
 }
 
 // List all HealthCheck objects.
-func (g *GCEBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*beta.HealthCheck, error) {
+func (g *GCEBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computebeta.HealthCheck, error) {
 	klog.V(5).Infof("GCEBetaHealthChecks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "HealthChecks")
 	ck := &CallContextKey{
@@ -17132,8 +17132,8 @@ func (g *GCEBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*beta.H
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.HealthCheck
-	f := func(l *beta.HealthCheckList) error {
+	var all []*computebeta.HealthCheck
+	f := func(l *computebeta.HealthCheckList) error {
 		klog.V(5).Infof("GCEBetaHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -17163,7 +17163,7 @@ func (g *GCEBetaHealthChecks) List(ctx context.Context, fl *filter.F) ([]*beta.H
 }
 
 // Insert HealthCheck with key of value obj.
-func (g *GCEBetaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *beta.HealthCheck) error {
+func (g *GCEBetaHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck) error {
 	klog.V(5).Infof("GCEBetaHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -17242,7 +17242,7 @@ func (g *GCEBetaHealthChecks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCEBetaHealthChecks.
-func (g *GCEBetaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *beta.HealthCheck) error {
+func (g *GCEBetaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.HealthCheck) error {
 	klog.V(5).Infof("GCEBetaHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -17285,11 +17285,11 @@ func (g *GCEBetaHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *b
 
 // AlphaRegionHealthChecks is an interface that allows for mocking of RegionHealthChecks.
 type AlphaRegionHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.HealthCheck, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.HealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.HealthCheck, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.HealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *alpha.HealthCheck) error
+	Update(context.Context, *meta.Key, *computealpha.HealthCheck) error
 }
 
 // NewMockAlphaRegionHealthChecks returns a new mock for RegionHealthChecks.
@@ -17325,11 +17325,11 @@ type MockAlphaRegionHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionHealthChecks) (bool, *alpha.HealthCheck, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionHealthChecks) (bool, []*alpha.HealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck, m *MockAlphaRegionHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionHealthChecks) (bool, *computealpha.HealthCheck, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionHealthChecks) (bool, []*computealpha.HealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck, m *MockAlphaRegionHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaRegionHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *alpha.HealthCheck, *MockAlphaRegionHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computealpha.HealthCheck, *MockAlphaRegionHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -17337,7 +17337,7 @@ type MockAlphaRegionHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*alpha.HealthCheck, error) {
+func (m *MockAlphaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*computealpha.HealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -17370,7 +17370,7 @@ func (m *MockAlphaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.HealthCheck, error) {
+func (m *MockAlphaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.HealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionHealthChecks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -17388,7 +17388,7 @@ func (m *MockAlphaRegionHealthChecks) List(ctx context.Context, region string, f
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.HealthCheck
+	var objs []*computealpha.HealthCheck
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -17404,7 +17404,7 @@ func (m *MockAlphaRegionHealthChecks) List(ctx context.Context, region string, f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck) error {
+func (m *MockAlphaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -17474,12 +17474,12 @@ func (m *MockAlphaRegionHealthChecks) Delete(ctx context.Context, key *meta.Key)
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionHealthChecks) Obj(o *alpha.HealthCheck) *MockRegionHealthChecksObj {
+func (m *MockAlphaRegionHealthChecks) Obj(o *computealpha.HealthCheck) *MockRegionHealthChecksObj {
 	return &MockRegionHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *alpha.HealthCheck) error {
+func (m *MockAlphaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.HealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -17492,7 +17492,7 @@ type GCEAlphaRegionHealthChecks struct {
 }
 
 // Get the HealthCheck named by key.
-func (g *GCEAlphaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*alpha.HealthCheck, error) {
+func (g *GCEAlphaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*computealpha.HealthCheck, error) {
 	klog.V(5).Infof("GCEAlphaRegionHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -17525,7 +17525,7 @@ func (g *GCEAlphaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*a
 }
 
 // List all HealthCheck objects.
-func (g *GCEAlphaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.HealthCheck, error) {
+func (g *GCEAlphaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.HealthCheck, error) {
 	klog.V(5).Infof("GCEAlphaRegionHealthChecks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionHealthChecks")
 	ck := &CallContextKey{
@@ -17545,8 +17545,8 @@ func (g *GCEAlphaRegionHealthChecks) List(ctx context.Context, region string, fl
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.HealthCheck
-	f := func(l *alpha.HealthCheckList) error {
+	var all []*computealpha.HealthCheck
+	f := func(l *computealpha.HealthCheckList) error {
 		klog.V(5).Infof("GCEAlphaRegionHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -17576,7 +17576,7 @@ func (g *GCEAlphaRegionHealthChecks) List(ctx context.Context, region string, fl
 }
 
 // Insert HealthCheck with key of value obj.
-func (g *GCEAlphaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *alpha.HealthCheck) error {
+func (g *GCEAlphaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.HealthCheck) error {
 	klog.V(5).Infof("GCEAlphaRegionHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -17655,7 +17655,7 @@ func (g *GCEAlphaRegionHealthChecks) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // Update is a method on GCEAlphaRegionHealthChecks.
-func (g *GCEAlphaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *alpha.HealthCheck) error {
+func (g *GCEAlphaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.HealthCheck) error {
 	klog.V(5).Infof("GCEAlphaRegionHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -17698,11 +17698,11 @@ func (g *GCEAlphaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, 
 
 // BetaRegionHealthChecks is an interface that allows for mocking of RegionHealthChecks.
 type BetaRegionHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.HealthCheck, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.HealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.HealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.HealthCheck, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.HealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *beta.HealthCheck) error
+	Update(context.Context, *meta.Key, *computebeta.HealthCheck) error
 }
 
 // NewMockBetaRegionHealthChecks returns a new mock for RegionHealthChecks.
@@ -17738,11 +17738,11 @@ type MockBetaRegionHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionHealthChecks) (bool, *beta.HealthCheck, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionHealthChecks) (bool, []*beta.HealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.HealthCheck, m *MockBetaRegionHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionHealthChecks) (bool, *computebeta.HealthCheck, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionHealthChecks) (bool, []*computebeta.HealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck, m *MockBetaRegionHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaRegionHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *beta.HealthCheck, *MockBetaRegionHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computebeta.HealthCheck, *MockBetaRegionHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -17750,7 +17750,7 @@ type MockBetaRegionHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*beta.HealthCheck, error) {
+func (m *MockBetaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*computebeta.HealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRegionHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -17783,7 +17783,7 @@ func (m *MockBetaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*b
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*beta.HealthCheck, error) {
+func (m *MockBetaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.HealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRegionHealthChecks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -17801,7 +17801,7 @@ func (m *MockBetaRegionHealthChecks) List(ctx context.Context, region string, fl
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.HealthCheck
+	var objs []*computebeta.HealthCheck
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -17817,7 +17817,7 @@ func (m *MockBetaRegionHealthChecks) List(ctx context.Context, region string, fl
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *beta.HealthCheck) error {
+func (m *MockBetaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRegionHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -17887,12 +17887,12 @@ func (m *MockBetaRegionHealthChecks) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRegionHealthChecks) Obj(o *beta.HealthCheck) *MockRegionHealthChecksObj {
+func (m *MockBetaRegionHealthChecks) Obj(o *computebeta.HealthCheck) *MockRegionHealthChecksObj {
 	return &MockRegionHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *beta.HealthCheck) error {
+func (m *MockBetaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.HealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -17905,7 +17905,7 @@ type GCEBetaRegionHealthChecks struct {
 }
 
 // Get the HealthCheck named by key.
-func (g *GCEBetaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*beta.HealthCheck, error) {
+func (g *GCEBetaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*computebeta.HealthCheck, error) {
 	klog.V(5).Infof("GCEBetaRegionHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -17938,7 +17938,7 @@ func (g *GCEBetaRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*be
 }
 
 // List all HealthCheck objects.
-func (g *GCEBetaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*beta.HealthCheck, error) {
+func (g *GCEBetaRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.HealthCheck, error) {
 	klog.V(5).Infof("GCEBetaRegionHealthChecks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "RegionHealthChecks")
 	ck := &CallContextKey{
@@ -17958,8 +17958,8 @@ func (g *GCEBetaRegionHealthChecks) List(ctx context.Context, region string, fl 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.HealthCheck
-	f := func(l *beta.HealthCheckList) error {
+	var all []*computebeta.HealthCheck
+	f := func(l *computebeta.HealthCheckList) error {
 		klog.V(5).Infof("GCEBetaRegionHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -17989,7 +17989,7 @@ func (g *GCEBetaRegionHealthChecks) List(ctx context.Context, region string, fl 
 }
 
 // Insert HealthCheck with key of value obj.
-func (g *GCEBetaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *beta.HealthCheck) error {
+func (g *GCEBetaRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.HealthCheck) error {
 	klog.V(5).Infof("GCEBetaRegionHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRegionHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -18068,7 +18068,7 @@ func (g *GCEBetaRegionHealthChecks) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Update is a method on GCEBetaRegionHealthChecks.
-func (g *GCEBetaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *beta.HealthCheck) error {
+func (g *GCEBetaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.HealthCheck) error {
 	klog.V(5).Infof("GCEBetaRegionHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -18111,11 +18111,11 @@ func (g *GCEBetaRegionHealthChecks) Update(ctx context.Context, key *meta.Key, a
 
 // RegionHealthChecks is an interface that allows for mocking of RegionHealthChecks.
 type RegionHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.HealthCheck, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.HealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.HealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computega.HealthCheck, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.HealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.HealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *ga.HealthCheck) error
+	Update(context.Context, *meta.Key, *computega.HealthCheck) error
 }
 
 // NewMockRegionHealthChecks returns a new mock for RegionHealthChecks.
@@ -18151,11 +18151,11 @@ type MockRegionHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionHealthChecks) (bool, *ga.HealthCheck, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionHealthChecks) (bool, []*ga.HealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.HealthCheck, m *MockRegionHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionHealthChecks) (bool, *computega.HealthCheck, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionHealthChecks) (bool, []*computega.HealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.HealthCheck, m *MockRegionHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockRegionHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *ga.HealthCheck, *MockRegionHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computega.HealthCheck, *MockRegionHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -18163,7 +18163,7 @@ type MockRegionHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HealthCheck, error) {
+func (m *MockRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -18196,7 +18196,7 @@ func (m *MockRegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.He
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*ga.HealthCheck, error) {
+func (m *MockRegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*computega.HealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionHealthChecks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -18214,7 +18214,7 @@ func (m *MockRegionHealthChecks) List(ctx context.Context, region string, fl *fi
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.HealthCheck
+	var objs []*computega.HealthCheck
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -18230,7 +18230,7 @@ func (m *MockRegionHealthChecks) List(ctx context.Context, region string, fl *fi
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HealthCheck) error {
+func (m *MockRegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -18300,12 +18300,12 @@ func (m *MockRegionHealthChecks) Delete(ctx context.Context, key *meta.Key) erro
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionHealthChecks) Obj(o *ga.HealthCheck) *MockRegionHealthChecksObj {
+func (m *MockRegionHealthChecks) Obj(o *computega.HealthCheck) *MockRegionHealthChecksObj {
 	return &MockRegionHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HealthCheck) error {
+func (m *MockRegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -18318,7 +18318,7 @@ type GCERegionHealthChecks struct {
 }
 
 // Get the HealthCheck named by key.
-func (g *GCERegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HealthCheck, error) {
+func (g *GCERegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HealthCheck, error) {
 	klog.V(5).Infof("GCERegionHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -18351,7 +18351,7 @@ func (g *GCERegionHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.Hea
 }
 
 // List all HealthCheck objects.
-func (g *GCERegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*ga.HealthCheck, error) {
+func (g *GCERegionHealthChecks) List(ctx context.Context, region string, fl *filter.F) ([]*computega.HealthCheck, error) {
 	klog.V(5).Infof("GCERegionHealthChecks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionHealthChecks")
 	ck := &CallContextKey{
@@ -18371,8 +18371,8 @@ func (g *GCERegionHealthChecks) List(ctx context.Context, region string, fl *fil
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.HealthCheck
-	f := func(l *ga.HealthCheckList) error {
+	var all []*computega.HealthCheck
+	f := func(l *computega.HealthCheckList) error {
 		klog.V(5).Infof("GCERegionHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -18402,7 +18402,7 @@ func (g *GCERegionHealthChecks) List(ctx context.Context, region string, fl *fil
 }
 
 // Insert HealthCheck with key of value obj.
-func (g *GCERegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HealthCheck) error {
+func (g *GCERegionHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HealthCheck) error {
 	klog.V(5).Infof("GCERegionHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -18481,7 +18481,7 @@ func (g *GCERegionHealthChecks) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Update is a method on GCERegionHealthChecks.
-func (g *GCERegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HealthCheck) error {
+func (g *GCERegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HealthCheck) error {
 	klog.V(5).Infof("GCERegionHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -18524,11 +18524,11 @@ func (g *GCERegionHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 
 
 // HttpHealthChecks is an interface that allows for mocking of HttpHealthChecks.
 type HttpHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.HttpHealthCheck, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.HttpHealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.HttpHealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computega.HttpHealthCheck, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.HttpHealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.HttpHealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *ga.HttpHealthCheck) error
+	Update(context.Context, *meta.Key, *computega.HttpHealthCheck) error
 }
 
 // NewMockHttpHealthChecks returns a new mock for HttpHealthChecks.
@@ -18564,11 +18564,11 @@ type MockHttpHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockHttpHealthChecks) (bool, *ga.HttpHealthCheck, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockHttpHealthChecks) (bool, []*ga.HttpHealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.HttpHealthCheck, m *MockHttpHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockHttpHealthChecks) (bool, *computega.HttpHealthCheck, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockHttpHealthChecks) (bool, []*computega.HttpHealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.HttpHealthCheck, m *MockHttpHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockHttpHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *ga.HttpHealthCheck, *MockHttpHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computega.HttpHealthCheck, *MockHttpHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -18576,7 +18576,7 @@ type MockHttpHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockHttpHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HttpHealthCheck, error) {
+func (m *MockHttpHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HttpHealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockHttpHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -18609,7 +18609,7 @@ func (m *MockHttpHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.Http
 }
 
 // List all of the objects in the mock.
-func (m *MockHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HttpHealthCheck, error) {
+func (m *MockHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computega.HttpHealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockHttpHealthChecks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -18627,7 +18627,7 @@ func (m *MockHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Ht
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.HttpHealthCheck
+	var objs []*computega.HttpHealthCheck
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -18640,7 +18640,7 @@ func (m *MockHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Ht
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockHttpHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HttpHealthCheck) error {
+func (m *MockHttpHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HttpHealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockHttpHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -18710,12 +18710,12 @@ func (m *MockHttpHealthChecks) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockHttpHealthChecks) Obj(o *ga.HttpHealthCheck) *MockHttpHealthChecksObj {
+func (m *MockHttpHealthChecks) Obj(o *computega.HttpHealthCheck) *MockHttpHealthChecksObj {
 	return &MockHttpHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockHttpHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HttpHealthCheck) error {
+func (m *MockHttpHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HttpHealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -18728,7 +18728,7 @@ type GCEHttpHealthChecks struct {
 }
 
 // Get the HttpHealthCheck named by key.
-func (g *GCEHttpHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HttpHealthCheck, error) {
+func (g *GCEHttpHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HttpHealthCheck, error) {
 	klog.V(5).Infof("GCEHttpHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -18761,7 +18761,7 @@ func (g *GCEHttpHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HttpH
 }
 
 // List all HttpHealthCheck objects.
-func (g *GCEHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HttpHealthCheck, error) {
+func (g *GCEHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computega.HttpHealthCheck, error) {
 	klog.V(5).Infof("GCEHttpHealthChecks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "HttpHealthChecks")
 	ck := &CallContextKey{
@@ -18781,8 +18781,8 @@ func (g *GCEHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Htt
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.HttpHealthCheck
-	f := func(l *ga.HttpHealthCheckList) error {
+	var all []*computega.HttpHealthCheck
+	f := func(l *computega.HttpHealthCheckList) error {
 		klog.V(5).Infof("GCEHttpHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -18812,7 +18812,7 @@ func (g *GCEHttpHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Htt
 }
 
 // Insert HttpHealthCheck with key of value obj.
-func (g *GCEHttpHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HttpHealthCheck) error {
+func (g *GCEHttpHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HttpHealthCheck) error {
 	klog.V(5).Infof("GCEHttpHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEHttpHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -18891,7 +18891,7 @@ func (g *GCEHttpHealthChecks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCEHttpHealthChecks.
-func (g *GCEHttpHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HttpHealthCheck) error {
+func (g *GCEHttpHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HttpHealthCheck) error {
 	klog.V(5).Infof("GCEHttpHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -18934,11 +18934,11 @@ func (g *GCEHttpHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *g
 
 // HttpsHealthChecks is an interface that allows for mocking of HttpsHealthChecks.
 type HttpsHealthChecks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.HttpsHealthCheck, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.HttpsHealthCheck, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.HttpsHealthCheck) error
+	Get(ctx context.Context, key *meta.Key) (*computega.HttpsHealthCheck, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.HttpsHealthCheck, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.HttpsHealthCheck) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *ga.HttpsHealthCheck) error
+	Update(context.Context, *meta.Key, *computega.HttpsHealthCheck) error
 }
 
 // NewMockHttpsHealthChecks returns a new mock for HttpsHealthChecks.
@@ -18974,11 +18974,11 @@ type MockHttpsHealthChecks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockHttpsHealthChecks) (bool, *ga.HttpsHealthCheck, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockHttpsHealthChecks) (bool, []*ga.HttpsHealthCheck, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.HttpsHealthCheck, m *MockHttpsHealthChecks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockHttpsHealthChecks) (bool, *computega.HttpsHealthCheck, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockHttpsHealthChecks) (bool, []*computega.HttpsHealthCheck, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.HttpsHealthCheck, m *MockHttpsHealthChecks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockHttpsHealthChecks) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *ga.HttpsHealthCheck, *MockHttpsHealthChecks) error
+	UpdateHook func(context.Context, *meta.Key, *computega.HttpsHealthCheck, *MockHttpsHealthChecks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -18986,7 +18986,7 @@ type MockHttpsHealthChecks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockHttpsHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HttpsHealthCheck, error) {
+func (m *MockHttpsHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HttpsHealthCheck, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockHttpsHealthChecks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -19019,7 +19019,7 @@ func (m *MockHttpsHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.Htt
 }
 
 // List all of the objects in the mock.
-func (m *MockHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HttpsHealthCheck, error) {
+func (m *MockHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computega.HttpsHealthCheck, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockHttpsHealthChecks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -19037,7 +19037,7 @@ func (m *MockHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.H
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.HttpsHealthCheck
+	var objs []*computega.HttpsHealthCheck
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -19050,7 +19050,7 @@ func (m *MockHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.H
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockHttpsHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HttpsHealthCheck) error {
+func (m *MockHttpsHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HttpsHealthCheck) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockHttpsHealthChecks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -19120,12 +19120,12 @@ func (m *MockHttpsHealthChecks) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockHttpsHealthChecks) Obj(o *ga.HttpsHealthCheck) *MockHttpsHealthChecksObj {
+func (m *MockHttpsHealthChecks) Obj(o *computega.HttpsHealthCheck) *MockHttpsHealthChecksObj {
 	return &MockHttpsHealthChecksObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockHttpsHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HttpsHealthCheck) error {
+func (m *MockHttpsHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HttpsHealthCheck) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -19138,7 +19138,7 @@ type GCEHttpsHealthChecks struct {
 }
 
 // Get the HttpsHealthCheck named by key.
-func (g *GCEHttpsHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.HttpsHealthCheck, error) {
+func (g *GCEHttpsHealthChecks) Get(ctx context.Context, key *meta.Key) (*computega.HttpsHealthCheck, error) {
 	klog.V(5).Infof("GCEHttpsHealthChecks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -19171,7 +19171,7 @@ func (g *GCEHttpsHealthChecks) Get(ctx context.Context, key *meta.Key) (*ga.Http
 }
 
 // List all HttpsHealthCheck objects.
-func (g *GCEHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.HttpsHealthCheck, error) {
+func (g *GCEHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*computega.HttpsHealthCheck, error) {
 	klog.V(5).Infof("GCEHttpsHealthChecks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "HttpsHealthChecks")
 	ck := &CallContextKey{
@@ -19191,8 +19191,8 @@ func (g *GCEHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Ht
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.HttpsHealthCheck
-	f := func(l *ga.HttpsHealthCheckList) error {
+	var all []*computega.HttpsHealthCheck
+	f := func(l *computega.HttpsHealthCheckList) error {
 		klog.V(5).Infof("GCEHttpsHealthChecks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -19222,7 +19222,7 @@ func (g *GCEHttpsHealthChecks) List(ctx context.Context, fl *filter.F) ([]*ga.Ht
 }
 
 // Insert HttpsHealthCheck with key of value obj.
-func (g *GCEHttpsHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *ga.HttpsHealthCheck) error {
+func (g *GCEHttpsHealthChecks) Insert(ctx context.Context, key *meta.Key, obj *computega.HttpsHealthCheck) error {
 	klog.V(5).Infof("GCEHttpsHealthChecks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEHttpsHealthChecks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -19301,7 +19301,7 @@ func (g *GCEHttpsHealthChecks) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // Update is a method on GCEHttpsHealthChecks.
-func (g *GCEHttpsHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *ga.HttpsHealthCheck) error {
+func (g *GCEHttpsHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *computega.HttpsHealthCheck) error {
 	klog.V(5).Infof("GCEHttpsHealthChecks.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -19344,14 +19344,14 @@ func (g *GCEHttpsHealthChecks) Update(ctx context.Context, key *meta.Key, arg0 *
 
 // InstanceGroups is an interface that allows for mocking of InstanceGroups.
 type InstanceGroups interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.InstanceGroup, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*ga.InstanceGroup, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceGroup) error
+	Get(ctx context.Context, key *meta.Key) (*computega.InstanceGroup, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computega.InstanceGroup, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceGroup) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AddInstances(context.Context, *meta.Key, *ga.InstanceGroupsAddInstancesRequest) error
-	ListInstances(context.Context, *meta.Key, *ga.InstanceGroupsListInstancesRequest, *filter.F) ([]*ga.InstanceWithNamedPorts, error)
-	RemoveInstances(context.Context, *meta.Key, *ga.InstanceGroupsRemoveInstancesRequest) error
-	SetNamedPorts(context.Context, *meta.Key, *ga.InstanceGroupsSetNamedPortsRequest) error
+	AddInstances(context.Context, *meta.Key, *computega.InstanceGroupsAddInstancesRequest) error
+	ListInstances(context.Context, *meta.Key, *computega.InstanceGroupsListInstancesRequest, *filter.F) ([]*computega.InstanceWithNamedPorts, error)
+	RemoveInstances(context.Context, *meta.Key, *computega.InstanceGroupsRemoveInstancesRequest) error
+	SetNamedPorts(context.Context, *meta.Key, *computega.InstanceGroupsSetNamedPortsRequest) error
 }
 
 // NewMockInstanceGroups returns a new mock for InstanceGroups.
@@ -19387,14 +19387,14 @@ type MockInstanceGroups struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook             func(ctx context.Context, key *meta.Key, m *MockInstanceGroups) (bool, *ga.InstanceGroup, error)
-	ListHook            func(ctx context.Context, zone string, fl *filter.F, m *MockInstanceGroups) (bool, []*ga.InstanceGroup, error)
-	InsertHook          func(ctx context.Context, key *meta.Key, obj *ga.InstanceGroup, m *MockInstanceGroups) (bool, error)
+	GetHook             func(ctx context.Context, key *meta.Key, m *MockInstanceGroups) (bool, *computega.InstanceGroup, error)
+	ListHook            func(ctx context.Context, zone string, fl *filter.F, m *MockInstanceGroups) (bool, []*computega.InstanceGroup, error)
+	InsertHook          func(ctx context.Context, key *meta.Key, obj *computega.InstanceGroup, m *MockInstanceGroups) (bool, error)
 	DeleteHook          func(ctx context.Context, key *meta.Key, m *MockInstanceGroups) (bool, error)
-	AddInstancesHook    func(context.Context, *meta.Key, *ga.InstanceGroupsAddInstancesRequest, *MockInstanceGroups) error
-	ListInstancesHook   func(context.Context, *meta.Key, *ga.InstanceGroupsListInstancesRequest, *filter.F, *MockInstanceGroups) ([]*ga.InstanceWithNamedPorts, error)
-	RemoveInstancesHook func(context.Context, *meta.Key, *ga.InstanceGroupsRemoveInstancesRequest, *MockInstanceGroups) error
-	SetNamedPortsHook   func(context.Context, *meta.Key, *ga.InstanceGroupsSetNamedPortsRequest, *MockInstanceGroups) error
+	AddInstancesHook    func(context.Context, *meta.Key, *computega.InstanceGroupsAddInstancesRequest, *MockInstanceGroups) error
+	ListInstancesHook   func(context.Context, *meta.Key, *computega.InstanceGroupsListInstancesRequest, *filter.F, *MockInstanceGroups) ([]*computega.InstanceWithNamedPorts, error)
+	RemoveInstancesHook func(context.Context, *meta.Key, *computega.InstanceGroupsRemoveInstancesRequest, *MockInstanceGroups) error
+	SetNamedPortsHook   func(context.Context, *meta.Key, *computega.InstanceGroupsSetNamedPortsRequest, *MockInstanceGroups) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -19402,7 +19402,7 @@ type MockInstanceGroups struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockInstanceGroups) Get(ctx context.Context, key *meta.Key) (*ga.InstanceGroup, error) {
+func (m *MockInstanceGroups) Get(ctx context.Context, key *meta.Key) (*computega.InstanceGroup, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockInstanceGroups.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -19435,7 +19435,7 @@ func (m *MockInstanceGroups) Get(ctx context.Context, key *meta.Key) (*ga.Instan
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockInstanceGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.InstanceGroup, error) {
+func (m *MockInstanceGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.InstanceGroup, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockInstanceGroups.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -19453,7 +19453,7 @@ func (m *MockInstanceGroups) List(ctx context.Context, zone string, fl *filter.F
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.InstanceGroup
+	var objs []*computega.InstanceGroup
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -19469,7 +19469,7 @@ func (m *MockInstanceGroups) List(ctx context.Context, zone string, fl *filter.F
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockInstanceGroups) Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceGroup) error {
+func (m *MockInstanceGroups) Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceGroup) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockInstanceGroups.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -19539,12 +19539,12 @@ func (m *MockInstanceGroups) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockInstanceGroups) Obj(o *ga.InstanceGroup) *MockInstanceGroupsObj {
+func (m *MockInstanceGroups) Obj(o *computega.InstanceGroup) *MockInstanceGroupsObj {
 	return &MockInstanceGroupsObj{o}
 }
 
 // AddInstances is a mock for the corresponding method.
-func (m *MockInstanceGroups) AddInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsAddInstancesRequest) error {
+func (m *MockInstanceGroups) AddInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsAddInstancesRequest) error {
 	if m.AddInstancesHook != nil {
 		return m.AddInstancesHook(ctx, key, arg0, m)
 	}
@@ -19552,7 +19552,7 @@ func (m *MockInstanceGroups) AddInstances(ctx context.Context, key *meta.Key, ar
 }
 
 // ListInstances is a mock for the corresponding method.
-func (m *MockInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsListInstancesRequest, fl *filter.F) ([]*ga.InstanceWithNamedPorts, error) {
+func (m *MockInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsListInstancesRequest, fl *filter.F) ([]*computega.InstanceWithNamedPorts, error) {
 	if m.ListInstancesHook != nil {
 		return m.ListInstancesHook(ctx, key, arg0, fl, m)
 	}
@@ -19560,7 +19560,7 @@ func (m *MockInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, a
 }
 
 // RemoveInstances is a mock for the corresponding method.
-func (m *MockInstanceGroups) RemoveInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsRemoveInstancesRequest) error {
+func (m *MockInstanceGroups) RemoveInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsRemoveInstancesRequest) error {
 	if m.RemoveInstancesHook != nil {
 		return m.RemoveInstancesHook(ctx, key, arg0, m)
 	}
@@ -19568,7 +19568,7 @@ func (m *MockInstanceGroups) RemoveInstances(ctx context.Context, key *meta.Key,
 }
 
 // SetNamedPorts is a mock for the corresponding method.
-func (m *MockInstanceGroups) SetNamedPorts(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsSetNamedPortsRequest) error {
+func (m *MockInstanceGroups) SetNamedPorts(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsSetNamedPortsRequest) error {
 	if m.SetNamedPortsHook != nil {
 		return m.SetNamedPortsHook(ctx, key, arg0, m)
 	}
@@ -19581,7 +19581,7 @@ type GCEInstanceGroups struct {
 }
 
 // Get the InstanceGroup named by key.
-func (g *GCEInstanceGroups) Get(ctx context.Context, key *meta.Key) (*ga.InstanceGroup, error) {
+func (g *GCEInstanceGroups) Get(ctx context.Context, key *meta.Key) (*computega.InstanceGroup, error) {
 	klog.V(5).Infof("GCEInstanceGroups.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -19614,7 +19614,7 @@ func (g *GCEInstanceGroups) Get(ctx context.Context, key *meta.Key) (*ga.Instanc
 }
 
 // List all InstanceGroup objects.
-func (g *GCEInstanceGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.InstanceGroup, error) {
+func (g *GCEInstanceGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.InstanceGroup, error) {
 	klog.V(5).Infof("GCEInstanceGroups.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "InstanceGroups")
 	ck := &CallContextKey{
@@ -19634,8 +19634,8 @@ func (g *GCEInstanceGroups) List(ctx context.Context, zone string, fl *filter.F)
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.InstanceGroup
-	f := func(l *ga.InstanceGroupList) error {
+	var all []*computega.InstanceGroup
+	f := func(l *computega.InstanceGroupList) error {
 		klog.V(5).Infof("GCEInstanceGroups.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -19665,7 +19665,7 @@ func (g *GCEInstanceGroups) List(ctx context.Context, zone string, fl *filter.F)
 }
 
 // Insert InstanceGroup with key of value obj.
-func (g *GCEInstanceGroups) Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceGroup) error {
+func (g *GCEInstanceGroups) Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceGroup) error {
 	klog.V(5).Infof("GCEInstanceGroups.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEInstanceGroups.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -19744,7 +19744,7 @@ func (g *GCEInstanceGroups) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AddInstances is a method on GCEInstanceGroups.
-func (g *GCEInstanceGroups) AddInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsAddInstancesRequest) error {
+func (g *GCEInstanceGroups) AddInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsAddInstancesRequest) error {
 	klog.V(5).Infof("GCEInstanceGroups.AddInstances(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -19786,7 +19786,7 @@ func (g *GCEInstanceGroups) AddInstances(ctx context.Context, key *meta.Key, arg
 }
 
 // ListInstances is a method on GCEInstanceGroups.
-func (g *GCEInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsListInstancesRequest, fl *filter.F) ([]*ga.InstanceWithNamedPorts, error) {
+func (g *GCEInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsListInstancesRequest, fl *filter.F) ([]*computega.InstanceWithNamedPorts, error) {
 	klog.V(5).Infof("GCEInstanceGroups.ListInstances(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -19807,8 +19807,8 @@ func (g *GCEInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, ar
 		return nil, err
 	}
 	call := g.s.GA.InstanceGroups.ListInstances(projectID, key.Zone, key.Name, arg0)
-	var all []*ga.InstanceWithNamedPorts
-	f := func(l *ga.InstanceGroupsListInstances) error {
+	var all []*computega.InstanceWithNamedPorts
+	f := func(l *computega.InstanceGroupsListInstances) error {
 		klog.V(5).Infof("GCEInstanceGroups.ListInstances(%v, %v, ...): page %+v", ctx, key, l)
 		all = append(all, l.Items...)
 		return nil
@@ -19837,7 +19837,7 @@ func (g *GCEInstanceGroups) ListInstances(ctx context.Context, key *meta.Key, ar
 }
 
 // RemoveInstances is a method on GCEInstanceGroups.
-func (g *GCEInstanceGroups) RemoveInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsRemoveInstancesRequest) error {
+func (g *GCEInstanceGroups) RemoveInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsRemoveInstancesRequest) error {
 	klog.V(5).Infof("GCEInstanceGroups.RemoveInstances(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -19879,7 +19879,7 @@ func (g *GCEInstanceGroups) RemoveInstances(ctx context.Context, key *meta.Key, 
 }
 
 // SetNamedPorts is a method on GCEInstanceGroups.
-func (g *GCEInstanceGroups) SetNamedPorts(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupsSetNamedPortsRequest) error {
+func (g *GCEInstanceGroups) SetNamedPorts(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupsSetNamedPortsRequest) error {
 	klog.V(5).Infof("GCEInstanceGroups.SetNamedPorts(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -19922,11 +19922,11 @@ func (g *GCEInstanceGroups) SetNamedPorts(ctx context.Context, key *meta.Key, ar
 
 // Instances is an interface that allows for mocking of Instances.
 type Instances interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Instance, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*ga.Instance, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Instance) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Instance, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computega.Instance, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Instance) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AttachDisk(context.Context, *meta.Key, *ga.AttachedDisk) error
+	AttachDisk(context.Context, *meta.Key, *computega.AttachedDisk) error
 	DetachDisk(context.Context, *meta.Key, string) error
 }
 
@@ -19963,11 +19963,11 @@ type MockInstances struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook        func(ctx context.Context, key *meta.Key, m *MockInstances) (bool, *ga.Instance, error)
-	ListHook       func(ctx context.Context, zone string, fl *filter.F, m *MockInstances) (bool, []*ga.Instance, error)
-	InsertHook     func(ctx context.Context, key *meta.Key, obj *ga.Instance, m *MockInstances) (bool, error)
+	GetHook        func(ctx context.Context, key *meta.Key, m *MockInstances) (bool, *computega.Instance, error)
+	ListHook       func(ctx context.Context, zone string, fl *filter.F, m *MockInstances) (bool, []*computega.Instance, error)
+	InsertHook     func(ctx context.Context, key *meta.Key, obj *computega.Instance, m *MockInstances) (bool, error)
 	DeleteHook     func(ctx context.Context, key *meta.Key, m *MockInstances) (bool, error)
-	AttachDiskHook func(context.Context, *meta.Key, *ga.AttachedDisk, *MockInstances) error
+	AttachDiskHook func(context.Context, *meta.Key, *computega.AttachedDisk, *MockInstances) error
 	DetachDiskHook func(context.Context, *meta.Key, string, *MockInstances) error
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -19976,7 +19976,7 @@ type MockInstances struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockInstances) Get(ctx context.Context, key *meta.Key) (*ga.Instance, error) {
+func (m *MockInstances) Get(ctx context.Context, key *meta.Key) (*computega.Instance, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockInstances.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -20009,7 +20009,7 @@ func (m *MockInstances) Get(ctx context.Context, key *meta.Key) (*ga.Instance, e
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.Instance, error) {
+func (m *MockInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.Instance, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockInstances.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -20027,7 +20027,7 @@ func (m *MockInstances) List(ctx context.Context, zone string, fl *filter.F) ([]
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Instance
+	var objs []*computega.Instance
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -20043,7 +20043,7 @@ func (m *MockInstances) List(ctx context.Context, zone string, fl *filter.F) ([]
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockInstances) Insert(ctx context.Context, key *meta.Key, obj *ga.Instance) error {
+func (m *MockInstances) Insert(ctx context.Context, key *meta.Key, obj *computega.Instance) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockInstances.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -20113,12 +20113,12 @@ func (m *MockInstances) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockInstances) Obj(o *ga.Instance) *MockInstancesObj {
+func (m *MockInstances) Obj(o *computega.Instance) *MockInstancesObj {
 	return &MockInstancesObj{o}
 }
 
 // AttachDisk is a mock for the corresponding method.
-func (m *MockInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *ga.AttachedDisk) error {
+func (m *MockInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *computega.AttachedDisk) error {
 	if m.AttachDiskHook != nil {
 		return m.AttachDiskHook(ctx, key, arg0, m)
 	}
@@ -20139,7 +20139,7 @@ type GCEInstances struct {
 }
 
 // Get the Instance named by key.
-func (g *GCEInstances) Get(ctx context.Context, key *meta.Key) (*ga.Instance, error) {
+func (g *GCEInstances) Get(ctx context.Context, key *meta.Key) (*computega.Instance, error) {
 	klog.V(5).Infof("GCEInstances.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -20172,7 +20172,7 @@ func (g *GCEInstances) Get(ctx context.Context, key *meta.Key) (*ga.Instance, er
 }
 
 // List all Instance objects.
-func (g *GCEInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.Instance, error) {
+func (g *GCEInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.Instance, error) {
 	klog.V(5).Infof("GCEInstances.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Instances")
 	ck := &CallContextKey{
@@ -20192,8 +20192,8 @@ func (g *GCEInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Instance
-	f := func(l *ga.InstanceList) error {
+	var all []*computega.Instance
+	f := func(l *computega.InstanceList) error {
 		klog.V(5).Infof("GCEInstances.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -20223,7 +20223,7 @@ func (g *GCEInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*
 }
 
 // Insert Instance with key of value obj.
-func (g *GCEInstances) Insert(ctx context.Context, key *meta.Key, obj *ga.Instance) error {
+func (g *GCEInstances) Insert(ctx context.Context, key *meta.Key, obj *computega.Instance) error {
 	klog.V(5).Infof("GCEInstances.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEInstances.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -20302,7 +20302,7 @@ func (g *GCEInstances) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AttachDisk is a method on GCEInstances.
-func (g *GCEInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *ga.AttachedDisk) error {
+func (g *GCEInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *computega.AttachedDisk) error {
 	klog.V(5).Infof("GCEInstances.AttachDisk(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -20387,13 +20387,13 @@ func (g *GCEInstances) DetachDisk(ctx context.Context, key *meta.Key, arg0 strin
 
 // BetaInstances is an interface that allows for mocking of Instances.
 type BetaInstances interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Instance, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*beta.Instance, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Instance) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Instance, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computebeta.Instance, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Instance) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AttachDisk(context.Context, *meta.Key, *beta.AttachedDisk) error
+	AttachDisk(context.Context, *meta.Key, *computebeta.AttachedDisk) error
 	DetachDisk(context.Context, *meta.Key, string) error
-	UpdateNetworkInterface(context.Context, *meta.Key, string, *beta.NetworkInterface) error
+	UpdateNetworkInterface(context.Context, *meta.Key, string, *computebeta.NetworkInterface) error
 }
 
 // NewMockBetaInstances returns a new mock for Instances.
@@ -20429,13 +20429,13 @@ type MockBetaInstances struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                    func(ctx context.Context, key *meta.Key, m *MockBetaInstances) (bool, *beta.Instance, error)
-	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockBetaInstances) (bool, []*beta.Instance, error)
-	InsertHook                 func(ctx context.Context, key *meta.Key, obj *beta.Instance, m *MockBetaInstances) (bool, error)
+	GetHook                    func(ctx context.Context, key *meta.Key, m *MockBetaInstances) (bool, *computebeta.Instance, error)
+	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockBetaInstances) (bool, []*computebeta.Instance, error)
+	InsertHook                 func(ctx context.Context, key *meta.Key, obj *computebeta.Instance, m *MockBetaInstances) (bool, error)
 	DeleteHook                 func(ctx context.Context, key *meta.Key, m *MockBetaInstances) (bool, error)
-	AttachDiskHook             func(context.Context, *meta.Key, *beta.AttachedDisk, *MockBetaInstances) error
+	AttachDiskHook             func(context.Context, *meta.Key, *computebeta.AttachedDisk, *MockBetaInstances) error
 	DetachDiskHook             func(context.Context, *meta.Key, string, *MockBetaInstances) error
-	UpdateNetworkInterfaceHook func(context.Context, *meta.Key, string, *beta.NetworkInterface, *MockBetaInstances) error
+	UpdateNetworkInterfaceHook func(context.Context, *meta.Key, string, *computebeta.NetworkInterface, *MockBetaInstances) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -20443,7 +20443,7 @@ type MockBetaInstances struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaInstances) Get(ctx context.Context, key *meta.Key) (*beta.Instance, error) {
+func (m *MockBetaInstances) Get(ctx context.Context, key *meta.Key) (*computebeta.Instance, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaInstances.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -20476,7 +20476,7 @@ func (m *MockBetaInstances) Get(ctx context.Context, key *meta.Key) (*beta.Insta
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockBetaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*beta.Instance, error) {
+func (m *MockBetaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*computebeta.Instance, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockBetaInstances.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -20494,7 +20494,7 @@ func (m *MockBetaInstances) List(ctx context.Context, zone string, fl *filter.F)
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Instance
+	var objs []*computebeta.Instance
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -20510,7 +20510,7 @@ func (m *MockBetaInstances) List(ctx context.Context, zone string, fl *filter.F)
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaInstances) Insert(ctx context.Context, key *meta.Key, obj *beta.Instance) error {
+func (m *MockBetaInstances) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Instance) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaInstances.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -20580,12 +20580,12 @@ func (m *MockBetaInstances) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaInstances) Obj(o *beta.Instance) *MockInstancesObj {
+func (m *MockBetaInstances) Obj(o *computebeta.Instance) *MockInstancesObj {
 	return &MockInstancesObj{o}
 }
 
 // AttachDisk is a mock for the corresponding method.
-func (m *MockBetaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *beta.AttachedDisk) error {
+func (m *MockBetaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *computebeta.AttachedDisk) error {
 	if m.AttachDiskHook != nil {
 		return m.AttachDiskHook(ctx, key, arg0, m)
 	}
@@ -20601,7 +20601,7 @@ func (m *MockBetaInstances) DetachDisk(ctx context.Context, key *meta.Key, arg0 
 }
 
 // UpdateNetworkInterface is a mock for the corresponding method.
-func (m *MockBetaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *beta.NetworkInterface) error {
+func (m *MockBetaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *computebeta.NetworkInterface) error {
 	if m.UpdateNetworkInterfaceHook != nil {
 		return m.UpdateNetworkInterfaceHook(ctx, key, arg0, arg1, m)
 	}
@@ -20614,7 +20614,7 @@ type GCEBetaInstances struct {
 }
 
 // Get the Instance named by key.
-func (g *GCEBetaInstances) Get(ctx context.Context, key *meta.Key) (*beta.Instance, error) {
+func (g *GCEBetaInstances) Get(ctx context.Context, key *meta.Key) (*computebeta.Instance, error) {
 	klog.V(5).Infof("GCEBetaInstances.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -20647,7 +20647,7 @@ func (g *GCEBetaInstances) Get(ctx context.Context, key *meta.Key) (*beta.Instan
 }
 
 // List all Instance objects.
-func (g *GCEBetaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*beta.Instance, error) {
+func (g *GCEBetaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*computebeta.Instance, error) {
 	klog.V(5).Infof("GCEBetaInstances.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Instances")
 	ck := &CallContextKey{
@@ -20667,8 +20667,8 @@ func (g *GCEBetaInstances) List(ctx context.Context, zone string, fl *filter.F) 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Instance
-	f := func(l *beta.InstanceList) error {
+	var all []*computebeta.Instance
+	f := func(l *computebeta.InstanceList) error {
 		klog.V(5).Infof("GCEBetaInstances.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -20698,7 +20698,7 @@ func (g *GCEBetaInstances) List(ctx context.Context, zone string, fl *filter.F) 
 }
 
 // Insert Instance with key of value obj.
-func (g *GCEBetaInstances) Insert(ctx context.Context, key *meta.Key, obj *beta.Instance) error {
+func (g *GCEBetaInstances) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Instance) error {
 	klog.V(5).Infof("GCEBetaInstances.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaInstances.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -20777,7 +20777,7 @@ func (g *GCEBetaInstances) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AttachDisk is a method on GCEBetaInstances.
-func (g *GCEBetaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *beta.AttachedDisk) error {
+func (g *GCEBetaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *computebeta.AttachedDisk) error {
 	klog.V(5).Infof("GCEBetaInstances.AttachDisk(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -20861,7 +20861,7 @@ func (g *GCEBetaInstances) DetachDisk(ctx context.Context, key *meta.Key, arg0 s
 }
 
 // UpdateNetworkInterface is a method on GCEBetaInstances.
-func (g *GCEBetaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *beta.NetworkInterface) error {
+func (g *GCEBetaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *computebeta.NetworkInterface) error {
 	klog.V(5).Infof("GCEBetaInstances.UpdateNetworkInterface(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -20904,13 +20904,13 @@ func (g *GCEBetaInstances) UpdateNetworkInterface(ctx context.Context, key *meta
 
 // AlphaInstances is an interface that allows for mocking of Instances.
 type AlphaInstances interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Instance, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*alpha.Instance, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Instance) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Instance, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computealpha.Instance, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Instance) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AttachDisk(context.Context, *meta.Key, *alpha.AttachedDisk) error
+	AttachDisk(context.Context, *meta.Key, *computealpha.AttachedDisk) error
 	DetachDisk(context.Context, *meta.Key, string) error
-	UpdateNetworkInterface(context.Context, *meta.Key, string, *alpha.NetworkInterface) error
+	UpdateNetworkInterface(context.Context, *meta.Key, string, *computealpha.NetworkInterface) error
 }
 
 // NewMockAlphaInstances returns a new mock for Instances.
@@ -20946,13 +20946,13 @@ type MockAlphaInstances struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                    func(ctx context.Context, key *meta.Key, m *MockAlphaInstances) (bool, *alpha.Instance, error)
-	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockAlphaInstances) (bool, []*alpha.Instance, error)
-	InsertHook                 func(ctx context.Context, key *meta.Key, obj *alpha.Instance, m *MockAlphaInstances) (bool, error)
+	GetHook                    func(ctx context.Context, key *meta.Key, m *MockAlphaInstances) (bool, *computealpha.Instance, error)
+	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockAlphaInstances) (bool, []*computealpha.Instance, error)
+	InsertHook                 func(ctx context.Context, key *meta.Key, obj *computealpha.Instance, m *MockAlphaInstances) (bool, error)
 	DeleteHook                 func(ctx context.Context, key *meta.Key, m *MockAlphaInstances) (bool, error)
-	AttachDiskHook             func(context.Context, *meta.Key, *alpha.AttachedDisk, *MockAlphaInstances) error
+	AttachDiskHook             func(context.Context, *meta.Key, *computealpha.AttachedDisk, *MockAlphaInstances) error
 	DetachDiskHook             func(context.Context, *meta.Key, string, *MockAlphaInstances) error
-	UpdateNetworkInterfaceHook func(context.Context, *meta.Key, string, *alpha.NetworkInterface, *MockAlphaInstances) error
+	UpdateNetworkInterfaceHook func(context.Context, *meta.Key, string, *computealpha.NetworkInterface, *MockAlphaInstances) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -20960,7 +20960,7 @@ type MockAlphaInstances struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaInstances) Get(ctx context.Context, key *meta.Key) (*alpha.Instance, error) {
+func (m *MockAlphaInstances) Get(ctx context.Context, key *meta.Key) (*computealpha.Instance, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaInstances.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -20993,7 +20993,7 @@ func (m *MockAlphaInstances) Get(ctx context.Context, key *meta.Key) (*alpha.Ins
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockAlphaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*alpha.Instance, error) {
+func (m *MockAlphaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*computealpha.Instance, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaInstances.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -21011,7 +21011,7 @@ func (m *MockAlphaInstances) List(ctx context.Context, zone string, fl *filter.F
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Instance
+	var objs []*computealpha.Instance
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -21027,7 +21027,7 @@ func (m *MockAlphaInstances) List(ctx context.Context, zone string, fl *filter.F
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaInstances) Insert(ctx context.Context, key *meta.Key, obj *alpha.Instance) error {
+func (m *MockAlphaInstances) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Instance) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaInstances.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -21097,12 +21097,12 @@ func (m *MockAlphaInstances) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaInstances) Obj(o *alpha.Instance) *MockInstancesObj {
+func (m *MockAlphaInstances) Obj(o *computealpha.Instance) *MockInstancesObj {
 	return &MockInstancesObj{o}
 }
 
 // AttachDisk is a mock for the corresponding method.
-func (m *MockAlphaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *alpha.AttachedDisk) error {
+func (m *MockAlphaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *computealpha.AttachedDisk) error {
 	if m.AttachDiskHook != nil {
 		return m.AttachDiskHook(ctx, key, arg0, m)
 	}
@@ -21118,7 +21118,7 @@ func (m *MockAlphaInstances) DetachDisk(ctx context.Context, key *meta.Key, arg0
 }
 
 // UpdateNetworkInterface is a mock for the corresponding method.
-func (m *MockAlphaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *alpha.NetworkInterface) error {
+func (m *MockAlphaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *computealpha.NetworkInterface) error {
 	if m.UpdateNetworkInterfaceHook != nil {
 		return m.UpdateNetworkInterfaceHook(ctx, key, arg0, arg1, m)
 	}
@@ -21131,7 +21131,7 @@ type GCEAlphaInstances struct {
 }
 
 // Get the Instance named by key.
-func (g *GCEAlphaInstances) Get(ctx context.Context, key *meta.Key) (*alpha.Instance, error) {
+func (g *GCEAlphaInstances) Get(ctx context.Context, key *meta.Key) (*computealpha.Instance, error) {
 	klog.V(5).Infof("GCEAlphaInstances.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -21164,7 +21164,7 @@ func (g *GCEAlphaInstances) Get(ctx context.Context, key *meta.Key) (*alpha.Inst
 }
 
 // List all Instance objects.
-func (g *GCEAlphaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*alpha.Instance, error) {
+func (g *GCEAlphaInstances) List(ctx context.Context, zone string, fl *filter.F) ([]*computealpha.Instance, error) {
 	klog.V(5).Infof("GCEAlphaInstances.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Instances")
 	ck := &CallContextKey{
@@ -21184,8 +21184,8 @@ func (g *GCEAlphaInstances) List(ctx context.Context, zone string, fl *filter.F)
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Instance
-	f := func(l *alpha.InstanceList) error {
+	var all []*computealpha.Instance
+	f := func(l *computealpha.InstanceList) error {
 		klog.V(5).Infof("GCEAlphaInstances.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -21215,7 +21215,7 @@ func (g *GCEAlphaInstances) List(ctx context.Context, zone string, fl *filter.F)
 }
 
 // Insert Instance with key of value obj.
-func (g *GCEAlphaInstances) Insert(ctx context.Context, key *meta.Key, obj *alpha.Instance) error {
+func (g *GCEAlphaInstances) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Instance) error {
 	klog.V(5).Infof("GCEAlphaInstances.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaInstances.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -21294,7 +21294,7 @@ func (g *GCEAlphaInstances) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AttachDisk is a method on GCEAlphaInstances.
-func (g *GCEAlphaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *alpha.AttachedDisk) error {
+func (g *GCEAlphaInstances) AttachDisk(ctx context.Context, key *meta.Key, arg0 *computealpha.AttachedDisk) error {
 	klog.V(5).Infof("GCEAlphaInstances.AttachDisk(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -21378,7 +21378,7 @@ func (g *GCEAlphaInstances) DetachDisk(ctx context.Context, key *meta.Key, arg0 
 }
 
 // UpdateNetworkInterface is a method on GCEAlphaInstances.
-func (g *GCEAlphaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *alpha.NetworkInterface) error {
+func (g *GCEAlphaInstances) UpdateNetworkInterface(ctx context.Context, key *meta.Key, arg0 string, arg1 *computealpha.NetworkInterface) error {
 	klog.V(5).Infof("GCEAlphaInstances.UpdateNetworkInterface(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -21421,14 +21421,14 @@ func (g *GCEAlphaInstances) UpdateNetworkInterface(ctx context.Context, key *met
 
 // InstanceGroupManagers is an interface that allows for mocking of InstanceGroupManagers.
 type InstanceGroupManagers interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.InstanceGroupManager, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*ga.InstanceGroupManager, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceGroupManager) error
+	Get(ctx context.Context, key *meta.Key) (*computega.InstanceGroupManager, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computega.InstanceGroupManager, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceGroupManager) error
 	Delete(ctx context.Context, key *meta.Key) error
-	CreateInstances(context.Context, *meta.Key, *ga.InstanceGroupManagersCreateInstancesRequest) error
-	DeleteInstances(context.Context, *meta.Key, *ga.InstanceGroupManagersDeleteInstancesRequest) error
+	CreateInstances(context.Context, *meta.Key, *computega.InstanceGroupManagersCreateInstancesRequest) error
+	DeleteInstances(context.Context, *meta.Key, *computega.InstanceGroupManagersDeleteInstancesRequest) error
 	Resize(context.Context, *meta.Key, int64) error
-	SetInstanceTemplate(context.Context, *meta.Key, *ga.InstanceGroupManagersSetInstanceTemplateRequest) error
+	SetInstanceTemplate(context.Context, *meta.Key, *computega.InstanceGroupManagersSetInstanceTemplateRequest) error
 }
 
 // NewMockInstanceGroupManagers returns a new mock for InstanceGroupManagers.
@@ -21464,14 +21464,14 @@ type MockInstanceGroupManagers struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                 func(ctx context.Context, key *meta.Key, m *MockInstanceGroupManagers) (bool, *ga.InstanceGroupManager, error)
-	ListHook                func(ctx context.Context, zone string, fl *filter.F, m *MockInstanceGroupManagers) (bool, []*ga.InstanceGroupManager, error)
-	InsertHook              func(ctx context.Context, key *meta.Key, obj *ga.InstanceGroupManager, m *MockInstanceGroupManagers) (bool, error)
+	GetHook                 func(ctx context.Context, key *meta.Key, m *MockInstanceGroupManagers) (bool, *computega.InstanceGroupManager, error)
+	ListHook                func(ctx context.Context, zone string, fl *filter.F, m *MockInstanceGroupManagers) (bool, []*computega.InstanceGroupManager, error)
+	InsertHook              func(ctx context.Context, key *meta.Key, obj *computega.InstanceGroupManager, m *MockInstanceGroupManagers) (bool, error)
 	DeleteHook              func(ctx context.Context, key *meta.Key, m *MockInstanceGroupManagers) (bool, error)
-	CreateInstancesHook     func(context.Context, *meta.Key, *ga.InstanceGroupManagersCreateInstancesRequest, *MockInstanceGroupManagers) error
-	DeleteInstancesHook     func(context.Context, *meta.Key, *ga.InstanceGroupManagersDeleteInstancesRequest, *MockInstanceGroupManagers) error
+	CreateInstancesHook     func(context.Context, *meta.Key, *computega.InstanceGroupManagersCreateInstancesRequest, *MockInstanceGroupManagers) error
+	DeleteInstancesHook     func(context.Context, *meta.Key, *computega.InstanceGroupManagersDeleteInstancesRequest, *MockInstanceGroupManagers) error
 	ResizeHook              func(context.Context, *meta.Key, int64, *MockInstanceGroupManagers) error
-	SetInstanceTemplateHook func(context.Context, *meta.Key, *ga.InstanceGroupManagersSetInstanceTemplateRequest, *MockInstanceGroupManagers) error
+	SetInstanceTemplateHook func(context.Context, *meta.Key, *computega.InstanceGroupManagersSetInstanceTemplateRequest, *MockInstanceGroupManagers) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -21479,7 +21479,7 @@ type MockInstanceGroupManagers struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockInstanceGroupManagers) Get(ctx context.Context, key *meta.Key) (*ga.InstanceGroupManager, error) {
+func (m *MockInstanceGroupManagers) Get(ctx context.Context, key *meta.Key) (*computega.InstanceGroupManager, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockInstanceGroupManagers.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -21512,7 +21512,7 @@ func (m *MockInstanceGroupManagers) Get(ctx context.Context, key *meta.Key) (*ga
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockInstanceGroupManagers) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.InstanceGroupManager, error) {
+func (m *MockInstanceGroupManagers) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.InstanceGroupManager, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockInstanceGroupManagers.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -21530,7 +21530,7 @@ func (m *MockInstanceGroupManagers) List(ctx context.Context, zone string, fl *f
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.InstanceGroupManager
+	var objs []*computega.InstanceGroupManager
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -21546,7 +21546,7 @@ func (m *MockInstanceGroupManagers) List(ctx context.Context, zone string, fl *f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockInstanceGroupManagers) Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceGroupManager) error {
+func (m *MockInstanceGroupManagers) Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceGroupManager) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockInstanceGroupManagers.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -21616,12 +21616,12 @@ func (m *MockInstanceGroupManagers) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockInstanceGroupManagers) Obj(o *ga.InstanceGroupManager) *MockInstanceGroupManagersObj {
+func (m *MockInstanceGroupManagers) Obj(o *computega.InstanceGroupManager) *MockInstanceGroupManagersObj {
 	return &MockInstanceGroupManagersObj{o}
 }
 
 // CreateInstances is a mock for the corresponding method.
-func (m *MockInstanceGroupManagers) CreateInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupManagersCreateInstancesRequest) error {
+func (m *MockInstanceGroupManagers) CreateInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupManagersCreateInstancesRequest) error {
 	if m.CreateInstancesHook != nil {
 		return m.CreateInstancesHook(ctx, key, arg0, m)
 	}
@@ -21629,7 +21629,7 @@ func (m *MockInstanceGroupManagers) CreateInstances(ctx context.Context, key *me
 }
 
 // DeleteInstances is a mock for the corresponding method.
-func (m *MockInstanceGroupManagers) DeleteInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupManagersDeleteInstancesRequest) error {
+func (m *MockInstanceGroupManagers) DeleteInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupManagersDeleteInstancesRequest) error {
 	if m.DeleteInstancesHook != nil {
 		return m.DeleteInstancesHook(ctx, key, arg0, m)
 	}
@@ -21645,7 +21645,7 @@ func (m *MockInstanceGroupManagers) Resize(ctx context.Context, key *meta.Key, a
 }
 
 // SetInstanceTemplate is a mock for the corresponding method.
-func (m *MockInstanceGroupManagers) SetInstanceTemplate(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupManagersSetInstanceTemplateRequest) error {
+func (m *MockInstanceGroupManagers) SetInstanceTemplate(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupManagersSetInstanceTemplateRequest) error {
 	if m.SetInstanceTemplateHook != nil {
 		return m.SetInstanceTemplateHook(ctx, key, arg0, m)
 	}
@@ -21658,7 +21658,7 @@ type GCEInstanceGroupManagers struct {
 }
 
 // Get the InstanceGroupManager named by key.
-func (g *GCEInstanceGroupManagers) Get(ctx context.Context, key *meta.Key) (*ga.InstanceGroupManager, error) {
+func (g *GCEInstanceGroupManagers) Get(ctx context.Context, key *meta.Key) (*computega.InstanceGroupManager, error) {
 	klog.V(5).Infof("GCEInstanceGroupManagers.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -21691,7 +21691,7 @@ func (g *GCEInstanceGroupManagers) Get(ctx context.Context, key *meta.Key) (*ga.
 }
 
 // List all InstanceGroupManager objects.
-func (g *GCEInstanceGroupManagers) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.InstanceGroupManager, error) {
+func (g *GCEInstanceGroupManagers) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.InstanceGroupManager, error) {
 	klog.V(5).Infof("GCEInstanceGroupManagers.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "InstanceGroupManagers")
 	ck := &CallContextKey{
@@ -21711,8 +21711,8 @@ func (g *GCEInstanceGroupManagers) List(ctx context.Context, zone string, fl *fi
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.InstanceGroupManager
-	f := func(l *ga.InstanceGroupManagerList) error {
+	var all []*computega.InstanceGroupManager
+	f := func(l *computega.InstanceGroupManagerList) error {
 		klog.V(5).Infof("GCEInstanceGroupManagers.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -21742,7 +21742,7 @@ func (g *GCEInstanceGroupManagers) List(ctx context.Context, zone string, fl *fi
 }
 
 // Insert InstanceGroupManager with key of value obj.
-func (g *GCEInstanceGroupManagers) Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceGroupManager) error {
+func (g *GCEInstanceGroupManagers) Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceGroupManager) error {
 	klog.V(5).Infof("GCEInstanceGroupManagers.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEInstanceGroupManagers.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -21821,7 +21821,7 @@ func (g *GCEInstanceGroupManagers) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // CreateInstances is a method on GCEInstanceGroupManagers.
-func (g *GCEInstanceGroupManagers) CreateInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupManagersCreateInstancesRequest) error {
+func (g *GCEInstanceGroupManagers) CreateInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupManagersCreateInstancesRequest) error {
 	klog.V(5).Infof("GCEInstanceGroupManagers.CreateInstances(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -21863,7 +21863,7 @@ func (g *GCEInstanceGroupManagers) CreateInstances(ctx context.Context, key *met
 }
 
 // DeleteInstances is a method on GCEInstanceGroupManagers.
-func (g *GCEInstanceGroupManagers) DeleteInstances(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupManagersDeleteInstancesRequest) error {
+func (g *GCEInstanceGroupManagers) DeleteInstances(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupManagersDeleteInstancesRequest) error {
 	klog.V(5).Infof("GCEInstanceGroupManagers.DeleteInstances(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -21947,7 +21947,7 @@ func (g *GCEInstanceGroupManagers) Resize(ctx context.Context, key *meta.Key, ar
 }
 
 // SetInstanceTemplate is a method on GCEInstanceGroupManagers.
-func (g *GCEInstanceGroupManagers) SetInstanceTemplate(ctx context.Context, key *meta.Key, arg0 *ga.InstanceGroupManagersSetInstanceTemplateRequest) error {
+func (g *GCEInstanceGroupManagers) SetInstanceTemplate(ctx context.Context, key *meta.Key, arg0 *computega.InstanceGroupManagersSetInstanceTemplateRequest) error {
 	klog.V(5).Infof("GCEInstanceGroupManagers.SetInstanceTemplate(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -21990,9 +21990,9 @@ func (g *GCEInstanceGroupManagers) SetInstanceTemplate(ctx context.Context, key 
 
 // InstanceTemplates is an interface that allows for mocking of InstanceTemplates.
 type InstanceTemplates interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.InstanceTemplate, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.InstanceTemplate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceTemplate) error
+	Get(ctx context.Context, key *meta.Key) (*computega.InstanceTemplate, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.InstanceTemplate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceTemplate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -22029,9 +22029,9 @@ type MockInstanceTemplates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockInstanceTemplates) (bool, *ga.InstanceTemplate, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockInstanceTemplates) (bool, []*ga.InstanceTemplate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.InstanceTemplate, m *MockInstanceTemplates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockInstanceTemplates) (bool, *computega.InstanceTemplate, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockInstanceTemplates) (bool, []*computega.InstanceTemplate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.InstanceTemplate, m *MockInstanceTemplates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockInstanceTemplates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -22040,7 +22040,7 @@ type MockInstanceTemplates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockInstanceTemplates) Get(ctx context.Context, key *meta.Key) (*ga.InstanceTemplate, error) {
+func (m *MockInstanceTemplates) Get(ctx context.Context, key *meta.Key) (*computega.InstanceTemplate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockInstanceTemplates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -22073,7 +22073,7 @@ func (m *MockInstanceTemplates) Get(ctx context.Context, key *meta.Key) (*ga.Ins
 }
 
 // List all of the objects in the mock.
-func (m *MockInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*ga.InstanceTemplate, error) {
+func (m *MockInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*computega.InstanceTemplate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockInstanceTemplates.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -22091,7 +22091,7 @@ func (m *MockInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*ga.I
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.InstanceTemplate
+	var objs []*computega.InstanceTemplate
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -22104,7 +22104,7 @@ func (m *MockInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*ga.I
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockInstanceTemplates) Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceTemplate) error {
+func (m *MockInstanceTemplates) Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceTemplate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockInstanceTemplates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -22174,7 +22174,7 @@ func (m *MockInstanceTemplates) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockInstanceTemplates) Obj(o *ga.InstanceTemplate) *MockInstanceTemplatesObj {
+func (m *MockInstanceTemplates) Obj(o *computega.InstanceTemplate) *MockInstanceTemplatesObj {
 	return &MockInstanceTemplatesObj{o}
 }
 
@@ -22184,7 +22184,7 @@ type GCEInstanceTemplates struct {
 }
 
 // Get the InstanceTemplate named by key.
-func (g *GCEInstanceTemplates) Get(ctx context.Context, key *meta.Key) (*ga.InstanceTemplate, error) {
+func (g *GCEInstanceTemplates) Get(ctx context.Context, key *meta.Key) (*computega.InstanceTemplate, error) {
 	klog.V(5).Infof("GCEInstanceTemplates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -22217,7 +22217,7 @@ func (g *GCEInstanceTemplates) Get(ctx context.Context, key *meta.Key) (*ga.Inst
 }
 
 // List all InstanceTemplate objects.
-func (g *GCEInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*ga.InstanceTemplate, error) {
+func (g *GCEInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*computega.InstanceTemplate, error) {
 	klog.V(5).Infof("GCEInstanceTemplates.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "InstanceTemplates")
 	ck := &CallContextKey{
@@ -22237,8 +22237,8 @@ func (g *GCEInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*ga.In
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.InstanceTemplate
-	f := func(l *ga.InstanceTemplateList) error {
+	var all []*computega.InstanceTemplate
+	f := func(l *computega.InstanceTemplateList) error {
 		klog.V(5).Infof("GCEInstanceTemplates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -22268,7 +22268,7 @@ func (g *GCEInstanceTemplates) List(ctx context.Context, fl *filter.F) ([]*ga.In
 }
 
 // Insert InstanceTemplate with key of value obj.
-func (g *GCEInstanceTemplates) Insert(ctx context.Context, key *meta.Key, obj *ga.InstanceTemplate) error {
+func (g *GCEInstanceTemplates) Insert(ctx context.Context, key *meta.Key, obj *computega.InstanceTemplate) error {
 	klog.V(5).Infof("GCEInstanceTemplates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEInstanceTemplates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -22348,16 +22348,16 @@ func (g *GCEInstanceTemplates) Delete(ctx context.Context, key *meta.Key) error 
 
 // Images is an interface that allows for mocking of Images.
 type Images interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Image, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Image, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Image) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Image, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Image, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Image) error
 	Delete(ctx context.Context, key *meta.Key) error
-	GetFromFamily(context.Context, *meta.Key) (*ga.Image, error)
-	GetIamPolicy(context.Context, *meta.Key) (*ga.Policy, error)
-	Patch(context.Context, *meta.Key, *ga.Image) error
-	SetIamPolicy(context.Context, *meta.Key, *ga.GlobalSetPolicyRequest) (*ga.Policy, error)
-	SetLabels(context.Context, *meta.Key, *ga.GlobalSetLabelsRequest) error
-	TestIamPermissions(context.Context, *meta.Key, *ga.TestPermissionsRequest) (*ga.TestPermissionsResponse, error)
+	GetFromFamily(context.Context, *meta.Key) (*computega.Image, error)
+	GetIamPolicy(context.Context, *meta.Key) (*computega.Policy, error)
+	Patch(context.Context, *meta.Key, *computega.Image) error
+	SetIamPolicy(context.Context, *meta.Key, *computega.GlobalSetPolicyRequest) (*computega.Policy, error)
+	SetLabels(context.Context, *meta.Key, *computega.GlobalSetLabelsRequest) error
+	TestIamPermissions(context.Context, *meta.Key, *computega.TestPermissionsRequest) (*computega.TestPermissionsResponse, error)
 }
 
 // NewMockImages returns a new mock for Images.
@@ -22393,16 +22393,16 @@ type MockImages struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockImages) (bool, *ga.Image, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockImages) (bool, []*ga.Image, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *ga.Image, m *MockImages) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockImages) (bool, *computega.Image, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockImages) (bool, []*computega.Image, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computega.Image, m *MockImages) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockImages) (bool, error)
-	GetFromFamilyHook      func(context.Context, *meta.Key, *MockImages) (*ga.Image, error)
-	GetIamPolicyHook       func(context.Context, *meta.Key, *MockImages) (*ga.Policy, error)
-	PatchHook              func(context.Context, *meta.Key, *ga.Image, *MockImages) error
-	SetIamPolicyHook       func(context.Context, *meta.Key, *ga.GlobalSetPolicyRequest, *MockImages) (*ga.Policy, error)
-	SetLabelsHook          func(context.Context, *meta.Key, *ga.GlobalSetLabelsRequest, *MockImages) error
-	TestIamPermissionsHook func(context.Context, *meta.Key, *ga.TestPermissionsRequest, *MockImages) (*ga.TestPermissionsResponse, error)
+	GetFromFamilyHook      func(context.Context, *meta.Key, *MockImages) (*computega.Image, error)
+	GetIamPolicyHook       func(context.Context, *meta.Key, *MockImages) (*computega.Policy, error)
+	PatchHook              func(context.Context, *meta.Key, *computega.Image, *MockImages) error
+	SetIamPolicyHook       func(context.Context, *meta.Key, *computega.GlobalSetPolicyRequest, *MockImages) (*computega.Policy, error)
+	SetLabelsHook          func(context.Context, *meta.Key, *computega.GlobalSetLabelsRequest, *MockImages) error
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computega.TestPermissionsRequest, *MockImages) (*computega.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -22410,7 +22410,7 @@ type MockImages struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockImages) Get(ctx context.Context, key *meta.Key) (*ga.Image, error) {
+func (m *MockImages) Get(ctx context.Context, key *meta.Key) (*computega.Image, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockImages.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -22443,7 +22443,7 @@ func (m *MockImages) Get(ctx context.Context, key *meta.Key) (*ga.Image, error) 
 }
 
 // List all of the objects in the mock.
-func (m *MockImages) List(ctx context.Context, fl *filter.F) ([]*ga.Image, error) {
+func (m *MockImages) List(ctx context.Context, fl *filter.F) ([]*computega.Image, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockImages.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -22461,7 +22461,7 @@ func (m *MockImages) List(ctx context.Context, fl *filter.F) ([]*ga.Image, error
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Image
+	var objs []*computega.Image
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -22474,7 +22474,7 @@ func (m *MockImages) List(ctx context.Context, fl *filter.F) ([]*ga.Image, error
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockImages) Insert(ctx context.Context, key *meta.Key, obj *ga.Image) error {
+func (m *MockImages) Insert(ctx context.Context, key *meta.Key, obj *computega.Image) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockImages.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -22544,12 +22544,12 @@ func (m *MockImages) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockImages) Obj(o *ga.Image) *MockImagesObj {
+func (m *MockImages) Obj(o *computega.Image) *MockImagesObj {
 	return &MockImagesObj{o}
 }
 
 // GetFromFamily is a mock for the corresponding method.
-func (m *MockImages) GetFromFamily(ctx context.Context, key *meta.Key) (*ga.Image, error) {
+func (m *MockImages) GetFromFamily(ctx context.Context, key *meta.Key) (*computega.Image, error) {
 	if m.GetFromFamilyHook != nil {
 		return m.GetFromFamilyHook(ctx, key, m)
 	}
@@ -22557,7 +22557,7 @@ func (m *MockImages) GetFromFamily(ctx context.Context, key *meta.Key) (*ga.Imag
 }
 
 // GetIamPolicy is a mock for the corresponding method.
-func (m *MockImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*ga.Policy, error) {
+func (m *MockImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*computega.Policy, error) {
 	if m.GetIamPolicyHook != nil {
 		return m.GetIamPolicyHook(ctx, key, m)
 	}
@@ -22565,7 +22565,7 @@ func (m *MockImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*ga.Polic
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockImages) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Image) error {
+func (m *MockImages) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Image) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -22573,7 +22573,7 @@ func (m *MockImages) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Image) e
 }
 
 // SetIamPolicy is a mock for the corresponding method.
-func (m *MockImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *ga.GlobalSetPolicyRequest) (*ga.Policy, error) {
+func (m *MockImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computega.GlobalSetPolicyRequest) (*computega.Policy, error) {
 	if m.SetIamPolicyHook != nil {
 		return m.SetIamPolicyHook(ctx, key, arg0, m)
 	}
@@ -22581,7 +22581,7 @@ func (m *MockImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *ga.G
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.GlobalSetLabelsRequest) error {
+func (m *MockImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *computega.GlobalSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -22589,7 +22589,7 @@ func (m *MockImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.Glob
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *ga.TestPermissionsRequest) (*ga.TestPermissionsResponse, error) {
+func (m *MockImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computega.TestPermissionsRequest) (*computega.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -22602,7 +22602,7 @@ type GCEImages struct {
 }
 
 // Get the Image named by key.
-func (g *GCEImages) Get(ctx context.Context, key *meta.Key) (*ga.Image, error) {
+func (g *GCEImages) Get(ctx context.Context, key *meta.Key) (*computega.Image, error) {
 	klog.V(5).Infof("GCEImages.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -22635,7 +22635,7 @@ func (g *GCEImages) Get(ctx context.Context, key *meta.Key) (*ga.Image, error) {
 }
 
 // List all Image objects.
-func (g *GCEImages) List(ctx context.Context, fl *filter.F) ([]*ga.Image, error) {
+func (g *GCEImages) List(ctx context.Context, fl *filter.F) ([]*computega.Image, error) {
 	klog.V(5).Infof("GCEImages.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Images")
 	ck := &CallContextKey{
@@ -22655,8 +22655,8 @@ func (g *GCEImages) List(ctx context.Context, fl *filter.F) ([]*ga.Image, error)
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Image
-	f := func(l *ga.ImageList) error {
+	var all []*computega.Image
+	f := func(l *computega.ImageList) error {
 		klog.V(5).Infof("GCEImages.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -22686,7 +22686,7 @@ func (g *GCEImages) List(ctx context.Context, fl *filter.F) ([]*ga.Image, error)
 }
 
 // Insert Image with key of value obj.
-func (g *GCEImages) Insert(ctx context.Context, key *meta.Key, obj *ga.Image) error {
+func (g *GCEImages) Insert(ctx context.Context, key *meta.Key, obj *computega.Image) error {
 	klog.V(5).Infof("GCEImages.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEImages.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -22765,7 +22765,7 @@ func (g *GCEImages) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // GetFromFamily is a method on GCEImages.
-func (g *GCEImages) GetFromFamily(ctx context.Context, key *meta.Key) (*ga.Image, error) {
+func (g *GCEImages) GetFromFamily(ctx context.Context, key *meta.Key) (*computega.Image, error) {
 	klog.V(5).Infof("GCEImages.GetFromFamily(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -22797,7 +22797,7 @@ func (g *GCEImages) GetFromFamily(ctx context.Context, key *meta.Key) (*ga.Image
 }
 
 // GetIamPolicy is a method on GCEImages.
-func (g *GCEImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*ga.Policy, error) {
+func (g *GCEImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*computega.Policy, error) {
 	klog.V(5).Infof("GCEImages.GetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -22829,7 +22829,7 @@ func (g *GCEImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*ga.Policy
 }
 
 // Patch is a method on GCEImages.
-func (g *GCEImages) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Image) error {
+func (g *GCEImages) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Image) error {
 	klog.V(5).Infof("GCEImages.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -22871,7 +22871,7 @@ func (g *GCEImages) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Image) er
 }
 
 // SetIamPolicy is a method on GCEImages.
-func (g *GCEImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *ga.GlobalSetPolicyRequest) (*ga.Policy, error) {
+func (g *GCEImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computega.GlobalSetPolicyRequest) (*computega.Policy, error) {
 	klog.V(5).Infof("GCEImages.SetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -22903,7 +22903,7 @@ func (g *GCEImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *ga.Gl
 }
 
 // SetLabels is a method on GCEImages.
-func (g *GCEImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.GlobalSetLabelsRequest) error {
+func (g *GCEImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *computega.GlobalSetLabelsRequest) error {
 	klog.V(5).Infof("GCEImages.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -22945,7 +22945,7 @@ func (g *GCEImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *ga.Globa
 }
 
 // TestIamPermissions is a method on GCEImages.
-func (g *GCEImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *ga.TestPermissionsRequest) (*ga.TestPermissionsResponse, error) {
+func (g *GCEImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computega.TestPermissionsRequest) (*computega.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEImages.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -22978,16 +22978,16 @@ func (g *GCEImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 
 
 // BetaImages is an interface that allows for mocking of Images.
 type BetaImages interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Image, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.Image, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Image) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Image, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.Image, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Image) error
 	Delete(ctx context.Context, key *meta.Key) error
-	GetFromFamily(context.Context, *meta.Key) (*beta.Image, error)
-	GetIamPolicy(context.Context, *meta.Key) (*beta.Policy, error)
-	Patch(context.Context, *meta.Key, *beta.Image) error
-	SetIamPolicy(context.Context, *meta.Key, *beta.GlobalSetPolicyRequest) (*beta.Policy, error)
-	SetLabels(context.Context, *meta.Key, *beta.GlobalSetLabelsRequest) error
-	TestIamPermissions(context.Context, *meta.Key, *beta.TestPermissionsRequest) (*beta.TestPermissionsResponse, error)
+	GetFromFamily(context.Context, *meta.Key) (*computebeta.Image, error)
+	GetIamPolicy(context.Context, *meta.Key) (*computebeta.Policy, error)
+	Patch(context.Context, *meta.Key, *computebeta.Image) error
+	SetIamPolicy(context.Context, *meta.Key, *computebeta.GlobalSetPolicyRequest) (*computebeta.Policy, error)
+	SetLabels(context.Context, *meta.Key, *computebeta.GlobalSetLabelsRequest) error
+	TestIamPermissions(context.Context, *meta.Key, *computebeta.TestPermissionsRequest) (*computebeta.TestPermissionsResponse, error)
 }
 
 // NewMockBetaImages returns a new mock for Images.
@@ -23023,16 +23023,16 @@ type MockBetaImages struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaImages) (bool, *beta.Image, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockBetaImages) (bool, []*beta.Image, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *beta.Image, m *MockBetaImages) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaImages) (bool, *computebeta.Image, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockBetaImages) (bool, []*computebeta.Image, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computebeta.Image, m *MockBetaImages) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockBetaImages) (bool, error)
-	GetFromFamilyHook      func(context.Context, *meta.Key, *MockBetaImages) (*beta.Image, error)
-	GetIamPolicyHook       func(context.Context, *meta.Key, *MockBetaImages) (*beta.Policy, error)
-	PatchHook              func(context.Context, *meta.Key, *beta.Image, *MockBetaImages) error
-	SetIamPolicyHook       func(context.Context, *meta.Key, *beta.GlobalSetPolicyRequest, *MockBetaImages) (*beta.Policy, error)
-	SetLabelsHook          func(context.Context, *meta.Key, *beta.GlobalSetLabelsRequest, *MockBetaImages) error
-	TestIamPermissionsHook func(context.Context, *meta.Key, *beta.TestPermissionsRequest, *MockBetaImages) (*beta.TestPermissionsResponse, error)
+	GetFromFamilyHook      func(context.Context, *meta.Key, *MockBetaImages) (*computebeta.Image, error)
+	GetIamPolicyHook       func(context.Context, *meta.Key, *MockBetaImages) (*computebeta.Policy, error)
+	PatchHook              func(context.Context, *meta.Key, *computebeta.Image, *MockBetaImages) error
+	SetIamPolicyHook       func(context.Context, *meta.Key, *computebeta.GlobalSetPolicyRequest, *MockBetaImages) (*computebeta.Policy, error)
+	SetLabelsHook          func(context.Context, *meta.Key, *computebeta.GlobalSetLabelsRequest, *MockBetaImages) error
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computebeta.TestPermissionsRequest, *MockBetaImages) (*computebeta.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -23040,7 +23040,7 @@ type MockBetaImages struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaImages) Get(ctx context.Context, key *meta.Key) (*beta.Image, error) {
+func (m *MockBetaImages) Get(ctx context.Context, key *meta.Key) (*computebeta.Image, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaImages.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -23073,7 +23073,7 @@ func (m *MockBetaImages) Get(ctx context.Context, key *meta.Key) (*beta.Image, e
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaImages) List(ctx context.Context, fl *filter.F) ([]*beta.Image, error) {
+func (m *MockBetaImages) List(ctx context.Context, fl *filter.F) ([]*computebeta.Image, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaImages.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -23091,7 +23091,7 @@ func (m *MockBetaImages) List(ctx context.Context, fl *filter.F) ([]*beta.Image,
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Image
+	var objs []*computebeta.Image
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -23104,7 +23104,7 @@ func (m *MockBetaImages) List(ctx context.Context, fl *filter.F) ([]*beta.Image,
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaImages) Insert(ctx context.Context, key *meta.Key, obj *beta.Image) error {
+func (m *MockBetaImages) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Image) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaImages.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -23174,12 +23174,12 @@ func (m *MockBetaImages) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaImages) Obj(o *beta.Image) *MockImagesObj {
+func (m *MockBetaImages) Obj(o *computebeta.Image) *MockImagesObj {
 	return &MockImagesObj{o}
 }
 
 // GetFromFamily is a mock for the corresponding method.
-func (m *MockBetaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*beta.Image, error) {
+func (m *MockBetaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*computebeta.Image, error) {
 	if m.GetFromFamilyHook != nil {
 		return m.GetFromFamilyHook(ctx, key, m)
 	}
@@ -23187,7 +23187,7 @@ func (m *MockBetaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*bet
 }
 
 // GetIamPolicy is a mock for the corresponding method.
-func (m *MockBetaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*beta.Policy, error) {
+func (m *MockBetaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*computebeta.Policy, error) {
 	if m.GetIamPolicyHook != nil {
 		return m.GetIamPolicyHook(ctx, key, m)
 	}
@@ -23195,7 +23195,7 @@ func (m *MockBetaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*beta
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaImages) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Image) error {
+func (m *MockBetaImages) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Image) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -23203,7 +23203,7 @@ func (m *MockBetaImages) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Im
 }
 
 // SetIamPolicy is a mock for the corresponding method.
-func (m *MockBetaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *beta.GlobalSetPolicyRequest) (*beta.Policy, error) {
+func (m *MockBetaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computebeta.GlobalSetPolicyRequest) (*computebeta.Policy, error) {
 	if m.SetIamPolicyHook != nil {
 		return m.SetIamPolicyHook(ctx, key, arg0, m)
 	}
@@ -23211,7 +23211,7 @@ func (m *MockBetaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockBetaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta.GlobalSetLabelsRequest) error {
+func (m *MockBetaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *computebeta.GlobalSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -23219,7 +23219,7 @@ func (m *MockBetaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *bet
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockBetaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *beta.TestPermissionsRequest) (*beta.TestPermissionsResponse, error) {
+func (m *MockBetaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computebeta.TestPermissionsRequest) (*computebeta.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -23232,7 +23232,7 @@ type GCEBetaImages struct {
 }
 
 // Get the Image named by key.
-func (g *GCEBetaImages) Get(ctx context.Context, key *meta.Key) (*beta.Image, error) {
+func (g *GCEBetaImages) Get(ctx context.Context, key *meta.Key) (*computebeta.Image, error) {
 	klog.V(5).Infof("GCEBetaImages.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -23265,7 +23265,7 @@ func (g *GCEBetaImages) Get(ctx context.Context, key *meta.Key) (*beta.Image, er
 }
 
 // List all Image objects.
-func (g *GCEBetaImages) List(ctx context.Context, fl *filter.F) ([]*beta.Image, error) {
+func (g *GCEBetaImages) List(ctx context.Context, fl *filter.F) ([]*computebeta.Image, error) {
 	klog.V(5).Infof("GCEBetaImages.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Images")
 	ck := &CallContextKey{
@@ -23285,8 +23285,8 @@ func (g *GCEBetaImages) List(ctx context.Context, fl *filter.F) ([]*beta.Image, 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Image
-	f := func(l *beta.ImageList) error {
+	var all []*computebeta.Image
+	f := func(l *computebeta.ImageList) error {
 		klog.V(5).Infof("GCEBetaImages.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -23316,7 +23316,7 @@ func (g *GCEBetaImages) List(ctx context.Context, fl *filter.F) ([]*beta.Image, 
 }
 
 // Insert Image with key of value obj.
-func (g *GCEBetaImages) Insert(ctx context.Context, key *meta.Key, obj *beta.Image) error {
+func (g *GCEBetaImages) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Image) error {
 	klog.V(5).Infof("GCEBetaImages.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaImages.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -23395,7 +23395,7 @@ func (g *GCEBetaImages) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // GetFromFamily is a method on GCEBetaImages.
-func (g *GCEBetaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*beta.Image, error) {
+func (g *GCEBetaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*computebeta.Image, error) {
 	klog.V(5).Infof("GCEBetaImages.GetFromFamily(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -23427,7 +23427,7 @@ func (g *GCEBetaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*beta
 }
 
 // GetIamPolicy is a method on GCEBetaImages.
-func (g *GCEBetaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*beta.Policy, error) {
+func (g *GCEBetaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*computebeta.Policy, error) {
 	klog.V(5).Infof("GCEBetaImages.GetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -23459,7 +23459,7 @@ func (g *GCEBetaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*beta.
 }
 
 // Patch is a method on GCEBetaImages.
-func (g *GCEBetaImages) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Image) error {
+func (g *GCEBetaImages) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Image) error {
 	klog.V(5).Infof("GCEBetaImages.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -23501,7 +23501,7 @@ func (g *GCEBetaImages) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Ima
 }
 
 // SetIamPolicy is a method on GCEBetaImages.
-func (g *GCEBetaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *beta.GlobalSetPolicyRequest) (*beta.Policy, error) {
+func (g *GCEBetaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computebeta.GlobalSetPolicyRequest) (*computebeta.Policy, error) {
 	klog.V(5).Infof("GCEBetaImages.SetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -23533,7 +23533,7 @@ func (g *GCEBetaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *b
 }
 
 // SetLabels is a method on GCEBetaImages.
-func (g *GCEBetaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta.GlobalSetLabelsRequest) error {
+func (g *GCEBetaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *computebeta.GlobalSetLabelsRequest) error {
 	klog.V(5).Infof("GCEBetaImages.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -23575,7 +23575,7 @@ func (g *GCEBetaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *beta
 }
 
 // TestIamPermissions is a method on GCEBetaImages.
-func (g *GCEBetaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *beta.TestPermissionsRequest) (*beta.TestPermissionsResponse, error) {
+func (g *GCEBetaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computebeta.TestPermissionsRequest) (*computebeta.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEBetaImages.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -23608,16 +23608,16 @@ func (g *GCEBetaImages) TestIamPermissions(ctx context.Context, key *meta.Key, a
 
 // AlphaImages is an interface that allows for mocking of Images.
 type AlphaImages interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Image, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.Image, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Image) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Image, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.Image, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Image) error
 	Delete(ctx context.Context, key *meta.Key) error
-	GetFromFamily(context.Context, *meta.Key) (*alpha.Image, error)
-	GetIamPolicy(context.Context, *meta.Key) (*alpha.Policy, error)
-	Patch(context.Context, *meta.Key, *alpha.Image) error
-	SetIamPolicy(context.Context, *meta.Key, *alpha.GlobalSetPolicyRequest) (*alpha.Policy, error)
-	SetLabels(context.Context, *meta.Key, *alpha.GlobalSetLabelsRequest) error
-	TestIamPermissions(context.Context, *meta.Key, *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error)
+	GetFromFamily(context.Context, *meta.Key) (*computealpha.Image, error)
+	GetIamPolicy(context.Context, *meta.Key) (*computealpha.Policy, error)
+	Patch(context.Context, *meta.Key, *computealpha.Image) error
+	SetIamPolicy(context.Context, *meta.Key, *computealpha.GlobalSetPolicyRequest) (*computealpha.Policy, error)
+	SetLabels(context.Context, *meta.Key, *computealpha.GlobalSetLabelsRequest) error
+	TestIamPermissions(context.Context, *meta.Key, *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error)
 }
 
 // NewMockAlphaImages returns a new mock for Images.
@@ -23653,16 +23653,16 @@ type MockAlphaImages struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaImages) (bool, *alpha.Image, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaImages) (bool, []*alpha.Image, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.Image, m *MockAlphaImages) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaImages) (bool, *computealpha.Image, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaImages) (bool, []*computealpha.Image, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.Image, m *MockAlphaImages) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaImages) (bool, error)
-	GetFromFamilyHook      func(context.Context, *meta.Key, *MockAlphaImages) (*alpha.Image, error)
-	GetIamPolicyHook       func(context.Context, *meta.Key, *MockAlphaImages) (*alpha.Policy, error)
-	PatchHook              func(context.Context, *meta.Key, *alpha.Image, *MockAlphaImages) error
-	SetIamPolicyHook       func(context.Context, *meta.Key, *alpha.GlobalSetPolicyRequest, *MockAlphaImages) (*alpha.Policy, error)
-	SetLabelsHook          func(context.Context, *meta.Key, *alpha.GlobalSetLabelsRequest, *MockAlphaImages) error
-	TestIamPermissionsHook func(context.Context, *meta.Key, *alpha.TestPermissionsRequest, *MockAlphaImages) (*alpha.TestPermissionsResponse, error)
+	GetFromFamilyHook      func(context.Context, *meta.Key, *MockAlphaImages) (*computealpha.Image, error)
+	GetIamPolicyHook       func(context.Context, *meta.Key, *MockAlphaImages) (*computealpha.Policy, error)
+	PatchHook              func(context.Context, *meta.Key, *computealpha.Image, *MockAlphaImages) error
+	SetIamPolicyHook       func(context.Context, *meta.Key, *computealpha.GlobalSetPolicyRequest, *MockAlphaImages) (*computealpha.Policy, error)
+	SetLabelsHook          func(context.Context, *meta.Key, *computealpha.GlobalSetLabelsRequest, *MockAlphaImages) error
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computealpha.TestPermissionsRequest, *MockAlphaImages) (*computealpha.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -23670,7 +23670,7 @@ type MockAlphaImages struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaImages) Get(ctx context.Context, key *meta.Key) (*alpha.Image, error) {
+func (m *MockAlphaImages) Get(ctx context.Context, key *meta.Key) (*computealpha.Image, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaImages.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -23703,7 +23703,7 @@ func (m *MockAlphaImages) Get(ctx context.Context, key *meta.Key) (*alpha.Image,
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaImages) List(ctx context.Context, fl *filter.F) ([]*alpha.Image, error) {
+func (m *MockAlphaImages) List(ctx context.Context, fl *filter.F) ([]*computealpha.Image, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaImages.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -23721,7 +23721,7 @@ func (m *MockAlphaImages) List(ctx context.Context, fl *filter.F) ([]*alpha.Imag
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Image
+	var objs []*computealpha.Image
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -23734,7 +23734,7 @@ func (m *MockAlphaImages) List(ctx context.Context, fl *filter.F) ([]*alpha.Imag
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaImages) Insert(ctx context.Context, key *meta.Key, obj *alpha.Image) error {
+func (m *MockAlphaImages) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Image) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaImages.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -23804,12 +23804,12 @@ func (m *MockAlphaImages) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaImages) Obj(o *alpha.Image) *MockImagesObj {
+func (m *MockAlphaImages) Obj(o *computealpha.Image) *MockImagesObj {
 	return &MockImagesObj{o}
 }
 
 // GetFromFamily is a mock for the corresponding method.
-func (m *MockAlphaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*alpha.Image, error) {
+func (m *MockAlphaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*computealpha.Image, error) {
 	if m.GetFromFamilyHook != nil {
 		return m.GetFromFamilyHook(ctx, key, m)
 	}
@@ -23817,7 +23817,7 @@ func (m *MockAlphaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*al
 }
 
 // GetIamPolicy is a mock for the corresponding method.
-func (m *MockAlphaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*alpha.Policy, error) {
+func (m *MockAlphaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*computealpha.Policy, error) {
 	if m.GetIamPolicyHook != nil {
 		return m.GetIamPolicyHook(ctx, key, m)
 	}
@@ -23825,7 +23825,7 @@ func (m *MockAlphaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*alp
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaImages) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Image) error {
+func (m *MockAlphaImages) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Image) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -23833,7 +23833,7 @@ func (m *MockAlphaImages) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.
 }
 
 // SetIamPolicy is a mock for the corresponding method.
-func (m *MockAlphaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetPolicyRequest) (*alpha.Policy, error) {
+func (m *MockAlphaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetPolicyRequest) (*computealpha.Policy, error) {
 	if m.SetIamPolicyHook != nil {
 		return m.SetIamPolicyHook(ctx, key, arg0, m)
 	}
@@ -23841,7 +23841,7 @@ func (m *MockAlphaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 
 }
 
 // SetLabels is a mock for the corresponding method.
-func (m *MockAlphaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetLabelsRequest) error {
+func (m *MockAlphaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetLabelsRequest) error {
 	if m.SetLabelsHook != nil {
 		return m.SetLabelsHook(ctx, key, arg0, m)
 	}
@@ -23849,7 +23849,7 @@ func (m *MockAlphaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *al
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockAlphaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (m *MockAlphaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -23862,7 +23862,7 @@ type GCEAlphaImages struct {
 }
 
 // Get the Image named by key.
-func (g *GCEAlphaImages) Get(ctx context.Context, key *meta.Key) (*alpha.Image, error) {
+func (g *GCEAlphaImages) Get(ctx context.Context, key *meta.Key) (*computealpha.Image, error) {
 	klog.V(5).Infof("GCEAlphaImages.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -23895,7 +23895,7 @@ func (g *GCEAlphaImages) Get(ctx context.Context, key *meta.Key) (*alpha.Image, 
 }
 
 // List all Image objects.
-func (g *GCEAlphaImages) List(ctx context.Context, fl *filter.F) ([]*alpha.Image, error) {
+func (g *GCEAlphaImages) List(ctx context.Context, fl *filter.F) ([]*computealpha.Image, error) {
 	klog.V(5).Infof("GCEAlphaImages.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Images")
 	ck := &CallContextKey{
@@ -23915,8 +23915,8 @@ func (g *GCEAlphaImages) List(ctx context.Context, fl *filter.F) ([]*alpha.Image
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Image
-	f := func(l *alpha.ImageList) error {
+	var all []*computealpha.Image
+	f := func(l *computealpha.ImageList) error {
 		klog.V(5).Infof("GCEAlphaImages.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -23946,7 +23946,7 @@ func (g *GCEAlphaImages) List(ctx context.Context, fl *filter.F) ([]*alpha.Image
 }
 
 // Insert Image with key of value obj.
-func (g *GCEAlphaImages) Insert(ctx context.Context, key *meta.Key, obj *alpha.Image) error {
+func (g *GCEAlphaImages) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Image) error {
 	klog.V(5).Infof("GCEAlphaImages.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaImages.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -24025,7 +24025,7 @@ func (g *GCEAlphaImages) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // GetFromFamily is a method on GCEAlphaImages.
-func (g *GCEAlphaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*alpha.Image, error) {
+func (g *GCEAlphaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*computealpha.Image, error) {
 	klog.V(5).Infof("GCEAlphaImages.GetFromFamily(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -24057,7 +24057,7 @@ func (g *GCEAlphaImages) GetFromFamily(ctx context.Context, key *meta.Key) (*alp
 }
 
 // GetIamPolicy is a method on GCEAlphaImages.
-func (g *GCEAlphaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*alpha.Policy, error) {
+func (g *GCEAlphaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*computealpha.Policy, error) {
 	klog.V(5).Infof("GCEAlphaImages.GetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -24089,7 +24089,7 @@ func (g *GCEAlphaImages) GetIamPolicy(ctx context.Context, key *meta.Key) (*alph
 }
 
 // Patch is a method on GCEAlphaImages.
-func (g *GCEAlphaImages) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Image) error {
+func (g *GCEAlphaImages) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Image) error {
 	klog.V(5).Infof("GCEAlphaImages.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -24131,7 +24131,7 @@ func (g *GCEAlphaImages) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.I
 }
 
 // SetIamPolicy is a method on GCEAlphaImages.
-func (g *GCEAlphaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetPolicyRequest) (*alpha.Policy, error) {
+func (g *GCEAlphaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetPolicyRequest) (*computealpha.Policy, error) {
 	klog.V(5).Infof("GCEAlphaImages.SetIamPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -24163,7 +24163,7 @@ func (g *GCEAlphaImages) SetIamPolicy(ctx context.Context, key *meta.Key, arg0 *
 }
 
 // SetLabels is a method on GCEAlphaImages.
-func (g *GCEAlphaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *alpha.GlobalSetLabelsRequest) error {
+func (g *GCEAlphaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *computealpha.GlobalSetLabelsRequest) error {
 	klog.V(5).Infof("GCEAlphaImages.SetLabels(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -24205,7 +24205,7 @@ func (g *GCEAlphaImages) SetLabels(ctx context.Context, key *meta.Key, arg0 *alp
 }
 
 // TestIamPermissions is a method on GCEAlphaImages.
-func (g *GCEAlphaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (g *GCEAlphaImages) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEAlphaImages.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -24238,9 +24238,9 @@ func (g *GCEAlphaImages) TestIamPermissions(ctx context.Context, key *meta.Key, 
 
 // AlphaNetworks is an interface that allows for mocking of Networks.
 type AlphaNetworks interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Network, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.Network, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Network) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Network, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.Network, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Network) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -24277,9 +24277,9 @@ type MockAlphaNetworks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaNetworks) (bool, *alpha.Network, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaNetworks) (bool, []*alpha.Network, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.Network, m *MockAlphaNetworks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaNetworks) (bool, *computealpha.Network, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaNetworks) (bool, []*computealpha.Network, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.Network, m *MockAlphaNetworks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaNetworks) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -24288,7 +24288,7 @@ type MockAlphaNetworks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaNetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Network, error) {
+func (m *MockAlphaNetworks) Get(ctx context.Context, key *meta.Key) (*computealpha.Network, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -24321,7 +24321,7 @@ func (m *MockAlphaNetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Netw
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*alpha.Network, error) {
+func (m *MockAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*computealpha.Network, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -24339,7 +24339,7 @@ func (m *MockAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*alpha.Ne
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Network
+	var objs []*computealpha.Network
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -24352,7 +24352,7 @@ func (m *MockAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*alpha.Ne
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaNetworks) Insert(ctx context.Context, key *meta.Key, obj *alpha.Network) error {
+func (m *MockAlphaNetworks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Network) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -24422,7 +24422,7 @@ func (m *MockAlphaNetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaNetworks) Obj(o *alpha.Network) *MockNetworksObj {
+func (m *MockAlphaNetworks) Obj(o *computealpha.Network) *MockNetworksObj {
 	return &MockNetworksObj{o}
 }
 
@@ -24432,7 +24432,7 @@ type GCEAlphaNetworks struct {
 }
 
 // Get the Network named by key.
-func (g *GCEAlphaNetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Network, error) {
+func (g *GCEAlphaNetworks) Get(ctx context.Context, key *meta.Key) (*computealpha.Network, error) {
 	klog.V(5).Infof("GCEAlphaNetworks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -24465,7 +24465,7 @@ func (g *GCEAlphaNetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Netwo
 }
 
 // List all Network objects.
-func (g *GCEAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*alpha.Network, error) {
+func (g *GCEAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*computealpha.Network, error) {
 	klog.V(5).Infof("GCEAlphaNetworks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Networks")
 	ck := &CallContextKey{
@@ -24485,8 +24485,8 @@ func (g *GCEAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*alpha.Net
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Network
-	f := func(l *alpha.NetworkList) error {
+	var all []*computealpha.Network
+	f := func(l *computealpha.NetworkList) error {
 		klog.V(5).Infof("GCEAlphaNetworks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -24516,7 +24516,7 @@ func (g *GCEAlphaNetworks) List(ctx context.Context, fl *filter.F) ([]*alpha.Net
 }
 
 // Insert Network with key of value obj.
-func (g *GCEAlphaNetworks) Insert(ctx context.Context, key *meta.Key, obj *alpha.Network) error {
+func (g *GCEAlphaNetworks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Network) error {
 	klog.V(5).Infof("GCEAlphaNetworks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaNetworks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -24596,9 +24596,9 @@ func (g *GCEAlphaNetworks) Delete(ctx context.Context, key *meta.Key) error {
 
 // BetaNetworks is an interface that allows for mocking of Networks.
 type BetaNetworks interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Network, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.Network, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Network) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Network, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.Network, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Network) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -24635,9 +24635,9 @@ type MockBetaNetworks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaNetworks) (bool, *beta.Network, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaNetworks) (bool, []*beta.Network, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.Network, m *MockBetaNetworks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaNetworks) (bool, *computebeta.Network, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaNetworks) (bool, []*computebeta.Network, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.Network, m *MockBetaNetworks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaNetworks) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -24646,7 +24646,7 @@ type MockBetaNetworks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaNetworks) Get(ctx context.Context, key *meta.Key) (*beta.Network, error) {
+func (m *MockBetaNetworks) Get(ctx context.Context, key *meta.Key) (*computebeta.Network, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaNetworks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -24679,7 +24679,7 @@ func (m *MockBetaNetworks) Get(ctx context.Context, key *meta.Key) (*beta.Networ
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*beta.Network, error) {
+func (m *MockBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*computebeta.Network, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaNetworks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -24697,7 +24697,7 @@ func (m *MockBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*beta.Netw
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Network
+	var objs []*computebeta.Network
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -24710,7 +24710,7 @@ func (m *MockBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*beta.Netw
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaNetworks) Insert(ctx context.Context, key *meta.Key, obj *beta.Network) error {
+func (m *MockBetaNetworks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Network) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaNetworks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -24780,7 +24780,7 @@ func (m *MockBetaNetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaNetworks) Obj(o *beta.Network) *MockNetworksObj {
+func (m *MockBetaNetworks) Obj(o *computebeta.Network) *MockNetworksObj {
 	return &MockNetworksObj{o}
 }
 
@@ -24790,7 +24790,7 @@ type GCEBetaNetworks struct {
 }
 
 // Get the Network named by key.
-func (g *GCEBetaNetworks) Get(ctx context.Context, key *meta.Key) (*beta.Network, error) {
+func (g *GCEBetaNetworks) Get(ctx context.Context, key *meta.Key) (*computebeta.Network, error) {
 	klog.V(5).Infof("GCEBetaNetworks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -24823,7 +24823,7 @@ func (g *GCEBetaNetworks) Get(ctx context.Context, key *meta.Key) (*beta.Network
 }
 
 // List all Network objects.
-func (g *GCEBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*beta.Network, error) {
+func (g *GCEBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*computebeta.Network, error) {
 	klog.V(5).Infof("GCEBetaNetworks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Networks")
 	ck := &CallContextKey{
@@ -24843,8 +24843,8 @@ func (g *GCEBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*beta.Netwo
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Network
-	f := func(l *beta.NetworkList) error {
+	var all []*computebeta.Network
+	f := func(l *computebeta.NetworkList) error {
 		klog.V(5).Infof("GCEBetaNetworks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -24874,7 +24874,7 @@ func (g *GCEBetaNetworks) List(ctx context.Context, fl *filter.F) ([]*beta.Netwo
 }
 
 // Insert Network with key of value obj.
-func (g *GCEBetaNetworks) Insert(ctx context.Context, key *meta.Key, obj *beta.Network) error {
+func (g *GCEBetaNetworks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Network) error {
 	klog.V(5).Infof("GCEBetaNetworks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaNetworks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -24954,9 +24954,9 @@ func (g *GCEBetaNetworks) Delete(ctx context.Context, key *meta.Key) error {
 
 // Networks is an interface that allows for mocking of Networks.
 type Networks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Network, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Network, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Network) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Network, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Network, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Network) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -24993,9 +24993,9 @@ type MockNetworks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockNetworks) (bool, *ga.Network, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockNetworks) (bool, []*ga.Network, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.Network, m *MockNetworks) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockNetworks) (bool, *computega.Network, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockNetworks) (bool, []*computega.Network, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.Network, m *MockNetworks) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockNetworks) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -25004,7 +25004,7 @@ type MockNetworks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockNetworks) Get(ctx context.Context, key *meta.Key) (*ga.Network, error) {
+func (m *MockNetworks) Get(ctx context.Context, key *meta.Key) (*computega.Network, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockNetworks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -25037,7 +25037,7 @@ func (m *MockNetworks) Get(ctx context.Context, key *meta.Key) (*ga.Network, err
 }
 
 // List all of the objects in the mock.
-func (m *MockNetworks) List(ctx context.Context, fl *filter.F) ([]*ga.Network, error) {
+func (m *MockNetworks) List(ctx context.Context, fl *filter.F) ([]*computega.Network, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockNetworks.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -25055,7 +25055,7 @@ func (m *MockNetworks) List(ctx context.Context, fl *filter.F) ([]*ga.Network, e
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Network
+	var objs []*computega.Network
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -25068,7 +25068,7 @@ func (m *MockNetworks) List(ctx context.Context, fl *filter.F) ([]*ga.Network, e
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockNetworks) Insert(ctx context.Context, key *meta.Key, obj *ga.Network) error {
+func (m *MockNetworks) Insert(ctx context.Context, key *meta.Key, obj *computega.Network) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockNetworks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -25138,7 +25138,7 @@ func (m *MockNetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockNetworks) Obj(o *ga.Network) *MockNetworksObj {
+func (m *MockNetworks) Obj(o *computega.Network) *MockNetworksObj {
 	return &MockNetworksObj{o}
 }
 
@@ -25148,7 +25148,7 @@ type GCENetworks struct {
 }
 
 // Get the Network named by key.
-func (g *GCENetworks) Get(ctx context.Context, key *meta.Key) (*ga.Network, error) {
+func (g *GCENetworks) Get(ctx context.Context, key *meta.Key) (*computega.Network, error) {
 	klog.V(5).Infof("GCENetworks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -25181,7 +25181,7 @@ func (g *GCENetworks) Get(ctx context.Context, key *meta.Key) (*ga.Network, erro
 }
 
 // List all Network objects.
-func (g *GCENetworks) List(ctx context.Context, fl *filter.F) ([]*ga.Network, error) {
+func (g *GCENetworks) List(ctx context.Context, fl *filter.F) ([]*computega.Network, error) {
 	klog.V(5).Infof("GCENetworks.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Networks")
 	ck := &CallContextKey{
@@ -25201,8 +25201,8 @@ func (g *GCENetworks) List(ctx context.Context, fl *filter.F) ([]*ga.Network, er
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Network
-	f := func(l *ga.NetworkList) error {
+	var all []*computega.Network
+	f := func(l *computega.NetworkList) error {
 		klog.V(5).Infof("GCENetworks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -25232,7 +25232,7 @@ func (g *GCENetworks) List(ctx context.Context, fl *filter.F) ([]*ga.Network, er
 }
 
 // Insert Network with key of value obj.
-func (g *GCENetworks) Insert(ctx context.Context, key *meta.Key, obj *ga.Network) error {
+func (g *GCENetworks) Insert(ctx context.Context, key *meta.Key, obj *computega.Network) error {
 	klog.V(5).Infof("GCENetworks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCENetworks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -25312,14 +25312,14 @@ func (g *GCENetworks) Delete(ctx context.Context, key *meta.Key) error {
 
 // AlphaNetworkEndpointGroups is an interface that allows for mocking of NetworkEndpointGroups.
 type AlphaNetworkEndpointGroups interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.NetworkEndpointGroup, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*alpha.NetworkEndpointGroup, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.NetworkEndpointGroup) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.NetworkEndpointGroup, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computealpha.NetworkEndpointGroup, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.NetworkEndpointGroup) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.NetworkEndpointGroup, error)
-	AttachNetworkEndpoints(context.Context, *meta.Key, *alpha.NetworkEndpointGroupsAttachEndpointsRequest) error
-	DetachNetworkEndpoints(context.Context, *meta.Key, *alpha.NetworkEndpointGroupsDetachEndpointsRequest) error
-	ListNetworkEndpoints(context.Context, *meta.Key, *alpha.NetworkEndpointGroupsListEndpointsRequest, *filter.F) ([]*alpha.NetworkEndpointWithHealthStatus, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.NetworkEndpointGroup, error)
+	AttachNetworkEndpoints(context.Context, *meta.Key, *computealpha.NetworkEndpointGroupsAttachEndpointsRequest) error
+	DetachNetworkEndpoints(context.Context, *meta.Key, *computealpha.NetworkEndpointGroupsDetachEndpointsRequest) error
+	ListNetworkEndpoints(context.Context, *meta.Key, *computealpha.NetworkEndpointGroupsListEndpointsRequest, *filter.F) ([]*computealpha.NetworkEndpointWithHealthStatus, error)
 }
 
 // NewMockAlphaNetworkEndpointGroups returns a new mock for NetworkEndpointGroups.
@@ -25356,14 +25356,14 @@ type MockAlphaNetworkEndpointGroups struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                    func(ctx context.Context, key *meta.Key, m *MockAlphaNetworkEndpointGroups) (bool, *alpha.NetworkEndpointGroup, error)
-	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockAlphaNetworkEndpointGroups) (bool, []*alpha.NetworkEndpointGroup, error)
-	InsertHook                 func(ctx context.Context, key *meta.Key, obj *alpha.NetworkEndpointGroup, m *MockAlphaNetworkEndpointGroups) (bool, error)
+	GetHook                    func(ctx context.Context, key *meta.Key, m *MockAlphaNetworkEndpointGroups) (bool, *computealpha.NetworkEndpointGroup, error)
+	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockAlphaNetworkEndpointGroups) (bool, []*computealpha.NetworkEndpointGroup, error)
+	InsertHook                 func(ctx context.Context, key *meta.Key, obj *computealpha.NetworkEndpointGroup, m *MockAlphaNetworkEndpointGroups) (bool, error)
 	DeleteHook                 func(ctx context.Context, key *meta.Key, m *MockAlphaNetworkEndpointGroups) (bool, error)
-	AggregatedListHook         func(ctx context.Context, fl *filter.F, m *MockAlphaNetworkEndpointGroups) (bool, map[string][]*alpha.NetworkEndpointGroup, error)
-	AttachNetworkEndpointsHook func(context.Context, *meta.Key, *alpha.NetworkEndpointGroupsAttachEndpointsRequest, *MockAlphaNetworkEndpointGroups) error
-	DetachNetworkEndpointsHook func(context.Context, *meta.Key, *alpha.NetworkEndpointGroupsDetachEndpointsRequest, *MockAlphaNetworkEndpointGroups) error
-	ListNetworkEndpointsHook   func(context.Context, *meta.Key, *alpha.NetworkEndpointGroupsListEndpointsRequest, *filter.F, *MockAlphaNetworkEndpointGroups) ([]*alpha.NetworkEndpointWithHealthStatus, error)
+	AggregatedListHook         func(ctx context.Context, fl *filter.F, m *MockAlphaNetworkEndpointGroups) (bool, map[string][]*computealpha.NetworkEndpointGroup, error)
+	AttachNetworkEndpointsHook func(context.Context, *meta.Key, *computealpha.NetworkEndpointGroupsAttachEndpointsRequest, *MockAlphaNetworkEndpointGroups) error
+	DetachNetworkEndpointsHook func(context.Context, *meta.Key, *computealpha.NetworkEndpointGroupsDetachEndpointsRequest, *MockAlphaNetworkEndpointGroups) error
+	ListNetworkEndpointsHook   func(context.Context, *meta.Key, *computealpha.NetworkEndpointGroupsListEndpointsRequest, *filter.F, *MockAlphaNetworkEndpointGroups) ([]*computealpha.NetworkEndpointWithHealthStatus, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -25371,7 +25371,7 @@ type MockAlphaNetworkEndpointGroups struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*alpha.NetworkEndpointGroup, error) {
+func (m *MockAlphaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*computealpha.NetworkEndpointGroup, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkEndpointGroups.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -25404,7 +25404,7 @@ func (m *MockAlphaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key)
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*alpha.NetworkEndpointGroup, error) {
+func (m *MockAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computealpha.NetworkEndpointGroup, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkEndpointGroups.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -25422,7 +25422,7 @@ func (m *MockAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, 
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.NetworkEndpointGroup
+	var objs []*computealpha.NetworkEndpointGroup
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -25438,7 +25438,7 @@ func (m *MockAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, 
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *alpha.NetworkEndpointGroup) error {
+func (m *MockAlphaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *computealpha.NetworkEndpointGroup) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkEndpointGroups.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -25508,7 +25508,7 @@ func (m *MockAlphaNetworkEndpointGroups) Delete(ctx context.Context, key *meta.K
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.NetworkEndpointGroup, error) {
+func (m *MockAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.NetworkEndpointGroup, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaNetworkEndpointGroups.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -25525,7 +25525,7 @@ func (m *MockAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl 
 		return nil, err
 	}
 
-	objs := map[string][]*alpha.NetworkEndpointGroup{}
+	objs := map[string][]*computealpha.NetworkEndpointGroup{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToAlpha().SelfLink)
 		if err != nil {
@@ -25543,12 +25543,12 @@ func (m *MockAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaNetworkEndpointGroups) Obj(o *alpha.NetworkEndpointGroup) *MockNetworkEndpointGroupsObj {
+func (m *MockAlphaNetworkEndpointGroups) Obj(o *computealpha.NetworkEndpointGroup) *MockNetworkEndpointGroupsObj {
 	return &MockNetworkEndpointGroupsObj{o}
 }
 
 // AttachNetworkEndpoints is a mock for the corresponding method.
-func (m *MockAlphaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *alpha.NetworkEndpointGroupsAttachEndpointsRequest) error {
+func (m *MockAlphaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computealpha.NetworkEndpointGroupsAttachEndpointsRequest) error {
 	if m.AttachNetworkEndpointsHook != nil {
 		return m.AttachNetworkEndpointsHook(ctx, key, arg0, m)
 	}
@@ -25556,7 +25556,7 @@ func (m *MockAlphaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Cont
 }
 
 // DetachNetworkEndpoints is a mock for the corresponding method.
-func (m *MockAlphaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *alpha.NetworkEndpointGroupsDetachEndpointsRequest) error {
+func (m *MockAlphaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computealpha.NetworkEndpointGroupsDetachEndpointsRequest) error {
 	if m.DetachNetworkEndpointsHook != nil {
 		return m.DetachNetworkEndpointsHook(ctx, key, arg0, m)
 	}
@@ -25564,7 +25564,7 @@ func (m *MockAlphaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Cont
 }
 
 // ListNetworkEndpoints is a mock for the corresponding method.
-func (m *MockAlphaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *alpha.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*alpha.NetworkEndpointWithHealthStatus, error) {
+func (m *MockAlphaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computealpha.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*computealpha.NetworkEndpointWithHealthStatus, error) {
 	if m.ListNetworkEndpointsHook != nil {
 		return m.ListNetworkEndpointsHook(ctx, key, arg0, fl, m)
 	}
@@ -25577,7 +25577,7 @@ type GCEAlphaNetworkEndpointGroups struct {
 }
 
 // Get the NetworkEndpointGroup named by key.
-func (g *GCEAlphaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*alpha.NetworkEndpointGroup, error) {
+func (g *GCEAlphaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*computealpha.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -25610,7 +25610,7 @@ func (g *GCEAlphaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all NetworkEndpointGroup objects.
-func (g *GCEAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*alpha.NetworkEndpointGroup, error) {
+func (g *GCEAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computealpha.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "NetworkEndpointGroups")
 	ck := &CallContextKey{
@@ -25630,8 +25630,8 @@ func (g *GCEAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, f
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.NetworkEndpointGroup
-	f := func(l *alpha.NetworkEndpointGroupList) error {
+	var all []*computealpha.NetworkEndpointGroup
+	f := func(l *computealpha.NetworkEndpointGroupList) error {
 		klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -25661,7 +25661,7 @@ func (g *GCEAlphaNetworkEndpointGroups) List(ctx context.Context, zone string, f
 }
 
 // Insert NetworkEndpointGroup with key of value obj.
-func (g *GCEAlphaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *alpha.NetworkEndpointGroup) error {
+func (g *GCEAlphaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *computealpha.NetworkEndpointGroup) error {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaNetworkEndpointGroups.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -25740,7 +25740,7 @@ func (g *GCEAlphaNetworkEndpointGroups) Delete(ctx context.Context, key *meta.Ke
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.NetworkEndpointGroup, error) {
+func (g *GCEAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "NetworkEndpointGroups")
@@ -25764,8 +25764,8 @@ func (g *GCEAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*alpha.NetworkEndpointGroup{}
-	f := func(l *alpha.NetworkEndpointGroupAggregatedList) error {
+	all := map[string][]*computealpha.NetworkEndpointGroup{}
+	f := func(l *computealpha.NetworkEndpointGroupAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.NetworkEndpointGroups...)
@@ -25792,7 +25792,7 @@ func (g *GCEAlphaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *
 }
 
 // AttachNetworkEndpoints is a method on GCEAlphaNetworkEndpointGroups.
-func (g *GCEAlphaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *alpha.NetworkEndpointGroupsAttachEndpointsRequest) error {
+func (g *GCEAlphaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computealpha.NetworkEndpointGroupsAttachEndpointsRequest) error {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.AttachNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -25834,7 +25834,7 @@ func (g *GCEAlphaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Conte
 }
 
 // DetachNetworkEndpoints is a method on GCEAlphaNetworkEndpointGroups.
-func (g *GCEAlphaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *alpha.NetworkEndpointGroupsDetachEndpointsRequest) error {
+func (g *GCEAlphaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computealpha.NetworkEndpointGroupsDetachEndpointsRequest) error {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.DetachNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -25876,7 +25876,7 @@ func (g *GCEAlphaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Conte
 }
 
 // ListNetworkEndpoints is a method on GCEAlphaNetworkEndpointGroups.
-func (g *GCEAlphaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *alpha.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*alpha.NetworkEndpointWithHealthStatus, error) {
+func (g *GCEAlphaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computealpha.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*computealpha.NetworkEndpointWithHealthStatus, error) {
 	klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.ListNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -25897,8 +25897,8 @@ func (g *GCEAlphaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context
 		return nil, err
 	}
 	call := g.s.Alpha.NetworkEndpointGroups.ListNetworkEndpoints(projectID, key.Zone, key.Name, arg0)
-	var all []*alpha.NetworkEndpointWithHealthStatus
-	f := func(l *alpha.NetworkEndpointGroupsListNetworkEndpoints) error {
+	var all []*computealpha.NetworkEndpointWithHealthStatus
+	f := func(l *computealpha.NetworkEndpointGroupsListNetworkEndpoints) error {
 		klog.V(5).Infof("GCEAlphaNetworkEndpointGroups.ListNetworkEndpoints(%v, %v, ...): page %+v", ctx, key, l)
 		all = append(all, l.Items...)
 		return nil
@@ -25928,14 +25928,14 @@ func (g *GCEAlphaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context
 
 // BetaNetworkEndpointGroups is an interface that allows for mocking of NetworkEndpointGroups.
 type BetaNetworkEndpointGroups interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.NetworkEndpointGroup, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*beta.NetworkEndpointGroup, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.NetworkEndpointGroup) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.NetworkEndpointGroup, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computebeta.NetworkEndpointGroup, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.NetworkEndpointGroup) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.NetworkEndpointGroup, error)
-	AttachNetworkEndpoints(context.Context, *meta.Key, *beta.NetworkEndpointGroupsAttachEndpointsRequest) error
-	DetachNetworkEndpoints(context.Context, *meta.Key, *beta.NetworkEndpointGroupsDetachEndpointsRequest) error
-	ListNetworkEndpoints(context.Context, *meta.Key, *beta.NetworkEndpointGroupsListEndpointsRequest, *filter.F) ([]*beta.NetworkEndpointWithHealthStatus, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.NetworkEndpointGroup, error)
+	AttachNetworkEndpoints(context.Context, *meta.Key, *computebeta.NetworkEndpointGroupsAttachEndpointsRequest) error
+	DetachNetworkEndpoints(context.Context, *meta.Key, *computebeta.NetworkEndpointGroupsDetachEndpointsRequest) error
+	ListNetworkEndpoints(context.Context, *meta.Key, *computebeta.NetworkEndpointGroupsListEndpointsRequest, *filter.F) ([]*computebeta.NetworkEndpointWithHealthStatus, error)
 }
 
 // NewMockBetaNetworkEndpointGroups returns a new mock for NetworkEndpointGroups.
@@ -25972,14 +25972,14 @@ type MockBetaNetworkEndpointGroups struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                    func(ctx context.Context, key *meta.Key, m *MockBetaNetworkEndpointGroups) (bool, *beta.NetworkEndpointGroup, error)
-	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockBetaNetworkEndpointGroups) (bool, []*beta.NetworkEndpointGroup, error)
-	InsertHook                 func(ctx context.Context, key *meta.Key, obj *beta.NetworkEndpointGroup, m *MockBetaNetworkEndpointGroups) (bool, error)
+	GetHook                    func(ctx context.Context, key *meta.Key, m *MockBetaNetworkEndpointGroups) (bool, *computebeta.NetworkEndpointGroup, error)
+	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockBetaNetworkEndpointGroups) (bool, []*computebeta.NetworkEndpointGroup, error)
+	InsertHook                 func(ctx context.Context, key *meta.Key, obj *computebeta.NetworkEndpointGroup, m *MockBetaNetworkEndpointGroups) (bool, error)
 	DeleteHook                 func(ctx context.Context, key *meta.Key, m *MockBetaNetworkEndpointGroups) (bool, error)
-	AggregatedListHook         func(ctx context.Context, fl *filter.F, m *MockBetaNetworkEndpointGroups) (bool, map[string][]*beta.NetworkEndpointGroup, error)
-	AttachNetworkEndpointsHook func(context.Context, *meta.Key, *beta.NetworkEndpointGroupsAttachEndpointsRequest, *MockBetaNetworkEndpointGroups) error
-	DetachNetworkEndpointsHook func(context.Context, *meta.Key, *beta.NetworkEndpointGroupsDetachEndpointsRequest, *MockBetaNetworkEndpointGroups) error
-	ListNetworkEndpointsHook   func(context.Context, *meta.Key, *beta.NetworkEndpointGroupsListEndpointsRequest, *filter.F, *MockBetaNetworkEndpointGroups) ([]*beta.NetworkEndpointWithHealthStatus, error)
+	AggregatedListHook         func(ctx context.Context, fl *filter.F, m *MockBetaNetworkEndpointGroups) (bool, map[string][]*computebeta.NetworkEndpointGroup, error)
+	AttachNetworkEndpointsHook func(context.Context, *meta.Key, *computebeta.NetworkEndpointGroupsAttachEndpointsRequest, *MockBetaNetworkEndpointGroups) error
+	DetachNetworkEndpointsHook func(context.Context, *meta.Key, *computebeta.NetworkEndpointGroupsDetachEndpointsRequest, *MockBetaNetworkEndpointGroups) error
+	ListNetworkEndpointsHook   func(context.Context, *meta.Key, *computebeta.NetworkEndpointGroupsListEndpointsRequest, *filter.F, *MockBetaNetworkEndpointGroups) ([]*computebeta.NetworkEndpointWithHealthStatus, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -25987,7 +25987,7 @@ type MockBetaNetworkEndpointGroups struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*beta.NetworkEndpointGroup, error) {
+func (m *MockBetaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*computebeta.NetworkEndpointGroup, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaNetworkEndpointGroups.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -26020,7 +26020,7 @@ func (m *MockBetaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockBetaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*beta.NetworkEndpointGroup, error) {
+func (m *MockBetaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computebeta.NetworkEndpointGroup, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockBetaNetworkEndpointGroups.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -26038,7 +26038,7 @@ func (m *MockBetaNetworkEndpointGroups) List(ctx context.Context, zone string, f
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.NetworkEndpointGroup
+	var objs []*computebeta.NetworkEndpointGroup
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -26054,7 +26054,7 @@ func (m *MockBetaNetworkEndpointGroups) List(ctx context.Context, zone string, f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *beta.NetworkEndpointGroup) error {
+func (m *MockBetaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *computebeta.NetworkEndpointGroup) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaNetworkEndpointGroups.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -26124,7 +26124,7 @@ func (m *MockBetaNetworkEndpointGroups) Delete(ctx context.Context, key *meta.Ke
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.NetworkEndpointGroup, error) {
+func (m *MockBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.NetworkEndpointGroup, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaNetworkEndpointGroups.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -26141,7 +26141,7 @@ func (m *MockBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *
 		return nil, err
 	}
 
-	objs := map[string][]*beta.NetworkEndpointGroup{}
+	objs := map[string][]*computebeta.NetworkEndpointGroup{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToBeta().SelfLink)
 		if err != nil {
@@ -26159,12 +26159,12 @@ func (m *MockBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaNetworkEndpointGroups) Obj(o *beta.NetworkEndpointGroup) *MockNetworkEndpointGroupsObj {
+func (m *MockBetaNetworkEndpointGroups) Obj(o *computebeta.NetworkEndpointGroup) *MockNetworkEndpointGroupsObj {
 	return &MockNetworkEndpointGroupsObj{o}
 }
 
 // AttachNetworkEndpoints is a mock for the corresponding method.
-func (m *MockBetaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *beta.NetworkEndpointGroupsAttachEndpointsRequest) error {
+func (m *MockBetaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computebeta.NetworkEndpointGroupsAttachEndpointsRequest) error {
 	if m.AttachNetworkEndpointsHook != nil {
 		return m.AttachNetworkEndpointsHook(ctx, key, arg0, m)
 	}
@@ -26172,7 +26172,7 @@ func (m *MockBetaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Conte
 }
 
 // DetachNetworkEndpoints is a mock for the corresponding method.
-func (m *MockBetaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *beta.NetworkEndpointGroupsDetachEndpointsRequest) error {
+func (m *MockBetaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computebeta.NetworkEndpointGroupsDetachEndpointsRequest) error {
 	if m.DetachNetworkEndpointsHook != nil {
 		return m.DetachNetworkEndpointsHook(ctx, key, arg0, m)
 	}
@@ -26180,7 +26180,7 @@ func (m *MockBetaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Conte
 }
 
 // ListNetworkEndpoints is a mock for the corresponding method.
-func (m *MockBetaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *beta.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*beta.NetworkEndpointWithHealthStatus, error) {
+func (m *MockBetaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computebeta.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*computebeta.NetworkEndpointWithHealthStatus, error) {
 	if m.ListNetworkEndpointsHook != nil {
 		return m.ListNetworkEndpointsHook(ctx, key, arg0, fl, m)
 	}
@@ -26193,7 +26193,7 @@ type GCEBetaNetworkEndpointGroups struct {
 }
 
 // Get the NetworkEndpointGroup named by key.
-func (g *GCEBetaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*beta.NetworkEndpointGroup, error) {
+func (g *GCEBetaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*computebeta.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -26226,7 +26226,7 @@ func (g *GCEBetaNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (
 }
 
 // List all NetworkEndpointGroup objects.
-func (g *GCEBetaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*beta.NetworkEndpointGroup, error) {
+func (g *GCEBetaNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computebeta.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "NetworkEndpointGroups")
 	ck := &CallContextKey{
@@ -26246,8 +26246,8 @@ func (g *GCEBetaNetworkEndpointGroups) List(ctx context.Context, zone string, fl
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.NetworkEndpointGroup
-	f := func(l *beta.NetworkEndpointGroupList) error {
+	var all []*computebeta.NetworkEndpointGroup
+	f := func(l *computebeta.NetworkEndpointGroupList) error {
 		klog.V(5).Infof("GCEBetaNetworkEndpointGroups.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -26277,7 +26277,7 @@ func (g *GCEBetaNetworkEndpointGroups) List(ctx context.Context, zone string, fl
 }
 
 // Insert NetworkEndpointGroup with key of value obj.
-func (g *GCEBetaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *beta.NetworkEndpointGroup) error {
+func (g *GCEBetaNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *computebeta.NetworkEndpointGroup) error {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaNetworkEndpointGroups.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -26356,7 +26356,7 @@ func (g *GCEBetaNetworkEndpointGroups) Delete(ctx context.Context, key *meta.Key
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.NetworkEndpointGroup, error) {
+func (g *GCEBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "NetworkEndpointGroups")
@@ -26380,8 +26380,8 @@ func (g *GCEBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *f
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*beta.NetworkEndpointGroup{}
-	f := func(l *beta.NetworkEndpointGroupAggregatedList) error {
+	all := map[string][]*computebeta.NetworkEndpointGroup{}
+	f := func(l *computebeta.NetworkEndpointGroupAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEBetaNetworkEndpointGroups.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.NetworkEndpointGroups...)
@@ -26408,7 +26408,7 @@ func (g *GCEBetaNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *f
 }
 
 // AttachNetworkEndpoints is a method on GCEBetaNetworkEndpointGroups.
-func (g *GCEBetaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *beta.NetworkEndpointGroupsAttachEndpointsRequest) error {
+func (g *GCEBetaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computebeta.NetworkEndpointGroupsAttachEndpointsRequest) error {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.AttachNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -26450,7 +26450,7 @@ func (g *GCEBetaNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Contex
 }
 
 // DetachNetworkEndpoints is a method on GCEBetaNetworkEndpointGroups.
-func (g *GCEBetaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *beta.NetworkEndpointGroupsDetachEndpointsRequest) error {
+func (g *GCEBetaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computebeta.NetworkEndpointGroupsDetachEndpointsRequest) error {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.DetachNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -26492,7 +26492,7 @@ func (g *GCEBetaNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Contex
 }
 
 // ListNetworkEndpoints is a method on GCEBetaNetworkEndpointGroups.
-func (g *GCEBetaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *beta.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*beta.NetworkEndpointWithHealthStatus, error) {
+func (g *GCEBetaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computebeta.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*computebeta.NetworkEndpointWithHealthStatus, error) {
 	klog.V(5).Infof("GCEBetaNetworkEndpointGroups.ListNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -26513,8 +26513,8 @@ func (g *GCEBetaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context,
 		return nil, err
 	}
 	call := g.s.Beta.NetworkEndpointGroups.ListNetworkEndpoints(projectID, key.Zone, key.Name, arg0)
-	var all []*beta.NetworkEndpointWithHealthStatus
-	f := func(l *beta.NetworkEndpointGroupsListNetworkEndpoints) error {
+	var all []*computebeta.NetworkEndpointWithHealthStatus
+	f := func(l *computebeta.NetworkEndpointGroupsListNetworkEndpoints) error {
 		klog.V(5).Infof("GCEBetaNetworkEndpointGroups.ListNetworkEndpoints(%v, %v, ...): page %+v", ctx, key, l)
 		all = append(all, l.Items...)
 		return nil
@@ -26544,14 +26544,14 @@ func (g *GCEBetaNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context,
 
 // NetworkEndpointGroups is an interface that allows for mocking of NetworkEndpointGroups.
 type NetworkEndpointGroups interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.NetworkEndpointGroup, error)
-	List(ctx context.Context, zone string, fl *filter.F) ([]*ga.NetworkEndpointGroup, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.NetworkEndpointGroup) error
+	Get(ctx context.Context, key *meta.Key) (*computega.NetworkEndpointGroup, error)
+	List(ctx context.Context, zone string, fl *filter.F) ([]*computega.NetworkEndpointGroup, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.NetworkEndpointGroup) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.NetworkEndpointGroup, error)
-	AttachNetworkEndpoints(context.Context, *meta.Key, *ga.NetworkEndpointGroupsAttachEndpointsRequest) error
-	DetachNetworkEndpoints(context.Context, *meta.Key, *ga.NetworkEndpointGroupsDetachEndpointsRequest) error
-	ListNetworkEndpoints(context.Context, *meta.Key, *ga.NetworkEndpointGroupsListEndpointsRequest, *filter.F) ([]*ga.NetworkEndpointWithHealthStatus, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.NetworkEndpointGroup, error)
+	AttachNetworkEndpoints(context.Context, *meta.Key, *computega.NetworkEndpointGroupsAttachEndpointsRequest) error
+	DetachNetworkEndpoints(context.Context, *meta.Key, *computega.NetworkEndpointGroupsDetachEndpointsRequest) error
+	ListNetworkEndpoints(context.Context, *meta.Key, *computega.NetworkEndpointGroupsListEndpointsRequest, *filter.F) ([]*computega.NetworkEndpointWithHealthStatus, error)
 }
 
 // NewMockNetworkEndpointGroups returns a new mock for NetworkEndpointGroups.
@@ -26588,14 +26588,14 @@ type MockNetworkEndpointGroups struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                    func(ctx context.Context, key *meta.Key, m *MockNetworkEndpointGroups) (bool, *ga.NetworkEndpointGroup, error)
-	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockNetworkEndpointGroups) (bool, []*ga.NetworkEndpointGroup, error)
-	InsertHook                 func(ctx context.Context, key *meta.Key, obj *ga.NetworkEndpointGroup, m *MockNetworkEndpointGroups) (bool, error)
+	GetHook                    func(ctx context.Context, key *meta.Key, m *MockNetworkEndpointGroups) (bool, *computega.NetworkEndpointGroup, error)
+	ListHook                   func(ctx context.Context, zone string, fl *filter.F, m *MockNetworkEndpointGroups) (bool, []*computega.NetworkEndpointGroup, error)
+	InsertHook                 func(ctx context.Context, key *meta.Key, obj *computega.NetworkEndpointGroup, m *MockNetworkEndpointGroups) (bool, error)
 	DeleteHook                 func(ctx context.Context, key *meta.Key, m *MockNetworkEndpointGroups) (bool, error)
-	AggregatedListHook         func(ctx context.Context, fl *filter.F, m *MockNetworkEndpointGroups) (bool, map[string][]*ga.NetworkEndpointGroup, error)
-	AttachNetworkEndpointsHook func(context.Context, *meta.Key, *ga.NetworkEndpointGroupsAttachEndpointsRequest, *MockNetworkEndpointGroups) error
-	DetachNetworkEndpointsHook func(context.Context, *meta.Key, *ga.NetworkEndpointGroupsDetachEndpointsRequest, *MockNetworkEndpointGroups) error
-	ListNetworkEndpointsHook   func(context.Context, *meta.Key, *ga.NetworkEndpointGroupsListEndpointsRequest, *filter.F, *MockNetworkEndpointGroups) ([]*ga.NetworkEndpointWithHealthStatus, error)
+	AggregatedListHook         func(ctx context.Context, fl *filter.F, m *MockNetworkEndpointGroups) (bool, map[string][]*computega.NetworkEndpointGroup, error)
+	AttachNetworkEndpointsHook func(context.Context, *meta.Key, *computega.NetworkEndpointGroupsAttachEndpointsRequest, *MockNetworkEndpointGroups) error
+	DetachNetworkEndpointsHook func(context.Context, *meta.Key, *computega.NetworkEndpointGroupsDetachEndpointsRequest, *MockNetworkEndpointGroups) error
+	ListNetworkEndpointsHook   func(context.Context, *meta.Key, *computega.NetworkEndpointGroupsListEndpointsRequest, *filter.F, *MockNetworkEndpointGroups) ([]*computega.NetworkEndpointWithHealthStatus, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -26603,7 +26603,7 @@ type MockNetworkEndpointGroups struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*ga.NetworkEndpointGroup, error) {
+func (m *MockNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*computega.NetworkEndpointGroup, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockNetworkEndpointGroups.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -26636,7 +26636,7 @@ func (m *MockNetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*ga
 }
 
 // List all of the objects in the mock in the given zone.
-func (m *MockNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.NetworkEndpointGroup, error) {
+func (m *MockNetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.NetworkEndpointGroup, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, zone, fl, m); intercept {
 			klog.V(5).Infof("MockNetworkEndpointGroups.List(%v, %q, %v) = [%v items], %v", ctx, zone, fl, len(objs), err)
@@ -26654,7 +26654,7 @@ func (m *MockNetworkEndpointGroups) List(ctx context.Context, zone string, fl *f
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.NetworkEndpointGroup
+	var objs []*computega.NetworkEndpointGroup
 	for key, obj := range m.Objects {
 		if key.Zone != zone {
 			continue
@@ -26670,7 +26670,7 @@ func (m *MockNetworkEndpointGroups) List(ctx context.Context, zone string, fl *f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *ga.NetworkEndpointGroup) error {
+func (m *MockNetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *computega.NetworkEndpointGroup) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockNetworkEndpointGroups.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -26740,7 +26740,7 @@ func (m *MockNetworkEndpointGroups) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.NetworkEndpointGroup, error) {
+func (m *MockNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.NetworkEndpointGroup, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockNetworkEndpointGroups.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -26757,7 +26757,7 @@ func (m *MockNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filt
 		return nil, err
 	}
 
-	objs := map[string][]*ga.NetworkEndpointGroup{}
+	objs := map[string][]*computega.NetworkEndpointGroup{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToGA().SelfLink)
 		if err != nil {
@@ -26775,12 +26775,12 @@ func (m *MockNetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filt
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockNetworkEndpointGroups) Obj(o *ga.NetworkEndpointGroup) *MockNetworkEndpointGroupsObj {
+func (m *MockNetworkEndpointGroups) Obj(o *computega.NetworkEndpointGroup) *MockNetworkEndpointGroupsObj {
 	return &MockNetworkEndpointGroupsObj{o}
 }
 
 // AttachNetworkEndpoints is a mock for the corresponding method.
-func (m *MockNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *ga.NetworkEndpointGroupsAttachEndpointsRequest) error {
+func (m *MockNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computega.NetworkEndpointGroupsAttachEndpointsRequest) error {
 	if m.AttachNetworkEndpointsHook != nil {
 		return m.AttachNetworkEndpointsHook(ctx, key, arg0, m)
 	}
@@ -26788,7 +26788,7 @@ func (m *MockNetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, 
 }
 
 // DetachNetworkEndpoints is a mock for the corresponding method.
-func (m *MockNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *ga.NetworkEndpointGroupsDetachEndpointsRequest) error {
+func (m *MockNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computega.NetworkEndpointGroupsDetachEndpointsRequest) error {
 	if m.DetachNetworkEndpointsHook != nil {
 		return m.DetachNetworkEndpointsHook(ctx, key, arg0, m)
 	}
@@ -26796,7 +26796,7 @@ func (m *MockNetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, 
 }
 
 // ListNetworkEndpoints is a mock for the corresponding method.
-func (m *MockNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *ga.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*ga.NetworkEndpointWithHealthStatus, error) {
+func (m *MockNetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computega.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*computega.NetworkEndpointWithHealthStatus, error) {
 	if m.ListNetworkEndpointsHook != nil {
 		return m.ListNetworkEndpointsHook(ctx, key, arg0, fl, m)
 	}
@@ -26809,7 +26809,7 @@ type GCENetworkEndpointGroups struct {
 }
 
 // Get the NetworkEndpointGroup named by key.
-func (g *GCENetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*ga.NetworkEndpointGroup, error) {
+func (g *GCENetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*computega.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCENetworkEndpointGroups.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -26842,7 +26842,7 @@ func (g *GCENetworkEndpointGroups) Get(ctx context.Context, key *meta.Key) (*ga.
 }
 
 // List all NetworkEndpointGroup objects.
-func (g *GCENetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*ga.NetworkEndpointGroup, error) {
+func (g *GCENetworkEndpointGroups) List(ctx context.Context, zone string, fl *filter.F) ([]*computega.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCENetworkEndpointGroups.List(%v, %v, %v) called", ctx, zone, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "NetworkEndpointGroups")
 	ck := &CallContextKey{
@@ -26862,8 +26862,8 @@ func (g *GCENetworkEndpointGroups) List(ctx context.Context, zone string, fl *fi
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.NetworkEndpointGroup
-	f := func(l *ga.NetworkEndpointGroupList) error {
+	var all []*computega.NetworkEndpointGroup
+	f := func(l *computega.NetworkEndpointGroupList) error {
 		klog.V(5).Infof("GCENetworkEndpointGroups.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -26893,7 +26893,7 @@ func (g *GCENetworkEndpointGroups) List(ctx context.Context, zone string, fl *fi
 }
 
 // Insert NetworkEndpointGroup with key of value obj.
-func (g *GCENetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *ga.NetworkEndpointGroup) error {
+func (g *GCENetworkEndpointGroups) Insert(ctx context.Context, key *meta.Key, obj *computega.NetworkEndpointGroup) error {
 	klog.V(5).Infof("GCENetworkEndpointGroups.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCENetworkEndpointGroups.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -26972,7 +26972,7 @@ func (g *GCENetworkEndpointGroups) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCENetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.NetworkEndpointGroup, error) {
+func (g *GCENetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.NetworkEndpointGroup, error) {
 	klog.V(5).Infof("GCENetworkEndpointGroups.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "NetworkEndpointGroups")
@@ -26996,8 +26996,8 @@ func (g *GCENetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filte
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*ga.NetworkEndpointGroup{}
-	f := func(l *ga.NetworkEndpointGroupAggregatedList) error {
+	all := map[string][]*computega.NetworkEndpointGroup{}
+	f := func(l *computega.NetworkEndpointGroupAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCENetworkEndpointGroups.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.NetworkEndpointGroups...)
@@ -27024,7 +27024,7 @@ func (g *GCENetworkEndpointGroups) AggregatedList(ctx context.Context, fl *filte
 }
 
 // AttachNetworkEndpoints is a method on GCENetworkEndpointGroups.
-func (g *GCENetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *ga.NetworkEndpointGroupsAttachEndpointsRequest) error {
+func (g *GCENetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computega.NetworkEndpointGroupsAttachEndpointsRequest) error {
 	klog.V(5).Infof("GCENetworkEndpointGroups.AttachNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -27066,7 +27066,7 @@ func (g *GCENetworkEndpointGroups) AttachNetworkEndpoints(ctx context.Context, k
 }
 
 // DetachNetworkEndpoints is a method on GCENetworkEndpointGroups.
-func (g *GCENetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *ga.NetworkEndpointGroupsDetachEndpointsRequest) error {
+func (g *GCENetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computega.NetworkEndpointGroupsDetachEndpointsRequest) error {
 	klog.V(5).Infof("GCENetworkEndpointGroups.DetachNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -27108,7 +27108,7 @@ func (g *GCENetworkEndpointGroups) DetachNetworkEndpoints(ctx context.Context, k
 }
 
 // ListNetworkEndpoints is a method on GCENetworkEndpointGroups.
-func (g *GCENetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *ga.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*ga.NetworkEndpointWithHealthStatus, error) {
+func (g *GCENetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key *meta.Key, arg0 *computega.NetworkEndpointGroupsListEndpointsRequest, fl *filter.F) ([]*computega.NetworkEndpointWithHealthStatus, error) {
 	klog.V(5).Infof("GCENetworkEndpointGroups.ListNetworkEndpoints(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -27129,8 +27129,8 @@ func (g *GCENetworkEndpointGroups) ListNetworkEndpoints(ctx context.Context, key
 		return nil, err
 	}
 	call := g.s.GA.NetworkEndpointGroups.ListNetworkEndpoints(projectID, key.Zone, key.Name, arg0)
-	var all []*ga.NetworkEndpointWithHealthStatus
-	f := func(l *ga.NetworkEndpointGroupsListNetworkEndpoints) error {
+	var all []*computega.NetworkEndpointWithHealthStatus
+	f := func(l *computega.NetworkEndpointGroupsListNetworkEndpoints) error {
 		klog.V(5).Infof("GCENetworkEndpointGroups.ListNetworkEndpoints(%v, %v, ...): page %+v", ctx, key, l)
 		all = append(all, l.Items...)
 		return nil
@@ -27198,7 +27198,7 @@ type MockProjects struct {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockProjects) Obj(o *ga.Project) *MockProjectsObj {
+func (m *MockProjects) Obj(o *computega.Project) *MockProjectsObj {
 	return &MockProjectsObj{o}
 }
 
@@ -27209,8 +27209,8 @@ type GCEProjects struct {
 
 // Regions is an interface that allows for mocking of Regions.
 type Regions interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Region, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Region, error)
+	Get(ctx context.Context, key *meta.Key) (*computega.Region, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Region, error)
 }
 
 // NewMockRegions returns a new mock for Regions.
@@ -27242,8 +27242,8 @@ type MockRegions struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook  func(ctx context.Context, key *meta.Key, m *MockRegions) (bool, *ga.Region, error)
-	ListHook func(ctx context.Context, fl *filter.F, m *MockRegions) (bool, []*ga.Region, error)
+	GetHook  func(ctx context.Context, key *meta.Key, m *MockRegions) (bool, *computega.Region, error)
+	ListHook func(ctx context.Context, fl *filter.F, m *MockRegions) (bool, []*computega.Region, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -27251,7 +27251,7 @@ type MockRegions struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegions) Get(ctx context.Context, key *meta.Key) (*ga.Region, error) {
+func (m *MockRegions) Get(ctx context.Context, key *meta.Key) (*computega.Region, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegions.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -27284,7 +27284,7 @@ func (m *MockRegions) Get(ctx context.Context, key *meta.Key) (*ga.Region, error
 }
 
 // List all of the objects in the mock.
-func (m *MockRegions) List(ctx context.Context, fl *filter.F) ([]*ga.Region, error) {
+func (m *MockRegions) List(ctx context.Context, fl *filter.F) ([]*computega.Region, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockRegions.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -27302,7 +27302,7 @@ func (m *MockRegions) List(ctx context.Context, fl *filter.F) ([]*ga.Region, err
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Region
+	var objs []*computega.Region
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -27315,7 +27315,7 @@ func (m *MockRegions) List(ctx context.Context, fl *filter.F) ([]*ga.Region, err
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegions) Obj(o *ga.Region) *MockRegionsObj {
+func (m *MockRegions) Obj(o *computega.Region) *MockRegionsObj {
 	return &MockRegionsObj{o}
 }
 
@@ -27325,7 +27325,7 @@ type GCERegions struct {
 }
 
 // Get the Region named by key.
-func (g *GCERegions) Get(ctx context.Context, key *meta.Key) (*ga.Region, error) {
+func (g *GCERegions) Get(ctx context.Context, key *meta.Key) (*computega.Region, error) {
 	klog.V(5).Infof("GCERegions.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -27358,7 +27358,7 @@ func (g *GCERegions) Get(ctx context.Context, key *meta.Key) (*ga.Region, error)
 }
 
 // List all Region objects.
-func (g *GCERegions) List(ctx context.Context, fl *filter.F) ([]*ga.Region, error) {
+func (g *GCERegions) List(ctx context.Context, fl *filter.F) ([]*computega.Region, error) {
 	klog.V(5).Infof("GCERegions.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Regions")
 	ck := &CallContextKey{
@@ -27378,8 +27378,8 @@ func (g *GCERegions) List(ctx context.Context, fl *filter.F) ([]*ga.Region, erro
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Region
-	f := func(l *ga.RegionList) error {
+	var all []*computega.Region
+	f := func(l *computega.RegionList) error {
 		klog.V(5).Infof("GCERegions.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -27410,15 +27410,15 @@ func (g *GCERegions) List(ctx context.Context, fl *filter.F) ([]*ga.Region, erro
 
 // AlphaRouters is an interface that allows for mocking of Routers.
 type AlphaRouters interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Router, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Router, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Router) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Router, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Router, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Router) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.Router, error)
-	GetRouterStatus(context.Context, *meta.Key) (*alpha.RouterStatusResponse, error)
-	Patch(context.Context, *meta.Key, *alpha.Router) error
-	Preview(context.Context, *meta.Key, *alpha.Router) (*alpha.RoutersPreviewResponse, error)
-	TestIamPermissions(context.Context, *meta.Key, *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.Router, error)
+	GetRouterStatus(context.Context, *meta.Key) (*computealpha.RouterStatusResponse, error)
+	Patch(context.Context, *meta.Key, *computealpha.Router) error
+	Preview(context.Context, *meta.Key, *computealpha.Router) (*computealpha.RoutersPreviewResponse, error)
+	TestIamPermissions(context.Context, *meta.Key, *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error)
 }
 
 // NewMockAlphaRouters returns a new mock for Routers.
@@ -27455,15 +27455,15 @@ type MockAlphaRouters struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaRouters) (bool, *alpha.Router, error)
-	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRouters) (bool, []*alpha.Router, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.Router, m *MockAlphaRouters) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaRouters) (bool, *computealpha.Router, error)
+	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRouters) (bool, []*computealpha.Router, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.Router, m *MockAlphaRouters) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaRouters) (bool, error)
-	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockAlphaRouters) (bool, map[string][]*alpha.Router, error)
-	GetRouterStatusHook    func(context.Context, *meta.Key, *MockAlphaRouters) (*alpha.RouterStatusResponse, error)
-	PatchHook              func(context.Context, *meta.Key, *alpha.Router, *MockAlphaRouters) error
-	PreviewHook            func(context.Context, *meta.Key, *alpha.Router, *MockAlphaRouters) (*alpha.RoutersPreviewResponse, error)
-	TestIamPermissionsHook func(context.Context, *meta.Key, *alpha.TestPermissionsRequest, *MockAlphaRouters) (*alpha.TestPermissionsResponse, error)
+	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockAlphaRouters) (bool, map[string][]*computealpha.Router, error)
+	GetRouterStatusHook    func(context.Context, *meta.Key, *MockAlphaRouters) (*computealpha.RouterStatusResponse, error)
+	PatchHook              func(context.Context, *meta.Key, *computealpha.Router, *MockAlphaRouters) error
+	PreviewHook            func(context.Context, *meta.Key, *computealpha.Router, *MockAlphaRouters) (*computealpha.RoutersPreviewResponse, error)
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computealpha.TestPermissionsRequest, *MockAlphaRouters) (*computealpha.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -27471,7 +27471,7 @@ type MockAlphaRouters struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRouters) Get(ctx context.Context, key *meta.Key) (*alpha.Router, error) {
+func (m *MockAlphaRouters) Get(ctx context.Context, key *meta.Key) (*computealpha.Router, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRouters.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -27504,7 +27504,7 @@ func (m *MockAlphaRouters) Get(ctx context.Context, key *meta.Key) (*alpha.Route
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Router, error) {
+func (m *MockAlphaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Router, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRouters.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -27522,7 +27522,7 @@ func (m *MockAlphaRouters) List(ctx context.Context, region string, fl *filter.F
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Router
+	var objs []*computealpha.Router
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -27538,7 +27538,7 @@ func (m *MockAlphaRouters) List(ctx context.Context, region string, fl *filter.F
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRouters) Insert(ctx context.Context, key *meta.Key, obj *alpha.Router) error {
+func (m *MockAlphaRouters) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Router) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRouters.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -27608,7 +27608,7 @@ func (m *MockAlphaRouters) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.Router, error) {
+func (m *MockAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.Router, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRouters.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -27625,7 +27625,7 @@ func (m *MockAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (ma
 		return nil, err
 	}
 
-	objs := map[string][]*alpha.Router{}
+	objs := map[string][]*computealpha.Router{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToAlpha().SelfLink)
 		if err != nil {
@@ -27643,12 +27643,12 @@ func (m *MockAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (ma
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRouters) Obj(o *alpha.Router) *MockRoutersObj {
+func (m *MockAlphaRouters) Obj(o *computealpha.Router) *MockRoutersObj {
 	return &MockRoutersObj{o}
 }
 
 // GetRouterStatus is a mock for the corresponding method.
-func (m *MockAlphaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*alpha.RouterStatusResponse, error) {
+func (m *MockAlphaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*computealpha.RouterStatusResponse, error) {
 	if m.GetRouterStatusHook != nil {
 		return m.GetRouterStatusHook(ctx, key, m)
 	}
@@ -27656,7 +27656,7 @@ func (m *MockAlphaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Router) error {
+func (m *MockAlphaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Router) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -27664,7 +27664,7 @@ func (m *MockAlphaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *alpha
 }
 
 // Preview is a mock for the corresponding method.
-func (m *MockAlphaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *alpha.Router) (*alpha.RoutersPreviewResponse, error) {
+func (m *MockAlphaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *computealpha.Router) (*computealpha.RoutersPreviewResponse, error) {
 	if m.PreviewHook != nil {
 		return m.PreviewHook(ctx, key, arg0, m)
 	}
@@ -27672,7 +27672,7 @@ func (m *MockAlphaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *alp
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockAlphaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (m *MockAlphaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -27685,7 +27685,7 @@ type GCEAlphaRouters struct {
 }
 
 // Get the Router named by key.
-func (g *GCEAlphaRouters) Get(ctx context.Context, key *meta.Key) (*alpha.Router, error) {
+func (g *GCEAlphaRouters) Get(ctx context.Context, key *meta.Key) (*computealpha.Router, error) {
 	klog.V(5).Infof("GCEAlphaRouters.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -27718,7 +27718,7 @@ func (g *GCEAlphaRouters) Get(ctx context.Context, key *meta.Key) (*alpha.Router
 }
 
 // List all Router objects.
-func (g *GCEAlphaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Router, error) {
+func (g *GCEAlphaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Router, error) {
 	klog.V(5).Infof("GCEAlphaRouters.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Routers")
 	ck := &CallContextKey{
@@ -27738,8 +27738,8 @@ func (g *GCEAlphaRouters) List(ctx context.Context, region string, fl *filter.F)
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Router
-	f := func(l *alpha.RouterList) error {
+	var all []*computealpha.Router
+	f := func(l *computealpha.RouterList) error {
 		klog.V(5).Infof("GCEAlphaRouters.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -27769,7 +27769,7 @@ func (g *GCEAlphaRouters) List(ctx context.Context, region string, fl *filter.F)
 }
 
 // Insert Router with key of value obj.
-func (g *GCEAlphaRouters) Insert(ctx context.Context, key *meta.Key, obj *alpha.Router) error {
+func (g *GCEAlphaRouters) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Router) error {
 	klog.V(5).Infof("GCEAlphaRouters.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRouters.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -27848,7 +27848,7 @@ func (g *GCEAlphaRouters) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*alpha.Router, error) {
+func (g *GCEAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computealpha.Router, error) {
 	klog.V(5).Infof("GCEAlphaRouters.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Routers")
@@ -27872,8 +27872,8 @@ func (g *GCEAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*alpha.Router{}
-	f := func(l *alpha.RouterAggregatedList) error {
+	all := map[string][]*computealpha.Router{}
+	f := func(l *computealpha.RouterAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEAlphaRouters.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.Routers...)
@@ -27900,7 +27900,7 @@ func (g *GCEAlphaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map
 }
 
 // GetRouterStatus is a method on GCEAlphaRouters.
-func (g *GCEAlphaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*alpha.RouterStatusResponse, error) {
+func (g *GCEAlphaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*computealpha.RouterStatusResponse, error) {
 	klog.V(5).Infof("GCEAlphaRouters.GetRouterStatus(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -27932,7 +27932,7 @@ func (g *GCEAlphaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*
 }
 
 // Patch is a method on GCEAlphaRouters.
-func (g *GCEAlphaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Router) error {
+func (g *GCEAlphaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Router) error {
 	klog.V(5).Infof("GCEAlphaRouters.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -27974,7 +27974,7 @@ func (g *GCEAlphaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.
 }
 
 // Preview is a method on GCEAlphaRouters.
-func (g *GCEAlphaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *alpha.Router) (*alpha.RoutersPreviewResponse, error) {
+func (g *GCEAlphaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *computealpha.Router) (*computealpha.RoutersPreviewResponse, error) {
 	klog.V(5).Infof("GCEAlphaRouters.Preview(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -28006,7 +28006,7 @@ func (g *GCEAlphaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *alph
 }
 
 // TestIamPermissions is a method on GCEAlphaRouters.
-func (g *GCEAlphaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *alpha.TestPermissionsRequest) (*alpha.TestPermissionsResponse, error) {
+func (g *GCEAlphaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computealpha.TestPermissionsRequest) (*computealpha.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEAlphaRouters.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -28039,15 +28039,15 @@ func (g *GCEAlphaRouters) TestIamPermissions(ctx context.Context, key *meta.Key,
 
 // BetaRouters is an interface that allows for mocking of Routers.
 type BetaRouters interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Router, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.Router, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Router) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Router, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Router, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Router) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.Router, error)
-	GetRouterStatus(context.Context, *meta.Key) (*beta.RouterStatusResponse, error)
-	Patch(context.Context, *meta.Key, *beta.Router) error
-	Preview(context.Context, *meta.Key, *beta.Router) (*beta.RoutersPreviewResponse, error)
-	TestIamPermissions(context.Context, *meta.Key, *beta.TestPermissionsRequest) (*beta.TestPermissionsResponse, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.Router, error)
+	GetRouterStatus(context.Context, *meta.Key) (*computebeta.RouterStatusResponse, error)
+	Patch(context.Context, *meta.Key, *computebeta.Router) error
+	Preview(context.Context, *meta.Key, *computebeta.Router) (*computebeta.RoutersPreviewResponse, error)
+	TestIamPermissions(context.Context, *meta.Key, *computebeta.TestPermissionsRequest) (*computebeta.TestPermissionsResponse, error)
 }
 
 // NewMockBetaRouters returns a new mock for Routers.
@@ -28084,15 +28084,15 @@ type MockBetaRouters struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaRouters) (bool, *beta.Router, error)
-	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockBetaRouters) (bool, []*beta.Router, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *beta.Router, m *MockBetaRouters) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaRouters) (bool, *computebeta.Router, error)
+	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockBetaRouters) (bool, []*computebeta.Router, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computebeta.Router, m *MockBetaRouters) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockBetaRouters) (bool, error)
-	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockBetaRouters) (bool, map[string][]*beta.Router, error)
-	GetRouterStatusHook    func(context.Context, *meta.Key, *MockBetaRouters) (*beta.RouterStatusResponse, error)
-	PatchHook              func(context.Context, *meta.Key, *beta.Router, *MockBetaRouters) error
-	PreviewHook            func(context.Context, *meta.Key, *beta.Router, *MockBetaRouters) (*beta.RoutersPreviewResponse, error)
-	TestIamPermissionsHook func(context.Context, *meta.Key, *beta.TestPermissionsRequest, *MockBetaRouters) (*beta.TestPermissionsResponse, error)
+	AggregatedListHook     func(ctx context.Context, fl *filter.F, m *MockBetaRouters) (bool, map[string][]*computebeta.Router, error)
+	GetRouterStatusHook    func(context.Context, *meta.Key, *MockBetaRouters) (*computebeta.RouterStatusResponse, error)
+	PatchHook              func(context.Context, *meta.Key, *computebeta.Router, *MockBetaRouters) error
+	PreviewHook            func(context.Context, *meta.Key, *computebeta.Router, *MockBetaRouters) (*computebeta.RoutersPreviewResponse, error)
+	TestIamPermissionsHook func(context.Context, *meta.Key, *computebeta.TestPermissionsRequest, *MockBetaRouters) (*computebeta.TestPermissionsResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -28100,7 +28100,7 @@ type MockBetaRouters struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRouters) Get(ctx context.Context, key *meta.Key) (*beta.Router, error) {
+func (m *MockBetaRouters) Get(ctx context.Context, key *meta.Key) (*computebeta.Router, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRouters.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -28133,7 +28133,7 @@ func (m *MockBetaRouters) Get(ctx context.Context, key *meta.Key) (*beta.Router,
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*beta.Router, error) {
+func (m *MockBetaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Router, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRouters.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -28151,7 +28151,7 @@ func (m *MockBetaRouters) List(ctx context.Context, region string, fl *filter.F)
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Router
+	var objs []*computebeta.Router
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -28167,7 +28167,7 @@ func (m *MockBetaRouters) List(ctx context.Context, region string, fl *filter.F)
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRouters) Insert(ctx context.Context, key *meta.Key, obj *beta.Router) error {
+func (m *MockBetaRouters) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Router) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRouters.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -28237,7 +28237,7 @@ func (m *MockBetaRouters) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.Router, error) {
+func (m *MockBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.Router, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRouters.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -28254,7 +28254,7 @@ func (m *MockBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map
 		return nil, err
 	}
 
-	objs := map[string][]*beta.Router{}
+	objs := map[string][]*computebeta.Router{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToBeta().SelfLink)
 		if err != nil {
@@ -28272,12 +28272,12 @@ func (m *MockBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRouters) Obj(o *beta.Router) *MockRoutersObj {
+func (m *MockBetaRouters) Obj(o *computebeta.Router) *MockRoutersObj {
 	return &MockRoutersObj{o}
 }
 
 // GetRouterStatus is a mock for the corresponding method.
-func (m *MockBetaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*beta.RouterStatusResponse, error) {
+func (m *MockBetaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*computebeta.RouterStatusResponse, error) {
 	if m.GetRouterStatusHook != nil {
 		return m.GetRouterStatusHook(ctx, key, m)
 	}
@@ -28285,7 +28285,7 @@ func (m *MockBetaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Router) error {
+func (m *MockBetaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Router) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -28293,7 +28293,7 @@ func (m *MockBetaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *beta.R
 }
 
 // Preview is a mock for the corresponding method.
-func (m *MockBetaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *beta.Router) (*beta.RoutersPreviewResponse, error) {
+func (m *MockBetaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *computebeta.Router) (*computebeta.RoutersPreviewResponse, error) {
 	if m.PreviewHook != nil {
 		return m.PreviewHook(ctx, key, arg0, m)
 	}
@@ -28301,7 +28301,7 @@ func (m *MockBetaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *beta
 }
 
 // TestIamPermissions is a mock for the corresponding method.
-func (m *MockBetaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *beta.TestPermissionsRequest) (*beta.TestPermissionsResponse, error) {
+func (m *MockBetaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computebeta.TestPermissionsRequest) (*computebeta.TestPermissionsResponse, error) {
 	if m.TestIamPermissionsHook != nil {
 		return m.TestIamPermissionsHook(ctx, key, arg0, m)
 	}
@@ -28314,7 +28314,7 @@ type GCEBetaRouters struct {
 }
 
 // Get the Router named by key.
-func (g *GCEBetaRouters) Get(ctx context.Context, key *meta.Key) (*beta.Router, error) {
+func (g *GCEBetaRouters) Get(ctx context.Context, key *meta.Key) (*computebeta.Router, error) {
 	klog.V(5).Infof("GCEBetaRouters.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -28347,7 +28347,7 @@ func (g *GCEBetaRouters) Get(ctx context.Context, key *meta.Key) (*beta.Router, 
 }
 
 // List all Router objects.
-func (g *GCEBetaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*beta.Router, error) {
+func (g *GCEBetaRouters) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Router, error) {
 	klog.V(5).Infof("GCEBetaRouters.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Routers")
 	ck := &CallContextKey{
@@ -28367,8 +28367,8 @@ func (g *GCEBetaRouters) List(ctx context.Context, region string, fl *filter.F) 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Router
-	f := func(l *beta.RouterList) error {
+	var all []*computebeta.Router
+	f := func(l *computebeta.RouterList) error {
 		klog.V(5).Infof("GCEBetaRouters.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -28398,7 +28398,7 @@ func (g *GCEBetaRouters) List(ctx context.Context, region string, fl *filter.F) 
 }
 
 // Insert Router with key of value obj.
-func (g *GCEBetaRouters) Insert(ctx context.Context, key *meta.Key, obj *beta.Router) error {
+func (g *GCEBetaRouters) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Router) error {
 	klog.V(5).Infof("GCEBetaRouters.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRouters.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -28477,7 +28477,7 @@ func (g *GCEBetaRouters) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCEBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*beta.Router, error) {
+func (g *GCEBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computebeta.Router, error) {
 	klog.V(5).Infof("GCEBetaRouters.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Routers")
@@ -28501,8 +28501,8 @@ func (g *GCEBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*beta.Router{}
-	f := func(l *beta.RouterAggregatedList) error {
+	all := map[string][]*computebeta.Router{}
+	f := func(l *computebeta.RouterAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCEBetaRouters.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.Routers...)
@@ -28529,7 +28529,7 @@ func (g *GCEBetaRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[
 }
 
 // GetRouterStatus is a method on GCEBetaRouters.
-func (g *GCEBetaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*beta.RouterStatusResponse, error) {
+func (g *GCEBetaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*computebeta.RouterStatusResponse, error) {
 	klog.V(5).Infof("GCEBetaRouters.GetRouterStatus(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -28561,7 +28561,7 @@ func (g *GCEBetaRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*b
 }
 
 // Patch is a method on GCEBetaRouters.
-func (g *GCEBetaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Router) error {
+func (g *GCEBetaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Router) error {
 	klog.V(5).Infof("GCEBetaRouters.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -28603,7 +28603,7 @@ func (g *GCEBetaRouters) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Ro
 }
 
 // Preview is a method on GCEBetaRouters.
-func (g *GCEBetaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *beta.Router) (*beta.RoutersPreviewResponse, error) {
+func (g *GCEBetaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *computebeta.Router) (*computebeta.RoutersPreviewResponse, error) {
 	klog.V(5).Infof("GCEBetaRouters.Preview(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -28635,7 +28635,7 @@ func (g *GCEBetaRouters) Preview(ctx context.Context, key *meta.Key, arg0 *beta.
 }
 
 // TestIamPermissions is a method on GCEBetaRouters.
-func (g *GCEBetaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *beta.TestPermissionsRequest) (*beta.TestPermissionsResponse, error) {
+func (g *GCEBetaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, arg0 *computebeta.TestPermissionsRequest) (*computebeta.TestPermissionsResponse, error) {
 	klog.V(5).Infof("GCEBetaRouters.TestIamPermissions(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -28668,14 +28668,14 @@ func (g *GCEBetaRouters) TestIamPermissions(ctx context.Context, key *meta.Key, 
 
 // Routers is an interface that allows for mocking of Routers.
 type Routers interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Router, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.Router, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Router) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Router, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.Router, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Router) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.Router, error)
-	GetRouterStatus(context.Context, *meta.Key) (*ga.RouterStatusResponse, error)
-	Patch(context.Context, *meta.Key, *ga.Router) error
-	Preview(context.Context, *meta.Key, *ga.Router) (*ga.RoutersPreviewResponse, error)
+	AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.Router, error)
+	GetRouterStatus(context.Context, *meta.Key) (*computega.RouterStatusResponse, error)
+	Patch(context.Context, *meta.Key, *computega.Router) error
+	Preview(context.Context, *meta.Key, *computega.Router) (*computega.RoutersPreviewResponse, error)
 }
 
 // NewMockRouters returns a new mock for Routers.
@@ -28712,14 +28712,14 @@ type MockRouters struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook             func(ctx context.Context, key *meta.Key, m *MockRouters) (bool, *ga.Router, error)
-	ListHook            func(ctx context.Context, region string, fl *filter.F, m *MockRouters) (bool, []*ga.Router, error)
-	InsertHook          func(ctx context.Context, key *meta.Key, obj *ga.Router, m *MockRouters) (bool, error)
+	GetHook             func(ctx context.Context, key *meta.Key, m *MockRouters) (bool, *computega.Router, error)
+	ListHook            func(ctx context.Context, region string, fl *filter.F, m *MockRouters) (bool, []*computega.Router, error)
+	InsertHook          func(ctx context.Context, key *meta.Key, obj *computega.Router, m *MockRouters) (bool, error)
 	DeleteHook          func(ctx context.Context, key *meta.Key, m *MockRouters) (bool, error)
-	AggregatedListHook  func(ctx context.Context, fl *filter.F, m *MockRouters) (bool, map[string][]*ga.Router, error)
-	GetRouterStatusHook func(context.Context, *meta.Key, *MockRouters) (*ga.RouterStatusResponse, error)
-	PatchHook           func(context.Context, *meta.Key, *ga.Router, *MockRouters) error
-	PreviewHook         func(context.Context, *meta.Key, *ga.Router, *MockRouters) (*ga.RoutersPreviewResponse, error)
+	AggregatedListHook  func(ctx context.Context, fl *filter.F, m *MockRouters) (bool, map[string][]*computega.Router, error)
+	GetRouterStatusHook func(context.Context, *meta.Key, *MockRouters) (*computega.RouterStatusResponse, error)
+	PatchHook           func(context.Context, *meta.Key, *computega.Router, *MockRouters) error
+	PreviewHook         func(context.Context, *meta.Key, *computega.Router, *MockRouters) (*computega.RoutersPreviewResponse, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -28727,7 +28727,7 @@ type MockRouters struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRouters) Get(ctx context.Context, key *meta.Key) (*ga.Router, error) {
+func (m *MockRouters) Get(ctx context.Context, key *meta.Key) (*computega.Router, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRouters.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -28760,7 +28760,7 @@ func (m *MockRouters) Get(ctx context.Context, key *meta.Key) (*ga.Router, error
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRouters) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Router, error) {
+func (m *MockRouters) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Router, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRouters.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -28778,7 +28778,7 @@ func (m *MockRouters) List(ctx context.Context, region string, fl *filter.F) ([]
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Router
+	var objs []*computega.Router
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -28794,7 +28794,7 @@ func (m *MockRouters) List(ctx context.Context, region string, fl *filter.F) ([]
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRouters) Insert(ctx context.Context, key *meta.Key, obj *ga.Router) error {
+func (m *MockRouters) Insert(ctx context.Context, key *meta.Key, obj *computega.Router) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRouters.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -28864,7 +28864,7 @@ func (m *MockRouters) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList is a mock for AggregatedList.
-func (m *MockRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.Router, error) {
+func (m *MockRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.Router, error) {
 	if m.AggregatedListHook != nil {
 		if intercept, objs, err := m.AggregatedListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockRouters.AggregatedList(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -28881,7 +28881,7 @@ func (m *MockRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[str
 		return nil, err
 	}
 
-	objs := map[string][]*ga.Router{}
+	objs := map[string][]*computega.Router{}
 	for _, obj := range m.Objects {
 		res, err := ParseResourceURL(obj.ToGA().SelfLink)
 		if err != nil {
@@ -28899,12 +28899,12 @@ func (m *MockRouters) AggregatedList(ctx context.Context, fl *filter.F) (map[str
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRouters) Obj(o *ga.Router) *MockRoutersObj {
+func (m *MockRouters) Obj(o *computega.Router) *MockRoutersObj {
 	return &MockRoutersObj{o}
 }
 
 // GetRouterStatus is a mock for the corresponding method.
-func (m *MockRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*ga.RouterStatusResponse, error) {
+func (m *MockRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*computega.RouterStatusResponse, error) {
 	if m.GetRouterStatusHook != nil {
 		return m.GetRouterStatusHook(ctx, key, m)
 	}
@@ -28912,7 +28912,7 @@ func (m *MockRouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*ga.R
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockRouters) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Router) error {
+func (m *MockRouters) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Router) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -28920,7 +28920,7 @@ func (m *MockRouters) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Router)
 }
 
 // Preview is a mock for the corresponding method.
-func (m *MockRouters) Preview(ctx context.Context, key *meta.Key, arg0 *ga.Router) (*ga.RoutersPreviewResponse, error) {
+func (m *MockRouters) Preview(ctx context.Context, key *meta.Key, arg0 *computega.Router) (*computega.RoutersPreviewResponse, error) {
 	if m.PreviewHook != nil {
 		return m.PreviewHook(ctx, key, arg0, m)
 	}
@@ -28933,7 +28933,7 @@ type GCERouters struct {
 }
 
 // Get the Router named by key.
-func (g *GCERouters) Get(ctx context.Context, key *meta.Key) (*ga.Router, error) {
+func (g *GCERouters) Get(ctx context.Context, key *meta.Key) (*computega.Router, error) {
 	klog.V(5).Infof("GCERouters.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -28966,7 +28966,7 @@ func (g *GCERouters) Get(ctx context.Context, key *meta.Key) (*ga.Router, error)
 }
 
 // List all Router objects.
-func (g *GCERouters) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Router, error) {
+func (g *GCERouters) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Router, error) {
 	klog.V(5).Infof("GCERouters.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Routers")
 	ck := &CallContextKey{
@@ -28986,8 +28986,8 @@ func (g *GCERouters) List(ctx context.Context, region string, fl *filter.F) ([]*
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Router
-	f := func(l *ga.RouterList) error {
+	var all []*computega.Router
+	f := func(l *computega.RouterList) error {
 		klog.V(5).Infof("GCERouters.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -29017,7 +29017,7 @@ func (g *GCERouters) List(ctx context.Context, region string, fl *filter.F) ([]*
 }
 
 // Insert Router with key of value obj.
-func (g *GCERouters) Insert(ctx context.Context, key *meta.Key, obj *ga.Router) error {
+func (g *GCERouters) Insert(ctx context.Context, key *meta.Key, obj *computega.Router) error {
 	klog.V(5).Infof("GCERouters.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERouters.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -29096,7 +29096,7 @@ func (g *GCERouters) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AggregatedList lists all resources of the given type across all locations.
-func (g *GCERouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*ga.Router, error) {
+func (g *GCERouters) AggregatedList(ctx context.Context, fl *filter.F) (map[string][]*computega.Router, error) {
 	klog.V(5).Infof("GCERouters.AggregatedList(%v, %v) called", ctx, fl)
 
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Routers")
@@ -29120,8 +29120,8 @@ func (g *GCERouters) AggregatedList(ctx context.Context, fl *filter.F) (map[stri
 		call.Filter(fl.String())
 	}
 
-	all := map[string][]*ga.Router{}
-	f := func(l *ga.RouterAggregatedList) error {
+	all := map[string][]*computega.Router{}
+	f := func(l *computega.RouterAggregatedList) error {
 		for k, v := range l.Items {
 			klog.V(5).Infof("GCERouters.AggregatedList(%v, %v): page[%v]%+v", ctx, fl, k, v)
 			all[k] = append(all[k], v.Routers...)
@@ -29148,7 +29148,7 @@ func (g *GCERouters) AggregatedList(ctx context.Context, fl *filter.F) (map[stri
 }
 
 // GetRouterStatus is a method on GCERouters.
-func (g *GCERouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*ga.RouterStatusResponse, error) {
+func (g *GCERouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*computega.RouterStatusResponse, error) {
 	klog.V(5).Infof("GCERouters.GetRouterStatus(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -29180,7 +29180,7 @@ func (g *GCERouters) GetRouterStatus(ctx context.Context, key *meta.Key) (*ga.Ro
 }
 
 // Patch is a method on GCERouters.
-func (g *GCERouters) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Router) error {
+func (g *GCERouters) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Router) error {
 	klog.V(5).Infof("GCERouters.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -29222,7 +29222,7 @@ func (g *GCERouters) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Router) 
 }
 
 // Preview is a method on GCERouters.
-func (g *GCERouters) Preview(ctx context.Context, key *meta.Key, arg0 *ga.Router) (*ga.RoutersPreviewResponse, error) {
+func (g *GCERouters) Preview(ctx context.Context, key *meta.Key, arg0 *computega.Router) (*computega.RoutersPreviewResponse, error) {
 	klog.V(5).Infof("GCERouters.Preview(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -29255,9 +29255,9 @@ func (g *GCERouters) Preview(ctx context.Context, key *meta.Key, arg0 *ga.Router
 
 // Routes is an interface that allows for mocking of Routes.
 type Routes interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Route, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Route, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Route) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Route, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Route, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Route) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -29294,9 +29294,9 @@ type MockRoutes struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockRoutes) (bool, *ga.Route, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockRoutes) (bool, []*ga.Route, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.Route, m *MockRoutes) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockRoutes) (bool, *computega.Route, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockRoutes) (bool, []*computega.Route, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.Route, m *MockRoutes) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockRoutes) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -29305,7 +29305,7 @@ type MockRoutes struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRoutes) Get(ctx context.Context, key *meta.Key) (*ga.Route, error) {
+func (m *MockRoutes) Get(ctx context.Context, key *meta.Key) (*computega.Route, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRoutes.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -29338,7 +29338,7 @@ func (m *MockRoutes) Get(ctx context.Context, key *meta.Key) (*ga.Route, error) 
 }
 
 // List all of the objects in the mock.
-func (m *MockRoutes) List(ctx context.Context, fl *filter.F) ([]*ga.Route, error) {
+func (m *MockRoutes) List(ctx context.Context, fl *filter.F) ([]*computega.Route, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockRoutes.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -29356,7 +29356,7 @@ func (m *MockRoutes) List(ctx context.Context, fl *filter.F) ([]*ga.Route, error
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Route
+	var objs []*computega.Route
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -29369,7 +29369,7 @@ func (m *MockRoutes) List(ctx context.Context, fl *filter.F) ([]*ga.Route, error
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRoutes) Insert(ctx context.Context, key *meta.Key, obj *ga.Route) error {
+func (m *MockRoutes) Insert(ctx context.Context, key *meta.Key, obj *computega.Route) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRoutes.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -29439,7 +29439,7 @@ func (m *MockRoutes) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRoutes) Obj(o *ga.Route) *MockRoutesObj {
+func (m *MockRoutes) Obj(o *computega.Route) *MockRoutesObj {
 	return &MockRoutesObj{o}
 }
 
@@ -29449,7 +29449,7 @@ type GCERoutes struct {
 }
 
 // Get the Route named by key.
-func (g *GCERoutes) Get(ctx context.Context, key *meta.Key) (*ga.Route, error) {
+func (g *GCERoutes) Get(ctx context.Context, key *meta.Key) (*computega.Route, error) {
 	klog.V(5).Infof("GCERoutes.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -29482,7 +29482,7 @@ func (g *GCERoutes) Get(ctx context.Context, key *meta.Key) (*ga.Route, error) {
 }
 
 // List all Route objects.
-func (g *GCERoutes) List(ctx context.Context, fl *filter.F) ([]*ga.Route, error) {
+func (g *GCERoutes) List(ctx context.Context, fl *filter.F) ([]*computega.Route, error) {
 	klog.V(5).Infof("GCERoutes.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Routes")
 	ck := &CallContextKey{
@@ -29502,8 +29502,8 @@ func (g *GCERoutes) List(ctx context.Context, fl *filter.F) ([]*ga.Route, error)
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Route
-	f := func(l *ga.RouteList) error {
+	var all []*computega.Route
+	f := func(l *computega.RouteList) error {
 		klog.V(5).Infof("GCERoutes.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -29533,7 +29533,7 @@ func (g *GCERoutes) List(ctx context.Context, fl *filter.F) ([]*ga.Route, error)
 }
 
 // Insert Route with key of value obj.
-func (g *GCERoutes) Insert(ctx context.Context, key *meta.Key, obj *ga.Route) error {
+func (g *GCERoutes) Insert(ctx context.Context, key *meta.Key, obj *computega.Route) error {
 	klog.V(5).Infof("GCERoutes.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERoutes.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -29613,14 +29613,14 @@ func (g *GCERoutes) Delete(ctx context.Context, key *meta.Key) error {
 
 // BetaSecurityPolicies is an interface that allows for mocking of SecurityPolicies.
 type BetaSecurityPolicies interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.SecurityPolicy, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.SecurityPolicy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.SecurityPolicy) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.SecurityPolicy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.SecurityPolicy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.SecurityPolicy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AddRule(context.Context, *meta.Key, *beta.SecurityPolicyRule) error
-	GetRule(context.Context, *meta.Key) (*beta.SecurityPolicyRule, error)
-	Patch(context.Context, *meta.Key, *beta.SecurityPolicy) error
-	PatchRule(context.Context, *meta.Key, *beta.SecurityPolicyRule) error
+	AddRule(context.Context, *meta.Key, *computebeta.SecurityPolicyRule) error
+	GetRule(context.Context, *meta.Key) (*computebeta.SecurityPolicyRule, error)
+	Patch(context.Context, *meta.Key, *computebeta.SecurityPolicy) error
+	PatchRule(context.Context, *meta.Key, *computebeta.SecurityPolicyRule) error
 	RemoveRule(context.Context, *meta.Key) error
 }
 
@@ -29657,14 +29657,14 @@ type MockBetaSecurityPolicies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook        func(ctx context.Context, key *meta.Key, m *MockBetaSecurityPolicies) (bool, *beta.SecurityPolicy, error)
-	ListHook       func(ctx context.Context, fl *filter.F, m *MockBetaSecurityPolicies) (bool, []*beta.SecurityPolicy, error)
-	InsertHook     func(ctx context.Context, key *meta.Key, obj *beta.SecurityPolicy, m *MockBetaSecurityPolicies) (bool, error)
+	GetHook        func(ctx context.Context, key *meta.Key, m *MockBetaSecurityPolicies) (bool, *computebeta.SecurityPolicy, error)
+	ListHook       func(ctx context.Context, fl *filter.F, m *MockBetaSecurityPolicies) (bool, []*computebeta.SecurityPolicy, error)
+	InsertHook     func(ctx context.Context, key *meta.Key, obj *computebeta.SecurityPolicy, m *MockBetaSecurityPolicies) (bool, error)
 	DeleteHook     func(ctx context.Context, key *meta.Key, m *MockBetaSecurityPolicies) (bool, error)
-	AddRuleHook    func(context.Context, *meta.Key, *beta.SecurityPolicyRule, *MockBetaSecurityPolicies) error
-	GetRuleHook    func(context.Context, *meta.Key, *MockBetaSecurityPolicies) (*beta.SecurityPolicyRule, error)
-	PatchHook      func(context.Context, *meta.Key, *beta.SecurityPolicy, *MockBetaSecurityPolicies) error
-	PatchRuleHook  func(context.Context, *meta.Key, *beta.SecurityPolicyRule, *MockBetaSecurityPolicies) error
+	AddRuleHook    func(context.Context, *meta.Key, *computebeta.SecurityPolicyRule, *MockBetaSecurityPolicies) error
+	GetRuleHook    func(context.Context, *meta.Key, *MockBetaSecurityPolicies) (*computebeta.SecurityPolicyRule, error)
+	PatchHook      func(context.Context, *meta.Key, *computebeta.SecurityPolicy, *MockBetaSecurityPolicies) error
+	PatchRuleHook  func(context.Context, *meta.Key, *computebeta.SecurityPolicyRule, *MockBetaSecurityPolicies) error
 	RemoveRuleHook func(context.Context, *meta.Key, *MockBetaSecurityPolicies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -29673,7 +29673,7 @@ type MockBetaSecurityPolicies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaSecurityPolicies) Get(ctx context.Context, key *meta.Key) (*beta.SecurityPolicy, error) {
+func (m *MockBetaSecurityPolicies) Get(ctx context.Context, key *meta.Key) (*computebeta.SecurityPolicy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaSecurityPolicies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -29706,7 +29706,7 @@ func (m *MockBetaSecurityPolicies) Get(ctx context.Context, key *meta.Key) (*bet
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*beta.SecurityPolicy, error) {
+func (m *MockBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*computebeta.SecurityPolicy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaSecurityPolicies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -29724,7 +29724,7 @@ func (m *MockBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*b
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.SecurityPolicy
+	var objs []*computebeta.SecurityPolicy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -29737,7 +29737,7 @@ func (m *MockBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*b
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaSecurityPolicies) Insert(ctx context.Context, key *meta.Key, obj *beta.SecurityPolicy) error {
+func (m *MockBetaSecurityPolicies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.SecurityPolicy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaSecurityPolicies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -29807,12 +29807,12 @@ func (m *MockBetaSecurityPolicies) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaSecurityPolicies) Obj(o *beta.SecurityPolicy) *MockSecurityPoliciesObj {
+func (m *MockBetaSecurityPolicies) Obj(o *computebeta.SecurityPolicy) *MockSecurityPoliciesObj {
 	return &MockSecurityPoliciesObj{o}
 }
 
 // AddRule is a mock for the corresponding method.
-func (m *MockBetaSecurityPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicyRule) error {
+func (m *MockBetaSecurityPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicyRule) error {
 	if m.AddRuleHook != nil {
 		return m.AddRuleHook(ctx, key, arg0, m)
 	}
@@ -29820,7 +29820,7 @@ func (m *MockBetaSecurityPolicies) AddRule(ctx context.Context, key *meta.Key, a
 }
 
 // GetRule is a mock for the corresponding method.
-func (m *MockBetaSecurityPolicies) GetRule(ctx context.Context, key *meta.Key) (*beta.SecurityPolicyRule, error) {
+func (m *MockBetaSecurityPolicies) GetRule(ctx context.Context, key *meta.Key) (*computebeta.SecurityPolicyRule, error) {
 	if m.GetRuleHook != nil {
 		return m.GetRuleHook(ctx, key, m)
 	}
@@ -29828,7 +29828,7 @@ func (m *MockBetaSecurityPolicies) GetRule(ctx context.Context, key *meta.Key) (
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaSecurityPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicy) error {
+func (m *MockBetaSecurityPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicy) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -29836,7 +29836,7 @@ func (m *MockBetaSecurityPolicies) Patch(ctx context.Context, key *meta.Key, arg
 }
 
 // PatchRule is a mock for the corresponding method.
-func (m *MockBetaSecurityPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicyRule) error {
+func (m *MockBetaSecurityPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicyRule) error {
 	if m.PatchRuleHook != nil {
 		return m.PatchRuleHook(ctx, key, arg0, m)
 	}
@@ -29857,7 +29857,7 @@ type GCEBetaSecurityPolicies struct {
 }
 
 // Get the SecurityPolicy named by key.
-func (g *GCEBetaSecurityPolicies) Get(ctx context.Context, key *meta.Key) (*beta.SecurityPolicy, error) {
+func (g *GCEBetaSecurityPolicies) Get(ctx context.Context, key *meta.Key) (*computebeta.SecurityPolicy, error) {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -29890,7 +29890,7 @@ func (g *GCEBetaSecurityPolicies) Get(ctx context.Context, key *meta.Key) (*beta
 }
 
 // List all SecurityPolicy objects.
-func (g *GCEBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*beta.SecurityPolicy, error) {
+func (g *GCEBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*computebeta.SecurityPolicy, error) {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "SecurityPolicies")
 	ck := &CallContextKey{
@@ -29910,8 +29910,8 @@ func (g *GCEBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*be
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.SecurityPolicy
-	f := func(l *beta.SecurityPolicyList) error {
+	var all []*computebeta.SecurityPolicy
+	f := func(l *computebeta.SecurityPolicyList) error {
 		klog.V(5).Infof("GCEBetaSecurityPolicies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -29941,7 +29941,7 @@ func (g *GCEBetaSecurityPolicies) List(ctx context.Context, fl *filter.F) ([]*be
 }
 
 // Insert SecurityPolicy with key of value obj.
-func (g *GCEBetaSecurityPolicies) Insert(ctx context.Context, key *meta.Key, obj *beta.SecurityPolicy) error {
+func (g *GCEBetaSecurityPolicies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.SecurityPolicy) error {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaSecurityPolicies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -30020,7 +30020,7 @@ func (g *GCEBetaSecurityPolicies) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // AddRule is a method on GCEBetaSecurityPolicies.
-func (g *GCEBetaSecurityPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicyRule) error {
+func (g *GCEBetaSecurityPolicies) AddRule(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicyRule) error {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.AddRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -30062,7 +30062,7 @@ func (g *GCEBetaSecurityPolicies) AddRule(ctx context.Context, key *meta.Key, ar
 }
 
 // GetRule is a method on GCEBetaSecurityPolicies.
-func (g *GCEBetaSecurityPolicies) GetRule(ctx context.Context, key *meta.Key) (*beta.SecurityPolicyRule, error) {
+func (g *GCEBetaSecurityPolicies) GetRule(ctx context.Context, key *meta.Key) (*computebeta.SecurityPolicyRule, error) {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.GetRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -30094,7 +30094,7 @@ func (g *GCEBetaSecurityPolicies) GetRule(ctx context.Context, key *meta.Key) (*
 }
 
 // Patch is a method on GCEBetaSecurityPolicies.
-func (g *GCEBetaSecurityPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicy) error {
+func (g *GCEBetaSecurityPolicies) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicy) error {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -30136,7 +30136,7 @@ func (g *GCEBetaSecurityPolicies) Patch(ctx context.Context, key *meta.Key, arg0
 }
 
 // PatchRule is a method on GCEBetaSecurityPolicies.
-func (g *GCEBetaSecurityPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *beta.SecurityPolicyRule) error {
+func (g *GCEBetaSecurityPolicies) PatchRule(ctx context.Context, key *meta.Key, arg0 *computebeta.SecurityPolicyRule) error {
 	klog.V(5).Infof("GCEBetaSecurityPolicies.PatchRule(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -30221,11 +30221,11 @@ func (g *GCEBetaSecurityPolicies) RemoveRule(ctx context.Context, key *meta.Key)
 
 // ServiceAttachments is an interface that allows for mocking of ServiceAttachments.
 type ServiceAttachments interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.ServiceAttachment, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.ServiceAttachment, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.ServiceAttachment) error
+	Get(ctx context.Context, key *meta.Key) (*computega.ServiceAttachment, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.ServiceAttachment, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.ServiceAttachment) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Patch(context.Context, *meta.Key, *ga.ServiceAttachment) error
+	Patch(context.Context, *meta.Key, *computega.ServiceAttachment) error
 }
 
 // NewMockServiceAttachments returns a new mock for ServiceAttachments.
@@ -30261,11 +30261,11 @@ type MockServiceAttachments struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockServiceAttachments) (bool, *ga.ServiceAttachment, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockServiceAttachments) (bool, []*ga.ServiceAttachment, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.ServiceAttachment, m *MockServiceAttachments) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockServiceAttachments) (bool, *computega.ServiceAttachment, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockServiceAttachments) (bool, []*computega.ServiceAttachment, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.ServiceAttachment, m *MockServiceAttachments) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockServiceAttachments) (bool, error)
-	PatchHook  func(context.Context, *meta.Key, *ga.ServiceAttachment, *MockServiceAttachments) error
+	PatchHook  func(context.Context, *meta.Key, *computega.ServiceAttachment, *MockServiceAttachments) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -30273,7 +30273,7 @@ type MockServiceAttachments struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockServiceAttachments) Get(ctx context.Context, key *meta.Key) (*ga.ServiceAttachment, error) {
+func (m *MockServiceAttachments) Get(ctx context.Context, key *meta.Key) (*computega.ServiceAttachment, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockServiceAttachments.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -30306,7 +30306,7 @@ func (m *MockServiceAttachments) Get(ctx context.Context, key *meta.Key) (*ga.Se
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*ga.ServiceAttachment, error) {
+func (m *MockServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*computega.ServiceAttachment, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockServiceAttachments.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -30324,7 +30324,7 @@ func (m *MockServiceAttachments) List(ctx context.Context, region string, fl *fi
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.ServiceAttachment
+	var objs []*computega.ServiceAttachment
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -30340,7 +30340,7 @@ func (m *MockServiceAttachments) List(ctx context.Context, region string, fl *fi
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *ga.ServiceAttachment) error {
+func (m *MockServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *computega.ServiceAttachment) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockServiceAttachments.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -30410,12 +30410,12 @@ func (m *MockServiceAttachments) Delete(ctx context.Context, key *meta.Key) erro
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockServiceAttachments) Obj(o *ga.ServiceAttachment) *MockServiceAttachmentsObj {
+func (m *MockServiceAttachments) Obj(o *computega.ServiceAttachment) *MockServiceAttachmentsObj {
 	return &MockServiceAttachmentsObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *ga.ServiceAttachment) error {
+func (m *MockServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *computega.ServiceAttachment) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -30428,7 +30428,7 @@ type GCEServiceAttachments struct {
 }
 
 // Get the ServiceAttachment named by key.
-func (g *GCEServiceAttachments) Get(ctx context.Context, key *meta.Key) (*ga.ServiceAttachment, error) {
+func (g *GCEServiceAttachments) Get(ctx context.Context, key *meta.Key) (*computega.ServiceAttachment, error) {
 	klog.V(5).Infof("GCEServiceAttachments.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -30461,7 +30461,7 @@ func (g *GCEServiceAttachments) Get(ctx context.Context, key *meta.Key) (*ga.Ser
 }
 
 // List all ServiceAttachment objects.
-func (g *GCEServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*ga.ServiceAttachment, error) {
+func (g *GCEServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*computega.ServiceAttachment, error) {
 	klog.V(5).Infof("GCEServiceAttachments.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "ServiceAttachments")
 	ck := &CallContextKey{
@@ -30481,8 +30481,8 @@ func (g *GCEServiceAttachments) List(ctx context.Context, region string, fl *fil
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.ServiceAttachment
-	f := func(l *ga.ServiceAttachmentList) error {
+	var all []*computega.ServiceAttachment
+	f := func(l *computega.ServiceAttachmentList) error {
 		klog.V(5).Infof("GCEServiceAttachments.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -30512,7 +30512,7 @@ func (g *GCEServiceAttachments) List(ctx context.Context, region string, fl *fil
 }
 
 // Insert ServiceAttachment with key of value obj.
-func (g *GCEServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *ga.ServiceAttachment) error {
+func (g *GCEServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *computega.ServiceAttachment) error {
 	klog.V(5).Infof("GCEServiceAttachments.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEServiceAttachments.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -30591,7 +30591,7 @@ func (g *GCEServiceAttachments) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Patch is a method on GCEServiceAttachments.
-func (g *GCEServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *ga.ServiceAttachment) error {
+func (g *GCEServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *computega.ServiceAttachment) error {
 	klog.V(5).Infof("GCEServiceAttachments.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -30634,11 +30634,11 @@ func (g *GCEServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *
 
 // BetaServiceAttachments is an interface that allows for mocking of ServiceAttachments.
 type BetaServiceAttachments interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.ServiceAttachment, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.ServiceAttachment, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.ServiceAttachment) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.ServiceAttachment, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.ServiceAttachment, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.ServiceAttachment) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Patch(context.Context, *meta.Key, *beta.ServiceAttachment) error
+	Patch(context.Context, *meta.Key, *computebeta.ServiceAttachment) error
 }
 
 // NewMockBetaServiceAttachments returns a new mock for ServiceAttachments.
@@ -30674,11 +30674,11 @@ type MockBetaServiceAttachments struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaServiceAttachments) (bool, *beta.ServiceAttachment, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaServiceAttachments) (bool, []*beta.ServiceAttachment, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.ServiceAttachment, m *MockBetaServiceAttachments) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaServiceAttachments) (bool, *computebeta.ServiceAttachment, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaServiceAttachments) (bool, []*computebeta.ServiceAttachment, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.ServiceAttachment, m *MockBetaServiceAttachments) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaServiceAttachments) (bool, error)
-	PatchHook  func(context.Context, *meta.Key, *beta.ServiceAttachment, *MockBetaServiceAttachments) error
+	PatchHook  func(context.Context, *meta.Key, *computebeta.ServiceAttachment, *MockBetaServiceAttachments) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -30686,7 +30686,7 @@ type MockBetaServiceAttachments struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*beta.ServiceAttachment, error) {
+func (m *MockBetaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*computebeta.ServiceAttachment, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaServiceAttachments.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -30719,7 +30719,7 @@ func (m *MockBetaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*b
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*beta.ServiceAttachment, error) {
+func (m *MockBetaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.ServiceAttachment, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaServiceAttachments.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -30737,7 +30737,7 @@ func (m *MockBetaServiceAttachments) List(ctx context.Context, region string, fl
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.ServiceAttachment
+	var objs []*computebeta.ServiceAttachment
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -30753,7 +30753,7 @@ func (m *MockBetaServiceAttachments) List(ctx context.Context, region string, fl
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *beta.ServiceAttachment) error {
+func (m *MockBetaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *computebeta.ServiceAttachment) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaServiceAttachments.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -30823,12 +30823,12 @@ func (m *MockBetaServiceAttachments) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaServiceAttachments) Obj(o *beta.ServiceAttachment) *MockServiceAttachmentsObj {
+func (m *MockBetaServiceAttachments) Obj(o *computebeta.ServiceAttachment) *MockServiceAttachmentsObj {
 	return &MockServiceAttachmentsObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *beta.ServiceAttachment) error {
+func (m *MockBetaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.ServiceAttachment) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -30841,7 +30841,7 @@ type GCEBetaServiceAttachments struct {
 }
 
 // Get the ServiceAttachment named by key.
-func (g *GCEBetaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*beta.ServiceAttachment, error) {
+func (g *GCEBetaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*computebeta.ServiceAttachment, error) {
 	klog.V(5).Infof("GCEBetaServiceAttachments.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -30874,7 +30874,7 @@ func (g *GCEBetaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*be
 }
 
 // List all ServiceAttachment objects.
-func (g *GCEBetaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*beta.ServiceAttachment, error) {
+func (g *GCEBetaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.ServiceAttachment, error) {
 	klog.V(5).Infof("GCEBetaServiceAttachments.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "ServiceAttachments")
 	ck := &CallContextKey{
@@ -30894,8 +30894,8 @@ func (g *GCEBetaServiceAttachments) List(ctx context.Context, region string, fl 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.ServiceAttachment
-	f := func(l *beta.ServiceAttachmentList) error {
+	var all []*computebeta.ServiceAttachment
+	f := func(l *computebeta.ServiceAttachmentList) error {
 		klog.V(5).Infof("GCEBetaServiceAttachments.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -30925,7 +30925,7 @@ func (g *GCEBetaServiceAttachments) List(ctx context.Context, region string, fl 
 }
 
 // Insert ServiceAttachment with key of value obj.
-func (g *GCEBetaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *beta.ServiceAttachment) error {
+func (g *GCEBetaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *computebeta.ServiceAttachment) error {
 	klog.V(5).Infof("GCEBetaServiceAttachments.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaServiceAttachments.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -31004,7 +31004,7 @@ func (g *GCEBetaServiceAttachments) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Patch is a method on GCEBetaServiceAttachments.
-func (g *GCEBetaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *beta.ServiceAttachment) error {
+func (g *GCEBetaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.ServiceAttachment) error {
 	klog.V(5).Infof("GCEBetaServiceAttachments.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -31047,11 +31047,11 @@ func (g *GCEBetaServiceAttachments) Patch(ctx context.Context, key *meta.Key, ar
 
 // AlphaServiceAttachments is an interface that allows for mocking of ServiceAttachments.
 type AlphaServiceAttachments interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.ServiceAttachment, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.ServiceAttachment, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.ServiceAttachment) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.ServiceAttachment, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.ServiceAttachment, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.ServiceAttachment) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Patch(context.Context, *meta.Key, *alpha.ServiceAttachment) error
+	Patch(context.Context, *meta.Key, *computealpha.ServiceAttachment) error
 }
 
 // NewMockAlphaServiceAttachments returns a new mock for ServiceAttachments.
@@ -31087,11 +31087,11 @@ type MockAlphaServiceAttachments struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaServiceAttachments) (bool, *alpha.ServiceAttachment, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaServiceAttachments) (bool, []*alpha.ServiceAttachment, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.ServiceAttachment, m *MockAlphaServiceAttachments) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaServiceAttachments) (bool, *computealpha.ServiceAttachment, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaServiceAttachments) (bool, []*computealpha.ServiceAttachment, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.ServiceAttachment, m *MockAlphaServiceAttachments) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaServiceAttachments) (bool, error)
-	PatchHook  func(context.Context, *meta.Key, *alpha.ServiceAttachment, *MockAlphaServiceAttachments) error
+	PatchHook  func(context.Context, *meta.Key, *computealpha.ServiceAttachment, *MockAlphaServiceAttachments) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -31099,7 +31099,7 @@ type MockAlphaServiceAttachments struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*alpha.ServiceAttachment, error) {
+func (m *MockAlphaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*computealpha.ServiceAttachment, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaServiceAttachments.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -31132,7 +31132,7 @@ func (m *MockAlphaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.ServiceAttachment, error) {
+func (m *MockAlphaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.ServiceAttachment, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaServiceAttachments.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -31150,7 +31150,7 @@ func (m *MockAlphaServiceAttachments) List(ctx context.Context, region string, f
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.ServiceAttachment
+	var objs []*computealpha.ServiceAttachment
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -31166,7 +31166,7 @@ func (m *MockAlphaServiceAttachments) List(ctx context.Context, region string, f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *alpha.ServiceAttachment) error {
+func (m *MockAlphaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *computealpha.ServiceAttachment) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaServiceAttachments.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -31236,12 +31236,12 @@ func (m *MockAlphaServiceAttachments) Delete(ctx context.Context, key *meta.Key)
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaServiceAttachments) Obj(o *alpha.ServiceAttachment) *MockServiceAttachmentsObj {
+func (m *MockAlphaServiceAttachments) Obj(o *computealpha.ServiceAttachment) *MockServiceAttachmentsObj {
 	return &MockServiceAttachmentsObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.ServiceAttachment) error {
+func (m *MockAlphaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.ServiceAttachment) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -31254,7 +31254,7 @@ type GCEAlphaServiceAttachments struct {
 }
 
 // Get the ServiceAttachment named by key.
-func (g *GCEAlphaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*alpha.ServiceAttachment, error) {
+func (g *GCEAlphaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*computealpha.ServiceAttachment, error) {
 	klog.V(5).Infof("GCEAlphaServiceAttachments.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -31287,7 +31287,7 @@ func (g *GCEAlphaServiceAttachments) Get(ctx context.Context, key *meta.Key) (*a
 }
 
 // List all ServiceAttachment objects.
-func (g *GCEAlphaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.ServiceAttachment, error) {
+func (g *GCEAlphaServiceAttachments) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.ServiceAttachment, error) {
 	klog.V(5).Infof("GCEAlphaServiceAttachments.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "ServiceAttachments")
 	ck := &CallContextKey{
@@ -31307,8 +31307,8 @@ func (g *GCEAlphaServiceAttachments) List(ctx context.Context, region string, fl
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.ServiceAttachment
-	f := func(l *alpha.ServiceAttachmentList) error {
+	var all []*computealpha.ServiceAttachment
+	f := func(l *computealpha.ServiceAttachmentList) error {
 		klog.V(5).Infof("GCEAlphaServiceAttachments.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -31338,7 +31338,7 @@ func (g *GCEAlphaServiceAttachments) List(ctx context.Context, region string, fl
 }
 
 // Insert ServiceAttachment with key of value obj.
-func (g *GCEAlphaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *alpha.ServiceAttachment) error {
+func (g *GCEAlphaServiceAttachments) Insert(ctx context.Context, key *meta.Key, obj *computealpha.ServiceAttachment) error {
 	klog.V(5).Infof("GCEAlphaServiceAttachments.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaServiceAttachments.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -31417,7 +31417,7 @@ func (g *GCEAlphaServiceAttachments) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // Patch is a method on GCEAlphaServiceAttachments.
-func (g *GCEAlphaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.ServiceAttachment) error {
+func (g *GCEAlphaServiceAttachments) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.ServiceAttachment) error {
 	klog.V(5).Infof("GCEAlphaServiceAttachments.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -31460,9 +31460,9 @@ func (g *GCEAlphaServiceAttachments) Patch(ctx context.Context, key *meta.Key, a
 
 // SslCertificates is an interface that allows for mocking of SslCertificates.
 type SslCertificates interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.SslCertificate, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.SslCertificate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.SslCertificate) error
+	Get(ctx context.Context, key *meta.Key) (*computega.SslCertificate, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.SslCertificate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.SslCertificate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -31499,9 +31499,9 @@ type MockSslCertificates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockSslCertificates) (bool, *ga.SslCertificate, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockSslCertificates) (bool, []*ga.SslCertificate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.SslCertificate, m *MockSslCertificates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockSslCertificates) (bool, *computega.SslCertificate, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockSslCertificates) (bool, []*computega.SslCertificate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.SslCertificate, m *MockSslCertificates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockSslCertificates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -31510,7 +31510,7 @@ type MockSslCertificates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockSslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.SslCertificate, error) {
+func (m *MockSslCertificates) Get(ctx context.Context, key *meta.Key) (*computega.SslCertificate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockSslCertificates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -31543,7 +31543,7 @@ func (m *MockSslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.SslCe
 }
 
 // List all of the objects in the mock.
-func (m *MockSslCertificates) List(ctx context.Context, fl *filter.F) ([]*ga.SslCertificate, error) {
+func (m *MockSslCertificates) List(ctx context.Context, fl *filter.F) ([]*computega.SslCertificate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockSslCertificates.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -31561,7 +31561,7 @@ func (m *MockSslCertificates) List(ctx context.Context, fl *filter.F) ([]*ga.Ssl
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.SslCertificate
+	var objs []*computega.SslCertificate
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -31574,7 +31574,7 @@ func (m *MockSslCertificates) List(ctx context.Context, fl *filter.F) ([]*ga.Ssl
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *ga.SslCertificate) error {
+func (m *MockSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computega.SslCertificate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockSslCertificates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -31644,7 +31644,7 @@ func (m *MockSslCertificates) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockSslCertificates) Obj(o *ga.SslCertificate) *MockSslCertificatesObj {
+func (m *MockSslCertificates) Obj(o *computega.SslCertificate) *MockSslCertificatesObj {
 	return &MockSslCertificatesObj{o}
 }
 
@@ -31654,7 +31654,7 @@ type GCESslCertificates struct {
 }
 
 // Get the SslCertificate named by key.
-func (g *GCESslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.SslCertificate, error) {
+func (g *GCESslCertificates) Get(ctx context.Context, key *meta.Key) (*computega.SslCertificate, error) {
 	klog.V(5).Infof("GCESslCertificates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -31687,7 +31687,7 @@ func (g *GCESslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.SslCer
 }
 
 // List all SslCertificate objects.
-func (g *GCESslCertificates) List(ctx context.Context, fl *filter.F) ([]*ga.SslCertificate, error) {
+func (g *GCESslCertificates) List(ctx context.Context, fl *filter.F) ([]*computega.SslCertificate, error) {
 	klog.V(5).Infof("GCESslCertificates.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "SslCertificates")
 	ck := &CallContextKey{
@@ -31707,8 +31707,8 @@ func (g *GCESslCertificates) List(ctx context.Context, fl *filter.F) ([]*ga.SslC
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.SslCertificate
-	f := func(l *ga.SslCertificateList) error {
+	var all []*computega.SslCertificate
+	f := func(l *computega.SslCertificateList) error {
 		klog.V(5).Infof("GCESslCertificates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -31738,7 +31738,7 @@ func (g *GCESslCertificates) List(ctx context.Context, fl *filter.F) ([]*ga.SslC
 }
 
 // Insert SslCertificate with key of value obj.
-func (g *GCESslCertificates) Insert(ctx context.Context, key *meta.Key, obj *ga.SslCertificate) error {
+func (g *GCESslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computega.SslCertificate) error {
 	klog.V(5).Infof("GCESslCertificates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCESslCertificates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -31818,9 +31818,9 @@ func (g *GCESslCertificates) Delete(ctx context.Context, key *meta.Key) error {
 
 // BetaSslCertificates is an interface that allows for mocking of SslCertificates.
 type BetaSslCertificates interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.SslCertificate, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.SslCertificate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.SslCertificate) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.SslCertificate, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.SslCertificate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -31857,9 +31857,9 @@ type MockBetaSslCertificates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaSslCertificates) (bool, *beta.SslCertificate, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaSslCertificates) (bool, []*beta.SslCertificate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.SslCertificate, m *MockBetaSslCertificates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaSslCertificates) (bool, *computebeta.SslCertificate, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaSslCertificates) (bool, []*computebeta.SslCertificate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate, m *MockBetaSslCertificates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaSslCertificates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -31868,7 +31868,7 @@ type MockBetaSslCertificates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaSslCertificates) Get(ctx context.Context, key *meta.Key) (*beta.SslCertificate, error) {
+func (m *MockBetaSslCertificates) Get(ctx context.Context, key *meta.Key) (*computebeta.SslCertificate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaSslCertificates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -31901,7 +31901,7 @@ func (m *MockBetaSslCertificates) Get(ctx context.Context, key *meta.Key) (*beta
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*beta.SslCertificate, error) {
+func (m *MockBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*computebeta.SslCertificate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaSslCertificates.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -31919,7 +31919,7 @@ func (m *MockBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*be
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.SslCertificate
+	var objs []*computebeta.SslCertificate
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -31932,7 +31932,7 @@ func (m *MockBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*be
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *beta.SslCertificate) error {
+func (m *MockBetaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaSslCertificates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -32002,7 +32002,7 @@ func (m *MockBetaSslCertificates) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaSslCertificates) Obj(o *beta.SslCertificate) *MockSslCertificatesObj {
+func (m *MockBetaSslCertificates) Obj(o *computebeta.SslCertificate) *MockSslCertificatesObj {
 	return &MockSslCertificatesObj{o}
 }
 
@@ -32012,7 +32012,7 @@ type GCEBetaSslCertificates struct {
 }
 
 // Get the SslCertificate named by key.
-func (g *GCEBetaSslCertificates) Get(ctx context.Context, key *meta.Key) (*beta.SslCertificate, error) {
+func (g *GCEBetaSslCertificates) Get(ctx context.Context, key *meta.Key) (*computebeta.SslCertificate, error) {
 	klog.V(5).Infof("GCEBetaSslCertificates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -32045,7 +32045,7 @@ func (g *GCEBetaSslCertificates) Get(ctx context.Context, key *meta.Key) (*beta.
 }
 
 // List all SslCertificate objects.
-func (g *GCEBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*beta.SslCertificate, error) {
+func (g *GCEBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*computebeta.SslCertificate, error) {
 	klog.V(5).Infof("GCEBetaSslCertificates.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "SslCertificates")
 	ck := &CallContextKey{
@@ -32065,8 +32065,8 @@ func (g *GCEBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*bet
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.SslCertificate
-	f := func(l *beta.SslCertificateList) error {
+	var all []*computebeta.SslCertificate
+	f := func(l *computebeta.SslCertificateList) error {
 		klog.V(5).Infof("GCEBetaSslCertificates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -32096,7 +32096,7 @@ func (g *GCEBetaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*bet
 }
 
 // Insert SslCertificate with key of value obj.
-func (g *GCEBetaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *beta.SslCertificate) error {
+func (g *GCEBetaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate) error {
 	klog.V(5).Infof("GCEBetaSslCertificates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaSslCertificates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -32176,9 +32176,9 @@ func (g *GCEBetaSslCertificates) Delete(ctx context.Context, key *meta.Key) erro
 
 // AlphaSslCertificates is an interface that allows for mocking of SslCertificates.
 type AlphaSslCertificates interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.SslCertificate, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.SslCertificate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.SslCertificate, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.SslCertificate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -32215,9 +32215,9 @@ type MockAlphaSslCertificates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaSslCertificates) (bool, *alpha.SslCertificate, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaSslCertificates) (bool, []*alpha.SslCertificate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate, m *MockAlphaSslCertificates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaSslCertificates) (bool, *computealpha.SslCertificate, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaSslCertificates) (bool, []*computealpha.SslCertificate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate, m *MockAlphaSslCertificates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaSslCertificates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -32226,7 +32226,7 @@ type MockAlphaSslCertificates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaSslCertificates) Get(ctx context.Context, key *meta.Key) (*alpha.SslCertificate, error) {
+func (m *MockAlphaSslCertificates) Get(ctx context.Context, key *meta.Key) (*computealpha.SslCertificate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaSslCertificates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -32259,7 +32259,7 @@ func (m *MockAlphaSslCertificates) Get(ctx context.Context, key *meta.Key) (*alp
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*alpha.SslCertificate, error) {
+func (m *MockAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*computealpha.SslCertificate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaSslCertificates.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -32277,7 +32277,7 @@ func (m *MockAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*a
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.SslCertificate
+	var objs []*computealpha.SslCertificate
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -32290,7 +32290,7 @@ func (m *MockAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*a
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate) error {
+func (m *MockAlphaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaSslCertificates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -32360,7 +32360,7 @@ func (m *MockAlphaSslCertificates) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaSslCertificates) Obj(o *alpha.SslCertificate) *MockSslCertificatesObj {
+func (m *MockAlphaSslCertificates) Obj(o *computealpha.SslCertificate) *MockSslCertificatesObj {
 	return &MockSslCertificatesObj{o}
 }
 
@@ -32370,7 +32370,7 @@ type GCEAlphaSslCertificates struct {
 }
 
 // Get the SslCertificate named by key.
-func (g *GCEAlphaSslCertificates) Get(ctx context.Context, key *meta.Key) (*alpha.SslCertificate, error) {
+func (g *GCEAlphaSslCertificates) Get(ctx context.Context, key *meta.Key) (*computealpha.SslCertificate, error) {
 	klog.V(5).Infof("GCEAlphaSslCertificates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -32403,7 +32403,7 @@ func (g *GCEAlphaSslCertificates) Get(ctx context.Context, key *meta.Key) (*alph
 }
 
 // List all SslCertificate objects.
-func (g *GCEAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*alpha.SslCertificate, error) {
+func (g *GCEAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*computealpha.SslCertificate, error) {
 	klog.V(5).Infof("GCEAlphaSslCertificates.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "SslCertificates")
 	ck := &CallContextKey{
@@ -32423,8 +32423,8 @@ func (g *GCEAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*al
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.SslCertificate
-	f := func(l *alpha.SslCertificateList) error {
+	var all []*computealpha.SslCertificate
+	f := func(l *computealpha.SslCertificateList) error {
 		klog.V(5).Infof("GCEAlphaSslCertificates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -32454,7 +32454,7 @@ func (g *GCEAlphaSslCertificates) List(ctx context.Context, fl *filter.F) ([]*al
 }
 
 // Insert SslCertificate with key of value obj.
-func (g *GCEAlphaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate) error {
+func (g *GCEAlphaSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate) error {
 	klog.V(5).Infof("GCEAlphaSslCertificates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaSslCertificates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -32534,9 +32534,9 @@ func (g *GCEAlphaSslCertificates) Delete(ctx context.Context, key *meta.Key) err
 
 // AlphaRegionSslCertificates is an interface that allows for mocking of RegionSslCertificates.
 type AlphaRegionSslCertificates interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.SslCertificate, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.SslCertificate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.SslCertificate, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.SslCertificate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -32573,9 +32573,9 @@ type MockAlphaRegionSslCertificates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionSslCertificates) (bool, *alpha.SslCertificate, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionSslCertificates) (bool, []*alpha.SslCertificate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate, m *MockAlphaRegionSslCertificates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionSslCertificates) (bool, *computealpha.SslCertificate, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionSslCertificates) (bool, []*computealpha.SslCertificate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate, m *MockAlphaRegionSslCertificates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaRegionSslCertificates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -32584,7 +32584,7 @@ type MockAlphaRegionSslCertificates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*alpha.SslCertificate, error) {
+func (m *MockAlphaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*computealpha.SslCertificate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionSslCertificates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -32617,7 +32617,7 @@ func (m *MockAlphaRegionSslCertificates) Get(ctx context.Context, key *meta.Key)
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.SslCertificate, error) {
+func (m *MockAlphaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.SslCertificate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionSslCertificates.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -32635,7 +32635,7 @@ func (m *MockAlphaRegionSslCertificates) List(ctx context.Context, region string
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.SslCertificate
+	var objs []*computealpha.SslCertificate
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -32651,7 +32651,7 @@ func (m *MockAlphaRegionSslCertificates) List(ctx context.Context, region string
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate) error {
+func (m *MockAlphaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionSslCertificates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -32721,7 +32721,7 @@ func (m *MockAlphaRegionSslCertificates) Delete(ctx context.Context, key *meta.K
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionSslCertificates) Obj(o *alpha.SslCertificate) *MockRegionSslCertificatesObj {
+func (m *MockAlphaRegionSslCertificates) Obj(o *computealpha.SslCertificate) *MockRegionSslCertificatesObj {
 	return &MockRegionSslCertificatesObj{o}
 }
 
@@ -32731,7 +32731,7 @@ type GCEAlphaRegionSslCertificates struct {
 }
 
 // Get the SslCertificate named by key.
-func (g *GCEAlphaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*alpha.SslCertificate, error) {
+func (g *GCEAlphaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*computealpha.SslCertificate, error) {
 	klog.V(5).Infof("GCEAlphaRegionSslCertificates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -32764,7 +32764,7 @@ func (g *GCEAlphaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all SslCertificate objects.
-func (g *GCEAlphaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.SslCertificate, error) {
+func (g *GCEAlphaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.SslCertificate, error) {
 	klog.V(5).Infof("GCEAlphaRegionSslCertificates.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionSslCertificates")
 	ck := &CallContextKey{
@@ -32784,8 +32784,8 @@ func (g *GCEAlphaRegionSslCertificates) List(ctx context.Context, region string,
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.SslCertificate
-	f := func(l *alpha.SslCertificateList) error {
+	var all []*computealpha.SslCertificate
+	f := func(l *computealpha.SslCertificateList) error {
 		klog.V(5).Infof("GCEAlphaRegionSslCertificates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -32815,7 +32815,7 @@ func (g *GCEAlphaRegionSslCertificates) List(ctx context.Context, region string,
 }
 
 // Insert SslCertificate with key of value obj.
-func (g *GCEAlphaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *alpha.SslCertificate) error {
+func (g *GCEAlphaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computealpha.SslCertificate) error {
 	klog.V(5).Infof("GCEAlphaRegionSslCertificates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionSslCertificates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -32895,9 +32895,9 @@ func (g *GCEAlphaRegionSslCertificates) Delete(ctx context.Context, key *meta.Ke
 
 // BetaRegionSslCertificates is an interface that allows for mocking of RegionSslCertificates.
 type BetaRegionSslCertificates interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.SslCertificate, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.SslCertificate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.SslCertificate) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.SslCertificate, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.SslCertificate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -32934,9 +32934,9 @@ type MockBetaRegionSslCertificates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionSslCertificates) (bool, *beta.SslCertificate, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionSslCertificates) (bool, []*beta.SslCertificate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.SslCertificate, m *MockBetaRegionSslCertificates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionSslCertificates) (bool, *computebeta.SslCertificate, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionSslCertificates) (bool, []*computebeta.SslCertificate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate, m *MockBetaRegionSslCertificates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaRegionSslCertificates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -32945,7 +32945,7 @@ type MockBetaRegionSslCertificates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*beta.SslCertificate, error) {
+func (m *MockBetaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*computebeta.SslCertificate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRegionSslCertificates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -32978,7 +32978,7 @@ func (m *MockBetaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) 
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*beta.SslCertificate, error) {
+func (m *MockBetaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.SslCertificate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRegionSslCertificates.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -32996,7 +32996,7 @@ func (m *MockBetaRegionSslCertificates) List(ctx context.Context, region string,
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.SslCertificate
+	var objs []*computebeta.SslCertificate
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -33012,7 +33012,7 @@ func (m *MockBetaRegionSslCertificates) List(ctx context.Context, region string,
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *beta.SslCertificate) error {
+func (m *MockBetaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRegionSslCertificates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -33082,7 +33082,7 @@ func (m *MockBetaRegionSslCertificates) Delete(ctx context.Context, key *meta.Ke
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRegionSslCertificates) Obj(o *beta.SslCertificate) *MockRegionSslCertificatesObj {
+func (m *MockBetaRegionSslCertificates) Obj(o *computebeta.SslCertificate) *MockRegionSslCertificatesObj {
 	return &MockRegionSslCertificatesObj{o}
 }
 
@@ -33092,7 +33092,7 @@ type GCEBetaRegionSslCertificates struct {
 }
 
 // Get the SslCertificate named by key.
-func (g *GCEBetaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*beta.SslCertificate, error) {
+func (g *GCEBetaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*computebeta.SslCertificate, error) {
 	klog.V(5).Infof("GCEBetaRegionSslCertificates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -33125,7 +33125,7 @@ func (g *GCEBetaRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (
 }
 
 // List all SslCertificate objects.
-func (g *GCEBetaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*beta.SslCertificate, error) {
+func (g *GCEBetaRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.SslCertificate, error) {
 	klog.V(5).Infof("GCEBetaRegionSslCertificates.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "RegionSslCertificates")
 	ck := &CallContextKey{
@@ -33145,8 +33145,8 @@ func (g *GCEBetaRegionSslCertificates) List(ctx context.Context, region string, 
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.SslCertificate
-	f := func(l *beta.SslCertificateList) error {
+	var all []*computebeta.SslCertificate
+	f := func(l *computebeta.SslCertificateList) error {
 		klog.V(5).Infof("GCEBetaRegionSslCertificates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -33176,7 +33176,7 @@ func (g *GCEBetaRegionSslCertificates) List(ctx context.Context, region string, 
 }
 
 // Insert SslCertificate with key of value obj.
-func (g *GCEBetaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *beta.SslCertificate) error {
+func (g *GCEBetaRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computebeta.SslCertificate) error {
 	klog.V(5).Infof("GCEBetaRegionSslCertificates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRegionSslCertificates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -33256,9 +33256,9 @@ func (g *GCEBetaRegionSslCertificates) Delete(ctx context.Context, key *meta.Key
 
 // RegionSslCertificates is an interface that allows for mocking of RegionSslCertificates.
 type RegionSslCertificates interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.SslCertificate, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.SslCertificate, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.SslCertificate) error
+	Get(ctx context.Context, key *meta.Key) (*computega.SslCertificate, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.SslCertificate, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.SslCertificate) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -33295,9 +33295,9 @@ type MockRegionSslCertificates struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionSslCertificates) (bool, *ga.SslCertificate, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionSslCertificates) (bool, []*ga.SslCertificate, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.SslCertificate, m *MockRegionSslCertificates) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionSslCertificates) (bool, *computega.SslCertificate, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionSslCertificates) (bool, []*computega.SslCertificate, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.SslCertificate, m *MockRegionSslCertificates) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockRegionSslCertificates) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -33306,7 +33306,7 @@ type MockRegionSslCertificates struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.SslCertificate, error) {
+func (m *MockRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*computega.SslCertificate, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionSslCertificates.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -33339,7 +33339,7 @@ func (m *MockRegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*ga
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*ga.SslCertificate, error) {
+func (m *MockRegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*computega.SslCertificate, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionSslCertificates.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -33357,7 +33357,7 @@ func (m *MockRegionSslCertificates) List(ctx context.Context, region string, fl 
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.SslCertificate
+	var objs []*computega.SslCertificate
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -33373,7 +33373,7 @@ func (m *MockRegionSslCertificates) List(ctx context.Context, region string, fl 
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *ga.SslCertificate) error {
+func (m *MockRegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computega.SslCertificate) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionSslCertificates.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -33443,7 +33443,7 @@ func (m *MockRegionSslCertificates) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionSslCertificates) Obj(o *ga.SslCertificate) *MockRegionSslCertificatesObj {
+func (m *MockRegionSslCertificates) Obj(o *computega.SslCertificate) *MockRegionSslCertificatesObj {
 	return &MockRegionSslCertificatesObj{o}
 }
 
@@ -33453,7 +33453,7 @@ type GCERegionSslCertificates struct {
 }
 
 // Get the SslCertificate named by key.
-func (g *GCERegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.SslCertificate, error) {
+func (g *GCERegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*computega.SslCertificate, error) {
 	klog.V(5).Infof("GCERegionSslCertificates.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -33486,7 +33486,7 @@ func (g *GCERegionSslCertificates) Get(ctx context.Context, key *meta.Key) (*ga.
 }
 
 // List all SslCertificate objects.
-func (g *GCERegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*ga.SslCertificate, error) {
+func (g *GCERegionSslCertificates) List(ctx context.Context, region string, fl *filter.F) ([]*computega.SslCertificate, error) {
 	klog.V(5).Infof("GCERegionSslCertificates.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionSslCertificates")
 	ck := &CallContextKey{
@@ -33506,8 +33506,8 @@ func (g *GCERegionSslCertificates) List(ctx context.Context, region string, fl *
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.SslCertificate
-	f := func(l *ga.SslCertificateList) error {
+	var all []*computega.SslCertificate
+	f := func(l *computega.SslCertificateList) error {
 		klog.V(5).Infof("GCERegionSslCertificates.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -33537,7 +33537,7 @@ func (g *GCERegionSslCertificates) List(ctx context.Context, region string, fl *
 }
 
 // Insert SslCertificate with key of value obj.
-func (g *GCERegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *ga.SslCertificate) error {
+func (g *GCERegionSslCertificates) Insert(ctx context.Context, key *meta.Key, obj *computega.SslCertificate) error {
 	klog.V(5).Infof("GCERegionSslCertificates.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionSslCertificates.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -33617,8 +33617,8 @@ func (g *GCERegionSslCertificates) Delete(ctx context.Context, key *meta.Key) er
 
 // SslPolicies is an interface that allows for mocking of SslPolicies.
 type SslPolicies interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.SslPolicy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.SslPolicy) error
+	Get(ctx context.Context, key *meta.Key) (*computega.SslPolicy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.SslPolicy) error
 	Delete(ctx context.Context, key *meta.Key) error
 }
 
@@ -33654,8 +33654,8 @@ type MockSslPolicies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockSslPolicies) (bool, *ga.SslPolicy, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.SslPolicy, m *MockSslPolicies) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockSslPolicies) (bool, *computega.SslPolicy, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.SslPolicy, m *MockSslPolicies) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockSslPolicies) (bool, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
@@ -33664,7 +33664,7 @@ type MockSslPolicies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockSslPolicies) Get(ctx context.Context, key *meta.Key) (*ga.SslPolicy, error) {
+func (m *MockSslPolicies) Get(ctx context.Context, key *meta.Key) (*computega.SslPolicy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockSslPolicies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -33697,7 +33697,7 @@ func (m *MockSslPolicies) Get(ctx context.Context, key *meta.Key) (*ga.SslPolicy
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockSslPolicies) Insert(ctx context.Context, key *meta.Key, obj *ga.SslPolicy) error {
+func (m *MockSslPolicies) Insert(ctx context.Context, key *meta.Key, obj *computega.SslPolicy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockSslPolicies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -33767,7 +33767,7 @@ func (m *MockSslPolicies) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockSslPolicies) Obj(o *ga.SslPolicy) *MockSslPoliciesObj {
+func (m *MockSslPolicies) Obj(o *computega.SslPolicy) *MockSslPoliciesObj {
 	return &MockSslPoliciesObj{o}
 }
 
@@ -33777,7 +33777,7 @@ type GCESslPolicies struct {
 }
 
 // Get the SslPolicy named by key.
-func (g *GCESslPolicies) Get(ctx context.Context, key *meta.Key) (*ga.SslPolicy, error) {
+func (g *GCESslPolicies) Get(ctx context.Context, key *meta.Key) (*computega.SslPolicy, error) {
 	klog.V(5).Infof("GCESslPolicies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -33810,7 +33810,7 @@ func (g *GCESslPolicies) Get(ctx context.Context, key *meta.Key) (*ga.SslPolicy,
 }
 
 // Insert SslPolicy with key of value obj.
-func (g *GCESslPolicies) Insert(ctx context.Context, key *meta.Key, obj *ga.SslPolicy) error {
+func (g *GCESslPolicies) Insert(ctx context.Context, key *meta.Key, obj *computega.SslPolicy) error {
 	klog.V(5).Infof("GCESslPolicies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCESslPolicies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -33890,12 +33890,12 @@ func (g *GCESslPolicies) Delete(ctx context.Context, key *meta.Key) error {
 
 // AlphaSubnetworks is an interface that allows for mocking of Subnetworks.
 type AlphaSubnetworks interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.Subnetwork, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Subnetwork, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.Subnetwork) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.Subnetwork, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Subnetwork, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.Subnetwork) error
 	Delete(ctx context.Context, key *meta.Key) error
-	ListUsable(ctx context.Context, fl *filter.F) ([]*alpha.UsableSubnetwork, error)
-	Patch(context.Context, *meta.Key, *alpha.Subnetwork) error
+	ListUsable(ctx context.Context, fl *filter.F) ([]*computealpha.UsableSubnetwork, error)
+	Patch(context.Context, *meta.Key, *computealpha.Subnetwork) error
 }
 
 // NewMockAlphaSubnetworks returns a new mock for Subnetworks.
@@ -33932,12 +33932,12 @@ type MockAlphaSubnetworks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook        func(ctx context.Context, key *meta.Key, m *MockAlphaSubnetworks) (bool, *alpha.Subnetwork, error)
-	ListHook       func(ctx context.Context, region string, fl *filter.F, m *MockAlphaSubnetworks) (bool, []*alpha.Subnetwork, error)
-	InsertHook     func(ctx context.Context, key *meta.Key, obj *alpha.Subnetwork, m *MockAlphaSubnetworks) (bool, error)
+	GetHook        func(ctx context.Context, key *meta.Key, m *MockAlphaSubnetworks) (bool, *computealpha.Subnetwork, error)
+	ListHook       func(ctx context.Context, region string, fl *filter.F, m *MockAlphaSubnetworks) (bool, []*computealpha.Subnetwork, error)
+	InsertHook     func(ctx context.Context, key *meta.Key, obj *computealpha.Subnetwork, m *MockAlphaSubnetworks) (bool, error)
 	DeleteHook     func(ctx context.Context, key *meta.Key, m *MockAlphaSubnetworks) (bool, error)
-	ListUsableHook func(ctx context.Context, fl *filter.F, m *MockAlphaSubnetworks) (bool, []*alpha.UsableSubnetwork, error)
-	PatchHook      func(context.Context, *meta.Key, *alpha.Subnetwork, *MockAlphaSubnetworks) error
+	ListUsableHook func(ctx context.Context, fl *filter.F, m *MockAlphaSubnetworks) (bool, []*computealpha.UsableSubnetwork, error)
+	PatchHook      func(context.Context, *meta.Key, *computealpha.Subnetwork, *MockAlphaSubnetworks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -33945,7 +33945,7 @@ type MockAlphaSubnetworks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaSubnetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Subnetwork, error) {
+func (m *MockAlphaSubnetworks) Get(ctx context.Context, key *meta.Key) (*computealpha.Subnetwork, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaSubnetworks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -33978,7 +33978,7 @@ func (m *MockAlphaSubnetworks) Get(ctx context.Context, key *meta.Key) (*alpha.S
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Subnetwork, error) {
+func (m *MockAlphaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Subnetwork, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaSubnetworks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -33996,7 +33996,7 @@ func (m *MockAlphaSubnetworks) List(ctx context.Context, region string, fl *filt
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.Subnetwork
+	var objs []*computealpha.Subnetwork
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -34012,7 +34012,7 @@ func (m *MockAlphaSubnetworks) List(ctx context.Context, region string, fl *filt
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *alpha.Subnetwork) error {
+func (m *MockAlphaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Subnetwork) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaSubnetworks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -34082,7 +34082,7 @@ func (m *MockAlphaSubnetworks) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*alpha.UsableSubnetwork, error) {
+func (m *MockAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*computealpha.UsableSubnetwork, error) {
 	if m.ListUsableHook != nil {
 		if intercept, objs, err := m.ListUsableHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaSubnetworks.ListUsable(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -34099,17 +34099,17 @@ func (m *MockAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.UsableSubnetwork
+	var objs []*computealpha.UsableSubnetwork
 
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
 		}
 		alphaObj := obj.ToAlpha()
-		dest := &alpha.UsableSubnetwork{}
+		dest := &computealpha.UsableSubnetwork{}
 		// Convert to Usable type to avoid separate Usable struct
 		if err := copyViaJSON(dest, alphaObj); err != nil {
-			klog.Errorf("Could not convert %T to *alpha.UsableSubnetwork via JSON: %v", alphaObj, err)
+			klog.Errorf("Could not convert %T to *computealpha.UsableSubnetwork via JSON: %v", alphaObj, err)
 		}
 		objs = append(objs, dest)
 	}
@@ -34118,12 +34118,12 @@ func (m *MockAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaSubnetworks) Obj(o *alpha.Subnetwork) *MockSubnetworksObj {
+func (m *MockAlphaSubnetworks) Obj(o *computealpha.Subnetwork) *MockSubnetworksObj {
 	return &MockSubnetworksObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockAlphaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Subnetwork) error {
+func (m *MockAlphaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Subnetwork) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -34136,7 +34136,7 @@ type GCEAlphaSubnetworks struct {
 }
 
 // Get the Subnetwork named by key.
-func (g *GCEAlphaSubnetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Subnetwork, error) {
+func (g *GCEAlphaSubnetworks) Get(ctx context.Context, key *meta.Key) (*computealpha.Subnetwork, error) {
 	klog.V(5).Infof("GCEAlphaSubnetworks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -34169,7 +34169,7 @@ func (g *GCEAlphaSubnetworks) Get(ctx context.Context, key *meta.Key) (*alpha.Su
 }
 
 // List all Subnetwork objects.
-func (g *GCEAlphaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.Subnetwork, error) {
+func (g *GCEAlphaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.Subnetwork, error) {
 	klog.V(5).Infof("GCEAlphaSubnetworks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Subnetworks")
 	ck := &CallContextKey{
@@ -34189,8 +34189,8 @@ func (g *GCEAlphaSubnetworks) List(ctx context.Context, region string, fl *filte
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.Subnetwork
-	f := func(l *alpha.SubnetworkList) error {
+	var all []*computealpha.Subnetwork
+	f := func(l *computealpha.SubnetworkList) error {
 		klog.V(5).Infof("GCEAlphaSubnetworks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -34220,7 +34220,7 @@ func (g *GCEAlphaSubnetworks) List(ctx context.Context, region string, fl *filte
 }
 
 // Insert Subnetwork with key of value obj.
-func (g *GCEAlphaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *alpha.Subnetwork) error {
+func (g *GCEAlphaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *computealpha.Subnetwork) error {
 	klog.V(5).Infof("GCEAlphaSubnetworks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaSubnetworks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -34299,7 +34299,7 @@ func (g *GCEAlphaSubnetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // List all Usable Subnetwork objects.
-func (g *GCEAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*alpha.UsableSubnetwork, error) {
+func (g *GCEAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*computealpha.UsableSubnetwork, error) {
 	klog.V(5).Infof("GCEAlphaSubnetworks.ListUsable(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "Subnetworks")
 	ck := &CallContextKey{
@@ -34318,8 +34318,8 @@ func (g *GCEAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*
 	if fl != filter.None {
 		call.Filter(fl.String())
 	}
-	var all []*alpha.UsableSubnetwork
-	f := func(l *alpha.UsableSubnetworksAggregatedList) error {
+	var all []*computealpha.UsableSubnetwork
+	f := func(l *computealpha.UsableSubnetworksAggregatedList) error {
 		klog.V(5).Infof("GCEAlphaSubnetworks.ListUsable(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -34346,7 +34346,7 @@ func (g *GCEAlphaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Patch is a method on GCEAlphaSubnetworks.
-func (g *GCEAlphaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *alpha.Subnetwork) error {
+func (g *GCEAlphaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *computealpha.Subnetwork) error {
 	klog.V(5).Infof("GCEAlphaSubnetworks.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -34389,12 +34389,12 @@ func (g *GCEAlphaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *al
 
 // BetaSubnetworks is an interface that allows for mocking of Subnetworks.
 type BetaSubnetworks interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.Subnetwork, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.Subnetwork, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.Subnetwork) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.Subnetwork, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Subnetwork, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.Subnetwork) error
 	Delete(ctx context.Context, key *meta.Key) error
-	ListUsable(ctx context.Context, fl *filter.F) ([]*beta.UsableSubnetwork, error)
-	Patch(context.Context, *meta.Key, *beta.Subnetwork) error
+	ListUsable(ctx context.Context, fl *filter.F) ([]*computebeta.UsableSubnetwork, error)
+	Patch(context.Context, *meta.Key, *computebeta.Subnetwork) error
 }
 
 // NewMockBetaSubnetworks returns a new mock for Subnetworks.
@@ -34431,12 +34431,12 @@ type MockBetaSubnetworks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook        func(ctx context.Context, key *meta.Key, m *MockBetaSubnetworks) (bool, *beta.Subnetwork, error)
-	ListHook       func(ctx context.Context, region string, fl *filter.F, m *MockBetaSubnetworks) (bool, []*beta.Subnetwork, error)
-	InsertHook     func(ctx context.Context, key *meta.Key, obj *beta.Subnetwork, m *MockBetaSubnetworks) (bool, error)
+	GetHook        func(ctx context.Context, key *meta.Key, m *MockBetaSubnetworks) (bool, *computebeta.Subnetwork, error)
+	ListHook       func(ctx context.Context, region string, fl *filter.F, m *MockBetaSubnetworks) (bool, []*computebeta.Subnetwork, error)
+	InsertHook     func(ctx context.Context, key *meta.Key, obj *computebeta.Subnetwork, m *MockBetaSubnetworks) (bool, error)
 	DeleteHook     func(ctx context.Context, key *meta.Key, m *MockBetaSubnetworks) (bool, error)
-	ListUsableHook func(ctx context.Context, fl *filter.F, m *MockBetaSubnetworks) (bool, []*beta.UsableSubnetwork, error)
-	PatchHook      func(context.Context, *meta.Key, *beta.Subnetwork, *MockBetaSubnetworks) error
+	ListUsableHook func(ctx context.Context, fl *filter.F, m *MockBetaSubnetworks) (bool, []*computebeta.UsableSubnetwork, error)
+	PatchHook      func(context.Context, *meta.Key, *computebeta.Subnetwork, *MockBetaSubnetworks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -34444,7 +34444,7 @@ type MockBetaSubnetworks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaSubnetworks) Get(ctx context.Context, key *meta.Key) (*beta.Subnetwork, error) {
+func (m *MockBetaSubnetworks) Get(ctx context.Context, key *meta.Key) (*computebeta.Subnetwork, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaSubnetworks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -34477,7 +34477,7 @@ func (m *MockBetaSubnetworks) Get(ctx context.Context, key *meta.Key) (*beta.Sub
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*beta.Subnetwork, error) {
+func (m *MockBetaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Subnetwork, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaSubnetworks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -34495,7 +34495,7 @@ func (m *MockBetaSubnetworks) List(ctx context.Context, region string, fl *filte
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.Subnetwork
+	var objs []*computebeta.Subnetwork
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -34511,7 +34511,7 @@ func (m *MockBetaSubnetworks) List(ctx context.Context, region string, fl *filte
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *beta.Subnetwork) error {
+func (m *MockBetaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Subnetwork) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaSubnetworks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -34581,7 +34581,7 @@ func (m *MockBetaSubnetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*beta.UsableSubnetwork, error) {
+func (m *MockBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*computebeta.UsableSubnetwork, error) {
 	if m.ListUsableHook != nil {
 		if intercept, objs, err := m.ListUsableHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaSubnetworks.ListUsable(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -34598,17 +34598,17 @@ func (m *MockBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.UsableSubnetwork
+	var objs []*computebeta.UsableSubnetwork
 
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
 		}
 		betaObj := obj.ToBeta()
-		dest := &beta.UsableSubnetwork{}
+		dest := &computebeta.UsableSubnetwork{}
 		// Convert to Usable type to avoid separate Usable struct
 		if err := copyViaJSON(dest, betaObj); err != nil {
-			klog.Errorf("Could not convert %T to *beta.UsableSubnetwork via JSON: %v", betaObj, err)
+			klog.Errorf("Could not convert %T to *computebeta.UsableSubnetwork via JSON: %v", betaObj, err)
 		}
 		objs = append(objs, dest)
 	}
@@ -34617,12 +34617,12 @@ func (m *MockBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaSubnetworks) Obj(o *beta.Subnetwork) *MockSubnetworksObj {
+func (m *MockBetaSubnetworks) Obj(o *computebeta.Subnetwork) *MockSubnetworksObj {
 	return &MockSubnetworksObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockBetaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Subnetwork) error {
+func (m *MockBetaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Subnetwork) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -34635,7 +34635,7 @@ type GCEBetaSubnetworks struct {
 }
 
 // Get the Subnetwork named by key.
-func (g *GCEBetaSubnetworks) Get(ctx context.Context, key *meta.Key) (*beta.Subnetwork, error) {
+func (g *GCEBetaSubnetworks) Get(ctx context.Context, key *meta.Key) (*computebeta.Subnetwork, error) {
 	klog.V(5).Infof("GCEBetaSubnetworks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -34668,7 +34668,7 @@ func (g *GCEBetaSubnetworks) Get(ctx context.Context, key *meta.Key) (*beta.Subn
 }
 
 // List all Subnetwork objects.
-func (g *GCEBetaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*beta.Subnetwork, error) {
+func (g *GCEBetaSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.Subnetwork, error) {
 	klog.V(5).Infof("GCEBetaSubnetworks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Subnetworks")
 	ck := &CallContextKey{
@@ -34688,8 +34688,8 @@ func (g *GCEBetaSubnetworks) List(ctx context.Context, region string, fl *filter
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.Subnetwork
-	f := func(l *beta.SubnetworkList) error {
+	var all []*computebeta.Subnetwork
+	f := func(l *computebeta.SubnetworkList) error {
 		klog.V(5).Infof("GCEBetaSubnetworks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -34719,7 +34719,7 @@ func (g *GCEBetaSubnetworks) List(ctx context.Context, region string, fl *filter
 }
 
 // Insert Subnetwork with key of value obj.
-func (g *GCEBetaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *beta.Subnetwork) error {
+func (g *GCEBetaSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *computebeta.Subnetwork) error {
 	klog.V(5).Infof("GCEBetaSubnetworks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaSubnetworks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -34798,7 +34798,7 @@ func (g *GCEBetaSubnetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // List all Usable Subnetwork objects.
-func (g *GCEBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*beta.UsableSubnetwork, error) {
+func (g *GCEBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*computebeta.UsableSubnetwork, error) {
 	klog.V(5).Infof("GCEBetaSubnetworks.ListUsable(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "Subnetworks")
 	ck := &CallContextKey{
@@ -34817,8 +34817,8 @@ func (g *GCEBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*b
 	if fl != filter.None {
 		call.Filter(fl.String())
 	}
-	var all []*beta.UsableSubnetwork
-	f := func(l *beta.UsableSubnetworksAggregatedList) error {
+	var all []*computebeta.UsableSubnetwork
+	f := func(l *computebeta.UsableSubnetworksAggregatedList) error {
 		klog.V(5).Infof("GCEBetaSubnetworks.ListUsable(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -34845,7 +34845,7 @@ func (g *GCEBetaSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*b
 }
 
 // Patch is a method on GCEBetaSubnetworks.
-func (g *GCEBetaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *beta.Subnetwork) error {
+func (g *GCEBetaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *computebeta.Subnetwork) error {
 	klog.V(5).Infof("GCEBetaSubnetworks.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -34888,12 +34888,12 @@ func (g *GCEBetaSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *bet
 
 // Subnetworks is an interface that allows for mocking of Subnetworks.
 type Subnetworks interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Subnetwork, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.Subnetwork, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.Subnetwork) error
+	Get(ctx context.Context, key *meta.Key) (*computega.Subnetwork, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.Subnetwork, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.Subnetwork) error
 	Delete(ctx context.Context, key *meta.Key) error
-	ListUsable(ctx context.Context, fl *filter.F) ([]*ga.UsableSubnetwork, error)
-	Patch(context.Context, *meta.Key, *ga.Subnetwork) error
+	ListUsable(ctx context.Context, fl *filter.F) ([]*computega.UsableSubnetwork, error)
+	Patch(context.Context, *meta.Key, *computega.Subnetwork) error
 }
 
 // NewMockSubnetworks returns a new mock for Subnetworks.
@@ -34930,12 +34930,12 @@ type MockSubnetworks struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook        func(ctx context.Context, key *meta.Key, m *MockSubnetworks) (bool, *ga.Subnetwork, error)
-	ListHook       func(ctx context.Context, region string, fl *filter.F, m *MockSubnetworks) (bool, []*ga.Subnetwork, error)
-	InsertHook     func(ctx context.Context, key *meta.Key, obj *ga.Subnetwork, m *MockSubnetworks) (bool, error)
+	GetHook        func(ctx context.Context, key *meta.Key, m *MockSubnetworks) (bool, *computega.Subnetwork, error)
+	ListHook       func(ctx context.Context, region string, fl *filter.F, m *MockSubnetworks) (bool, []*computega.Subnetwork, error)
+	InsertHook     func(ctx context.Context, key *meta.Key, obj *computega.Subnetwork, m *MockSubnetworks) (bool, error)
 	DeleteHook     func(ctx context.Context, key *meta.Key, m *MockSubnetworks) (bool, error)
-	ListUsableHook func(ctx context.Context, fl *filter.F, m *MockSubnetworks) (bool, []*ga.UsableSubnetwork, error)
-	PatchHook      func(context.Context, *meta.Key, *ga.Subnetwork, *MockSubnetworks) error
+	ListUsableHook func(ctx context.Context, fl *filter.F, m *MockSubnetworks) (bool, []*computega.UsableSubnetwork, error)
+	PatchHook      func(context.Context, *meta.Key, *computega.Subnetwork, *MockSubnetworks) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -34943,7 +34943,7 @@ type MockSubnetworks struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockSubnetworks) Get(ctx context.Context, key *meta.Key) (*ga.Subnetwork, error) {
+func (m *MockSubnetworks) Get(ctx context.Context, key *meta.Key) (*computega.Subnetwork, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockSubnetworks.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -34976,7 +34976,7 @@ func (m *MockSubnetworks) Get(ctx context.Context, key *meta.Key) (*ga.Subnetwor
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Subnetwork, error) {
+func (m *MockSubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Subnetwork, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockSubnetworks.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -34994,7 +34994,7 @@ func (m *MockSubnetworks) List(ctx context.Context, region string, fl *filter.F)
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Subnetwork
+	var objs []*computega.Subnetwork
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -35010,7 +35010,7 @@ func (m *MockSubnetworks) List(ctx context.Context, region string, fl *filter.F)
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *ga.Subnetwork) error {
+func (m *MockSubnetworks) Insert(ctx context.Context, key *meta.Key, obj *computega.Subnetwork) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockSubnetworks.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -35080,7 +35080,7 @@ func (m *MockSubnetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // List all of the objects in the mock.
-func (m *MockSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*ga.UsableSubnetwork, error) {
+func (m *MockSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*computega.UsableSubnetwork, error) {
 	if m.ListUsableHook != nil {
 		if intercept, objs, err := m.ListUsableHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockSubnetworks.ListUsable(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -35097,17 +35097,17 @@ func (m *MockSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*ga.U
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.UsableSubnetwork
+	var objs []*computega.UsableSubnetwork
 
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
 		}
 		gaObj := obj.ToGA()
-		dest := &ga.UsableSubnetwork{}
+		dest := &computega.UsableSubnetwork{}
 		// Convert to Usable type to avoid separate Usable struct
 		if err := copyViaJSON(dest, gaObj); err != nil {
-			klog.Errorf("Could not convert %T to *ga.UsableSubnetwork via JSON: %v", gaObj, err)
+			klog.Errorf("Could not convert %T to *computega.UsableSubnetwork via JSON: %v", gaObj, err)
 		}
 		objs = append(objs, dest)
 	}
@@ -35116,12 +35116,12 @@ func (m *MockSubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*ga.U
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockSubnetworks) Obj(o *ga.Subnetwork) *MockSubnetworksObj {
+func (m *MockSubnetworks) Obj(o *computega.Subnetwork) *MockSubnetworksObj {
 	return &MockSubnetworksObj{o}
 }
 
 // Patch is a mock for the corresponding method.
-func (m *MockSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Subnetwork) error {
+func (m *MockSubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Subnetwork) error {
 	if m.PatchHook != nil {
 		return m.PatchHook(ctx, key, arg0, m)
 	}
@@ -35134,7 +35134,7 @@ type GCESubnetworks struct {
 }
 
 // Get the Subnetwork named by key.
-func (g *GCESubnetworks) Get(ctx context.Context, key *meta.Key) (*ga.Subnetwork, error) {
+func (g *GCESubnetworks) Get(ctx context.Context, key *meta.Key) (*computega.Subnetwork, error) {
 	klog.V(5).Infof("GCESubnetworks.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -35167,7 +35167,7 @@ func (g *GCESubnetworks) Get(ctx context.Context, key *meta.Key) (*ga.Subnetwork
 }
 
 // List all Subnetwork objects.
-func (g *GCESubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*ga.Subnetwork, error) {
+func (g *GCESubnetworks) List(ctx context.Context, region string, fl *filter.F) ([]*computega.Subnetwork, error) {
 	klog.V(5).Infof("GCESubnetworks.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Subnetworks")
 	ck := &CallContextKey{
@@ -35187,8 +35187,8 @@ func (g *GCESubnetworks) List(ctx context.Context, region string, fl *filter.F) 
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Subnetwork
-	f := func(l *ga.SubnetworkList) error {
+	var all []*computega.Subnetwork
+	f := func(l *computega.SubnetworkList) error {
 		klog.V(5).Infof("GCESubnetworks.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -35218,7 +35218,7 @@ func (g *GCESubnetworks) List(ctx context.Context, region string, fl *filter.F) 
 }
 
 // Insert Subnetwork with key of value obj.
-func (g *GCESubnetworks) Insert(ctx context.Context, key *meta.Key, obj *ga.Subnetwork) error {
+func (g *GCESubnetworks) Insert(ctx context.Context, key *meta.Key, obj *computega.Subnetwork) error {
 	klog.V(5).Infof("GCESubnetworks.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCESubnetworks.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -35297,7 +35297,7 @@ func (g *GCESubnetworks) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // List all Usable Subnetwork objects.
-func (g *GCESubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*ga.UsableSubnetwork, error) {
+func (g *GCESubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*computega.UsableSubnetwork, error) {
 	klog.V(5).Infof("GCESubnetworks.ListUsable(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Subnetworks")
 	ck := &CallContextKey{
@@ -35316,8 +35316,8 @@ func (g *GCESubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*ga.Us
 	if fl != filter.None {
 		call.Filter(fl.String())
 	}
-	var all []*ga.UsableSubnetwork
-	f := func(l *ga.UsableSubnetworksAggregatedList) error {
+	var all []*computega.UsableSubnetwork
+	f := func(l *computega.UsableSubnetworksAggregatedList) error {
 		klog.V(5).Infof("GCESubnetworks.ListUsable(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -35344,7 +35344,7 @@ func (g *GCESubnetworks) ListUsable(ctx context.Context, fl *filter.F) ([]*ga.Us
 }
 
 // Patch is a method on GCESubnetworks.
-func (g *GCESubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Subnetwork) error {
+func (g *GCESubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *computega.Subnetwork) error {
 	klog.V(5).Infof("GCESubnetworks.Patch(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -35387,11 +35387,11 @@ func (g *GCESubnetworks) Patch(ctx context.Context, key *meta.Key, arg0 *ga.Subn
 
 // AlphaTargetHttpProxies is an interface that allows for mocking of TargetHttpProxies.
 type AlphaTargetHttpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.TargetHttpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetHttpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetUrlMap(context.Context, *meta.Key, *alpha.UrlMapReference) error
+	SetUrlMap(context.Context, *meta.Key, *computealpha.UrlMapReference) error
 }
 
 // NewMockAlphaTargetHttpProxies returns a new mock for TargetHttpProxies.
@@ -35427,11 +35427,11 @@ type MockAlphaTargetHttpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaTargetHttpProxies) (bool, *alpha.TargetHttpProxy, error)
-	ListHook      func(ctx context.Context, fl *filter.F, m *MockAlphaTargetHttpProxies) (bool, []*alpha.TargetHttpProxy, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy, m *MockAlphaTargetHttpProxies) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaTargetHttpProxies) (bool, *computealpha.TargetHttpProxy, error)
+	ListHook      func(ctx context.Context, fl *filter.F, m *MockAlphaTargetHttpProxies) (bool, []*computealpha.TargetHttpProxy, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy, m *MockAlphaTargetHttpProxies) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockAlphaTargetHttpProxies) (bool, error)
-	SetUrlMapHook func(context.Context, *meta.Key, *alpha.UrlMapReference, *MockAlphaTargetHttpProxies) error
+	SetUrlMapHook func(context.Context, *meta.Key, *computealpha.UrlMapReference, *MockAlphaTargetHttpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -35439,7 +35439,7 @@ type MockAlphaTargetHttpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpProxy, error) {
+func (m *MockAlphaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetHttpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -35472,7 +35472,7 @@ func (m *MockAlphaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*a
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*alpha.TargetHttpProxy, error) {
+func (m *MockAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetHttpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetHttpProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -35490,7 +35490,7 @@ func (m *MockAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.TargetHttpProxy
+	var objs []*computealpha.TargetHttpProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -35503,7 +35503,7 @@ func (m *MockAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy) error {
+func (m *MockAlphaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetHttpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -35573,12 +35573,12 @@ func (m *MockAlphaTargetHttpProxies) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaTargetHttpProxies) Obj(o *alpha.TargetHttpProxy) *MockTargetHttpProxiesObj {
+func (m *MockAlphaTargetHttpProxies) Obj(o *computealpha.TargetHttpProxy) *MockTargetHttpProxiesObj {
 	return &MockTargetHttpProxiesObj{o}
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockAlphaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (m *MockAlphaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -35591,7 +35591,7 @@ type GCEAlphaTargetHttpProxies struct {
 }
 
 // Get the TargetHttpProxy named by key.
-func (g *GCEAlphaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpProxy, error) {
+func (g *GCEAlphaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEAlphaTargetHttpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -35624,7 +35624,7 @@ func (g *GCEAlphaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*al
 }
 
 // List all TargetHttpProxy objects.
-func (g *GCEAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*alpha.TargetHttpProxy, error) {
+func (g *GCEAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEAlphaTargetHttpProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "TargetHttpProxies")
 	ck := &CallContextKey{
@@ -35644,8 +35644,8 @@ func (g *GCEAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.TargetHttpProxy
-	f := func(l *alpha.TargetHttpProxyList) error {
+	var all []*computealpha.TargetHttpProxy
+	f := func(l *computealpha.TargetHttpProxyList) error {
 		klog.V(5).Infof("GCEAlphaTargetHttpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -35675,7 +35675,7 @@ func (g *GCEAlphaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Insert TargetHttpProxy with key of value obj.
-func (g *GCEAlphaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy) error {
+func (g *GCEAlphaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaTargetHttpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -35754,7 +35754,7 @@ func (g *GCEAlphaTargetHttpProxies) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // SetUrlMap is a method on GCEAlphaTargetHttpProxies.
-func (g *GCEAlphaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (g *GCEAlphaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -35797,11 +35797,11 @@ func (g *GCEAlphaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key
 
 // BetaTargetHttpProxies is an interface that allows for mocking of TargetHttpProxies.
 type BetaTargetHttpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.TargetHttpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetHttpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetUrlMap(context.Context, *meta.Key, *beta.UrlMapReference) error
+	SetUrlMap(context.Context, *meta.Key, *computebeta.UrlMapReference) error
 }
 
 // NewMockBetaTargetHttpProxies returns a new mock for TargetHttpProxies.
@@ -35837,11 +35837,11 @@ type MockBetaTargetHttpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaTargetHttpProxies) (bool, *beta.TargetHttpProxy, error)
-	ListHook      func(ctx context.Context, fl *filter.F, m *MockBetaTargetHttpProxies) (bool, []*beta.TargetHttpProxy, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy, m *MockBetaTargetHttpProxies) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaTargetHttpProxies) (bool, *computebeta.TargetHttpProxy, error)
+	ListHook      func(ctx context.Context, fl *filter.F, m *MockBetaTargetHttpProxies) (bool, []*computebeta.TargetHttpProxy, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy, m *MockBetaTargetHttpProxies) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockBetaTargetHttpProxies) (bool, error)
-	SetUrlMapHook func(context.Context, *meta.Key, *beta.UrlMapReference, *MockBetaTargetHttpProxies) error
+	SetUrlMapHook func(context.Context, *meta.Key, *computebeta.UrlMapReference, *MockBetaTargetHttpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -35849,7 +35849,7 @@ type MockBetaTargetHttpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpProxy, error) {
+func (m *MockBetaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaTargetHttpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -35882,7 +35882,7 @@ func (m *MockBetaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*be
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*beta.TargetHttpProxy, error) {
+func (m *MockBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetHttpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaTargetHttpProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -35900,7 +35900,7 @@ func (m *MockBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.TargetHttpProxy
+	var objs []*computebeta.TargetHttpProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -35913,7 +35913,7 @@ func (m *MockBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy) error {
+func (m *MockBetaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaTargetHttpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -35983,12 +35983,12 @@ func (m *MockBetaTargetHttpProxies) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaTargetHttpProxies) Obj(o *beta.TargetHttpProxy) *MockTargetHttpProxiesObj {
+func (m *MockBetaTargetHttpProxies) Obj(o *computebeta.TargetHttpProxy) *MockTargetHttpProxiesObj {
 	return &MockTargetHttpProxiesObj{o}
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockBetaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (m *MockBetaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -36001,7 +36001,7 @@ type GCEBetaTargetHttpProxies struct {
 }
 
 // Get the TargetHttpProxy named by key.
-func (g *GCEBetaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpProxy, error) {
+func (g *GCEBetaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEBetaTargetHttpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -36034,7 +36034,7 @@ func (g *GCEBetaTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*bet
 }
 
 // List all TargetHttpProxy objects.
-func (g *GCEBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*beta.TargetHttpProxy, error) {
+func (g *GCEBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEBetaTargetHttpProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TargetHttpProxies")
 	ck := &CallContextKey{
@@ -36054,8 +36054,8 @@ func (g *GCEBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*b
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.TargetHttpProxy
-	f := func(l *beta.TargetHttpProxyList) error {
+	var all []*computebeta.TargetHttpProxy
+	f := func(l *computebeta.TargetHttpProxyList) error {
 		klog.V(5).Infof("GCEBetaTargetHttpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -36085,7 +36085,7 @@ func (g *GCEBetaTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*b
 }
 
 // Insert TargetHttpProxy with key of value obj.
-func (g *GCEBetaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy) error {
+func (g *GCEBetaTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy) error {
 	klog.V(5).Infof("GCEBetaTargetHttpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaTargetHttpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -36164,7 +36164,7 @@ func (g *GCEBetaTargetHttpProxies) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // SetUrlMap is a method on GCEBetaTargetHttpProxies.
-func (g *GCEBetaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (g *GCEBetaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	klog.V(5).Infof("GCEBetaTargetHttpProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -36207,11 +36207,11 @@ func (g *GCEBetaTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key,
 
 // TargetHttpProxies is an interface that allows for mocking of TargetHttpProxies.
 type TargetHttpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.TargetHttpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.TargetHttpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetUrlMap(context.Context, *meta.Key, *ga.UrlMapReference) error
+	SetUrlMap(context.Context, *meta.Key, *computega.UrlMapReference) error
 }
 
 // NewMockTargetHttpProxies returns a new mock for TargetHttpProxies.
@@ -36247,11 +36247,11 @@ type MockTargetHttpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockTargetHttpProxies) (bool, *ga.TargetHttpProxy, error)
-	ListHook      func(ctx context.Context, fl *filter.F, m *MockTargetHttpProxies) (bool, []*ga.TargetHttpProxy, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy, m *MockTargetHttpProxies) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockTargetHttpProxies) (bool, *computega.TargetHttpProxy, error)
+	ListHook      func(ctx context.Context, fl *filter.F, m *MockTargetHttpProxies) (bool, []*computega.TargetHttpProxy, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy, m *MockTargetHttpProxies) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockTargetHttpProxies) (bool, error)
-	SetUrlMapHook func(context.Context, *meta.Key, *ga.UrlMapReference, *MockTargetHttpProxies) error
+	SetUrlMapHook func(context.Context, *meta.Key, *computega.UrlMapReference, *MockTargetHttpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -36259,7 +36259,7 @@ type MockTargetHttpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpProxy, error) {
+func (m *MockTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockTargetHttpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -36292,7 +36292,7 @@ func (m *MockTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*ga.Tar
 }
 
 // List all of the objects in the mock.
-func (m *MockTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.TargetHttpProxy, error) {
+func (m *MockTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*computega.TargetHttpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockTargetHttpProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -36310,7 +36310,7 @@ func (m *MockTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.T
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.TargetHttpProxy
+	var objs []*computega.TargetHttpProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -36323,7 +36323,7 @@ func (m *MockTargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.T
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy) error {
+func (m *MockTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockTargetHttpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -36393,12 +36393,12 @@ func (m *MockTargetHttpProxies) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockTargetHttpProxies) Obj(o *ga.TargetHttpProxy) *MockTargetHttpProxiesObj {
+func (m *MockTargetHttpProxies) Obj(o *computega.TargetHttpProxy) *MockTargetHttpProxiesObj {
 	return &MockTargetHttpProxiesObj{o}
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (m *MockTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -36411,7 +36411,7 @@ type GCETargetHttpProxies struct {
 }
 
 // Get the TargetHttpProxy named by key.
-func (g *GCETargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpProxy, error) {
+func (g *GCETargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCETargetHttpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -36444,7 +36444,7 @@ func (g *GCETargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*ga.Targ
 }
 
 // List all TargetHttpProxy objects.
-func (g *GCETargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.TargetHttpProxy, error) {
+func (g *GCETargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*computega.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCETargetHttpProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TargetHttpProxies")
 	ck := &CallContextKey{
@@ -36464,8 +36464,8 @@ func (g *GCETargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.Ta
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.TargetHttpProxy
-	f := func(l *ga.TargetHttpProxyList) error {
+	var all []*computega.TargetHttpProxy
+	f := func(l *computega.TargetHttpProxyList) error {
 		klog.V(5).Infof("GCETargetHttpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -36495,7 +36495,7 @@ func (g *GCETargetHttpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.Ta
 }
 
 // Insert TargetHttpProxy with key of value obj.
-func (g *GCETargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy) error {
+func (g *GCETargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy) error {
 	klog.V(5).Infof("GCETargetHttpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCETargetHttpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -36574,7 +36574,7 @@ func (g *GCETargetHttpProxies) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // SetUrlMap is a method on GCETargetHttpProxies.
-func (g *GCETargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (g *GCETargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	klog.V(5).Infof("GCETargetHttpProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -36617,11 +36617,11 @@ func (g *GCETargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg
 
 // AlphaRegionTargetHttpProxies is an interface that allows for mocking of RegionTargetHttpProxies.
 type AlphaRegionTargetHttpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpProxy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.TargetHttpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpProxy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.TargetHttpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetUrlMap(context.Context, *meta.Key, *alpha.UrlMapReference) error
+	SetUrlMap(context.Context, *meta.Key, *computealpha.UrlMapReference) error
 }
 
 // NewMockAlphaRegionTargetHttpProxies returns a new mock for RegionTargetHttpProxies.
@@ -36657,11 +36657,11 @@ type MockAlphaRegionTargetHttpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaRegionTargetHttpProxies) (bool, *alpha.TargetHttpProxy, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionTargetHttpProxies) (bool, []*alpha.TargetHttpProxy, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy, m *MockAlphaRegionTargetHttpProxies) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockAlphaRegionTargetHttpProxies) (bool, *computealpha.TargetHttpProxy, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionTargetHttpProxies) (bool, []*computealpha.TargetHttpProxy, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy, m *MockAlphaRegionTargetHttpProxies) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionTargetHttpProxies) (bool, error)
-	SetUrlMapHook func(context.Context, *meta.Key, *alpha.UrlMapReference, *MockAlphaRegionTargetHttpProxies) error
+	SetUrlMapHook func(context.Context, *meta.Key, *computealpha.UrlMapReference, *MockAlphaRegionTargetHttpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -36669,7 +36669,7 @@ type MockAlphaRegionTargetHttpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpProxy, error) {
+func (m *MockAlphaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionTargetHttpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -36702,7 +36702,7 @@ func (m *MockAlphaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Ke
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.TargetHttpProxy, error) {
+func (m *MockAlphaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.TargetHttpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionTargetHttpProxies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -36720,7 +36720,7 @@ func (m *MockAlphaRegionTargetHttpProxies) List(ctx context.Context, region stri
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.TargetHttpProxy
+	var objs []*computealpha.TargetHttpProxy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -36736,7 +36736,7 @@ func (m *MockAlphaRegionTargetHttpProxies) List(ctx context.Context, region stri
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy) error {
+func (m *MockAlphaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionTargetHttpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -36806,12 +36806,12 @@ func (m *MockAlphaRegionTargetHttpProxies) Delete(ctx context.Context, key *meta
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionTargetHttpProxies) Obj(o *alpha.TargetHttpProxy) *MockRegionTargetHttpProxiesObj {
+func (m *MockAlphaRegionTargetHttpProxies) Obj(o *computealpha.TargetHttpProxy) *MockRegionTargetHttpProxiesObj {
 	return &MockRegionTargetHttpProxiesObj{o}
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockAlphaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (m *MockAlphaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -36824,7 +36824,7 @@ type GCEAlphaRegionTargetHttpProxies struct {
 }
 
 // Get the TargetHttpProxy named by key.
-func (g *GCEAlphaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpProxy, error) {
+func (g *GCEAlphaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -36857,7 +36857,7 @@ func (g *GCEAlphaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key
 }
 
 // List all TargetHttpProxy objects.
-func (g *GCEAlphaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.TargetHttpProxy, error) {
+func (g *GCEAlphaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpProxies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionTargetHttpProxies")
 	ck := &CallContextKey{
@@ -36877,8 +36877,8 @@ func (g *GCEAlphaRegionTargetHttpProxies) List(ctx context.Context, region strin
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.TargetHttpProxy
-	f := func(l *alpha.TargetHttpProxyList) error {
+	var all []*computealpha.TargetHttpProxy
+	f := func(l *computealpha.TargetHttpProxyList) error {
 		klog.V(5).Infof("GCEAlphaRegionTargetHttpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -36908,7 +36908,7 @@ func (g *GCEAlphaRegionTargetHttpProxies) List(ctx context.Context, region strin
 }
 
 // Insert TargetHttpProxy with key of value obj.
-func (g *GCEAlphaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpProxy) error {
+func (g *GCEAlphaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpProxy) error {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionTargetHttpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -36987,7 +36987,7 @@ func (g *GCEAlphaRegionTargetHttpProxies) Delete(ctx context.Context, key *meta.
 }
 
 // SetUrlMap is a method on GCEAlphaRegionTargetHttpProxies.
-func (g *GCEAlphaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (g *GCEAlphaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -37030,11 +37030,11 @@ func (g *GCEAlphaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *me
 
 // BetaRegionTargetHttpProxies is an interface that allows for mocking of RegionTargetHttpProxies.
 type BetaRegionTargetHttpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpProxy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.TargetHttpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpProxy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.TargetHttpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetUrlMap(context.Context, *meta.Key, *beta.UrlMapReference) error
+	SetUrlMap(context.Context, *meta.Key, *computebeta.UrlMapReference) error
 }
 
 // NewMockBetaRegionTargetHttpProxies returns a new mock for RegionTargetHttpProxies.
@@ -37070,11 +37070,11 @@ type MockBetaRegionTargetHttpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaRegionTargetHttpProxies) (bool, *beta.TargetHttpProxy, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionTargetHttpProxies) (bool, []*beta.TargetHttpProxy, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy, m *MockBetaRegionTargetHttpProxies) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockBetaRegionTargetHttpProxies) (bool, *computebeta.TargetHttpProxy, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionTargetHttpProxies) (bool, []*computebeta.TargetHttpProxy, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy, m *MockBetaRegionTargetHttpProxies) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionTargetHttpProxies) (bool, error)
-	SetUrlMapHook func(context.Context, *meta.Key, *beta.UrlMapReference, *MockBetaRegionTargetHttpProxies) error
+	SetUrlMapHook func(context.Context, *meta.Key, *computebeta.UrlMapReference, *MockBetaRegionTargetHttpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -37082,7 +37082,7 @@ type MockBetaRegionTargetHttpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpProxy, error) {
+func (m *MockBetaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRegionTargetHttpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -37115,7 +37115,7 @@ func (m *MockBetaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*beta.TargetHttpProxy, error) {
+func (m *MockBetaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.TargetHttpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRegionTargetHttpProxies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -37133,7 +37133,7 @@ func (m *MockBetaRegionTargetHttpProxies) List(ctx context.Context, region strin
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.TargetHttpProxy
+	var objs []*computebeta.TargetHttpProxy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -37149,7 +37149,7 @@ func (m *MockBetaRegionTargetHttpProxies) List(ctx context.Context, region strin
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy) error {
+func (m *MockBetaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRegionTargetHttpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -37219,12 +37219,12 @@ func (m *MockBetaRegionTargetHttpProxies) Delete(ctx context.Context, key *meta.
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRegionTargetHttpProxies) Obj(o *beta.TargetHttpProxy) *MockRegionTargetHttpProxiesObj {
+func (m *MockBetaRegionTargetHttpProxies) Obj(o *computebeta.TargetHttpProxy) *MockRegionTargetHttpProxiesObj {
 	return &MockRegionTargetHttpProxiesObj{o}
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockBetaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (m *MockBetaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -37237,7 +37237,7 @@ type GCEBetaRegionTargetHttpProxies struct {
 }
 
 // Get the TargetHttpProxy named by key.
-func (g *GCEBetaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpProxy, error) {
+func (g *GCEBetaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -37270,7 +37270,7 @@ func (g *GCEBetaRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key)
 }
 
 // List all TargetHttpProxy objects.
-func (g *GCEBetaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*beta.TargetHttpProxy, error) {
+func (g *GCEBetaRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpProxies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "RegionTargetHttpProxies")
 	ck := &CallContextKey{
@@ -37290,8 +37290,8 @@ func (g *GCEBetaRegionTargetHttpProxies) List(ctx context.Context, region string
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.TargetHttpProxy
-	f := func(l *beta.TargetHttpProxyList) error {
+	var all []*computebeta.TargetHttpProxy
+	f := func(l *computebeta.TargetHttpProxyList) error {
 		klog.V(5).Infof("GCEBetaRegionTargetHttpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -37321,7 +37321,7 @@ func (g *GCEBetaRegionTargetHttpProxies) List(ctx context.Context, region string
 }
 
 // Insert TargetHttpProxy with key of value obj.
-func (g *GCEBetaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpProxy) error {
+func (g *GCEBetaRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpProxy) error {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRegionTargetHttpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -37400,7 +37400,7 @@ func (g *GCEBetaRegionTargetHttpProxies) Delete(ctx context.Context, key *meta.K
 }
 
 // SetUrlMap is a method on GCEBetaRegionTargetHttpProxies.
-func (g *GCEBetaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (g *GCEBetaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -37443,11 +37443,11 @@ func (g *GCEBetaRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *met
 
 // RegionTargetHttpProxies is an interface that allows for mocking of RegionTargetHttpProxies.
 type RegionTargetHttpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpProxy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetHttpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpProxy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetHttpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetUrlMap(context.Context, *meta.Key, *ga.UrlMapReference) error
+	SetUrlMap(context.Context, *meta.Key, *computega.UrlMapReference) error
 }
 
 // NewMockRegionTargetHttpProxies returns a new mock for RegionTargetHttpProxies.
@@ -37483,11 +37483,11 @@ type MockRegionTargetHttpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook       func(ctx context.Context, key *meta.Key, m *MockRegionTargetHttpProxies) (bool, *ga.TargetHttpProxy, error)
-	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockRegionTargetHttpProxies) (bool, []*ga.TargetHttpProxy, error)
-	InsertHook    func(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy, m *MockRegionTargetHttpProxies) (bool, error)
+	GetHook       func(ctx context.Context, key *meta.Key, m *MockRegionTargetHttpProxies) (bool, *computega.TargetHttpProxy, error)
+	ListHook      func(ctx context.Context, region string, fl *filter.F, m *MockRegionTargetHttpProxies) (bool, []*computega.TargetHttpProxy, error)
+	InsertHook    func(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy, m *MockRegionTargetHttpProxies) (bool, error)
 	DeleteHook    func(ctx context.Context, key *meta.Key, m *MockRegionTargetHttpProxies) (bool, error)
-	SetUrlMapHook func(context.Context, *meta.Key, *ga.UrlMapReference, *MockRegionTargetHttpProxies) error
+	SetUrlMapHook func(context.Context, *meta.Key, *computega.UrlMapReference, *MockRegionTargetHttpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -37495,7 +37495,7 @@ type MockRegionTargetHttpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpProxy, error) {
+func (m *MockRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionTargetHttpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -37528,7 +37528,7 @@ func (m *MockRegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetHttpProxy, error) {
+func (m *MockRegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetHttpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionTargetHttpProxies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -37546,7 +37546,7 @@ func (m *MockRegionTargetHttpProxies) List(ctx context.Context, region string, f
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.TargetHttpProxy
+	var objs []*computega.TargetHttpProxy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -37562,7 +37562,7 @@ func (m *MockRegionTargetHttpProxies) List(ctx context.Context, region string, f
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy) error {
+func (m *MockRegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionTargetHttpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -37632,12 +37632,12 @@ func (m *MockRegionTargetHttpProxies) Delete(ctx context.Context, key *meta.Key)
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionTargetHttpProxies) Obj(o *ga.TargetHttpProxy) *MockRegionTargetHttpProxiesObj {
+func (m *MockRegionTargetHttpProxies) Obj(o *computega.TargetHttpProxy) *MockRegionTargetHttpProxiesObj {
 	return &MockRegionTargetHttpProxiesObj{o}
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (m *MockRegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -37650,7 +37650,7 @@ type GCERegionTargetHttpProxies struct {
 }
 
 // Get the TargetHttpProxy named by key.
-func (g *GCERegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpProxy, error) {
+func (g *GCERegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCERegionTargetHttpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -37683,7 +37683,7 @@ func (g *GCERegionTargetHttpProxies) Get(ctx context.Context, key *meta.Key) (*g
 }
 
 // List all TargetHttpProxy objects.
-func (g *GCERegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetHttpProxy, error) {
+func (g *GCERegionTargetHttpProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetHttpProxy, error) {
 	klog.V(5).Infof("GCERegionTargetHttpProxies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionTargetHttpProxies")
 	ck := &CallContextKey{
@@ -37703,8 +37703,8 @@ func (g *GCERegionTargetHttpProxies) List(ctx context.Context, region string, fl
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.TargetHttpProxy
-	f := func(l *ga.TargetHttpProxyList) error {
+	var all []*computega.TargetHttpProxy
+	f := func(l *computega.TargetHttpProxyList) error {
 		klog.V(5).Infof("GCERegionTargetHttpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -37734,7 +37734,7 @@ func (g *GCERegionTargetHttpProxies) List(ctx context.Context, region string, fl
 }
 
 // Insert TargetHttpProxy with key of value obj.
-func (g *GCERegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpProxy) error {
+func (g *GCERegionTargetHttpProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpProxy) error {
 	klog.V(5).Infof("GCERegionTargetHttpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionTargetHttpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -37813,7 +37813,7 @@ func (g *GCERegionTargetHttpProxies) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // SetUrlMap is a method on GCERegionTargetHttpProxies.
-func (g *GCERegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (g *GCERegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	klog.V(5).Infof("GCERegionTargetHttpProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -37856,14 +37856,14 @@ func (g *GCERegionTargetHttpProxies) SetUrlMap(ctx context.Context, key *meta.Ke
 
 // TargetHttpsProxies is an interface that allows for mocking of TargetHttpsProxies.
 type TargetHttpsProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpsProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.TargetHttpsProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpsProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.TargetHttpsProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetCertificateMap(context.Context, *meta.Key, *ga.TargetHttpsProxiesSetCertificateMapRequest) error
-	SetSslCertificates(context.Context, *meta.Key, *ga.TargetHttpsProxiesSetSslCertificatesRequest) error
-	SetSslPolicy(context.Context, *meta.Key, *ga.SslPolicyReference) error
-	SetUrlMap(context.Context, *meta.Key, *ga.UrlMapReference) error
+	SetCertificateMap(context.Context, *meta.Key, *computega.TargetHttpsProxiesSetCertificateMapRequest) error
+	SetSslCertificates(context.Context, *meta.Key, *computega.TargetHttpsProxiesSetSslCertificatesRequest) error
+	SetSslPolicy(context.Context, *meta.Key, *computega.SslPolicyReference) error
+	SetUrlMap(context.Context, *meta.Key, *computega.UrlMapReference) error
 }
 
 // NewMockTargetHttpsProxies returns a new mock for TargetHttpsProxies.
@@ -37899,14 +37899,14 @@ type MockTargetHttpsProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockTargetHttpsProxies) (bool, *ga.TargetHttpsProxy, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockTargetHttpsProxies) (bool, []*ga.TargetHttpsProxy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy, m *MockTargetHttpsProxies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockTargetHttpsProxies) (bool, *computega.TargetHttpsProxy, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockTargetHttpsProxies) (bool, []*computega.TargetHttpsProxy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy, m *MockTargetHttpsProxies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockTargetHttpsProxies) (bool, error)
-	SetCertificateMapHook  func(context.Context, *meta.Key, *ga.TargetHttpsProxiesSetCertificateMapRequest, *MockTargetHttpsProxies) error
-	SetSslCertificatesHook func(context.Context, *meta.Key, *ga.TargetHttpsProxiesSetSslCertificatesRequest, *MockTargetHttpsProxies) error
-	SetSslPolicyHook       func(context.Context, *meta.Key, *ga.SslPolicyReference, *MockTargetHttpsProxies) error
-	SetUrlMapHook          func(context.Context, *meta.Key, *ga.UrlMapReference, *MockTargetHttpsProxies) error
+	SetCertificateMapHook  func(context.Context, *meta.Key, *computega.TargetHttpsProxiesSetCertificateMapRequest, *MockTargetHttpsProxies) error
+	SetSslCertificatesHook func(context.Context, *meta.Key, *computega.TargetHttpsProxiesSetSslCertificatesRequest, *MockTargetHttpsProxies) error
+	SetSslPolicyHook       func(context.Context, *meta.Key, *computega.SslPolicyReference, *MockTargetHttpsProxies) error
+	SetUrlMapHook          func(context.Context, *meta.Key, *computega.UrlMapReference, *MockTargetHttpsProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -37914,7 +37914,7 @@ type MockTargetHttpsProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpsProxy, error) {
+func (m *MockTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpsProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockTargetHttpsProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -37947,7 +37947,7 @@ func (m *MockTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*ga.Ta
 }
 
 // List all of the objects in the mock.
-func (m *MockTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*ga.TargetHttpsProxy, error) {
+func (m *MockTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*computega.TargetHttpsProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockTargetHttpsProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -37965,7 +37965,7 @@ func (m *MockTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*ga.
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.TargetHttpsProxy
+	var objs []*computega.TargetHttpsProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -37978,7 +37978,7 @@ func (m *MockTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*ga.
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy) error {
+func (m *MockTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockTargetHttpsProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -38048,12 +38048,12 @@ func (m *MockTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key) erro
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockTargetHttpsProxies) Obj(o *ga.TargetHttpsProxy) *MockTargetHttpsProxiesObj {
+func (m *MockTargetHttpsProxies) Obj(o *computega.TargetHttpsProxy) *MockTargetHttpsProxiesObj {
 	return &MockTargetHttpsProxiesObj{o}
 }
 
 // SetCertificateMap is a mock for the corresponding method.
-func (m *MockTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *ga.TargetHttpsProxiesSetCertificateMapRequest) error {
+func (m *MockTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *computega.TargetHttpsProxiesSetCertificateMapRequest) error {
 	if m.SetCertificateMapHook != nil {
 		return m.SetCertificateMapHook(ctx, key, arg0, m)
 	}
@@ -38061,7 +38061,7 @@ func (m *MockTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *met
 }
 
 // SetSslCertificates is a mock for the corresponding method.
-func (m *MockTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *ga.TargetHttpsProxiesSetSslCertificatesRequest) error {
+func (m *MockTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computega.TargetHttpsProxiesSetSslCertificatesRequest) error {
 	if m.SetSslCertificatesHook != nil {
 		return m.SetSslCertificatesHook(ctx, key, arg0, m)
 	}
@@ -38069,7 +38069,7 @@ func (m *MockTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *me
 }
 
 // SetSslPolicy is a mock for the corresponding method.
-func (m *MockTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *ga.SslPolicyReference) error {
+func (m *MockTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *computega.SslPolicyReference) error {
 	if m.SetSslPolicyHook != nil {
 		return m.SetSslPolicyHook(ctx, key, arg0, m)
 	}
@@ -38077,7 +38077,7 @@ func (m *MockTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (m *MockTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -38090,7 +38090,7 @@ type GCETargetHttpsProxies struct {
 }
 
 // Get the TargetHttpsProxy named by key.
-func (g *GCETargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpsProxy, error) {
+func (g *GCETargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCETargetHttpsProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -38123,7 +38123,7 @@ func (g *GCETargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*ga.Tar
 }
 
 // List all TargetHttpsProxy objects.
-func (g *GCETargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*ga.TargetHttpsProxy, error) {
+func (g *GCETargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*computega.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCETargetHttpsProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TargetHttpsProxies")
 	ck := &CallContextKey{
@@ -38143,8 +38143,8 @@ func (g *GCETargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*ga.T
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.TargetHttpsProxy
-	f := func(l *ga.TargetHttpsProxyList) error {
+	var all []*computega.TargetHttpsProxy
+	f := func(l *computega.TargetHttpsProxyList) error {
 		klog.V(5).Infof("GCETargetHttpsProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -38174,7 +38174,7 @@ func (g *GCETargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*ga.T
 }
 
 // Insert TargetHttpsProxy with key of value obj.
-func (g *GCETargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy) error {
+func (g *GCETargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy) error {
 	klog.V(5).Infof("GCETargetHttpsProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCETargetHttpsProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -38253,7 +38253,7 @@ func (g *GCETargetHttpsProxies) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // SetCertificateMap is a method on GCETargetHttpsProxies.
-func (g *GCETargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *ga.TargetHttpsProxiesSetCertificateMapRequest) error {
+func (g *GCETargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *computega.TargetHttpsProxiesSetCertificateMapRequest) error {
 	klog.V(5).Infof("GCETargetHttpsProxies.SetCertificateMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38295,7 +38295,7 @@ func (g *GCETargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta
 }
 
 // SetSslCertificates is a method on GCETargetHttpsProxies.
-func (g *GCETargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *ga.TargetHttpsProxiesSetSslCertificatesRequest) error {
+func (g *GCETargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computega.TargetHttpsProxiesSetSslCertificatesRequest) error {
 	klog.V(5).Infof("GCETargetHttpsProxies.SetSslCertificates(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38337,7 +38337,7 @@ func (g *GCETargetHttpsProxies) SetSslCertificates(ctx context.Context, key *met
 }
 
 // SetSslPolicy is a method on GCETargetHttpsProxies.
-func (g *GCETargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *ga.SslPolicyReference) error {
+func (g *GCETargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *computega.SslPolicyReference) error {
 	klog.V(5).Infof("GCETargetHttpsProxies.SetSslPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38379,7 +38379,7 @@ func (g *GCETargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key,
 }
 
 // SetUrlMap is a method on GCETargetHttpsProxies.
-func (g *GCETargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (g *GCETargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	klog.V(5).Infof("GCETargetHttpsProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38422,14 +38422,14 @@ func (g *GCETargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, ar
 
 // AlphaTargetHttpsProxies is an interface that allows for mocking of TargetHttpsProxies.
 type AlphaTargetHttpsProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpsProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.TargetHttpsProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpsProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetHttpsProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetCertificateMap(context.Context, *meta.Key, *alpha.TargetHttpsProxiesSetCertificateMapRequest) error
-	SetSslCertificates(context.Context, *meta.Key, *alpha.TargetHttpsProxiesSetSslCertificatesRequest) error
-	SetSslPolicy(context.Context, *meta.Key, *alpha.SslPolicyReference) error
-	SetUrlMap(context.Context, *meta.Key, *alpha.UrlMapReference) error
+	SetCertificateMap(context.Context, *meta.Key, *computealpha.TargetHttpsProxiesSetCertificateMapRequest) error
+	SetSslCertificates(context.Context, *meta.Key, *computealpha.TargetHttpsProxiesSetSslCertificatesRequest) error
+	SetSslPolicy(context.Context, *meta.Key, *computealpha.SslPolicyReference) error
+	SetUrlMap(context.Context, *meta.Key, *computealpha.UrlMapReference) error
 }
 
 // NewMockAlphaTargetHttpsProxies returns a new mock for TargetHttpsProxies.
@@ -38465,14 +38465,14 @@ type MockAlphaTargetHttpsProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaTargetHttpsProxies) (bool, *alpha.TargetHttpsProxy, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaTargetHttpsProxies) (bool, []*alpha.TargetHttpsProxy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy, m *MockAlphaTargetHttpsProxies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaTargetHttpsProxies) (bool, *computealpha.TargetHttpsProxy, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockAlphaTargetHttpsProxies) (bool, []*computealpha.TargetHttpsProxy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy, m *MockAlphaTargetHttpsProxies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaTargetHttpsProxies) (bool, error)
-	SetCertificateMapHook  func(context.Context, *meta.Key, *alpha.TargetHttpsProxiesSetCertificateMapRequest, *MockAlphaTargetHttpsProxies) error
-	SetSslCertificatesHook func(context.Context, *meta.Key, *alpha.TargetHttpsProxiesSetSslCertificatesRequest, *MockAlphaTargetHttpsProxies) error
-	SetSslPolicyHook       func(context.Context, *meta.Key, *alpha.SslPolicyReference, *MockAlphaTargetHttpsProxies) error
-	SetUrlMapHook          func(context.Context, *meta.Key, *alpha.UrlMapReference, *MockAlphaTargetHttpsProxies) error
+	SetCertificateMapHook  func(context.Context, *meta.Key, *computealpha.TargetHttpsProxiesSetCertificateMapRequest, *MockAlphaTargetHttpsProxies) error
+	SetSslCertificatesHook func(context.Context, *meta.Key, *computealpha.TargetHttpsProxiesSetSslCertificatesRequest, *MockAlphaTargetHttpsProxies) error
+	SetSslPolicyHook       func(context.Context, *meta.Key, *computealpha.SslPolicyReference, *MockAlphaTargetHttpsProxies) error
+	SetUrlMapHook          func(context.Context, *meta.Key, *computealpha.UrlMapReference, *MockAlphaTargetHttpsProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -38480,7 +38480,7 @@ type MockAlphaTargetHttpsProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpsProxy, error) {
+func (m *MockAlphaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpsProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetHttpsProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -38513,7 +38513,7 @@ func (m *MockAlphaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*alpha.TargetHttpsProxy, error) {
+func (m *MockAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetHttpsProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetHttpsProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -38531,7 +38531,7 @@ func (m *MockAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.TargetHttpsProxy
+	var objs []*computealpha.TargetHttpsProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -38544,7 +38544,7 @@ func (m *MockAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy) error {
+func (m *MockAlphaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetHttpsProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -38614,12 +38614,12 @@ func (m *MockAlphaTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key)
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaTargetHttpsProxies) Obj(o *alpha.TargetHttpsProxy) *MockTargetHttpsProxiesObj {
+func (m *MockAlphaTargetHttpsProxies) Obj(o *computealpha.TargetHttpsProxy) *MockTargetHttpsProxiesObj {
 	return &MockTargetHttpsProxiesObj{o}
 }
 
 // SetCertificateMap is a mock for the corresponding method.
-func (m *MockAlphaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *alpha.TargetHttpsProxiesSetCertificateMapRequest) error {
+func (m *MockAlphaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetHttpsProxiesSetCertificateMapRequest) error {
 	if m.SetCertificateMapHook != nil {
 		return m.SetCertificateMapHook(ctx, key, arg0, m)
 	}
@@ -38627,7 +38627,7 @@ func (m *MockAlphaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key
 }
 
 // SetSslCertificates is a mock for the corresponding method.
-func (m *MockAlphaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *alpha.TargetHttpsProxiesSetSslCertificatesRequest) error {
+func (m *MockAlphaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetHttpsProxiesSetSslCertificatesRequest) error {
 	if m.SetSslCertificatesHook != nil {
 		return m.SetSslCertificatesHook(ctx, key, arg0, m)
 	}
@@ -38635,7 +38635,7 @@ func (m *MockAlphaTargetHttpsProxies) SetSslCertificates(ctx context.Context, ke
 }
 
 // SetSslPolicy is a mock for the corresponding method.
-func (m *MockAlphaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.SslPolicyReference) error {
+func (m *MockAlphaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.SslPolicyReference) error {
 	if m.SetSslPolicyHook != nil {
 		return m.SetSslPolicyHook(ctx, key, arg0, m)
 	}
@@ -38643,7 +38643,7 @@ func (m *MockAlphaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *met
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockAlphaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (m *MockAlphaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -38656,7 +38656,7 @@ type GCEAlphaTargetHttpsProxies struct {
 }
 
 // Get the TargetHttpsProxy named by key.
-func (g *GCEAlphaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpsProxy, error) {
+func (g *GCEAlphaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -38689,7 +38689,7 @@ func (g *GCEAlphaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*a
 }
 
 // List all TargetHttpsProxy objects.
-func (g *GCEAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*alpha.TargetHttpsProxy, error) {
+func (g *GCEAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "TargetHttpsProxies")
 	ck := &CallContextKey{
@@ -38709,8 +38709,8 @@ func (g *GCEAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.TargetHttpsProxy
-	f := func(l *alpha.TargetHttpsProxyList) error {
+	var all []*computealpha.TargetHttpsProxy
+	f := func(l *computealpha.TargetHttpsProxyList) error {
 		klog.V(5).Infof("GCEAlphaTargetHttpsProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -38740,7 +38740,7 @@ func (g *GCEAlphaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]
 }
 
 // Insert TargetHttpsProxy with key of value obj.
-func (g *GCEAlphaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy) error {
+func (g *GCEAlphaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaTargetHttpsProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -38819,7 +38819,7 @@ func (g *GCEAlphaTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // SetCertificateMap is a method on GCEAlphaTargetHttpsProxies.
-func (g *GCEAlphaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *alpha.TargetHttpsProxiesSetCertificateMapRequest) error {
+func (g *GCEAlphaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetHttpsProxiesSetCertificateMapRequest) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.SetCertificateMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38861,7 +38861,7 @@ func (g *GCEAlphaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key 
 }
 
 // SetSslCertificates is a method on GCEAlphaTargetHttpsProxies.
-func (g *GCEAlphaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *alpha.TargetHttpsProxiesSetSslCertificatesRequest) error {
+func (g *GCEAlphaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetHttpsProxiesSetSslCertificatesRequest) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.SetSslCertificates(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38903,7 +38903,7 @@ func (g *GCEAlphaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key
 }
 
 // SetSslPolicy is a method on GCEAlphaTargetHttpsProxies.
-func (g *GCEAlphaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *alpha.SslPolicyReference) error {
+func (g *GCEAlphaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *computealpha.SslPolicyReference) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.SetSslPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38945,7 +38945,7 @@ func (g *GCEAlphaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta
 }
 
 // SetUrlMap is a method on GCEAlphaTargetHttpsProxies.
-func (g *GCEAlphaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (g *GCEAlphaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	klog.V(5).Infof("GCEAlphaTargetHttpsProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -38988,14 +38988,14 @@ func (g *GCEAlphaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Ke
 
 // BetaTargetHttpsProxies is an interface that allows for mocking of TargetHttpsProxies.
 type BetaTargetHttpsProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpsProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.TargetHttpsProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpsProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetHttpsProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetCertificateMap(context.Context, *meta.Key, *beta.TargetHttpsProxiesSetCertificateMapRequest) error
-	SetSslCertificates(context.Context, *meta.Key, *beta.TargetHttpsProxiesSetSslCertificatesRequest) error
-	SetSslPolicy(context.Context, *meta.Key, *beta.SslPolicyReference) error
-	SetUrlMap(context.Context, *meta.Key, *beta.UrlMapReference) error
+	SetCertificateMap(context.Context, *meta.Key, *computebeta.TargetHttpsProxiesSetCertificateMapRequest) error
+	SetSslCertificates(context.Context, *meta.Key, *computebeta.TargetHttpsProxiesSetSslCertificatesRequest) error
+	SetSslPolicy(context.Context, *meta.Key, *computebeta.SslPolicyReference) error
+	SetUrlMap(context.Context, *meta.Key, *computebeta.UrlMapReference) error
 }
 
 // NewMockBetaTargetHttpsProxies returns a new mock for TargetHttpsProxies.
@@ -39031,14 +39031,14 @@ type MockBetaTargetHttpsProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaTargetHttpsProxies) (bool, *beta.TargetHttpsProxy, error)
-	ListHook               func(ctx context.Context, fl *filter.F, m *MockBetaTargetHttpsProxies) (bool, []*beta.TargetHttpsProxy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy, m *MockBetaTargetHttpsProxies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaTargetHttpsProxies) (bool, *computebeta.TargetHttpsProxy, error)
+	ListHook               func(ctx context.Context, fl *filter.F, m *MockBetaTargetHttpsProxies) (bool, []*computebeta.TargetHttpsProxy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy, m *MockBetaTargetHttpsProxies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockBetaTargetHttpsProxies) (bool, error)
-	SetCertificateMapHook  func(context.Context, *meta.Key, *beta.TargetHttpsProxiesSetCertificateMapRequest, *MockBetaTargetHttpsProxies) error
-	SetSslCertificatesHook func(context.Context, *meta.Key, *beta.TargetHttpsProxiesSetSslCertificatesRequest, *MockBetaTargetHttpsProxies) error
-	SetSslPolicyHook       func(context.Context, *meta.Key, *beta.SslPolicyReference, *MockBetaTargetHttpsProxies) error
-	SetUrlMapHook          func(context.Context, *meta.Key, *beta.UrlMapReference, *MockBetaTargetHttpsProxies) error
+	SetCertificateMapHook  func(context.Context, *meta.Key, *computebeta.TargetHttpsProxiesSetCertificateMapRequest, *MockBetaTargetHttpsProxies) error
+	SetSslCertificatesHook func(context.Context, *meta.Key, *computebeta.TargetHttpsProxiesSetSslCertificatesRequest, *MockBetaTargetHttpsProxies) error
+	SetSslPolicyHook       func(context.Context, *meta.Key, *computebeta.SslPolicyReference, *MockBetaTargetHttpsProxies) error
+	SetUrlMapHook          func(context.Context, *meta.Key, *computebeta.UrlMapReference, *MockBetaTargetHttpsProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -39046,7 +39046,7 @@ type MockBetaTargetHttpsProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpsProxy, error) {
+func (m *MockBetaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpsProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaTargetHttpsProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -39079,7 +39079,7 @@ func (m *MockBetaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*b
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*beta.TargetHttpsProxy, error) {
+func (m *MockBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetHttpsProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaTargetHttpsProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -39097,7 +39097,7 @@ func (m *MockBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.TargetHttpsProxy
+	var objs []*computebeta.TargetHttpsProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -39110,7 +39110,7 @@ func (m *MockBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy) error {
+func (m *MockBetaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaTargetHttpsProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -39180,12 +39180,12 @@ func (m *MockBetaTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key) 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaTargetHttpsProxies) Obj(o *beta.TargetHttpsProxy) *MockTargetHttpsProxiesObj {
+func (m *MockBetaTargetHttpsProxies) Obj(o *computebeta.TargetHttpsProxy) *MockTargetHttpsProxiesObj {
 	return &MockTargetHttpsProxiesObj{o}
 }
 
 // SetCertificateMap is a mock for the corresponding method.
-func (m *MockBetaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *beta.TargetHttpsProxiesSetCertificateMapRequest) error {
+func (m *MockBetaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetHttpsProxiesSetCertificateMapRequest) error {
 	if m.SetCertificateMapHook != nil {
 		return m.SetCertificateMapHook(ctx, key, arg0, m)
 	}
@@ -39193,7 +39193,7 @@ func (m *MockBetaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key 
 }
 
 // SetSslCertificates is a mock for the corresponding method.
-func (m *MockBetaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *beta.TargetHttpsProxiesSetSslCertificatesRequest) error {
+func (m *MockBetaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetHttpsProxiesSetSslCertificatesRequest) error {
 	if m.SetSslCertificatesHook != nil {
 		return m.SetSslCertificatesHook(ctx, key, arg0, m)
 	}
@@ -39201,7 +39201,7 @@ func (m *MockBetaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key
 }
 
 // SetSslPolicy is a mock for the corresponding method.
-func (m *MockBetaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *beta.SslPolicyReference) error {
+func (m *MockBetaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *computebeta.SslPolicyReference) error {
 	if m.SetSslPolicyHook != nil {
 		return m.SetSslPolicyHook(ctx, key, arg0, m)
 	}
@@ -39209,7 +39209,7 @@ func (m *MockBetaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockBetaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (m *MockBetaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -39222,7 +39222,7 @@ type GCEBetaTargetHttpsProxies struct {
 }
 
 // Get the TargetHttpsProxy named by key.
-func (g *GCEBetaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpsProxy, error) {
+func (g *GCEBetaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -39255,7 +39255,7 @@ func (g *GCEBetaTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*be
 }
 
 // List all TargetHttpsProxy objects.
-func (g *GCEBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*beta.TargetHttpsProxy, error) {
+func (g *GCEBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TargetHttpsProxies")
 	ck := &CallContextKey{
@@ -39275,8 +39275,8 @@ func (g *GCEBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.TargetHttpsProxy
-	f := func(l *beta.TargetHttpsProxyList) error {
+	var all []*computebeta.TargetHttpsProxy
+	f := func(l *computebeta.TargetHttpsProxyList) error {
 		klog.V(5).Infof("GCEBetaTargetHttpsProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -39306,7 +39306,7 @@ func (g *GCEBetaTargetHttpsProxies) List(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Insert TargetHttpsProxy with key of value obj.
-func (g *GCEBetaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy) error {
+func (g *GCEBetaTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy) error {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaTargetHttpsProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -39385,7 +39385,7 @@ func (g *GCEBetaTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // SetCertificateMap is a method on GCEBetaTargetHttpsProxies.
-func (g *GCEBetaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *beta.TargetHttpsProxiesSetCertificateMapRequest) error {
+func (g *GCEBetaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetHttpsProxiesSetCertificateMapRequest) error {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.SetCertificateMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -39427,7 +39427,7 @@ func (g *GCEBetaTargetHttpsProxies) SetCertificateMap(ctx context.Context, key *
 }
 
 // SetSslCertificates is a method on GCEBetaTargetHttpsProxies.
-func (g *GCEBetaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *beta.TargetHttpsProxiesSetSslCertificatesRequest) error {
+func (g *GCEBetaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetHttpsProxiesSetSslCertificatesRequest) error {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.SetSslCertificates(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -39469,7 +39469,7 @@ func (g *GCEBetaTargetHttpsProxies) SetSslCertificates(ctx context.Context, key 
 }
 
 // SetSslPolicy is a method on GCEBetaTargetHttpsProxies.
-func (g *GCEBetaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *beta.SslPolicyReference) error {
+func (g *GCEBetaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.Key, arg0 *computebeta.SslPolicyReference) error {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.SetSslPolicy(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -39511,7 +39511,7 @@ func (g *GCEBetaTargetHttpsProxies) SetSslPolicy(ctx context.Context, key *meta.
 }
 
 // SetUrlMap is a method on GCEBetaTargetHttpsProxies.
-func (g *GCEBetaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (g *GCEBetaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	klog.V(5).Infof("GCEBetaTargetHttpsProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -39554,12 +39554,12 @@ func (g *GCEBetaTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key
 
 // AlphaRegionTargetHttpsProxies is an interface that allows for mocking of RegionTargetHttpsProxies.
 type AlphaRegionTargetHttpsProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpsProxy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.TargetHttpsProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpsProxy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.TargetHttpsProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetSslCertificates(context.Context, *meta.Key, *alpha.RegionTargetHttpsProxiesSetSslCertificatesRequest) error
-	SetUrlMap(context.Context, *meta.Key, *alpha.UrlMapReference) error
+	SetSslCertificates(context.Context, *meta.Key, *computealpha.RegionTargetHttpsProxiesSetSslCertificatesRequest) error
+	SetUrlMap(context.Context, *meta.Key, *computealpha.UrlMapReference) error
 }
 
 // NewMockAlphaRegionTargetHttpsProxies returns a new mock for RegionTargetHttpsProxies.
@@ -39595,12 +39595,12 @@ type MockAlphaRegionTargetHttpsProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaRegionTargetHttpsProxies) (bool, *alpha.TargetHttpsProxy, error)
-	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionTargetHttpsProxies) (bool, []*alpha.TargetHttpsProxy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy, m *MockAlphaRegionTargetHttpsProxies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockAlphaRegionTargetHttpsProxies) (bool, *computealpha.TargetHttpsProxy, error)
+	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionTargetHttpsProxies) (bool, []*computealpha.TargetHttpsProxy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy, m *MockAlphaRegionTargetHttpsProxies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockAlphaRegionTargetHttpsProxies) (bool, error)
-	SetSslCertificatesHook func(context.Context, *meta.Key, *alpha.RegionTargetHttpsProxiesSetSslCertificatesRequest, *MockAlphaRegionTargetHttpsProxies) error
-	SetUrlMapHook          func(context.Context, *meta.Key, *alpha.UrlMapReference, *MockAlphaRegionTargetHttpsProxies) error
+	SetSslCertificatesHook func(context.Context, *meta.Key, *computealpha.RegionTargetHttpsProxiesSetSslCertificatesRequest, *MockAlphaRegionTargetHttpsProxies) error
+	SetUrlMapHook          func(context.Context, *meta.Key, *computealpha.UrlMapReference, *MockAlphaRegionTargetHttpsProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -39608,7 +39608,7 @@ type MockAlphaRegionTargetHttpsProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpsProxy, error) {
+func (m *MockAlphaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpsProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionTargetHttpsProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -39641,7 +39641,7 @@ func (m *MockAlphaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.K
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.TargetHttpsProxy, error) {
+func (m *MockAlphaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.TargetHttpsProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionTargetHttpsProxies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -39659,7 +39659,7 @@ func (m *MockAlphaRegionTargetHttpsProxies) List(ctx context.Context, region str
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.TargetHttpsProxy
+	var objs []*computealpha.TargetHttpsProxy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -39675,7 +39675,7 @@ func (m *MockAlphaRegionTargetHttpsProxies) List(ctx context.Context, region str
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy) error {
+func (m *MockAlphaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionTargetHttpsProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -39745,12 +39745,12 @@ func (m *MockAlphaRegionTargetHttpsProxies) Delete(ctx context.Context, key *met
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionTargetHttpsProxies) Obj(o *alpha.TargetHttpsProxy) *MockRegionTargetHttpsProxiesObj {
+func (m *MockAlphaRegionTargetHttpsProxies) Obj(o *computealpha.TargetHttpsProxy) *MockRegionTargetHttpsProxiesObj {
 	return &MockRegionTargetHttpsProxiesObj{o}
 }
 
 // SetSslCertificates is a mock for the corresponding method.
-func (m *MockAlphaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *alpha.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
+func (m *MockAlphaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computealpha.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
 	if m.SetSslCertificatesHook != nil {
 		return m.SetSslCertificatesHook(ctx, key, arg0, m)
 	}
@@ -39758,7 +39758,7 @@ func (m *MockAlphaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Conte
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockAlphaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (m *MockAlphaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -39771,7 +39771,7 @@ type GCEAlphaRegionTargetHttpsProxies struct {
 }
 
 // Get the TargetHttpsProxy named by key.
-func (g *GCEAlphaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetHttpsProxy, error) {
+func (g *GCEAlphaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpsProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -39804,7 +39804,7 @@ func (g *GCEAlphaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Ke
 }
 
 // List all TargetHttpsProxy objects.
-func (g *GCEAlphaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.TargetHttpsProxy, error) {
+func (g *GCEAlphaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpsProxies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionTargetHttpsProxies")
 	ck := &CallContextKey{
@@ -39824,8 +39824,8 @@ func (g *GCEAlphaRegionTargetHttpsProxies) List(ctx context.Context, region stri
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.TargetHttpsProxy
-	f := func(l *alpha.TargetHttpsProxyList) error {
+	var all []*computealpha.TargetHttpsProxy
+	f := func(l *computealpha.TargetHttpsProxyList) error {
 		klog.V(5).Infof("GCEAlphaRegionTargetHttpsProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -39855,7 +39855,7 @@ func (g *GCEAlphaRegionTargetHttpsProxies) List(ctx context.Context, region stri
 }
 
 // Insert TargetHttpsProxy with key of value obj.
-func (g *GCEAlphaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetHttpsProxy) error {
+func (g *GCEAlphaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetHttpsProxy) error {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpsProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionTargetHttpsProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -39934,7 +39934,7 @@ func (g *GCEAlphaRegionTargetHttpsProxies) Delete(ctx context.Context, key *meta
 }
 
 // SetSslCertificates is a method on GCEAlphaRegionTargetHttpsProxies.
-func (g *GCEAlphaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *alpha.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
+func (g *GCEAlphaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computealpha.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpsProxies.SetSslCertificates(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -39976,7 +39976,7 @@ func (g *GCEAlphaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Contex
 }
 
 // SetUrlMap is a method on GCEAlphaRegionTargetHttpsProxies.
-func (g *GCEAlphaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMapReference) error {
+func (g *GCEAlphaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMapReference) error {
 	klog.V(5).Infof("GCEAlphaRegionTargetHttpsProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -40019,12 +40019,12 @@ func (g *GCEAlphaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *m
 
 // BetaRegionTargetHttpsProxies is an interface that allows for mocking of RegionTargetHttpsProxies.
 type BetaRegionTargetHttpsProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpsProxy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.TargetHttpsProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpsProxy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.TargetHttpsProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetSslCertificates(context.Context, *meta.Key, *beta.RegionTargetHttpsProxiesSetSslCertificatesRequest) error
-	SetUrlMap(context.Context, *meta.Key, *beta.UrlMapReference) error
+	SetSslCertificates(context.Context, *meta.Key, *computebeta.RegionTargetHttpsProxiesSetSslCertificatesRequest) error
+	SetUrlMap(context.Context, *meta.Key, *computebeta.UrlMapReference) error
 }
 
 // NewMockBetaRegionTargetHttpsProxies returns a new mock for RegionTargetHttpsProxies.
@@ -40060,12 +40060,12 @@ type MockBetaRegionTargetHttpsProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaRegionTargetHttpsProxies) (bool, *beta.TargetHttpsProxy, error)
-	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionTargetHttpsProxies) (bool, []*beta.TargetHttpsProxy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy, m *MockBetaRegionTargetHttpsProxies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockBetaRegionTargetHttpsProxies) (bool, *computebeta.TargetHttpsProxy, error)
+	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionTargetHttpsProxies) (bool, []*computebeta.TargetHttpsProxy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy, m *MockBetaRegionTargetHttpsProxies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockBetaRegionTargetHttpsProxies) (bool, error)
-	SetSslCertificatesHook func(context.Context, *meta.Key, *beta.RegionTargetHttpsProxiesSetSslCertificatesRequest, *MockBetaRegionTargetHttpsProxies) error
-	SetUrlMapHook          func(context.Context, *meta.Key, *beta.UrlMapReference, *MockBetaRegionTargetHttpsProxies) error
+	SetSslCertificatesHook func(context.Context, *meta.Key, *computebeta.RegionTargetHttpsProxiesSetSslCertificatesRequest, *MockBetaRegionTargetHttpsProxies) error
+	SetUrlMapHook          func(context.Context, *meta.Key, *computebeta.UrlMapReference, *MockBetaRegionTargetHttpsProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -40073,7 +40073,7 @@ type MockBetaRegionTargetHttpsProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpsProxy, error) {
+func (m *MockBetaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpsProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRegionTargetHttpsProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -40106,7 +40106,7 @@ func (m *MockBetaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Ke
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*beta.TargetHttpsProxy, error) {
+func (m *MockBetaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.TargetHttpsProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRegionTargetHttpsProxies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -40124,7 +40124,7 @@ func (m *MockBetaRegionTargetHttpsProxies) List(ctx context.Context, region stri
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.TargetHttpsProxy
+	var objs []*computebeta.TargetHttpsProxy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -40140,7 +40140,7 @@ func (m *MockBetaRegionTargetHttpsProxies) List(ctx context.Context, region stri
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy) error {
+func (m *MockBetaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRegionTargetHttpsProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -40210,12 +40210,12 @@ func (m *MockBetaRegionTargetHttpsProxies) Delete(ctx context.Context, key *meta
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRegionTargetHttpsProxies) Obj(o *beta.TargetHttpsProxy) *MockRegionTargetHttpsProxiesObj {
+func (m *MockBetaRegionTargetHttpsProxies) Obj(o *computebeta.TargetHttpsProxy) *MockRegionTargetHttpsProxiesObj {
 	return &MockRegionTargetHttpsProxiesObj{o}
 }
 
 // SetSslCertificates is a mock for the corresponding method.
-func (m *MockBetaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *beta.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
+func (m *MockBetaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computebeta.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
 	if m.SetSslCertificatesHook != nil {
 		return m.SetSslCertificatesHook(ctx, key, arg0, m)
 	}
@@ -40223,7 +40223,7 @@ func (m *MockBetaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Contex
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockBetaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (m *MockBetaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -40236,7 +40236,7 @@ type GCEBetaRegionTargetHttpsProxies struct {
 }
 
 // Get the TargetHttpsProxy named by key.
-func (g *GCEBetaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetHttpsProxy, error) {
+func (g *GCEBetaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpsProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -40269,7 +40269,7 @@ func (g *GCEBetaRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key
 }
 
 // List all TargetHttpsProxy objects.
-func (g *GCEBetaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*beta.TargetHttpsProxy, error) {
+func (g *GCEBetaRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpsProxies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "RegionTargetHttpsProxies")
 	ck := &CallContextKey{
@@ -40289,8 +40289,8 @@ func (g *GCEBetaRegionTargetHttpsProxies) List(ctx context.Context, region strin
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.TargetHttpsProxy
-	f := func(l *beta.TargetHttpsProxyList) error {
+	var all []*computebeta.TargetHttpsProxy
+	f := func(l *computebeta.TargetHttpsProxyList) error {
 		klog.V(5).Infof("GCEBetaRegionTargetHttpsProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -40320,7 +40320,7 @@ func (g *GCEBetaRegionTargetHttpsProxies) List(ctx context.Context, region strin
 }
 
 // Insert TargetHttpsProxy with key of value obj.
-func (g *GCEBetaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetHttpsProxy) error {
+func (g *GCEBetaRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetHttpsProxy) error {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpsProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRegionTargetHttpsProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -40399,7 +40399,7 @@ func (g *GCEBetaRegionTargetHttpsProxies) Delete(ctx context.Context, key *meta.
 }
 
 // SetSslCertificates is a method on GCEBetaRegionTargetHttpsProxies.
-func (g *GCEBetaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *beta.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
+func (g *GCEBetaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computebeta.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpsProxies.SetSslCertificates(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -40441,7 +40441,7 @@ func (g *GCEBetaRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context
 }
 
 // SetUrlMap is a method on GCEBetaRegionTargetHttpsProxies.
-func (g *GCEBetaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *beta.UrlMapReference) error {
+func (g *GCEBetaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMapReference) error {
 	klog.V(5).Infof("GCEBetaRegionTargetHttpsProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -40484,12 +40484,12 @@ func (g *GCEBetaRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *me
 
 // RegionTargetHttpsProxies is an interface that allows for mocking of RegionTargetHttpsProxies.
 type RegionTargetHttpsProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpsProxy, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetHttpsProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpsProxy, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetHttpsProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetSslCertificates(context.Context, *meta.Key, *ga.RegionTargetHttpsProxiesSetSslCertificatesRequest) error
-	SetUrlMap(context.Context, *meta.Key, *ga.UrlMapReference) error
+	SetSslCertificates(context.Context, *meta.Key, *computega.RegionTargetHttpsProxiesSetSslCertificatesRequest) error
+	SetUrlMap(context.Context, *meta.Key, *computega.UrlMapReference) error
 }
 
 // NewMockRegionTargetHttpsProxies returns a new mock for RegionTargetHttpsProxies.
@@ -40525,12 +40525,12 @@ type MockRegionTargetHttpsProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook                func(ctx context.Context, key *meta.Key, m *MockRegionTargetHttpsProxies) (bool, *ga.TargetHttpsProxy, error)
-	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockRegionTargetHttpsProxies) (bool, []*ga.TargetHttpsProxy, error)
-	InsertHook             func(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy, m *MockRegionTargetHttpsProxies) (bool, error)
+	GetHook                func(ctx context.Context, key *meta.Key, m *MockRegionTargetHttpsProxies) (bool, *computega.TargetHttpsProxy, error)
+	ListHook               func(ctx context.Context, region string, fl *filter.F, m *MockRegionTargetHttpsProxies) (bool, []*computega.TargetHttpsProxy, error)
+	InsertHook             func(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy, m *MockRegionTargetHttpsProxies) (bool, error)
 	DeleteHook             func(ctx context.Context, key *meta.Key, m *MockRegionTargetHttpsProxies) (bool, error)
-	SetSslCertificatesHook func(context.Context, *meta.Key, *ga.RegionTargetHttpsProxiesSetSslCertificatesRequest, *MockRegionTargetHttpsProxies) error
-	SetUrlMapHook          func(context.Context, *meta.Key, *ga.UrlMapReference, *MockRegionTargetHttpsProxies) error
+	SetSslCertificatesHook func(context.Context, *meta.Key, *computega.RegionTargetHttpsProxiesSetSslCertificatesRequest, *MockRegionTargetHttpsProxies) error
+	SetUrlMapHook          func(context.Context, *meta.Key, *computega.UrlMapReference, *MockRegionTargetHttpsProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -40538,7 +40538,7 @@ type MockRegionTargetHttpsProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpsProxy, error) {
+func (m *MockRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpsProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionTargetHttpsProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -40571,7 +40571,7 @@ func (m *MockRegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetHttpsProxy, error) {
+func (m *MockRegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetHttpsProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionTargetHttpsProxies.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -40589,7 +40589,7 @@ func (m *MockRegionTargetHttpsProxies) List(ctx context.Context, region string, 
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.TargetHttpsProxy
+	var objs []*computega.TargetHttpsProxy
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -40605,7 +40605,7 @@ func (m *MockRegionTargetHttpsProxies) List(ctx context.Context, region string, 
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy) error {
+func (m *MockRegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionTargetHttpsProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -40675,12 +40675,12 @@ func (m *MockRegionTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionTargetHttpsProxies) Obj(o *ga.TargetHttpsProxy) *MockRegionTargetHttpsProxiesObj {
+func (m *MockRegionTargetHttpsProxies) Obj(o *computega.TargetHttpsProxy) *MockRegionTargetHttpsProxiesObj {
 	return &MockRegionTargetHttpsProxiesObj{o}
 }
 
 // SetSslCertificates is a mock for the corresponding method.
-func (m *MockRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *ga.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
+func (m *MockRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computega.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
 	if m.SetSslCertificatesHook != nil {
 		return m.SetSslCertificatesHook(ctx, key, arg0, m)
 	}
@@ -40688,7 +40688,7 @@ func (m *MockRegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, k
 }
 
 // SetUrlMap is a mock for the corresponding method.
-func (m *MockRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (m *MockRegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	if m.SetUrlMapHook != nil {
 		return m.SetUrlMapHook(ctx, key, arg0, m)
 	}
@@ -40701,7 +40701,7 @@ type GCERegionTargetHttpsProxies struct {
 }
 
 // Get the TargetHttpsProxy named by key.
-func (g *GCERegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetHttpsProxy, error) {
+func (g *GCERegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCERegionTargetHttpsProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -40734,7 +40734,7 @@ func (g *GCERegionTargetHttpsProxies) Get(ctx context.Context, key *meta.Key) (*
 }
 
 // List all TargetHttpsProxy objects.
-func (g *GCERegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetHttpsProxy, error) {
+func (g *GCERegionTargetHttpsProxies) List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetHttpsProxy, error) {
 	klog.V(5).Infof("GCERegionTargetHttpsProxies.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionTargetHttpsProxies")
 	ck := &CallContextKey{
@@ -40754,8 +40754,8 @@ func (g *GCERegionTargetHttpsProxies) List(ctx context.Context, region string, f
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.TargetHttpsProxy
-	f := func(l *ga.TargetHttpsProxyList) error {
+	var all []*computega.TargetHttpsProxy
+	f := func(l *computega.TargetHttpsProxyList) error {
 		klog.V(5).Infof("GCERegionTargetHttpsProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -40785,7 +40785,7 @@ func (g *GCERegionTargetHttpsProxies) List(ctx context.Context, region string, f
 }
 
 // Insert TargetHttpsProxy with key of value obj.
-func (g *GCERegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetHttpsProxy) error {
+func (g *GCERegionTargetHttpsProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetHttpsProxy) error {
 	klog.V(5).Infof("GCERegionTargetHttpsProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionTargetHttpsProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -40864,7 +40864,7 @@ func (g *GCERegionTargetHttpsProxies) Delete(ctx context.Context, key *meta.Key)
 }
 
 // SetSslCertificates is a method on GCERegionTargetHttpsProxies.
-func (g *GCERegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *ga.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
+func (g *GCERegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, key *meta.Key, arg0 *computega.RegionTargetHttpsProxiesSetSslCertificatesRequest) error {
 	klog.V(5).Infof("GCERegionTargetHttpsProxies.SetSslCertificates(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -40906,7 +40906,7 @@ func (g *GCERegionTargetHttpsProxies) SetSslCertificates(ctx context.Context, ke
 }
 
 // SetUrlMap is a method on GCERegionTargetHttpsProxies.
-func (g *GCERegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *ga.UrlMapReference) error {
+func (g *GCERegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.Key, arg0 *computega.UrlMapReference) error {
 	klog.V(5).Infof("GCERegionTargetHttpsProxies.SetUrlMap(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -40949,12 +40949,12 @@ func (g *GCERegionTargetHttpsProxies) SetUrlMap(ctx context.Context, key *meta.K
 
 // TargetPools is an interface that allows for mocking of TargetPools.
 type TargetPools interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.TargetPool, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetPool, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.TargetPool) error
+	Get(ctx context.Context, key *meta.Key) (*computega.TargetPool, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetPool, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.TargetPool) error
 	Delete(ctx context.Context, key *meta.Key) error
-	AddInstance(context.Context, *meta.Key, *ga.TargetPoolsAddInstanceRequest) error
-	RemoveInstance(context.Context, *meta.Key, *ga.TargetPoolsRemoveInstanceRequest) error
+	AddInstance(context.Context, *meta.Key, *computega.TargetPoolsAddInstanceRequest) error
+	RemoveInstance(context.Context, *meta.Key, *computega.TargetPoolsRemoveInstanceRequest) error
 }
 
 // NewMockTargetPools returns a new mock for TargetPools.
@@ -40990,12 +40990,12 @@ type MockTargetPools struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook            func(ctx context.Context, key *meta.Key, m *MockTargetPools) (bool, *ga.TargetPool, error)
-	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockTargetPools) (bool, []*ga.TargetPool, error)
-	InsertHook         func(ctx context.Context, key *meta.Key, obj *ga.TargetPool, m *MockTargetPools) (bool, error)
+	GetHook            func(ctx context.Context, key *meta.Key, m *MockTargetPools) (bool, *computega.TargetPool, error)
+	ListHook           func(ctx context.Context, region string, fl *filter.F, m *MockTargetPools) (bool, []*computega.TargetPool, error)
+	InsertHook         func(ctx context.Context, key *meta.Key, obj *computega.TargetPool, m *MockTargetPools) (bool, error)
 	DeleteHook         func(ctx context.Context, key *meta.Key, m *MockTargetPools) (bool, error)
-	AddInstanceHook    func(context.Context, *meta.Key, *ga.TargetPoolsAddInstanceRequest, *MockTargetPools) error
-	RemoveInstanceHook func(context.Context, *meta.Key, *ga.TargetPoolsRemoveInstanceRequest, *MockTargetPools) error
+	AddInstanceHook    func(context.Context, *meta.Key, *computega.TargetPoolsAddInstanceRequest, *MockTargetPools) error
+	RemoveInstanceHook func(context.Context, *meta.Key, *computega.TargetPoolsRemoveInstanceRequest, *MockTargetPools) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -41003,7 +41003,7 @@ type MockTargetPools struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockTargetPools) Get(ctx context.Context, key *meta.Key) (*ga.TargetPool, error) {
+func (m *MockTargetPools) Get(ctx context.Context, key *meta.Key) (*computega.TargetPool, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockTargetPools.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -41036,7 +41036,7 @@ func (m *MockTargetPools) Get(ctx context.Context, key *meta.Key) (*ga.TargetPoo
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockTargetPools) List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetPool, error) {
+func (m *MockTargetPools) List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetPool, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockTargetPools.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -41054,7 +41054,7 @@ func (m *MockTargetPools) List(ctx context.Context, region string, fl *filter.F)
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.TargetPool
+	var objs []*computega.TargetPool
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -41070,7 +41070,7 @@ func (m *MockTargetPools) List(ctx context.Context, region string, fl *filter.F)
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockTargetPools) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetPool) error {
+func (m *MockTargetPools) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetPool) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockTargetPools.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -41140,12 +41140,12 @@ func (m *MockTargetPools) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockTargetPools) Obj(o *ga.TargetPool) *MockTargetPoolsObj {
+func (m *MockTargetPools) Obj(o *computega.TargetPool) *MockTargetPoolsObj {
 	return &MockTargetPoolsObj{o}
 }
 
 // AddInstance is a mock for the corresponding method.
-func (m *MockTargetPools) AddInstance(ctx context.Context, key *meta.Key, arg0 *ga.TargetPoolsAddInstanceRequest) error {
+func (m *MockTargetPools) AddInstance(ctx context.Context, key *meta.Key, arg0 *computega.TargetPoolsAddInstanceRequest) error {
 	if m.AddInstanceHook != nil {
 		return m.AddInstanceHook(ctx, key, arg0, m)
 	}
@@ -41153,7 +41153,7 @@ func (m *MockTargetPools) AddInstance(ctx context.Context, key *meta.Key, arg0 *
 }
 
 // RemoveInstance is a mock for the corresponding method.
-func (m *MockTargetPools) RemoveInstance(ctx context.Context, key *meta.Key, arg0 *ga.TargetPoolsRemoveInstanceRequest) error {
+func (m *MockTargetPools) RemoveInstance(ctx context.Context, key *meta.Key, arg0 *computega.TargetPoolsRemoveInstanceRequest) error {
 	if m.RemoveInstanceHook != nil {
 		return m.RemoveInstanceHook(ctx, key, arg0, m)
 	}
@@ -41166,7 +41166,7 @@ type GCETargetPools struct {
 }
 
 // Get the TargetPool named by key.
-func (g *GCETargetPools) Get(ctx context.Context, key *meta.Key) (*ga.TargetPool, error) {
+func (g *GCETargetPools) Get(ctx context.Context, key *meta.Key) (*computega.TargetPool, error) {
 	klog.V(5).Infof("GCETargetPools.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -41199,7 +41199,7 @@ func (g *GCETargetPools) Get(ctx context.Context, key *meta.Key) (*ga.TargetPool
 }
 
 // List all TargetPool objects.
-func (g *GCETargetPools) List(ctx context.Context, region string, fl *filter.F) ([]*ga.TargetPool, error) {
+func (g *GCETargetPools) List(ctx context.Context, region string, fl *filter.F) ([]*computega.TargetPool, error) {
 	klog.V(5).Infof("GCETargetPools.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TargetPools")
 	ck := &CallContextKey{
@@ -41219,8 +41219,8 @@ func (g *GCETargetPools) List(ctx context.Context, region string, fl *filter.F) 
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.TargetPool
-	f := func(l *ga.TargetPoolList) error {
+	var all []*computega.TargetPool
+	f := func(l *computega.TargetPoolList) error {
 		klog.V(5).Infof("GCETargetPools.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -41250,7 +41250,7 @@ func (g *GCETargetPools) List(ctx context.Context, region string, fl *filter.F) 
 }
 
 // Insert TargetPool with key of value obj.
-func (g *GCETargetPools) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetPool) error {
+func (g *GCETargetPools) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetPool) error {
 	klog.V(5).Infof("GCETargetPools.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCETargetPools.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -41329,7 +41329,7 @@ func (g *GCETargetPools) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // AddInstance is a method on GCETargetPools.
-func (g *GCETargetPools) AddInstance(ctx context.Context, key *meta.Key, arg0 *ga.TargetPoolsAddInstanceRequest) error {
+func (g *GCETargetPools) AddInstance(ctx context.Context, key *meta.Key, arg0 *computega.TargetPoolsAddInstanceRequest) error {
 	klog.V(5).Infof("GCETargetPools.AddInstance(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -41371,7 +41371,7 @@ func (g *GCETargetPools) AddInstance(ctx context.Context, key *meta.Key, arg0 *g
 }
 
 // RemoveInstance is a method on GCETargetPools.
-func (g *GCETargetPools) RemoveInstance(ctx context.Context, key *meta.Key, arg0 *ga.TargetPoolsRemoveInstanceRequest) error {
+func (g *GCETargetPools) RemoveInstance(ctx context.Context, key *meta.Key, arg0 *computega.TargetPoolsRemoveInstanceRequest) error {
 	klog.V(5).Infof("GCETargetPools.RemoveInstance(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -41414,11 +41414,11 @@ func (g *GCETargetPools) RemoveInstance(ctx context.Context, key *meta.Key, arg0
 
 // AlphaTargetTcpProxies is an interface that allows for mocking of TargetTcpProxies.
 type AlphaTargetTcpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.TargetTcpProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.TargetTcpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetTcpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.TargetTcpProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetTcpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetTcpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetBackendService(context.Context, *meta.Key, *alpha.TargetTcpProxiesSetBackendServiceRequest) error
+	SetBackendService(context.Context, *meta.Key, *computealpha.TargetTcpProxiesSetBackendServiceRequest) error
 }
 
 // NewMockAlphaTargetTcpProxies returns a new mock for TargetTcpProxies.
@@ -41454,11 +41454,11 @@ type MockAlphaTargetTcpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook               func(ctx context.Context, key *meta.Key, m *MockAlphaTargetTcpProxies) (bool, *alpha.TargetTcpProxy, error)
-	ListHook              func(ctx context.Context, fl *filter.F, m *MockAlphaTargetTcpProxies) (bool, []*alpha.TargetTcpProxy, error)
-	InsertHook            func(ctx context.Context, key *meta.Key, obj *alpha.TargetTcpProxy, m *MockAlphaTargetTcpProxies) (bool, error)
+	GetHook               func(ctx context.Context, key *meta.Key, m *MockAlphaTargetTcpProxies) (bool, *computealpha.TargetTcpProxy, error)
+	ListHook              func(ctx context.Context, fl *filter.F, m *MockAlphaTargetTcpProxies) (bool, []*computealpha.TargetTcpProxy, error)
+	InsertHook            func(ctx context.Context, key *meta.Key, obj *computealpha.TargetTcpProxy, m *MockAlphaTargetTcpProxies) (bool, error)
 	DeleteHook            func(ctx context.Context, key *meta.Key, m *MockAlphaTargetTcpProxies) (bool, error)
-	SetBackendServiceHook func(context.Context, *meta.Key, *alpha.TargetTcpProxiesSetBackendServiceRequest, *MockAlphaTargetTcpProxies) error
+	SetBackendServiceHook func(context.Context, *meta.Key, *computealpha.TargetTcpProxiesSetBackendServiceRequest, *MockAlphaTargetTcpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -41466,7 +41466,7 @@ type MockAlphaTargetTcpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetTcpProxy, error) {
+func (m *MockAlphaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetTcpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetTcpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -41499,7 +41499,7 @@ func (m *MockAlphaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*al
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*alpha.TargetTcpProxy, error) {
+func (m *MockAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetTcpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetTcpProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -41517,7 +41517,7 @@ func (m *MockAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.TargetTcpProxy
+	var objs []*computealpha.TargetTcpProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -41530,7 +41530,7 @@ func (m *MockAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetTcpProxy) error {
+func (m *MockAlphaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetTcpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaTargetTcpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -41600,12 +41600,12 @@ func (m *MockAlphaTargetTcpProxies) Delete(ctx context.Context, key *meta.Key) e
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaTargetTcpProxies) Obj(o *alpha.TargetTcpProxy) *MockTargetTcpProxiesObj {
+func (m *MockAlphaTargetTcpProxies) Obj(o *computealpha.TargetTcpProxy) *MockTargetTcpProxiesObj {
 	return &MockTargetTcpProxiesObj{o}
 }
 
 // SetBackendService is a mock for the corresponding method.
-func (m *MockAlphaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *alpha.TargetTcpProxiesSetBackendServiceRequest) error {
+func (m *MockAlphaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetTcpProxiesSetBackendServiceRequest) error {
 	if m.SetBackendServiceHook != nil {
 		return m.SetBackendServiceHook(ctx, key, arg0, m)
 	}
@@ -41618,7 +41618,7 @@ type GCEAlphaTargetTcpProxies struct {
 }
 
 // Get the TargetTcpProxy named by key.
-func (g *GCEAlphaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*alpha.TargetTcpProxy, error) {
+func (g *GCEAlphaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*computealpha.TargetTcpProxy, error) {
 	klog.V(5).Infof("GCEAlphaTargetTcpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -41651,7 +41651,7 @@ func (g *GCEAlphaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*alp
 }
 
 // List all TargetTcpProxy objects.
-func (g *GCEAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*alpha.TargetTcpProxy, error) {
+func (g *GCEAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*computealpha.TargetTcpProxy, error) {
 	klog.V(5).Infof("GCEAlphaTargetTcpProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "TargetTcpProxies")
 	ck := &CallContextKey{
@@ -41671,8 +41671,8 @@ func (g *GCEAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*a
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.TargetTcpProxy
-	f := func(l *alpha.TargetTcpProxyList) error {
+	var all []*computealpha.TargetTcpProxy
+	f := func(l *computealpha.TargetTcpProxyList) error {
 		klog.V(5).Infof("GCEAlphaTargetTcpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -41702,7 +41702,7 @@ func (g *GCEAlphaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*a
 }
 
 // Insert TargetTcpProxy with key of value obj.
-func (g *GCEAlphaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *alpha.TargetTcpProxy) error {
+func (g *GCEAlphaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *computealpha.TargetTcpProxy) error {
 	klog.V(5).Infof("GCEAlphaTargetTcpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaTargetTcpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -41781,7 +41781,7 @@ func (g *GCEAlphaTargetTcpProxies) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // SetBackendService is a method on GCEAlphaTargetTcpProxies.
-func (g *GCEAlphaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *alpha.TargetTcpProxiesSetBackendServiceRequest) error {
+func (g *GCEAlphaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *computealpha.TargetTcpProxiesSetBackendServiceRequest) error {
 	klog.V(5).Infof("GCEAlphaTargetTcpProxies.SetBackendService(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -41824,11 +41824,11 @@ func (g *GCEAlphaTargetTcpProxies) SetBackendService(ctx context.Context, key *m
 
 // BetaTargetTcpProxies is an interface that allows for mocking of TargetTcpProxies.
 type BetaTargetTcpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.TargetTcpProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.TargetTcpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.TargetTcpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.TargetTcpProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetTcpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetTcpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetBackendService(context.Context, *meta.Key, *beta.TargetTcpProxiesSetBackendServiceRequest) error
+	SetBackendService(context.Context, *meta.Key, *computebeta.TargetTcpProxiesSetBackendServiceRequest) error
 }
 
 // NewMockBetaTargetTcpProxies returns a new mock for TargetTcpProxies.
@@ -41864,11 +41864,11 @@ type MockBetaTargetTcpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook               func(ctx context.Context, key *meta.Key, m *MockBetaTargetTcpProxies) (bool, *beta.TargetTcpProxy, error)
-	ListHook              func(ctx context.Context, fl *filter.F, m *MockBetaTargetTcpProxies) (bool, []*beta.TargetTcpProxy, error)
-	InsertHook            func(ctx context.Context, key *meta.Key, obj *beta.TargetTcpProxy, m *MockBetaTargetTcpProxies) (bool, error)
+	GetHook               func(ctx context.Context, key *meta.Key, m *MockBetaTargetTcpProxies) (bool, *computebeta.TargetTcpProxy, error)
+	ListHook              func(ctx context.Context, fl *filter.F, m *MockBetaTargetTcpProxies) (bool, []*computebeta.TargetTcpProxy, error)
+	InsertHook            func(ctx context.Context, key *meta.Key, obj *computebeta.TargetTcpProxy, m *MockBetaTargetTcpProxies) (bool, error)
 	DeleteHook            func(ctx context.Context, key *meta.Key, m *MockBetaTargetTcpProxies) (bool, error)
-	SetBackendServiceHook func(context.Context, *meta.Key, *beta.TargetTcpProxiesSetBackendServiceRequest, *MockBetaTargetTcpProxies) error
+	SetBackendServiceHook func(context.Context, *meta.Key, *computebeta.TargetTcpProxiesSetBackendServiceRequest, *MockBetaTargetTcpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -41876,7 +41876,7 @@ type MockBetaTargetTcpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetTcpProxy, error) {
+func (m *MockBetaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetTcpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaTargetTcpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -41909,7 +41909,7 @@ func (m *MockBetaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*bet
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*beta.TargetTcpProxy, error) {
+func (m *MockBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetTcpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaTargetTcpProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -41927,7 +41927,7 @@ func (m *MockBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*b
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.TargetTcpProxy
+	var objs []*computebeta.TargetTcpProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -41940,7 +41940,7 @@ func (m *MockBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*b
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetTcpProxy) error {
+func (m *MockBetaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetTcpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaTargetTcpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -42010,12 +42010,12 @@ func (m *MockBetaTargetTcpProxies) Delete(ctx context.Context, key *meta.Key) er
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaTargetTcpProxies) Obj(o *beta.TargetTcpProxy) *MockTargetTcpProxiesObj {
+func (m *MockBetaTargetTcpProxies) Obj(o *computebeta.TargetTcpProxy) *MockTargetTcpProxiesObj {
 	return &MockTargetTcpProxiesObj{o}
 }
 
 // SetBackendService is a mock for the corresponding method.
-func (m *MockBetaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *beta.TargetTcpProxiesSetBackendServiceRequest) error {
+func (m *MockBetaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetTcpProxiesSetBackendServiceRequest) error {
 	if m.SetBackendServiceHook != nil {
 		return m.SetBackendServiceHook(ctx, key, arg0, m)
 	}
@@ -42028,7 +42028,7 @@ type GCEBetaTargetTcpProxies struct {
 }
 
 // Get the TargetTcpProxy named by key.
-func (g *GCEBetaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*beta.TargetTcpProxy, error) {
+func (g *GCEBetaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*computebeta.TargetTcpProxy, error) {
 	klog.V(5).Infof("GCEBetaTargetTcpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -42061,7 +42061,7 @@ func (g *GCEBetaTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*beta
 }
 
 // List all TargetTcpProxy objects.
-func (g *GCEBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*beta.TargetTcpProxy, error) {
+func (g *GCEBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*computebeta.TargetTcpProxy, error) {
 	klog.V(5).Infof("GCEBetaTargetTcpProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "TargetTcpProxies")
 	ck := &CallContextKey{
@@ -42081,8 +42081,8 @@ func (g *GCEBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*be
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.TargetTcpProxy
-	f := func(l *beta.TargetTcpProxyList) error {
+	var all []*computebeta.TargetTcpProxy
+	f := func(l *computebeta.TargetTcpProxyList) error {
 		klog.V(5).Infof("GCEBetaTargetTcpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -42112,7 +42112,7 @@ func (g *GCEBetaTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*be
 }
 
 // Insert TargetTcpProxy with key of value obj.
-func (g *GCEBetaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *beta.TargetTcpProxy) error {
+func (g *GCEBetaTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *computebeta.TargetTcpProxy) error {
 	klog.V(5).Infof("GCEBetaTargetTcpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaTargetTcpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -42191,7 +42191,7 @@ func (g *GCEBetaTargetTcpProxies) Delete(ctx context.Context, key *meta.Key) err
 }
 
 // SetBackendService is a method on GCEBetaTargetTcpProxies.
-func (g *GCEBetaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *beta.TargetTcpProxiesSetBackendServiceRequest) error {
+func (g *GCEBetaTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *computebeta.TargetTcpProxiesSetBackendServiceRequest) error {
 	klog.V(5).Infof("GCEBetaTargetTcpProxies.SetBackendService(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -42234,11 +42234,11 @@ func (g *GCEBetaTargetTcpProxies) SetBackendService(ctx context.Context, key *me
 
 // TargetTcpProxies is an interface that allows for mocking of TargetTcpProxies.
 type TargetTcpProxies interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.TargetTcpProxy, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.TargetTcpProxy, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.TargetTcpProxy) error
+	Get(ctx context.Context, key *meta.Key) (*computega.TargetTcpProxy, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.TargetTcpProxy, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.TargetTcpProxy) error
 	Delete(ctx context.Context, key *meta.Key) error
-	SetBackendService(context.Context, *meta.Key, *ga.TargetTcpProxiesSetBackendServiceRequest) error
+	SetBackendService(context.Context, *meta.Key, *computega.TargetTcpProxiesSetBackendServiceRequest) error
 }
 
 // NewMockTargetTcpProxies returns a new mock for TargetTcpProxies.
@@ -42274,11 +42274,11 @@ type MockTargetTcpProxies struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook               func(ctx context.Context, key *meta.Key, m *MockTargetTcpProxies) (bool, *ga.TargetTcpProxy, error)
-	ListHook              func(ctx context.Context, fl *filter.F, m *MockTargetTcpProxies) (bool, []*ga.TargetTcpProxy, error)
-	InsertHook            func(ctx context.Context, key *meta.Key, obj *ga.TargetTcpProxy, m *MockTargetTcpProxies) (bool, error)
+	GetHook               func(ctx context.Context, key *meta.Key, m *MockTargetTcpProxies) (bool, *computega.TargetTcpProxy, error)
+	ListHook              func(ctx context.Context, fl *filter.F, m *MockTargetTcpProxies) (bool, []*computega.TargetTcpProxy, error)
+	InsertHook            func(ctx context.Context, key *meta.Key, obj *computega.TargetTcpProxy, m *MockTargetTcpProxies) (bool, error)
 	DeleteHook            func(ctx context.Context, key *meta.Key, m *MockTargetTcpProxies) (bool, error)
-	SetBackendServiceHook func(context.Context, *meta.Key, *ga.TargetTcpProxiesSetBackendServiceRequest, *MockTargetTcpProxies) error
+	SetBackendServiceHook func(context.Context, *meta.Key, *computega.TargetTcpProxiesSetBackendServiceRequest, *MockTargetTcpProxies) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -42286,7 +42286,7 @@ type MockTargetTcpProxies struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetTcpProxy, error) {
+func (m *MockTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetTcpProxy, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockTargetTcpProxies.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -42319,7 +42319,7 @@ func (m *MockTargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*ga.Targ
 }
 
 // List all of the objects in the mock.
-func (m *MockTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.TargetTcpProxy, error) {
+func (m *MockTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*computega.TargetTcpProxy, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockTargetTcpProxies.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -42337,7 +42337,7 @@ func (m *MockTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.Ta
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.TargetTcpProxy
+	var objs []*computega.TargetTcpProxy
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -42350,7 +42350,7 @@ func (m *MockTargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.Ta
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetTcpProxy) error {
+func (m *MockTargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetTcpProxy) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockTargetTcpProxies.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -42420,12 +42420,12 @@ func (m *MockTargetTcpProxies) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockTargetTcpProxies) Obj(o *ga.TargetTcpProxy) *MockTargetTcpProxiesObj {
+func (m *MockTargetTcpProxies) Obj(o *computega.TargetTcpProxy) *MockTargetTcpProxiesObj {
 	return &MockTargetTcpProxiesObj{o}
 }
 
 // SetBackendService is a mock for the corresponding method.
-func (m *MockTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *ga.TargetTcpProxiesSetBackendServiceRequest) error {
+func (m *MockTargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *computega.TargetTcpProxiesSetBackendServiceRequest) error {
 	if m.SetBackendServiceHook != nil {
 		return m.SetBackendServiceHook(ctx, key, arg0, m)
 	}
@@ -42438,7 +42438,7 @@ type GCETargetTcpProxies struct {
 }
 
 // Get the TargetTcpProxy named by key.
-func (g *GCETargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*ga.TargetTcpProxy, error) {
+func (g *GCETargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*computega.TargetTcpProxy, error) {
 	klog.V(5).Infof("GCETargetTcpProxies.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -42471,7 +42471,7 @@ func (g *GCETargetTcpProxies) Get(ctx context.Context, key *meta.Key) (*ga.Targe
 }
 
 // List all TargetTcpProxy objects.
-func (g *GCETargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.TargetTcpProxy, error) {
+func (g *GCETargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*computega.TargetTcpProxy, error) {
 	klog.V(5).Infof("GCETargetTcpProxies.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "TargetTcpProxies")
 	ck := &CallContextKey{
@@ -42491,8 +42491,8 @@ func (g *GCETargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.Tar
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.TargetTcpProxy
-	f := func(l *ga.TargetTcpProxyList) error {
+	var all []*computega.TargetTcpProxy
+	f := func(l *computega.TargetTcpProxyList) error {
 		klog.V(5).Infof("GCETargetTcpProxies.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -42522,7 +42522,7 @@ func (g *GCETargetTcpProxies) List(ctx context.Context, fl *filter.F) ([]*ga.Tar
 }
 
 // Insert TargetTcpProxy with key of value obj.
-func (g *GCETargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *ga.TargetTcpProxy) error {
+func (g *GCETargetTcpProxies) Insert(ctx context.Context, key *meta.Key, obj *computega.TargetTcpProxy) error {
 	klog.V(5).Infof("GCETargetTcpProxies.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCETargetTcpProxies.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -42601,7 +42601,7 @@ func (g *GCETargetTcpProxies) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // SetBackendService is a method on GCETargetTcpProxies.
-func (g *GCETargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *ga.TargetTcpProxiesSetBackendServiceRequest) error {
+func (g *GCETargetTcpProxies) SetBackendService(ctx context.Context, key *meta.Key, arg0 *computega.TargetTcpProxiesSetBackendServiceRequest) error {
 	klog.V(5).Infof("GCETargetTcpProxies.SetBackendService(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -42644,11 +42644,11 @@ func (g *GCETargetTcpProxies) SetBackendService(ctx context.Context, key *meta.K
 
 // AlphaUrlMaps is an interface that allows for mocking of UrlMaps.
 type AlphaUrlMaps interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap, error)
-	List(ctx context.Context, fl *filter.F) ([]*alpha.UrlMap, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.UrlMap) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.UrlMap, error)
+	List(ctx context.Context, fl *filter.F) ([]*computealpha.UrlMap, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *alpha.UrlMap) error
+	Update(context.Context, *meta.Key, *computealpha.UrlMap) error
 }
 
 // NewMockAlphaUrlMaps returns a new mock for UrlMaps.
@@ -42684,11 +42684,11 @@ type MockAlphaUrlMaps struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaUrlMaps) (bool, *alpha.UrlMap, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaUrlMaps) (bool, []*alpha.UrlMap, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.UrlMap, m *MockAlphaUrlMaps) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaUrlMaps) (bool, *computealpha.UrlMap, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockAlphaUrlMaps) (bool, []*computealpha.UrlMap, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap, m *MockAlphaUrlMaps) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaUrlMaps) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *alpha.UrlMap, *MockAlphaUrlMaps) error
+	UpdateHook func(context.Context, *meta.Key, *computealpha.UrlMap, *MockAlphaUrlMaps) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -42696,7 +42696,7 @@ type MockAlphaUrlMaps struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap, error) {
+func (m *MockAlphaUrlMaps) Get(ctx context.Context, key *meta.Key) (*computealpha.UrlMap, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaUrlMaps.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -42729,7 +42729,7 @@ func (m *MockAlphaUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.UrlMa
 }
 
 // List all of the objects in the mock.
-func (m *MockAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*alpha.UrlMap, error) {
+func (m *MockAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*computealpha.UrlMap, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaUrlMaps.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -42747,7 +42747,7 @@ func (m *MockAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*alpha.Url
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.UrlMap
+	var objs []*computealpha.UrlMap
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToAlpha()) {
 			continue
@@ -42760,7 +42760,7 @@ func (m *MockAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*alpha.Url
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *alpha.UrlMap) error {
+func (m *MockAlphaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaUrlMaps.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -42830,12 +42830,12 @@ func (m *MockAlphaUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaUrlMaps) Obj(o *alpha.UrlMap) *MockUrlMapsObj {
+func (m *MockAlphaUrlMaps) Obj(o *computealpha.UrlMap) *MockUrlMapsObj {
 	return &MockUrlMapsObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMap) error {
+func (m *MockAlphaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMap) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -42848,7 +42848,7 @@ type GCEAlphaUrlMaps struct {
 }
 
 // Get the UrlMap named by key.
-func (g *GCEAlphaUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap, error) {
+func (g *GCEAlphaUrlMaps) Get(ctx context.Context, key *meta.Key) (*computealpha.UrlMap, error) {
 	klog.V(5).Infof("GCEAlphaUrlMaps.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -42881,7 +42881,7 @@ func (g *GCEAlphaUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap
 }
 
 // List all UrlMap objects.
-func (g *GCEAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*alpha.UrlMap, error) {
+func (g *GCEAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*computealpha.UrlMap, error) {
 	klog.V(5).Infof("GCEAlphaUrlMaps.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "UrlMaps")
 	ck := &CallContextKey{
@@ -42901,8 +42901,8 @@ func (g *GCEAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*alpha.UrlM
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.UrlMap
-	f := func(l *alpha.UrlMapList) error {
+	var all []*computealpha.UrlMap
+	f := func(l *computealpha.UrlMapList) error {
 		klog.V(5).Infof("GCEAlphaUrlMaps.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -42932,7 +42932,7 @@ func (g *GCEAlphaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*alpha.UrlM
 }
 
 // Insert UrlMap with key of value obj.
-func (g *GCEAlphaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *alpha.UrlMap) error {
+func (g *GCEAlphaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap) error {
 	klog.V(5).Infof("GCEAlphaUrlMaps.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaUrlMaps.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -43011,7 +43011,7 @@ func (g *GCEAlphaUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCEAlphaUrlMaps.
-func (g *GCEAlphaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMap) error {
+func (g *GCEAlphaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMap) error {
 	klog.V(5).Infof("GCEAlphaUrlMaps.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -43054,11 +43054,11 @@ func (g *GCEAlphaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *alpha
 
 // BetaUrlMaps is an interface that allows for mocking of UrlMaps.
 type BetaUrlMaps interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, error)
-	List(ctx context.Context, fl *filter.F) ([]*beta.UrlMap, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.UrlMap) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.UrlMap, error)
+	List(ctx context.Context, fl *filter.F) ([]*computebeta.UrlMap, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *beta.UrlMap) error
+	Update(context.Context, *meta.Key, *computebeta.UrlMap) error
 }
 
 // NewMockBetaUrlMaps returns a new mock for UrlMaps.
@@ -43094,11 +43094,11 @@ type MockBetaUrlMaps struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaUrlMaps) (bool, *beta.UrlMap, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaUrlMaps) (bool, []*beta.UrlMap, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.UrlMap, m *MockBetaUrlMaps) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaUrlMaps) (bool, *computebeta.UrlMap, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockBetaUrlMaps) (bool, []*computebeta.UrlMap, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap, m *MockBetaUrlMaps) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaUrlMaps) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *beta.UrlMap, *MockBetaUrlMaps) error
+	UpdateHook func(context.Context, *meta.Key, *computebeta.UrlMap, *MockBetaUrlMaps) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -43106,7 +43106,7 @@ type MockBetaUrlMaps struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, error) {
+func (m *MockBetaUrlMaps) Get(ctx context.Context, key *meta.Key) (*computebeta.UrlMap, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaUrlMaps.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -43139,7 +43139,7 @@ func (m *MockBetaUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.UrlMap,
 }
 
 // List all of the objects in the mock.
-func (m *MockBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*beta.UrlMap, error) {
+func (m *MockBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*computebeta.UrlMap, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockBetaUrlMaps.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -43157,7 +43157,7 @@ func (m *MockBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*beta.UrlMa
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.UrlMap
+	var objs []*computebeta.UrlMap
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToBeta()) {
 			continue
@@ -43170,7 +43170,7 @@ func (m *MockBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*beta.UrlMa
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *beta.UrlMap) error {
+func (m *MockBetaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaUrlMaps.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -43240,12 +43240,12 @@ func (m *MockBetaUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaUrlMaps) Obj(o *beta.UrlMap) *MockUrlMapsObj {
+func (m *MockBetaUrlMaps) Obj(o *computebeta.UrlMap) *MockUrlMapsObj {
 	return &MockUrlMapsObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *beta.UrlMap) error {
+func (m *MockBetaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMap) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -43258,7 +43258,7 @@ type GCEBetaUrlMaps struct {
 }
 
 // Get the UrlMap named by key.
-func (g *GCEBetaUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, error) {
+func (g *GCEBetaUrlMaps) Get(ctx context.Context, key *meta.Key) (*computebeta.UrlMap, error) {
 	klog.V(5).Infof("GCEBetaUrlMaps.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -43291,7 +43291,7 @@ func (g *GCEBetaUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, 
 }
 
 // List all UrlMap objects.
-func (g *GCEBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*beta.UrlMap, error) {
+func (g *GCEBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*computebeta.UrlMap, error) {
 	klog.V(5).Infof("GCEBetaUrlMaps.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "UrlMaps")
 	ck := &CallContextKey{
@@ -43311,8 +43311,8 @@ func (g *GCEBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*beta.UrlMap
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.UrlMap
-	f := func(l *beta.UrlMapList) error {
+	var all []*computebeta.UrlMap
+	f := func(l *computebeta.UrlMapList) error {
 		klog.V(5).Infof("GCEBetaUrlMaps.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -43342,7 +43342,7 @@ func (g *GCEBetaUrlMaps) List(ctx context.Context, fl *filter.F) ([]*beta.UrlMap
 }
 
 // Insert UrlMap with key of value obj.
-func (g *GCEBetaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *beta.UrlMap) error {
+func (g *GCEBetaUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap) error {
 	klog.V(5).Infof("GCEBetaUrlMaps.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaUrlMaps.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -43421,7 +43421,7 @@ func (g *GCEBetaUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCEBetaUrlMaps.
-func (g *GCEBetaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *beta.UrlMap) error {
+func (g *GCEBetaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMap) error {
 	klog.V(5).Infof("GCEBetaUrlMaps.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -43464,11 +43464,11 @@ func (g *GCEBetaUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *beta.U
 
 // UrlMaps is an interface that allows for mocking of UrlMaps.
 type UrlMaps interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.UrlMap) error
+	Get(ctx context.Context, key *meta.Key) (*computega.UrlMap, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.UrlMap, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.UrlMap) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *ga.UrlMap) error
+	Update(context.Context, *meta.Key, *computega.UrlMap) error
 }
 
 // NewMockUrlMaps returns a new mock for UrlMaps.
@@ -43504,11 +43504,11 @@ type MockUrlMaps struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockUrlMaps) (bool, *ga.UrlMap, error)
-	ListHook   func(ctx context.Context, fl *filter.F, m *MockUrlMaps) (bool, []*ga.UrlMap, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.UrlMap, m *MockUrlMaps) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockUrlMaps) (bool, *computega.UrlMap, error)
+	ListHook   func(ctx context.Context, fl *filter.F, m *MockUrlMaps) (bool, []*computega.UrlMap, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.UrlMap, m *MockUrlMaps) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockUrlMaps) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *ga.UrlMap, *MockUrlMaps) error
+	UpdateHook func(context.Context, *meta.Key, *computega.UrlMap, *MockUrlMaps) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -43516,7 +43516,7 @@ type MockUrlMaps struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error) {
+func (m *MockUrlMaps) Get(ctx context.Context, key *meta.Key) (*computega.UrlMap, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockUrlMaps.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -43549,7 +43549,7 @@ func (m *MockUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error
 }
 
 // List all of the objects in the mock.
-func (m *MockUrlMaps) List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, error) {
+func (m *MockUrlMaps) List(ctx context.Context, fl *filter.F) ([]*computega.UrlMap, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockUrlMaps.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -43567,7 +43567,7 @@ func (m *MockUrlMaps) List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, err
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.UrlMap
+	var objs []*computega.UrlMap
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -43580,7 +43580,7 @@ func (m *MockUrlMaps) List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, err
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *ga.UrlMap) error {
+func (m *MockUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computega.UrlMap) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockUrlMaps.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -43650,12 +43650,12 @@ func (m *MockUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockUrlMaps) Obj(o *ga.UrlMap) *MockUrlMapsObj {
+func (m *MockUrlMaps) Obj(o *computega.UrlMap) *MockUrlMapsObj {
 	return &MockUrlMapsObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *ga.UrlMap) error {
+func (m *MockUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computega.UrlMap) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -43668,7 +43668,7 @@ type GCEUrlMaps struct {
 }
 
 // Get the UrlMap named by key.
-func (g *GCEUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error) {
+func (g *GCEUrlMaps) Get(ctx context.Context, key *meta.Key) (*computega.UrlMap, error) {
 	klog.V(5).Infof("GCEUrlMaps.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -43701,7 +43701,7 @@ func (g *GCEUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error)
 }
 
 // List all UrlMap objects.
-func (g *GCEUrlMaps) List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, error) {
+func (g *GCEUrlMaps) List(ctx context.Context, fl *filter.F) ([]*computega.UrlMap, error) {
 	klog.V(5).Infof("GCEUrlMaps.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "UrlMaps")
 	ck := &CallContextKey{
@@ -43721,8 +43721,8 @@ func (g *GCEUrlMaps) List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, erro
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.UrlMap
-	f := func(l *ga.UrlMapList) error {
+	var all []*computega.UrlMap
+	f := func(l *computega.UrlMapList) error {
 		klog.V(5).Infof("GCEUrlMaps.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -43752,7 +43752,7 @@ func (g *GCEUrlMaps) List(ctx context.Context, fl *filter.F) ([]*ga.UrlMap, erro
 }
 
 // Insert UrlMap with key of value obj.
-func (g *GCEUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *ga.UrlMap) error {
+func (g *GCEUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computega.UrlMap) error {
 	klog.V(5).Infof("GCEUrlMaps.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEUrlMaps.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -43831,7 +43831,7 @@ func (g *GCEUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCEUrlMaps.
-func (g *GCEUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *ga.UrlMap) error {
+func (g *GCEUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computega.UrlMap) error {
 	klog.V(5).Infof("GCEUrlMaps.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -43874,11 +43874,11 @@ func (g *GCEUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *ga.UrlMap)
 
 // AlphaRegionUrlMaps is an interface that allows for mocking of RegionUrlMaps.
 type AlphaRegionUrlMaps interface {
-	Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*alpha.UrlMap, error)
-	Insert(ctx context.Context, key *meta.Key, obj *alpha.UrlMap) error
+	Get(ctx context.Context, key *meta.Key) (*computealpha.UrlMap, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.UrlMap, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *alpha.UrlMap) error
+	Update(context.Context, *meta.Key, *computealpha.UrlMap) error
 }
 
 // NewMockAlphaRegionUrlMaps returns a new mock for RegionUrlMaps.
@@ -43914,11 +43914,11 @@ type MockAlphaRegionUrlMaps struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionUrlMaps) (bool, *alpha.UrlMap, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionUrlMaps) (bool, []*alpha.UrlMap, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *alpha.UrlMap, m *MockAlphaRegionUrlMaps) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockAlphaRegionUrlMaps) (bool, *computealpha.UrlMap, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockAlphaRegionUrlMaps) (bool, []*computealpha.UrlMap, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap, m *MockAlphaRegionUrlMaps) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockAlphaRegionUrlMaps) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *alpha.UrlMap, *MockAlphaRegionUrlMaps) error
+	UpdateHook func(context.Context, *meta.Key, *computealpha.UrlMap, *MockAlphaRegionUrlMaps) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -43926,7 +43926,7 @@ type MockAlphaRegionUrlMaps struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockAlphaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap, error) {
+func (m *MockAlphaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*computealpha.UrlMap, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionUrlMaps.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -43959,7 +43959,7 @@ func (m *MockAlphaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.UrlMap, error) {
+func (m *MockAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.UrlMap, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionUrlMaps.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -43977,7 +43977,7 @@ func (m *MockAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *fi
 		return nil, *m.ListError
 	}
 
-	var objs []*alpha.UrlMap
+	var objs []*computealpha.UrlMap
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -43993,7 +43993,7 @@ func (m *MockAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *fi
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockAlphaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *alpha.UrlMap) error {
+func (m *MockAlphaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockAlphaRegionUrlMaps.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -44063,12 +44063,12 @@ func (m *MockAlphaRegionUrlMaps) Delete(ctx context.Context, key *meta.Key) erro
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockAlphaRegionUrlMaps) Obj(o *alpha.UrlMap) *MockRegionUrlMapsObj {
+func (m *MockAlphaRegionUrlMaps) Obj(o *computealpha.UrlMap) *MockRegionUrlMapsObj {
 	return &MockRegionUrlMapsObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockAlphaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMap) error {
+func (m *MockAlphaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMap) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -44081,7 +44081,7 @@ type GCEAlphaRegionUrlMaps struct {
 }
 
 // Get the UrlMap named by key.
-func (g *GCEAlphaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.UrlMap, error) {
+func (g *GCEAlphaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*computealpha.UrlMap, error) {
 	klog.V(5).Infof("GCEAlphaRegionUrlMaps.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -44114,7 +44114,7 @@ func (g *GCEAlphaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*alpha.
 }
 
 // List all UrlMap objects.
-func (g *GCEAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*alpha.UrlMap, error) {
+func (g *GCEAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*computealpha.UrlMap, error) {
 	klog.V(5).Infof("GCEAlphaRegionUrlMaps.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "alpha", "RegionUrlMaps")
 	ck := &CallContextKey{
@@ -44134,8 +44134,8 @@ func (g *GCEAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *fil
 		call.Filter(fl.String())
 	}
 
-	var all []*alpha.UrlMap
-	f := func(l *alpha.UrlMapList) error {
+	var all []*computealpha.UrlMap
+	f := func(l *computealpha.UrlMapList) error {
 		klog.V(5).Infof("GCEAlphaRegionUrlMaps.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -44165,7 +44165,7 @@ func (g *GCEAlphaRegionUrlMaps) List(ctx context.Context, region string, fl *fil
 }
 
 // Insert UrlMap with key of value obj.
-func (g *GCEAlphaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *alpha.UrlMap) error {
+func (g *GCEAlphaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computealpha.UrlMap) error {
 	klog.V(5).Infof("GCEAlphaRegionUrlMaps.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEAlphaRegionUrlMaps.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -44244,7 +44244,7 @@ func (g *GCEAlphaRegionUrlMaps) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Update is a method on GCEAlphaRegionUrlMaps.
-func (g *GCEAlphaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *alpha.UrlMap) error {
+func (g *GCEAlphaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computealpha.UrlMap) error {
 	klog.V(5).Infof("GCEAlphaRegionUrlMaps.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -44287,11 +44287,11 @@ func (g *GCEAlphaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 
 
 // BetaRegionUrlMaps is an interface that allows for mocking of RegionUrlMaps.
 type BetaRegionUrlMaps interface {
-	Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*beta.UrlMap, error)
-	Insert(ctx context.Context, key *meta.Key, obj *beta.UrlMap) error
+	Get(ctx context.Context, key *meta.Key) (*computebeta.UrlMap, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.UrlMap, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *beta.UrlMap) error
+	Update(context.Context, *meta.Key, *computebeta.UrlMap) error
 }
 
 // NewMockBetaRegionUrlMaps returns a new mock for RegionUrlMaps.
@@ -44327,11 +44327,11 @@ type MockBetaRegionUrlMaps struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionUrlMaps) (bool, *beta.UrlMap, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionUrlMaps) (bool, []*beta.UrlMap, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *beta.UrlMap, m *MockBetaRegionUrlMaps) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockBetaRegionUrlMaps) (bool, *computebeta.UrlMap, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockBetaRegionUrlMaps) (bool, []*computebeta.UrlMap, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap, m *MockBetaRegionUrlMaps) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockBetaRegionUrlMaps) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *beta.UrlMap, *MockBetaRegionUrlMaps) error
+	UpdateHook func(context.Context, *meta.Key, *computebeta.UrlMap, *MockBetaRegionUrlMaps) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -44339,7 +44339,7 @@ type MockBetaRegionUrlMaps struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockBetaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, error) {
+func (m *MockBetaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*computebeta.UrlMap, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockBetaRegionUrlMaps.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -44372,7 +44372,7 @@ func (m *MockBetaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.U
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockBetaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*beta.UrlMap, error) {
+func (m *MockBetaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.UrlMap, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockBetaRegionUrlMaps.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -44390,7 +44390,7 @@ func (m *MockBetaRegionUrlMaps) List(ctx context.Context, region string, fl *fil
 		return nil, *m.ListError
 	}
 
-	var objs []*beta.UrlMap
+	var objs []*computebeta.UrlMap
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -44406,7 +44406,7 @@ func (m *MockBetaRegionUrlMaps) List(ctx context.Context, region string, fl *fil
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockBetaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *beta.UrlMap) error {
+func (m *MockBetaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockBetaRegionUrlMaps.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -44476,12 +44476,12 @@ func (m *MockBetaRegionUrlMaps) Delete(ctx context.Context, key *meta.Key) error
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockBetaRegionUrlMaps) Obj(o *beta.UrlMap) *MockRegionUrlMapsObj {
+func (m *MockBetaRegionUrlMaps) Obj(o *computebeta.UrlMap) *MockRegionUrlMapsObj {
 	return &MockRegionUrlMapsObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockBetaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *beta.UrlMap) error {
+func (m *MockBetaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMap) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -44494,7 +44494,7 @@ type GCEBetaRegionUrlMaps struct {
 }
 
 // Get the UrlMap named by key.
-func (g *GCEBetaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.UrlMap, error) {
+func (g *GCEBetaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*computebeta.UrlMap, error) {
 	klog.V(5).Infof("GCEBetaRegionUrlMaps.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -44527,7 +44527,7 @@ func (g *GCEBetaRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*beta.Ur
 }
 
 // List all UrlMap objects.
-func (g *GCEBetaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*beta.UrlMap, error) {
+func (g *GCEBetaRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*computebeta.UrlMap, error) {
 	klog.V(5).Infof("GCEBetaRegionUrlMaps.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "beta", "RegionUrlMaps")
 	ck := &CallContextKey{
@@ -44547,8 +44547,8 @@ func (g *GCEBetaRegionUrlMaps) List(ctx context.Context, region string, fl *filt
 		call.Filter(fl.String())
 	}
 
-	var all []*beta.UrlMap
-	f := func(l *beta.UrlMapList) error {
+	var all []*computebeta.UrlMap
+	f := func(l *computebeta.UrlMapList) error {
 		klog.V(5).Infof("GCEBetaRegionUrlMaps.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -44578,7 +44578,7 @@ func (g *GCEBetaRegionUrlMaps) List(ctx context.Context, region string, fl *filt
 }
 
 // Insert UrlMap with key of value obj.
-func (g *GCEBetaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *beta.UrlMap) error {
+func (g *GCEBetaRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computebeta.UrlMap) error {
 	klog.V(5).Infof("GCEBetaRegionUrlMaps.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCEBetaRegionUrlMaps.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -44657,7 +44657,7 @@ func (g *GCEBetaRegionUrlMaps) Delete(ctx context.Context, key *meta.Key) error 
 }
 
 // Update is a method on GCEBetaRegionUrlMaps.
-func (g *GCEBetaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *beta.UrlMap) error {
+func (g *GCEBetaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computebeta.UrlMap) error {
 	klog.V(5).Infof("GCEBetaRegionUrlMaps.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -44700,11 +44700,11 @@ func (g *GCEBetaRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *
 
 // RegionUrlMaps is an interface that allows for mocking of RegionUrlMaps.
 type RegionUrlMaps interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error)
-	List(ctx context.Context, region string, fl *filter.F) ([]*ga.UrlMap, error)
-	Insert(ctx context.Context, key *meta.Key, obj *ga.UrlMap) error
+	Get(ctx context.Context, key *meta.Key) (*computega.UrlMap, error)
+	List(ctx context.Context, region string, fl *filter.F) ([]*computega.UrlMap, error)
+	Insert(ctx context.Context, key *meta.Key, obj *computega.UrlMap) error
 	Delete(ctx context.Context, key *meta.Key) error
-	Update(context.Context, *meta.Key, *ga.UrlMap) error
+	Update(context.Context, *meta.Key, *computega.UrlMap) error
 }
 
 // NewMockRegionUrlMaps returns a new mock for RegionUrlMaps.
@@ -44740,11 +44740,11 @@ type MockRegionUrlMaps struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionUrlMaps) (bool, *ga.UrlMap, error)
-	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionUrlMaps) (bool, []*ga.UrlMap, error)
-	InsertHook func(ctx context.Context, key *meta.Key, obj *ga.UrlMap, m *MockRegionUrlMaps) (bool, error)
+	GetHook    func(ctx context.Context, key *meta.Key, m *MockRegionUrlMaps) (bool, *computega.UrlMap, error)
+	ListHook   func(ctx context.Context, region string, fl *filter.F, m *MockRegionUrlMaps) (bool, []*computega.UrlMap, error)
+	InsertHook func(ctx context.Context, key *meta.Key, obj *computega.UrlMap, m *MockRegionUrlMaps) (bool, error)
 	DeleteHook func(ctx context.Context, key *meta.Key, m *MockRegionUrlMaps) (bool, error)
-	UpdateHook func(context.Context, *meta.Key, *ga.UrlMap, *MockRegionUrlMaps) error
+	UpdateHook func(context.Context, *meta.Key, *computega.UrlMap, *MockRegionUrlMaps) error
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -44752,7 +44752,7 @@ type MockRegionUrlMaps struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error) {
+func (m *MockRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*computega.UrlMap, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockRegionUrlMaps.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -44785,7 +44785,7 @@ func (m *MockRegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap,
 }
 
 // List all of the objects in the mock in the given region.
-func (m *MockRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*ga.UrlMap, error) {
+func (m *MockRegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*computega.UrlMap, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, region, fl, m); intercept {
 			klog.V(5).Infof("MockRegionUrlMaps.List(%v, %q, %v) = [%v items], %v", ctx, region, fl, len(objs), err)
@@ -44803,7 +44803,7 @@ func (m *MockRegionUrlMaps) List(ctx context.Context, region string, fl *filter.
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.UrlMap
+	var objs []*computega.UrlMap
 	for key, obj := range m.Objects {
 		if key.Region != region {
 			continue
@@ -44819,7 +44819,7 @@ func (m *MockRegionUrlMaps) List(ctx context.Context, region string, fl *filter.
 }
 
 // Insert is a mock for inserting/creating a new object.
-func (m *MockRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *ga.UrlMap) error {
+func (m *MockRegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computega.UrlMap) error {
 	if m.InsertHook != nil {
 		if intercept, err := m.InsertHook(ctx, key, obj, m); intercept {
 			klog.V(5).Infof("MockRegionUrlMaps.Insert(%v, %v, %+v) = %v", ctx, key, obj, err)
@@ -44889,12 +44889,12 @@ func (m *MockRegionUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockRegionUrlMaps) Obj(o *ga.UrlMap) *MockRegionUrlMapsObj {
+func (m *MockRegionUrlMaps) Obj(o *computega.UrlMap) *MockRegionUrlMapsObj {
 	return &MockRegionUrlMapsObj{o}
 }
 
 // Update is a mock for the corresponding method.
-func (m *MockRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *ga.UrlMap) error {
+func (m *MockRegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computega.UrlMap) error {
 	if m.UpdateHook != nil {
 		return m.UpdateHook(ctx, key, arg0, m)
 	}
@@ -44907,7 +44907,7 @@ type GCERegionUrlMaps struct {
 }
 
 // Get the UrlMap named by key.
-func (g *GCERegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, error) {
+func (g *GCERegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*computega.UrlMap, error) {
 	klog.V(5).Infof("GCERegionUrlMaps.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -44940,7 +44940,7 @@ func (g *GCERegionUrlMaps) Get(ctx context.Context, key *meta.Key) (*ga.UrlMap, 
 }
 
 // List all UrlMap objects.
-func (g *GCERegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*ga.UrlMap, error) {
+func (g *GCERegionUrlMaps) List(ctx context.Context, region string, fl *filter.F) ([]*computega.UrlMap, error) {
 	klog.V(5).Infof("GCERegionUrlMaps.List(%v, %v, %v) called", ctx, region, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "RegionUrlMaps")
 	ck := &CallContextKey{
@@ -44960,8 +44960,8 @@ func (g *GCERegionUrlMaps) List(ctx context.Context, region string, fl *filter.F
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.UrlMap
-	f := func(l *ga.UrlMapList) error {
+	var all []*computega.UrlMap
+	f := func(l *computega.UrlMapList) error {
 		klog.V(5).Infof("GCERegionUrlMaps.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
@@ -44991,7 +44991,7 @@ func (g *GCERegionUrlMaps) List(ctx context.Context, region string, fl *filter.F
 }
 
 // Insert UrlMap with key of value obj.
-func (g *GCERegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *ga.UrlMap) error {
+func (g *GCERegionUrlMaps) Insert(ctx context.Context, key *meta.Key, obj *computega.UrlMap) error {
 	klog.V(5).Infof("GCERegionUrlMaps.Insert(%v, %v, %+v): called", ctx, key, obj)
 	if !key.Valid() {
 		klog.V(2).Infof("GCERegionUrlMaps.Insert(%v, %v, ...): key is invalid (%#v)", ctx, key, key)
@@ -45070,7 +45070,7 @@ func (g *GCERegionUrlMaps) Delete(ctx context.Context, key *meta.Key) error {
 }
 
 // Update is a method on GCERegionUrlMaps.
-func (g *GCERegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *ga.UrlMap) error {
+func (g *GCERegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *computega.UrlMap) error {
 	klog.V(5).Infof("GCERegionUrlMaps.Update(%v, %v, ...): called", ctx, key)
 
 	if !key.Valid() {
@@ -45113,8 +45113,8 @@ func (g *GCERegionUrlMaps) Update(ctx context.Context, key *meta.Key, arg0 *ga.U
 
 // Zones is an interface that allows for mocking of Zones.
 type Zones interface {
-	Get(ctx context.Context, key *meta.Key) (*ga.Zone, error)
-	List(ctx context.Context, fl *filter.F) ([]*ga.Zone, error)
+	Get(ctx context.Context, key *meta.Key) (*computega.Zone, error)
+	List(ctx context.Context, fl *filter.F) ([]*computega.Zone, error)
 }
 
 // NewMockZones returns a new mock for Zones.
@@ -45146,8 +45146,8 @@ type MockZones struct {
 	// order to add your own logic. Return (true, _, _) to prevent the normal
 	// execution flow of the mock. Return (false, nil, nil) to continue with
 	// normal mock behavior/ after the hook function executes.
-	GetHook  func(ctx context.Context, key *meta.Key, m *MockZones) (bool, *ga.Zone, error)
-	ListHook func(ctx context.Context, fl *filter.F, m *MockZones) (bool, []*ga.Zone, error)
+	GetHook  func(ctx context.Context, key *meta.Key, m *MockZones) (bool, *computega.Zone, error)
+	ListHook func(ctx context.Context, fl *filter.F, m *MockZones) (bool, []*computega.Zone, error)
 
 	// X is extra state that can be used as part of the mock. Generated code
 	// will not use this field.
@@ -45155,7 +45155,7 @@ type MockZones struct {
 }
 
 // Get returns the object from the mock.
-func (m *MockZones) Get(ctx context.Context, key *meta.Key) (*ga.Zone, error) {
+func (m *MockZones) Get(ctx context.Context, key *meta.Key) (*computega.Zone, error) {
 	if m.GetHook != nil {
 		if intercept, obj, err := m.GetHook(ctx, key, m); intercept {
 			klog.V(5).Infof("MockZones.Get(%v, %s) = %+v, %v", ctx, key, obj, err)
@@ -45188,7 +45188,7 @@ func (m *MockZones) Get(ctx context.Context, key *meta.Key) (*ga.Zone, error) {
 }
 
 // List all of the objects in the mock.
-func (m *MockZones) List(ctx context.Context, fl *filter.F) ([]*ga.Zone, error) {
+func (m *MockZones) List(ctx context.Context, fl *filter.F) ([]*computega.Zone, error) {
 	if m.ListHook != nil {
 		if intercept, objs, err := m.ListHook(ctx, fl, m); intercept {
 			klog.V(5).Infof("MockZones.List(%v, %v) = [%v items], %v", ctx, fl, len(objs), err)
@@ -45206,7 +45206,7 @@ func (m *MockZones) List(ctx context.Context, fl *filter.F) ([]*ga.Zone, error) 
 		return nil, *m.ListError
 	}
 
-	var objs []*ga.Zone
+	var objs []*computega.Zone
 	for _, obj := range m.Objects {
 		if !fl.Match(obj.ToGA()) {
 			continue
@@ -45219,7 +45219,7 @@ func (m *MockZones) List(ctx context.Context, fl *filter.F) ([]*ga.Zone, error) 
 }
 
 // Obj wraps the object for use in the mock.
-func (m *MockZones) Obj(o *ga.Zone) *MockZonesObj {
+func (m *MockZones) Obj(o *computega.Zone) *MockZonesObj {
 	return &MockZonesObj{o}
 }
 
@@ -45229,7 +45229,7 @@ type GCEZones struct {
 }
 
 // Get the Zone named by key.
-func (g *GCEZones) Get(ctx context.Context, key *meta.Key) (*ga.Zone, error) {
+func (g *GCEZones) Get(ctx context.Context, key *meta.Key) (*computega.Zone, error) {
 	klog.V(5).Infof("GCEZones.Get(%v, %v): called", ctx, key)
 
 	if !key.Valid() {
@@ -45262,7 +45262,7 @@ func (g *GCEZones) Get(ctx context.Context, key *meta.Key) (*ga.Zone, error) {
 }
 
 // List all Zone objects.
-func (g *GCEZones) List(ctx context.Context, fl *filter.F) ([]*ga.Zone, error) {
+func (g *GCEZones) List(ctx context.Context, fl *filter.F) ([]*computega.Zone, error) {
 	klog.V(5).Infof("GCEZones.List(%v, %v) called", ctx, fl)
 	projectID := g.s.ProjectRouter.ProjectID(ctx, "ga", "Zones")
 	ck := &CallContextKey{
@@ -45282,8 +45282,8 @@ func (g *GCEZones) List(ctx context.Context, fl *filter.F) ([]*ga.Zone, error) {
 		call.Filter(fl.String())
 	}
 
-	var all []*ga.Zone
-	f := func(l *ga.ZoneList) error {
+	var all []*computega.Zone
+	f := func(l *computega.ZoneList) error {
 		klog.V(5).Infof("GCEZones.List(%v, ..., %v): page %+v", ctx, fl, l)
 		all = append(all, l.Items...)
 		return nil
