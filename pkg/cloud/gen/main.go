@@ -892,6 +892,9 @@ func (g *{{.GCPWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQ
 {{- if .IsNetworkServices}}
 	parent := fmt.Sprintf("projects/%s/locations/global", projectID)
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.Create(parent, obj)
+	{{- if eq .Object "TcpRoute"}}
+	  call.TcpRouteId(obj.Name)
+	{{- end}}
 {{- else}}
 	{{- if .KeyIsGlobal}}
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.Insert(projectID, obj)

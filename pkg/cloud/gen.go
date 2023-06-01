@@ -45623,6 +45623,7 @@ func (g *TDTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networkser
 	obj.Name = key.Name
 	parent := fmt.Sprintf("projects/%s/locations/global", projectID)
 	call := g.s.NetworkServicesGA.TcpRoutes.Create(parent, obj)
+	call.TcpRouteId(obj.Name)
 	call.Context(ctx)
 
 	op, err := call.Do()
@@ -46034,6 +46035,7 @@ func (g *TDBetaTcpRoutes) Insert(ctx context.Context, key *meta.Key, obj *networ
 	obj.Name = key.Name
 	parent := fmt.Sprintf("projects/%s/locations/global", projectID)
 	call := g.s.NetworkServicesBeta.TcpRoutes.Create(parent, obj)
+	call.TcpRouteId(obj.Name)
 	call.Context(ctx)
 
 	op, err := call.Do()
