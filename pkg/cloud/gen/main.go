@@ -28,6 +28,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"strings"
 	"text/template"
 	"time"
 
@@ -880,8 +881,11 @@ func (g *{{.GCPWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQ
 		Version: meta.Version("{{.Version}}"),
 		Service: "{{.Service}}",
 	}
-
+	{{- if .IsNetworkServices}}
+	klog.V(5).Infof("{{.GCPWrapType}}.Create(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	{{- else}}
 	klog.V(5).Infof("{{.GCPWrapType}}.Insert(%v, %v, ...): projectID = %v, ck = %+v", ctx, key, projectID, ck)
+	{{- end}}
 	callObserverStart(ctx, ck)
 	if err := g.s.RateLimiter.Accept(ctx, ck); err != nil {
 		klog.V(4).Infof("{{.GCPWrapType}}.Insert(%v, %v, ...): RateLimiter error: %v", ctx, key, err)
@@ -892,8 +896,8 @@ func (g *{{.GCPWrapType}}) Insert(ctx context.Context, key *meta.Key, obj *{{.FQ
 {{- if .IsNetworkServices}}
 	parent := fmt.Sprintf("projects/%s/locations/global", projectID)
 	call := g.s.{{.GroupVersionTitle}}.{{.Service}}.Create(parent, obj)
-	{{- if eq .Object "TcpRoute"}}
-	  call.TcpRouteId(obj.Name)
+	{{- if hasSuffix .Object "Route"}}
+	  call.{{.Object}}Id(obj.Name)
 	{{- end}}
 {{- else}}
 	{{- if .KeyIsGlobal}}
@@ -1190,7 +1194,9 @@ func (g *{{.GCPWrapType}}) {{.FcnArgs}} {
 {{end -}}
 {{- end}}
 `
-	tmpl := template.Must(template.New("interface").Parse(text))
+	tmpl := template.Must(template.New("interface").Funcs(template.FuncMap{
+		"hasSuffix": strings.HasSuffix,
+	}).Parse(text))
 	for _, s := range meta.AllServices {
 		if err := tmpl.Execute(wr, s); err != nil {
 			panic(err)
@@ -1261,7 +1267,7 @@ import (
 	computebeta "{{.BetaComputePackage}}"
 	computega "{{.GaComputePackage}}"
 
-	networkservicesga "{{.GANetworkservicesPackage}}"
+	networkservicesga "{{.GaNetworkservicesPackage}}"
 	networkservicesbeta "{{.BetaNetworkservicesPackage}}"
 
 	"{{.FilterPackage}}"
@@ -1278,8 +1284,8 @@ const location = "location"
 		"AlphaComputePackage":        alphaComputePackage,
 		"BetaComputePackage":         betaComputePackage,
 		"GaComputePackage":           gaComputePackage,
-		"GANetworkservicesPackage":   gaNetworkServicesPackage,
 		"BetaNetworkservicesPackage": betaNetworkServicesPackage,
+		"GaNetworkservicesPackage":   gaNetworkServicesPackage,
 	}
 	if err := tmpl.Execute(wr, values); err != nil {
 		panic(err)
