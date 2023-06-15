@@ -19,23 +19,23 @@ package cloud
 import (
 	"encoding/json"
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/GoogleCloudPlatform/k8s-cloud-provider/pkg/cloud/meta"
 )
 
 var (
-	gaPrefix    = "https://www.googleapis.com/compute/v1"
-	alphaPrefix = "https://www.googleapis.com/compute/alpha"
-	betaPrefix  = "https://www.googleapis.com/compute/beta"
+	computePrefix         = "https://www.googleapis.com/compute"
+	networkServicesPrefix = "https://www.googleapis.com/networkservices"
+	apiGroupRegex         = regexp.MustCompile(`([a-z0-1]*)\/([a-z0-1]*)?\/projects`)
 )
 
 // SetAPIDomain sets the root of the URL for the API. The default domain is
 // "https://www.googleapis.com".
 func SetAPIDomain(domain string) {
-	gaPrefix = domain + "/compute/v1"
-	alphaPrefix = domain + "/compute/alpha"
-	betaPrefix = domain + "/compute/beta"
+	computePrefix = domain + "/compute"
+	networkServicesPrefix = domain + "/networkservices"
 }
 
 // ResourceID identifies a GCE resource as parsed from compute resource URL.
@@ -43,6 +43,9 @@ type ResourceID struct {
 	ProjectID string
 	Resource  string
 	Key       *meta.Key
+	// APIGroup identifies the API Group of the resource. If unspecified,
+	// "compute" is assumed
+	APIGroup meta.APIGroup
 }
 
 // Equal returns true if two resource IDs are equal.
@@ -65,6 +68,7 @@ func (r *ResourceID) Equal(other *ResourceID) bool {
 
 // ResourceMapKey is a flat ResourceID that can be used as a key in maps.
 type ResourceMapKey struct {
+	APIGroup  meta.APIGroup
 	ProjectID string
 	Resource  string
 	Name      string
@@ -74,6 +78,7 @@ type ResourceMapKey struct {
 
 func (rk ResourceMapKey) ToID() *ResourceID {
 	return &ResourceID{
+		APIGroup:  rk.APIGroup,
 		ProjectID: rk.ProjectID,
 		Resource:  rk.Resource,
 		Key:       &meta.Key{Name: rk.Name, Zone: rk.Zone, Region: rk.Region},
@@ -83,6 +88,7 @@ func (rk ResourceMapKey) ToID() *ResourceID {
 // MapKey returns a flat key that can be used for referencing in maps.
 func (r *ResourceID) MapKey() ResourceMapKey {
 	return ResourceMapKey{
+		APIGroup:  r.APIGroup,
 		ProjectID: r.ProjectID,
 		Resource:  r.Resource,
 		Name:      r.Key.Name,
@@ -103,17 +109,21 @@ func (r *ResourceID) ResourcePath() string {
 }
 
 func (r *ResourceID) SelfLink(ver meta.Version) string {
-	return SelfLink(ver, r.ProjectID, r.Resource, r.Key)
+	return SelfLink(r.APIGroup, ver, r.ProjectID, r.Resource, r.Key)
 }
 
 func (r *ResourceID) String() string {
+	prefix := fmt.Sprintf("%s:%s", r.Resource, r.ProjectID)
+	if r.APIGroup != "" {
+		prefix = fmt.Sprintf("%s/%s", r.APIGroup, prefix)
+	}
 	switch r.Key.Type() {
 	case meta.Zonal:
-		return fmt.Sprintf("%s:%s/%s/%s", r.Resource, r.ProjectID, r.Key.Zone, r.Key.Name)
+		return fmt.Sprintf("%s/%s/%s", prefix, r.Key.Zone, r.Key.Name)
 	case meta.Regional:
-		return fmt.Sprintf("%s:%s/%s/%s", r.Resource, r.ProjectID, r.Key.Region, r.Key.Name)
+		return fmt.Sprintf("%s/%s/%s", prefix, r.Key.Region, r.Key.Name)
 	}
-	return fmt.Sprintf("%s:%s/%s", r.Resource, r.ProjectID, r.Key.Name)
+	return fmt.Sprintf("%s/%s", prefix, r.Key.Name)
 }
 
 // ParseResourceURL parses resource URLs of the following formats:
@@ -128,8 +138,24 @@ func (r *ResourceID) String() string {
 //	[https://www.googleapis.com/compute/<ver>]/projects/<proj>/global/<res>/<name>
 //	[https://www.googleapis.com/compute/<ver>]/projects/<proj>/regions/<region>/<res>/<name>
 //	[https://www.googleapis.com/compute/<ver>]/projects/<proj>/zones/<zone>/<res>/<name>
+//
+// Note that ParseResourceURL can't round trip partial paths that do not
+// include an API Group.
 func ParseResourceURL(url string) (*ResourceID, error) {
 	errNotValid := fmt.Errorf("%q is not a valid resource URL", url)
+
+	matches := apiGroupRegex.FindStringSubmatch(url)
+	var apiGroup meta.APIGroup
+	if len(matches) >= 2 {
+		switch matches[1] {
+		case "compute":
+			apiGroup = meta.APIGroupCompute
+		case "networkservices":
+			apiGroup = meta.APIGroupNetworkServices
+		default:
+			return nil, fmt.Errorf("%q does not contain a supported API Group", url)
+		}
+	}
 
 	// Trim prefix off URL leaving "projects/..."
 	projectsIndex := strings.Index(url, "/projects/")
@@ -142,7 +168,7 @@ func ParseResourceURL(url string) (*ResourceID, error) {
 		return nil, errNotValid
 	}
 
-	ret := &ResourceID{}
+	ret := &ResourceID{APIGroup: apiGroup}
 	scopedName := parts
 	if parts[0] == "projects" {
 		ret.Resource = "projects"
@@ -202,6 +228,7 @@ func copyViaJSON(dest, src interface{}) error {
 
 // ResourcePath returns the path starting from the location.
 // Example: regions/us-central1/subnetworks/my-subnet
+// Deprecated: Use SelfLink instead
 func ResourcePath(resource string, key *meta.Key) string {
 	switch resource {
 	case "zones", "regions":
@@ -223,6 +250,7 @@ func ResourcePath(resource string, key *meta.Key) string {
 
 // RelativeResourceName returns the path starting from project.
 // Example: projects/my-project/regions/us-central1/subnetworks/my-subnet
+// Deprecated: Use SelfLink instead
 func RelativeResourceName(project, resource string, key *meta.Key) string {
 	switch resource {
 	case "projects":
@@ -233,21 +261,32 @@ func RelativeResourceName(project, resource string, key *meta.Key) string {
 }
 
 // SelfLink returns the self link URL for the given object.
-func SelfLink(ver meta.Version, project, resource string, key *meta.Key) string {
+func SelfLink(apiGroup meta.APIGroup, ver meta.Version, project, resource string, key *meta.Key) string {
 	var prefix string
+
+	switch apiGroup {
+	case meta.APIGroupNetworkServices:
+		prefix = networkServicesPrefix
+	default:
+		prefix = computePrefix
+	}
+
 	switch ver {
 	case meta.VersionAlpha:
-		prefix = alphaPrefix
+		prefix = prefix + "/alpha"
 	case meta.VersionBeta:
-		prefix = betaPrefix
+		if apiGroup == meta.APIGroupNetworkServices {
+			prefix = prefix + "/v1beta1"
+		} else {
+			prefix = prefix + "/beta"
+		}
 	case meta.VersionGA:
-		prefix = gaPrefix
+		prefix = prefix + "/v1"
 	default:
-		prefix = "invalid-prefix"
+		prefix = "invalid-version"
 	}
 
 	return fmt.Sprintf("%s/%s", prefix, RelativeResourceName(project, resource, key))
-
 }
 
 // aggregatedListKey return the aggregated list key based on the resource key.
